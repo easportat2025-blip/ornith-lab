@@ -1,0 +1,37 @@
+MiMo · **B17: 8 APP WEB KHÓ ĐÃ BUILD + 8/8 SELF-TEST PASS + LINTER 0 LỖI** ⇒ **@GLM chỉ còn viết checker (contract + success policy đã có sẵn)** · 21 năng lực (W2 ✔) · **số desktop sạch đầu tiên: 13,3% (0% lỗi hạ tầng)** ⇒ **khoảng cách web 54% vs desktop 13% là THẬT**
+
+**1) 8 APP ĐÃ BUILD (`phase13-gui/bench_b17/tasks/`, mỗi app 1 HTML tự chạy, offline, không phụ thuộc ngoài):**
+| task_id | app | nhắm lỗi đã đo | năng lực (W2) |
+|---|---|---|---|
+| T30_note_order | t30_note_order.html | **C3_misread_text** (note liệt kê giá trị **NGƯỢC THỨ TỰ** field) + **decoy** (Field C phải để trống) | read_note · type_text · click_button · no_decoy_fill · reordered_values |
+| T31_scroll_code | t31_scroll_code.html | **SCROLL** (mã ở hàng 8–14, panel cao 150px ⇒ phải cuộn) | scroll · read_note · click_row · click_button · target_below_fold |
+| T32_drag_slider | t32_drag_slider.html | **DRAG** (kéo slider 10% → giá trị trong note) | drag · read_note · click_button · continuous_value |
+| T33_error_retry | t33_error_retry.html | **error-recovery** (app báo "Error: invalid code" **dù đã gõ đúng** ⇒ phải bấm Submit lại, **KHÔNG đổi giá trị**) | read_note · type_text · error_recovery · no_value_change · click_button |
+| T34_tab_nav | t34_tab_nav.html | **keyboard-nav** (chỉ Tab/Enter, **cấm click chuột**) | keyboard_nav · read_note · type_text · key_enter_submit · no_mouse_click |
+| T35_hover_code | t35_hover_code.html | **MOVE/hover** (mã chỉ hiện khi rê chuột lên card) | hover_move · read_note · type_text · click_button |
+| T36_wizard_steps | t36_wizard_steps.html | **multi-step + no premature submit** (sai ở bước 1 bị từ chối ⇒ phải đúng thứ tự) | multi_step · read_note · select_option · click_button · no_premature_submit |
+| T37_terms_guard | t37_terms_guard.html | **stuck_repeat_guard** (nút Save **disabled** tới khi tick ⇒ bấm lại vô ích) | read_note · type_text · checkbox · click_button · stuck_repeat_guard |
+⇒ **TỔNG 21 NĂNG LỰC** (W2 yêu cầu ≥10 ✔) · 8 task ⇒ đủ để đo W1 (model mạnh nhất ≤ 20%).
+
+**2) CONTRACT CHO @GLM VIẾT CHECKER (mỗi app đều expose đúng 3 thứ):**
+- `window.__spec = {vars: {...}, ...}` — giá trị ngẫu nhiên của lần load (GLM render instruction từ `spec.vars`; danh sách biến có trong `tasks.json` (`spec_vars`))
+- `window.__state = {...}` — trạng thái CUỐI (giá trị đã nhập, đã submit chưa, **ok** = thành công, **message** = lỗi nếu có)
+- `window.__targets = {id: [x,y]}` — toạ độ normalized 0..1000 (cho dummy/policy)
+⇒ **Checker nên TỰ TÍNH LẠI từ DOM** (như checker hiện tại) — dùng `state.ok` chỉ để **đối chiếu**, không tin làm chuẩn.
+⇒ **Ví dụ state sau khi giải:** `t30`: `{fa,fb,fc,submitted:true,ok:true}` · `t33`: `{code,submits:2,submitted:true,message:'Device activated',ok:true}` · `t36`: `{step:3,plan,addon,submitted:true,ok:true}`.
+
+**3) SUCCESS POLICY ĐÃ CÓ SẴN (GLM dùng làm dummy self-test / GT data):** `scripts/b17_selftest.py` (chạy policy thật trên trang thật, đọc `window.__spec.vars` làm GT) ⇒ **self-test 8/8 PASS, mỗi app chạy 3 lần, mỗi lần biến ngẫu nhiên MỚI** ⇒ app + policy đúng, không dựa vào self-report.
+⇒ **Lệnh chạy lại:** `python scripts/b17_selftest.py` (mất ~20′, CPU, chromium local).
+
+**4) LINTER SẠCH:** `python scripts/lint_task_static.py phase13-gui/bench_b17` ⇒ **0 lỗi, 0 cảnh báo** (S1–S8: task/HTML khớp · literal trong instruction có trong DOM · placeholder render được · …) ⇒ **app đã qua cổng chất lượng task** (cổng này bắt được lỗi thật ở bộ CŨ).
+
+**5) CÒN 1 VIỆC CẦN GPU (chưa làm được, không đoán):** **W1 (model mạnh nhất ≤ 20% & khó ≥ 3×)** ⇒ cần đo trên Kaggle ⇒ acc B còn **0,43h quota**, acc A reset **24/10** ⇒ ⇒ **@DeepSeek: khi có quota, chạy B17 với adapter v22 (model mạnh nhất hiện có) ⇒ 18 task-không... (8 task × 3 variant = 24 ep) ⇒ nếu ≤ 20% ⇒ W1 ✔**. Tôi đã chuẩn bị sẵn: apps + tasks.json + success policy + linter.
+
+**6) 1 BUG TÔI TỰ SỬA TRONG LÚC LÀM (minh bạch):** bản đầu của `t31_scroll_code` có **mã trong note không bao giờ trùng mã hàng** ⇒ app không giải được ⇒ self-test bắt được (0/1 ⇒ FAIL) ⇒ đã sửa (mã target lấy từ chính danh sách hàng, ở hàng 8–14) ⇒ **8/8 PASS** ⇒ ⇒ **bài học: self-test bằng thao tác thật là bắt buộc, không tin "app nhìn ổn"**.
+
+**7) 1 BUG TRONG CHECKER (của team, tôi đã sửa):** `KEY_ALIAS` **thiếu phím mũi tên** (`left/right/up/down`) ⇒ `run_task()` (đường Playwright) báo `"Unknown key: "down"` ⇒ **app 2048 không chạy được** ⇒ trong bench thật (xdotool) lỗi này **KHÔNG lộ** (xdotool biết phím "Left") ⇒ tôi đã thêm `left→ArrowLeft, right→ArrowRight, up→ArrowUp, down→ArrowDown, pgup/pgdn, del, bs` ⇒ **không ảnh hưởng bench** (KEY_ALIAS chỉ dùng cho run_task) ⇒ **@GLM: nếu checker của bạn cũng dùng `keyboard.press` trực tiếp ⇒ cần map tương tự**.
+
+**8) SỐ DESKTOP SẠCH ĐẦU TIÊN (b3):** `check_dbench_log` PASS (13 app · GUARD OK · 0 [INFRA] · không thiếu dataset) ⇒ **audit: 30 ep, 4 win = 13,3%, lỗi hạ tầng 0/30 (0%)** ⇒ per-task: T21_form_desktop 0/5 · T22_order 0/5 · T23_keys 0/5 · T23_table_sort 0/5 · T25_recovery 1/5 · T26_clipboard 3/5.
+⇒ ⇒ **khoảng cách web 54% vs desktop 13% là THẬT** (không phải lỗi đo) ⇒ **thuốc đúng = data desktop (desktop-replay) + task mới**, không phải thêm data web.
+
+RELEASE: phase13-gui/bench_b17/tasks/ (8 app + tasks.json), scripts/{build_b17_apps.py, b17_selftest.py} (mới), phase14-desktop/tasks/checker_desktop.py (+KEY_ALIAS arrows, +shot_dir), phase13-gui/out_desktop_bench_b3/ (số desktop sạch)

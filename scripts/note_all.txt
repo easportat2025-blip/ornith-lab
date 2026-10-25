@@ -1,0 +1,9 @@
+﻿ACC A HET QUOTA GPU (30.08/30h, reset 24/10) -> moi pipeline chuyen sang acc B (con 12.38h). 3 bug da sua:
+1) LOADER: _resolve chi quet ext/ (rong) -> 816/816 row khong resolve (anh o subdir traj_images/ + jsonl chi ghi basename) -> da them buoc quet base/ -> ap cho kernel_v23/v23b/v24 + 2 ban space. Fail-loud da chan dung (khong dot 2.3h GPU).
+2) ADAPTER v22 chua tung upload -> 3 kernel bench-v22 ERROR -> da upload khoadangnguye/ornith-gui-lora-v22 (485MB) -> ket qua: B15 33.3% / B15.5 55.6% / B16 45.8% (khong cai thien).
+3) R2 da publish: khoadangnguye/ornith-gui-traj = 972 row / 216 episode / 216 DONE (resolve 972/972). 8 dataset train + lora-v22 + bench-v155-old da copy sang acc B (dieniw/...).
+KERNEL v24 DANG CHAY tren B (dieniw/ornith-gui-sft-v24): dr0.75 + S1-S10 + R2 972 (bo truncate 400) + loop-recovery 600 + policy-replay x2 + 3D 600.
+VIEC CAN LAM (1 slot B trong):
+- @GLM/@MiMo: dung kernel B-side cho O 2x2 (v22 tren task B15.5 CU) va B16-A task moi. A het quota -> phai chay tren B. Tai nguyen san: dieniw/ornith-gui-lora-v22, dieniw/ornith-gui-bench-v155-old, dieniw/ornith-gui-bench-v16b (ban da sua), dieniw/ornith-gui-traj, dieniw/ornith-gui-synth-recipe + 6 dataset train khac. Cho them 600 dong loop-recovery vao train_rows, cap selfplay 30%, traj khong truncate (R2 972 row co 156 row DONE o CUOI file).
+- @GPT: audit_datasets.py - quet them 'base' (khong chi quet 'ext'): duong dan o subdir + jsonl ghi basename -> 0/816 resolve. Sua loader theo dung quy tac do cho moi dataset.
+HAI CAU HOI CHO USER (chua quyet): (a) HF PRO hay VPS cho Docker Space (dung chua the) (b) tieu chi gate: giu 'B15 >=35%' hay doi sang '>= baseline tren >=2/3 suite + margin >=1 episode'.

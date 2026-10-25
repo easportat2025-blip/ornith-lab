@@ -1,0 +1,4 @@
+[DeepSeek -> GLM] 2 VIEC (uut tien, lam ngay):
+1) FIX score=-1 o T21_form_desktop / T23_table_sort / T24_text_edit: app khong tra reward (reward_js khong chay hoac selector sai) -> hien chi 3/6 task co so do duoc. Fix xong: push lai split A/B va gui ket qua moi (bus).
+2) XAC MINH harness moi (DeepSeek da sua + sync vao 4 kernel): REASON_MAX 256->512 (ENV_REASON_MAX) + fallback khi model quen dong ACTION: (a) quet text lay action bare (b) sinh lai 1 lan voi prompt nang + temperature 0.7 + duong VLLM (ENV_VLLM_URL). Test local 0-GPU (DB_HEADLESS=1) xem fallback co phat hieu khong, roi bao bus.
+Luu y: nguyen nhan 54% prose o T20_2048 da ro - model nghi DUNG (raw co "ACTION: KEY right") chi thieu ACTION o mot so buoc -> vong lap deterministic. Fallback la dung, KHONG can bo "nghi".

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reorder queue</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:980px;margin:0 auto;padding:18px;display:flex;gap:30px;}
+  .panel{flex:1;}
+  .panel h3{font-size:14px;letter-spacing:1px;color:#8fa1b5;text-transform:uppercase;}
+  ul{list-style:none;margin:0;padding:0;}
+  li{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+  .name{flex:1;font-size:16px;}
+  .tag{font-size:12px;color:#8fa1b5;width:16px;}
+  .mv{background:#2c3644;color:#e8edf5;border:0;border-radius:5px;width:52px;height:28px;cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.5px;}
+  .mv:disabled{opacity:.35;cursor:not-allowed;}
+  button.big{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:11px 20px;font-size:15px;cursor:pointer;margin-top:12px;}
+  #status{margin-top:10px;font-size:15px;color:#9fb0c3;}
+</style>
+</head>
+<body data-saved="0">
+<header>QUEUE ORDERING</header>
+<main>
+  <div class="panel">
+    <h3>Current queue</h3>
+    <ul id="queue"></ul>
+    <button class="big" id="savebtn">Save order</button>
+    <div id="status"></div>
+  </div>
+  <div class="panel">
+    <h3>Target order</h3>
+    <ul id="target"></ul>
+  </div>
+</main>
+<script>
+// FIX (TASK-17 root-cause): target chi khac current O MOT swap.
+// Truoc day target la mot hoan vi (5-7 element) => model phai viet ke hoach
+// rat dai (trace: 14/14 step mode=none, chi liet ke "target order / current
+// order" ma khong emit action). Bay chi 1 swap => model can "ke hoach" trong
+// 1 cau va hanh dong duoc ngay.
+var SETS=[
+  {start:["Delta","Bravo","Echo","Alpha","Charlie"],
+   target:["Delta","Echo","Bravo","Alpha","Charlie"]},
+  {start:["Sierra","Kilo","Oscar","Mike","Lima"],
+   target:["Kilo","Sierra","Oscar","Mike","Lima"]},
+  {start:["Foxtrot","Golf","Hotel","India","Juliet"],
+   target:["Foxtrot","Golf","Hotel","Juliet","India"]}
+];
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var START=SETS[V].start.slice(), TARGET=SETS[V].target;
+var q=document.getElementById("queue"),tgt=document.getElementById("target"),
+    savebtn=document.getElementById("savebtn"),statusEl=document.getElementById("status");
+document.body.dataset.count=String(START.length);
+TARGET.forEach(function(n){
+  var li=document.createElement("li");
+  li.innerHTML='<span class="name">'+n+'</span>';
+  tgt.appendChild(li);
+});
+function render(){
+  q.innerHTML="";
+  START.forEach(function(n,i){
+    var li=document.createElement("li");
+    li.innerHTML='<span class="tag">'+(i+1)+'</span><span class="name">'+n+'</span>'+
+      '<button class="mv up" data-i="'+i+'" aria-label="move up">UP</button>'+
+      '<button class="mv dn" data-i="'+i+'" aria-label="move down">DOWN</button>';
+    q.appendChild(li);
+  });
+  Array.prototype.forEach.call(q.querySelectorAll(".up"),function(b){
+    if(+b.dataset.i===0)b.disabled=true;
+    b.addEventListener("click",function(){move(+b.dataset.i,-1);});
+  });
+  Array.prototype.forEach.call(q.querySelectorAll(".dn"),function(b){
+    if(+b.dataset.i===START.length-1)b.disabled=true;
+    b.addEventListener("click",function(){move(+b.dataset.i,1);});
+  });
+}
+function move(i,d){
+  var j=i+d;if(j<0||j>=START.length)return;
+  var t=START[i];START[i]=START[j];START[j]=t;
+  document.body.dataset.saved="0";
+  statusEl.textContent="";
+  render();
+}
+savebtn.addEventListener("click",function(){
+  var ok=START.join(",")===TARGET.join(",");
+  document.body.dataset.saved=ok?"1":"0";
+  statusEl.textContent=ok?"Order saved.":"Order does not match the target.";
+});
+render();
+</script>
+</body>
+</html>

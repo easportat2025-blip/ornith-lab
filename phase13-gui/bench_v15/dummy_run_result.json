@@ -1,0 +1,1226 @@
+[
+ {
+  "task_id": "T01_signup",
+  "variant": 0,
+  "steps": 9,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 5 checks pass",
+  "state": {
+   "tests": {
+    "email has @": true,
+    "password long enough": true,
+    "passwords match": true,
+    "terms checked": true,
+    "form submitted ok": true
+   },
+   "created": "1",
+   "min": 8,
+   "email": "dummy@example.com",
+   "pass": "12345678",
+   "conf": "12345678",
+   "terms": true
+  },
+  "elapsed": 2.05,
+  "instruction": "Sign up: fill email (must contain @), password (at least 8 chars), confirm password (must match), check the terms box, then click the submit button.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 229.2"
+   },
+   {
+    "step": 1,
+    "action": "TYPE dummy@example.com"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 325"
+   },
+   {
+    "step": 3,
+    "action": "TYPE 12345678"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 500 420.8"
+   },
+   {
+    "step": 5,
+    "action": "TYPE 12345678"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 305.1 478.5"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 348 541.7"
+   },
+   {
+    "step": 8,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T01_signup",
+  "variant": 1,
+  "steps": 9,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: password long enough, form submitted ok",
+  "state": {
+   "tests": {
+    "email has @": true,
+    "password long enough": false,
+    "passwords match": true,
+    "terms checked": true,
+    "form submitted ok": false
+   },
+   "created": "0",
+   "min": 10,
+   "email": "dummy@example.com",
+   "pass": "12345678",
+   "conf": "12345678",
+   "terms": true
+  },
+  "elapsed": 1.85,
+  "instruction": "Sign up: fill email (must contain @), password (at least 10 chars), confirm password (must match), check the terms box, then click the submit button.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 229.2"
+   },
+   {
+    "step": 1,
+    "action": "TYPE dummy@example.com"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 325"
+   },
+   {
+    "step": 3,
+    "action": "TYPE 12345678"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 500 420.8"
+   },
+   {
+    "step": 5,
+    "action": "TYPE 12345678"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 305.1 478.5"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 348 541.7"
+   },
+   {
+    "step": 8,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T01_signup",
+  "variant": 2,
+  "steps": 9,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: password long enough, form submitted ok",
+  "state": {
+   "tests": {
+    "email has @": true,
+    "password long enough": false,
+    "passwords match": true,
+    "terms checked": true,
+    "form submitted ok": false
+   },
+   "created": "0",
+   "min": 12,
+   "email": "dummy@example.com",
+   "pass": "12345678",
+   "conf": "12345678",
+   "terms": true
+  },
+  "elapsed": 1.86,
+  "instruction": "Sign up: fill email (must contain @), password (at least 12 chars), confirm password (must match), check the terms box, then click the submit button.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 229.2"
+   },
+   {
+    "step": 1,
+    "action": "TYPE dummy@example.com"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 325"
+   },
+   {
+    "step": 3,
+    "action": "TYPE 12345678"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 500 420.8"
+   },
+   {
+    "step": 5,
+    "action": "TYPE 12345678"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 305.1 478.5"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 348 541.7"
+   },
+   {
+    "step": 8,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T02_login",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: username matches note, password matches note, logged_in flag, attempts >= 1",
+  "state": {
+   "tests": {
+    "username matches note": false,
+    "password matches note": false,
+    "logged_in flag": false,
+    "attempts >= 1": false
+   },
+   "loggedin": "0",
+   "attempts": 0,
+   "errorshown": "0",
+   "user": "",
+   "pass": "",
+   "note_user": "admin",
+   "note_pass": "rose42"
+  },
+  "elapsed": 0.08,
+  "instruction": "Log in with the credentials shown in the note box on the page, then click the sign-in button. If you see an error message, fix the wrong field and try again.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T02_login",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: username matches note, password matches note, logged_in flag, attempts >= 1",
+  "state": {
+   "tests": {
+    "username matches note": false,
+    "password matches note": false,
+    "logged_in flag": false,
+    "attempts >= 1": false
+   },
+   "loggedin": "0",
+   "attempts": 0,
+   "errorshown": "0",
+   "user": "",
+   "pass": "",
+   "note_user": "ops",
+   "note_pass": "kiwi77"
+  },
+  "elapsed": 0.08,
+  "instruction": "Log in with the credentials shown in the note box on the page, then click the sign-in button. If you see an error message, fix the wrong field and try again.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T02_login",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: username matches note, password matches note, logged_in flag, attempts >= 1",
+  "state": {
+   "tests": {
+    "username matches note": false,
+    "password matches note": false,
+    "logged_in flag": false,
+    "attempts >= 1": false
+   },
+   "loggedin": "0",
+   "attempts": 0,
+   "errorshown": "0",
+   "user": "",
+   "pass": "",
+   "note_user": "root",
+   "note_pass": "plum05"
+  },
+  "elapsed": 0.1,
+  "instruction": "Log in with the credentials shown in the note box on the page, then click the sign-in button. If you see an error message, fix the wrong field and try again.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T03_delayed",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: tile appeared, correct flag, tile is the active one, clicked after appeared",
+  "state": {
+   "tests": {
+    "tile appeared": false,
+    "correct flag": false,
+    "tile is the active one": false,
+    "clicked after appeared": false
+   },
+   "appeared": "0",
+   "correct": "0",
+   "appearedat": 0,
+   "clickedat": 0,
+   "target": 7,
+   "tileactive": false
+  },
+  "elapsed": 0.1,
+  "instruction": "One tile in the grid becomes active after a short delay (a few seconds). Click it as soon as it appears; clicking other tiles is a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T03_delayed",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: tile appeared, correct flag, tile is the active one, clicked after appeared",
+  "state": {
+   "tests": {
+    "tile appeared": false,
+    "correct flag": false,
+    "tile is the active one": false,
+    "clicked after appeared": false
+   },
+   "appeared": "0",
+   "correct": "0",
+   "appearedat": 0,
+   "clickedat": 0,
+   "target": 7,
+   "tileactive": false
+  },
+  "elapsed": 0.09,
+  "instruction": "One tile in the grid becomes active after a short delay (a few seconds). Click it as soon as it appears; clicking other tiles is a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T03_delayed",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: tile appeared, correct flag, tile is the active one, clicked after appeared",
+  "state": {
+   "tests": {
+    "tile appeared": false,
+    "correct flag": false,
+    "tile is the active one": false,
+    "clicked after appeared": false
+   },
+   "appeared": "0",
+   "correct": "0",
+   "appearedat": 0,
+   "clickedat": 0,
+   "target": 7,
+   "tileactive": false
+  },
+  "elapsed": 0.09,
+  "instruction": "One tile in the grid becomes active after a short delay (a few seconds). Click it as soon as it appears; clicking other tiles is a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T04_slider",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: dataset value == target, element value == target, visible text matches",
+  "state": {
+   "tests": {
+    "dataset value == target": false,
+    "element value == target": false,
+    "visible text matches": false
+   },
+   "target": 72,
+   "dsvalue": 50,
+   "elvalue": 50,
+   "cur": "50"
+  },
+  "elapsed": 0.09,
+  "instruction": "Set the slider exactly to 72% (click on the track at the right position, or focus it and use arrow keys), then say DONE.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T04_slider",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: dataset value == target, element value == target, visible text matches",
+  "state": {
+   "tests": {
+    "dataset value == target": false,
+    "element value == target": false,
+    "visible text matches": false
+   },
+   "target": 38,
+   "dsvalue": 65,
+   "elvalue": 65,
+   "cur": "65"
+  },
+  "elapsed": 0.1,
+  "instruction": "Set the slider exactly to 38% (click on the track at the right position, or focus it and use arrow keys), then say DONE.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T04_slider",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: dataset value == target, element value == target, visible text matches",
+  "state": {
+   "tests": {
+    "dataset value == target": false,
+    "element value == target": false,
+    "visible text matches": false
+   },
+   "target": 91,
+   "dsvalue": 20,
+   "elvalue": 20,
+   "cur": "20"
+  },
+  "elapsed": 0.1,
+  "instruction": "Set the slider exactly to 91% (click on the track at the right position, or focus it and use arrow keys), then say DONE.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T05_shortcut",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: target content == source, paste event was used, copy happened",
+  "state": {
+   "tests": {
+    "target content == source": false,
+    "paste event was used": false,
+    "copy happened": false
+   },
+   "src": "meeting-notes-2026-final-v3",
+   "dst": "",
+   "pasted": 0,
+   "copied": 0,
+   "match": "0"
+  },
+  "elapsed": 0.09,
+  "instruction": "Copy the text from the source box into the empty target box using keyboard shortcuts only: click the source, select all (ctrl+a), copy (ctrl+c), click the target, paste (ctrl+v).",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T05_shortcut",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: target content == source, paste event was used, copy happened",
+  "state": {
+   "tests": {
+    "target content == source": false,
+    "paste event was used": false,
+    "copy happened": false
+   },
+   "src": "invoice#8841 due 2026-11-05",
+   "dst": "",
+   "pasted": 0,
+   "copied": 0,
+   "match": "0"
+  },
+  "elapsed": 0.09,
+  "instruction": "Copy the text from the source box into the empty target box using keyboard shortcuts only: click the source, select all (ctrl+a), copy (ctrl+c), click the target, paste (ctrl+v).",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T05_shortcut",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: target content == source, paste event was used, copy happened",
+  "state": {
+   "tests": {
+    "target content == source": false,
+    "paste event was used": false,
+    "copy happened": false
+   },
+   "src": "ssh-rsa AAAAB3NzaC1yc2E ornith",
+   "dst": "",
+   "pasted": 0,
+   "copied": 0,
+   "match": "0"
+  },
+  "elapsed": 0.1,
+  "instruction": "Copy the text from the source box into the empty target box using keyboard shortcuts only: click the source, select all (ctrl+a), copy (ctrl+c), click the target, paste (ctrl+v).",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T06_tabcode",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: submitted == shown code, correct flag",
+  "state": {
+   "tests": {
+    "submitted == shown code": false,
+    "correct flag": false
+   },
+   "submitted": "",
+   "correct": "0",
+   "code": "K7Q2"
+  },
+  "elapsed": 0.07,
+  "instruction": "Open the Code tab, read the 4-character code, go back to the Home tab, type the code into the input field and submit it.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T06_tabcode",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: submitted == shown code, correct flag",
+  "state": {
+   "tests": {
+    "submitted == shown code": false,
+    "correct flag": false
+   },
+   "submitted": "",
+   "correct": "0",
+   "code": "M3X9"
+  },
+  "elapsed": 0.07,
+  "instruction": "Open the Code tab, read the 4-character code, go back to the Home tab, type the code into the input field and submit it.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T06_tabcode",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: submitted == shown code, correct flag",
+  "state": {
+   "tests": {
+    "submitted == shown code": false,
+    "correct flag": false
+   },
+   "submitted": "",
+   "correct": "0",
+   "code": "R8V5"
+  },
+  "elapsed": 0.08,
+  "instruction": "Open the Code tab, read the 4-character code, go back to the Home tab, type the code into the input field and submit it.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T07_scroll",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: all items loaded, last item was clicked, click happened after full load, last item marked clicked",
+  "state": {
+   "tests": {
+    "all items loaded": false,
+    "last item was clicked": false,
+    "click happened after full load": false,
+    "last item marked clicked": false
+   },
+   "loaded": 8,
+   "total": 32,
+   "domcount": 8,
+   "clicked": "",
+   "clickedcount": 0,
+   "lastclicked": false
+  },
+  "elapsed": 0.08,
+  "instruction": "The list lazy-loads more items as you scroll. Scroll it all the way to the bottom (click inside it, then press End or PageDown until no more items load), then click the very last item.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T07_scroll",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: all items loaded, last item was clicked, click happened after full load, last item marked clicked",
+  "state": {
+   "tests": {
+    "all items loaded": false,
+    "last item was clicked": false,
+    "click happened after full load": false,
+    "last item marked clicked": false
+   },
+   "loaded": 8,
+   "total": 40,
+   "domcount": 8,
+   "clicked": "",
+   "clickedcount": 0,
+   "lastclicked": false
+  },
+  "elapsed": 0.08,
+  "instruction": "The list lazy-loads more items as you scroll. Scroll it all the way to the bottom (click inside it, then press End or PageDown until no more items load), then click the very last item.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T07_scroll",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: all items loaded, last item was clicked, click happened after full load, last item marked clicked",
+  "state": {
+   "tests": {
+    "all items loaded": false,
+    "last item was clicked": false,
+    "click happened after full load": false,
+    "last item marked clicked": false
+   },
+   "loaded": 8,
+   "total": 36,
+   "domcount": 8,
+   "clicked": "",
+   "clickedcount": 0,
+   "lastclicked": false
+  },
+  "elapsed": 0.07,
+  "instruction": "The list lazy-loads more items as you scroll. Scroll it all the way to the bottom (click inside it, then press End or PageDown until no more items load), then click the very last item.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T08_errorfix",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: errors were shown first, valid submit after, name non-empty, email has @, qty whole number 1-9",
+  "state": {
+   "tests": {
+    "errors were shown first": false,
+    "valid submit after": false,
+    "name non-empty": false,
+    "email has @": false,
+    "qty whole number 1-9": false
+   },
+   "errorsshown": "0",
+   "submittedok": "0",
+   "submitcount": 0,
+   "name": "",
+   "email": "",
+   "qty": ""
+  },
+  "elapsed": 0.08,
+  "instruction": "Submit the empty form first to reveal the errors, then fix every field as described next to it and submit again.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T08_errorfix",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: errors were shown first, valid submit after, name non-empty, email has @, qty whole number 1-9",
+  "state": {
+   "tests": {
+    "errors were shown first": false,
+    "valid submit after": false,
+    "name non-empty": false,
+    "email has @": false,
+    "qty whole number 1-9": false
+   },
+   "errorsshown": "0",
+   "submittedok": "0",
+   "submitcount": 0,
+   "name": "",
+   "email": "",
+   "qty": ""
+  },
+  "elapsed": 0.08,
+  "instruction": "Submit the empty form first to reveal the errors, then fix every field as described next to it and submit again.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T08_errorfix",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: errors were shown first, valid submit after, name non-empty, email has @, qty whole number 1-9",
+  "state": {
+   "tests": {
+    "errors were shown first": false,
+    "valid submit after": false,
+    "name non-empty": false,
+    "email has @": false,
+    "qty whole number 1-9": false
+   },
+   "errorsshown": "0",
+   "submittedok": "0",
+   "submitcount": 0,
+   "name": "",
+   "email": "",
+   "qty": ""
+  },
+  "elapsed": 0.07,
+  "instruction": "Submit the empty form first to reveal the errors, then fix every field as described next to it and submit again.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T09_coupon",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: target plan selected, coupon accepted, total == recomputed, visible total text matches, order confirmed",
+  "state": {
+   "tests": {
+    "target plan selected": false,
+    "coupon accepted": false,
+    "total == recomputed": false,
+    "visible total text matches": false,
+    "order confirmed": false
+   },
+   "selected": -1,
+   "applied": "0",
+   "confirmed": "0",
+   "total": "",
+   "targetplan": 1,
+   "price": 19,
+   "disc": 0.1,
+   "visibletotal": "—",
+   "coupon": "",
+   "code": "SAVE10",
+   "planname": "Pro",
+   "sels": 0
+  },
+  "elapsed": 0.08,
+  "instruction": "Choose the Pro plan, enter coupon SAVE10 in the coupon box and click Apply, check the total is 17.10, then click Confirm order.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T09_coupon",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: target plan selected, coupon accepted, total == recomputed, visible total text matches, order confirmed",
+  "state": {
+   "tests": {
+    "target plan selected": false,
+    "coupon accepted": false,
+    "total == recomputed": false,
+    "visible total text matches": false,
+    "order confirmed": false
+   },
+   "selected": -1,
+   "applied": "0",
+   "confirmed": "0",
+   "total": "",
+   "targetplan": 2,
+   "price": 24,
+   "disc": 0.2,
+   "visibletotal": "—",
+   "coupon": "",
+   "code": "TRIM20",
+   "planname": "Enterprise",
+   "sels": 0
+  },
+  "elapsed": 0.09,
+  "instruction": "Choose the Enterprise plan, enter coupon TRIM20 in the coupon box and click Apply, check the total is 19.20, then click Confirm order.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T09_coupon",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: target plan selected, coupon accepted, total == recomputed, visible total text matches, order confirmed",
+  "state": {
+   "tests": {
+    "target plan selected": false,
+    "coupon accepted": false,
+    "total == recomputed": false,
+    "visible total text matches": false,
+    "order confirmed": false
+   },
+   "selected": -1,
+   "applied": "0",
+   "confirmed": "0",
+   "total": "",
+   "targetplan": 1,
+   "price": 24,
+   "disc": 0.15,
+   "visibletotal": "—",
+   "coupon": "",
+   "code": "OK15",
+   "planname": "Standard",
+   "sels": 0
+  },
+  "elapsed": 0.07,
+  "instruction": "Choose the Standard plan, enter coupon OK15 in the coupon box and click Apply, check the total is 20.40, then click Confirm order.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T10_canvas",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: click hit the target shape",
+  "state": {
+   "tests": {
+    "click hit the target shape": false,
+    "a click was registered": true
+   },
+   "clickx": null,
+   "clicky": null,
+   "targetcolor": "yellow",
+   "targettype": "triangle",
+   "hit_index": -1,
+   "hit_desc": "none"
+  },
+  "elapsed": 0.08,
+  "instruction": "On the canvas there are many shapes. Click exactly the yellow triangle (its color and shape type both matter); the others are distractors.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T10_canvas",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: click hit the target shape",
+  "state": {
+   "tests": {
+    "click hit the target shape": false,
+    "a click was registered": true
+   },
+   "clickx": null,
+   "clicky": null,
+   "targetcolor": "blue",
+   "targettype": "circle",
+   "hit_index": -1,
+   "hit_desc": "none"
+  },
+  "elapsed": 0.08,
+  "instruction": "On the canvas there are many shapes. Click exactly the blue circle (its color and shape type both matter); the others are distractors.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T10_canvas",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: click hit the target shape",
+  "state": {
+   "tests": {
+    "click hit the target shape": false,
+    "a click was registered": true
+   },
+   "clickx": null,
+   "clicky": null,
+   "targetcolor": "purple",
+   "targettype": "circle",
+   "hit_index": -1,
+   "hit_desc": "none"
+  },
+  "elapsed": 0.09,
+  "instruction": "On the canvas there are many shapes. Click exactly the purple circle (its color and shape type both matter); the others are distractors.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T11_counter",
+  "variant": 0,
+  "steps": 7,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "submitted flag": true,
+    "dataset count == 5": true,
+    "visible counter shows 5": true
+   },
+   "count": 5,
+   "submitted": "1",
+   "target": 5,
+   "visible": "5"
+  },
+  "elapsed": 0.92,
+  "instruction": "Click the increment button exactly 5 times so the counter shows 5, then click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 527.8 345.1"
+   },
+   {
+    "step": 6,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T11_counter",
+  "variant": 1,
+  "steps": 7,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "submitted flag": true,
+    "dataset count == 5": true,
+    "visible counter shows 5": true
+   },
+   "count": 5,
+   "submitted": "1",
+   "target": 5,
+   "visible": "5"
+  },
+  "elapsed": 0.94,
+  "instruction": "Click the increment button exactly 5 times so the counter shows 5, then click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 527.8 345.1"
+   },
+   {
+    "step": 6,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T11_counter",
+  "variant": 2,
+  "steps": 7,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "submitted flag": true,
+    "dataset count == 5": true,
+    "visible counter shows 5": true
+   },
+   "count": 5,
+   "submitted": "1",
+   "target": 5,
+   "visible": "5"
+  },
+  "elapsed": 0.97,
+  "instruction": "Click the increment button exactly 5 times so the counter shows 5, then click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 460.7 345.1"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 527.8 345.1"
+   },
+   {
+    "step": 6,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T12_pagecode",
+  "variant": 0,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: submitted == page-1 code, correct flag, was on page 2",
+  "state": {
+   "tests": {
+    "submitted == page-1 code": false,
+    "correct flag": false,
+    "was on page 2": false
+   },
+   "page": "1",
+   "submitted": "",
+   "correct": "0",
+   "code": "481927"
+  },
+  "elapsed": 0.07,
+  "instruction": "Read the 6-digit code shown on page 1, open page 2 with the link, enter the code into the input field and submit it.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T12_pagecode",
+  "variant": 1,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: submitted == page-1 code, correct flag, was on page 2",
+  "state": {
+   "tests": {
+    "submitted == page-1 code": false,
+    "correct flag": false,
+    "was on page 2": false
+   },
+   "page": "1",
+   "submitted": "",
+   "correct": "0",
+   "code": "703516"
+  },
+  "elapsed": 0.08,
+  "instruction": "Read the 6-digit code shown on page 1, open page 2 with the link, enter the code into the input field and submit it.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T12_pagecode",
+  "variant": 2,
+  "steps": 1,
+  "success": false,
+  "score": 0.0,
+  "reason": "failed: submitted == page-1 code, correct flag, was on page 2",
+  "state": {
+   "tests": {
+    "submitted == page-1 code": false,
+    "correct flag": false,
+    "was on page 2": false
+   },
+   "page": "1",
+   "submitted": "",
+   "correct": "0",
+   "code": "295840"
+  },
+  "elapsed": 0.07,
+  "instruction": "Read the 6-digit code shown on page 1, open page 2 with the link, enter the code into the input field and submit it.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "DONE"
+   }
+  ]
+ }
+]

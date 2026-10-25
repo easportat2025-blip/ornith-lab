@@ -1,0 +1,116 @@
+{
+  "suite": "B15",
+  "version": 1,
+  "viewport": {"width": 1280, "height": 720},
+  "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE",
+  "tasks": [
+    {
+      "task_id": "T01_signup",
+      "name": "signup",
+      "difficulty": "medium",
+      "max_steps": 9,
+      "variants": [0, 1, 2],
+      "instruction": "Sign up: fill email (must contain @), password (at least MINCHARS chars), confirm password (must match), check the terms box, then click the submit button.",
+      "target": "valid account created (email valid, password long enough, passwords match, terms checked, submitted)"
+    },
+    {
+      "task_id": "T02_login",
+      "name": "login-validation",
+      "difficulty": "medium",
+      "max_steps": 8,
+      "variants": [0, 1, 2],
+      "instruction": "Log in with the credentials shown in the note box on the page, then click the sign-in button. If you see an error message, fix the wrong field and try again.",
+      "target": "logged_in == true (wrong first attempt is allowed, error message must be read)"
+    },
+    {
+      "task_id": "T03_delayed",
+      "name": "delayed-item",
+      "difficulty": "medium",
+      "max_steps": 8,
+      "variants": [0, 1, 2],
+      "instruction": "One tile in the grid becomes active after a short delay (a few seconds). Click it as soon as it appears; clicking other tiles is a mistake.",
+      "target": "clicked_target == true after appeared == true"
+    },
+    {
+      "task_id": "T04_slider",
+      "name": "drag-slider",
+      "difficulty": "medium",
+      "max_steps": 10,
+      "variants": [0, 1, 2],
+      "instruction": "Set the slider exactly to TARGET% (click on the track at the right position, or focus it and use arrow keys), then say DONE.",
+      "target": "slider value == target exactly"
+    },
+    {
+      "task_id": "T05_shortcut",
+      "name": "keyboard-shortcut",
+      "difficulty": "medium",
+      "max_steps": 7,
+      "variants": [0, 1, 2],
+      "instruction": "Copy the text from the source box into the empty target box using keyboard shortcuts only: click the source, select all (ctrl+a), copy (ctrl+c), click the target, paste (ctrl+v).",
+      "target": "target content == source content AND paste event was used"
+    },
+    {
+      "task_id": "T06_tabcode",
+      "name": "tab-code",
+      "difficulty": "hard",
+      "max_steps": 8,
+      "variants": [0, 1, 2],
+      "instruction": "Open the Code tab, read the 4-character code, go back to the Home tab, type the code into the input field and submit it.",
+      "target": "submitted_code == code shown on the Code tab"
+    },
+    {
+      "task_id": "T07_scroll",
+      "name": "scroll-lazy",
+      "difficulty": "hard",
+      "max_steps": 8,
+      "variants": [0, 1, 2],
+      "instruction": "The list lazy-loads more items as you scroll. Scroll it all the way to the bottom (click inside it, then press End or PageDown until no more items load), then click the very last item.",
+      "target": "clicked == LAST_LABEL and all TOTAL items were loaded first"
+    },
+    {
+      "task_id": "T08_errorfix",
+      "name": "error-recovery",
+      "difficulty": "hard",
+      "max_steps": 9,
+      "variants": [0, 1, 2],
+      "instruction": "Submit the empty form first to reveal the errors, then fix every field as described next to it and submit again.",
+      "target": "errors_shown == true and a valid submit happened afterwards"
+    },
+    {
+      "task_id": "T09_coupon",
+      "name": "plan-coupon",
+      "difficulty": "hard",
+      "max_steps": 9,
+      "variants": [0, 1, 2],
+      "instruction": "Choose the TARGETPLAN plan, enter coupon CODE in the coupon box and click Apply, check the total is EXPECTED, then click Confirm order.",
+      "target": "selected == target plan, coupon applied, confirmed, total == expected"
+    },
+    {
+      "task_id": "T10_canvas",
+      "name": "canvas-shape",
+      "difficulty": "medium",
+      "max_steps": 6,
+      "variants": [0, 1, 2],
+      "instruction": "On the canvas there are many shapes. Click exactly the TARGETSHAPE (its color and shape type both matter); the others are distractors.",
+      "target": "clicked shape type and color both == target"
+    },
+    {
+      "task_id": "T11_counter",
+      "name": "counter-5",
+      "difficulty": "easy",
+      "max_steps": 8,
+      "variants": [0, 1, 2],
+      "instruction": "Click the increment button exactly 5 times so the counter shows 5, then click Submit.",
+      "target": "submitted == true and count == 5 at submit time"
+    },
+    {
+      "task_id": "T12_pagecode",
+      "name": "page2-code",
+      "difficulty": "hard",
+      "max_steps": 8,
+      "variants": [0, 1, 2],
+      "instruction": "Read the 6-digit code shown on page 1, open page 2 with the link, enter the code into the input field and submit it.",
+      "target": "submitted_code == code shown on page 1"
+    }
+  ]
+}

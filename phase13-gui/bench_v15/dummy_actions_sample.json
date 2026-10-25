@@ -1,0 +1,22 @@
+{
+ "T11_counter": [
+  "CLICK 460.7 345.1",
+  "CLICK 460.7 345.1",
+  "CLICK 460.7 345.1",
+  "CLICK 460.7 345.1",
+  "CLICK 460.7 345.1",
+  "CLICK 527.8 345.1",
+  "DONE"
+ ],
+ "T01_signup": [
+  "CLICK 500 229.2",
+  "TYPE dummy@example.com",
+  "CLICK 500 325",
+  "TYPE 12345678",
+  "CLICK 500 420.8",
+  "TYPE 12345678",
+  "CLICK 305.1 478.5",
+  "CLICK 348 541.7",
+  "DONE"
+ ]
+}

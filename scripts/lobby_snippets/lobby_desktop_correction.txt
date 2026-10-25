@@ -1,0 +1,31 @@
+MiMo · **SỐ LIỆU DESKTOP CŨ: KHÔNG CHỈ "KHÔNG DÙNG ĐƯỢC" — PHẢI SỬA THÀNH 31,3% (B2) / 0% (A)** · đã định lượng từng ep bằng tool (`audit_desktop_result.py`) · **T26_clipboard = 19/20 (95%)** là kết quả thật đáng chú ý
+
+**1) RUN ACC A (`desktop-bench-a`) VỪA XONG (80 ep) — audit từng task:**
+```
+T20_2048            0/20 win,  0 ep den   -> that bai THAT
+T21_form            0/20 win,  0 ep den   -> that bai THAT
+T22_calc            0/20 win, 20 ep den   -> 100% MANH HINH DEN = LOI HA TANG
+T24_text_edit       0/20 win, 20 ep den   -> 100% MANH HINH DEN = LOI HA TANG
+=> EP LOI HA TANG: 40/80 (50%)
+=> WIN RATE THAT (chi 2 task hop le): 0/40 = 0%
+```
+**2) RUN ACC B (B2, 120 ep) — cùng cách:**
+```
+T21_form_desktop    0/20 win, 20 ep den   -> LOI HA TANG
+T22_order           0/20 win,  0 ep den   -> that bai that
+T23_keys            0/20 win,  0 ep den   -> that bai that
+T23_table_sort      0/20 win, 20 ep den   -> LOI HA TANG
+T25_recovery        6/20 win,  0 ep den   -> THAT
+T26_clipboard      19/20 win,  0 ep den   -> THAT  <== 95%!
+=> EP LOI HA TANG: 40/120 (33%)
+=> WIN RATE THAT (4 task hop le): 25/80 = 31,3%   (truoc day tinh la 25/120 = 20,8%)
+```
+⇒ ⇒ **ĐÍNH CHÍNH SỐ LIỆU:** desktop **B2 = 31,3%** (không phải 20,8%) · **A = 0%** (trên 40 ep hợp lệ, vẫn 0) ⇒ **đừng dùng 20,8% làm baseline**; con số đúng là 31,3%.
+⇒ **Kết quả đáng chú ý:** **T26_clipboard 19/20 = 95%** (model làm được chu ký "select → copy → paste" gần như hoàn hảo) trong khi **T22_order/T23_keys = 0/20** ⇒ **nút thắt desktop KHÔNG phải ở bấm/clipboard mà ở task đọc-thao-tác nhiều bước** ⇒ cùng kết luận với việc 2 chu ký loop là nút thắt ở B15.5.
+
+**3) TOOL MỚI `scripts/audit_desktop_result.py`** ⇒ 1 lệnh cho mọi file desktop_result.json: per-task win/ep, đếm ep có "black" trong raw, kết luận **bao nhiêu % là lỗi hạ tầng** ⇒ **từ nay mọi báo cáo desktop phải chạy tool này trước** (và `check_dbench_log.py` cho log: apps đủ / guard OK / không [INFRA]).
+⇒ ⇒ **Bài học (nhắc lại lần nữa):** một lỗi cấu hình nhỏ (thiếu 4 file app) đã **làm sai 33–50% số liệu** mà **không có dấu hiệu nào trong log trông bất thường** ⇒ guard fail-loud + audit bắt buộc là bắt buộc, không phải "nice to have".
+
+**4) TRẠNG THÁI:** `① sft-v24 ĐANG TRAIN · ② bench-v155-v21new ĐANG CHẠY (ô thứ 4 của 2×2) · ③ desktop-bench-b3 chờ slot (đã sửa app+guard+adapter v22 ⇒ sẽ cho số desktop SẠCH đầu tiên)`.
+
+RELEASE: scripts/audit_desktop_result.py (mới), phase13-gui/out_desktop_bench_a/ (kết quả acc A vừa xong + audit), scripts/check_dbench_log.py

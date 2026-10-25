@@ -1,0 +1,1058 @@
+[
+ {
+  "task_id": "T19_wizardsum",
+  "variant": 0,
+  "steps": 8,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "submitted": true,
+    "answer == sum (recomputed)": true,
+    "sum matches dataset": true
+   },
+   "n1": 3,
+   "n2": 5,
+   "n3": 2,
+   "n4": 4,
+   "sum": 14,
+   "submitted": "1",
+   "answer": "14",
+   "step": "5"
+  },
+  "elapsed": 6.54,
+  "instruction": "A 4-step wizard shows a number on each step. Go through all four steps reading each number, then on the final screen enter the SUM of all four numbers and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 321.9 218.8"
+   },
+   {
+    "step": 5,
+    "action": "TYPE 14"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 449 218.8"
+   },
+   {
+    "step": 7,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T19_wizardsum",
+  "variant": 1,
+  "steps": 8,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "submitted": true,
+    "answer == sum (recomputed)": true,
+    "sum matches dataset": true
+   },
+   "n1": 7,
+   "n2": 1,
+   "n3": 6,
+   "n4": 2,
+   "sum": 16,
+   "submitted": "1",
+   "answer": "16",
+   "step": "5"
+  },
+  "elapsed": 6.48,
+  "instruction": "A 4-step wizard shows a number on each step. Go through all four steps reading each number, then on the final screen enter the SUM of all four numbers and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 321.9 218.8"
+   },
+   {
+    "step": 5,
+    "action": "TYPE 16"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 449 218.8"
+   },
+   {
+    "step": 7,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T19_wizardsum",
+  "variant": 2,
+  "steps": 8,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "submitted": true,
+    "answer == sum (recomputed)": true,
+    "sum matches dataset": true
+   },
+   "n1": 9,
+   "n2": 4,
+   "n3": 1,
+   "n4": 3,
+   "sum": 17,
+   "submitted": "1",
+   "answer": "17",
+   "step": "5"
+  },
+  "elapsed": 6.43,
+  "instruction": "A 4-step wizard shows a number on each step. Go through all four steps reading each number, then on the final screen enter the SUM of all four numbers and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 262.8 275.7"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 321.9 218.8"
+   },
+   {
+    "step": 5,
+    "action": "TYPE 17"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 449 218.8"
+   },
+   {
+    "step": 7,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T20_distractor",
+  "variant": 0,
+  "steps": 2,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "picked correct button": true,
+    "no wrong clicks": true
+   },
+   "correct": "B",
+   "picked": "Option B",
+   "wrongclick": 0,
+   "submitted": "0"
+  },
+  "elapsed": 0.99,
+  "instruction": "Three buttons look identical. Click the one whose label matches the Target shown above (Option A/B/C). Clicking a wrong button counts as a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 383.6 263.2"
+   },
+   {
+    "step": 1,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T20_distractor",
+  "variant": 1,
+  "steps": 2,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "picked correct button": true,
+    "no wrong clicks": true
+   },
+   "correct": "A",
+   "picked": "Option A",
+   "wrongclick": 0,
+   "submitted": "0"
+  },
+  "elapsed": 0.96,
+  "instruction": "Three buttons look identical. Click the one whose label matches the Target shown above (Option A/B/C). Clicking a wrong button counts as a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 280.5 263.2"
+   },
+   {
+    "step": 1,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T20_distractor",
+  "variant": 2,
+  "steps": 2,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "picked correct button": true,
+    "no wrong clicks": true
+   },
+   "correct": "C",
+   "picked": "Option C",
+   "wrongclick": 0,
+   "submitted": "0"
+  },
+  "elapsed": 0.97,
+  "instruction": "Three buttons look identical. Click the one whose label matches the Target shown above (Option A/B/C). Clicking a wrong button counts as a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 486.7 263.2"
+   },
+   {
+    "step": 1,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T21_hiddenval",
+  "variant": 0,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "code was hidden": true,
+    "typed == code (recomputed)": true,
+    "submitted": true
+   },
+   "code": "K",
+   "hidden": "1",
+   "typed": "K",
+   "submitted": "1"
+  },
+  "elapsed": 3.78,
+  "instruction": "A code is shown. Click 'Hide code' to hide it, then enter the code from memory into the field and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 277.2 281.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 321.9 218.8"
+   },
+   {
+    "step": 2,
+    "action": "TYPE K"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 449 218.8"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T21_hiddenval",
+  "variant": 1,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "code was hidden": true,
+    "typed == code (recomputed)": true,
+    "submitted": true
+   },
+   "code": "4",
+   "hidden": "1",
+   "typed": "4",
+   "submitted": "1"
+  },
+  "elapsed": 3.74,
+  "instruction": "A code is shown. Click 'Hide code' to hide it, then enter the code from memory into the field and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 277.2 281.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 321.9 218.8"
+   },
+   {
+    "step": 2,
+    "action": "TYPE 4"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 449 218.8"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T21_hiddenval",
+  "variant": 2,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "code was hidden": true,
+    "typed == code (recomputed)": true,
+    "submitted": true
+   },
+   "code": "W",
+   "hidden": "1",
+   "typed": "W",
+   "submitted": "1"
+  },
+  "elapsed": 3.77,
+  "instruction": "A code is shown. Click 'Hide code' to hide it, then enter the code from memory into the field and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 277.2 281.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 321.9 218.8"
+   },
+   {
+    "step": 2,
+    "action": "TYPE W"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 449 218.8"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T22_keynav",
+  "variant": 0,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "selected target cell": true,
+    "submitted": true
+   },
+   "targetrow": 1,
+   "targetcol": 2,
+   "selected": "r1c2",
+   "submitted": "1"
+  },
+  "elapsed": 3.72,
+  "instruction": "Use Arrow keys to move the focus in the 3x3 grid, then press Enter on the target cell to select it (the action to write is: KEY enter). You may also click the target cell directly.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "KEY ArrowDown"
+   },
+   {
+    "step": 1,
+    "action": "KEY ArrowRight"
+   },
+   {
+    "step": 2,
+    "action": "KEY ArrowRight"
+   },
+   {
+    "step": 3,
+    "action": "KEY Enter"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T22_keynav",
+  "variant": 1,
+  "steps": 4,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "selected target cell": true,
+    "submitted": true
+   },
+   "targetrow": 2,
+   "targetcol": 0,
+   "selected": "r2c0",
+   "submitted": "1"
+  },
+  "elapsed": 2.8,
+  "instruction": "Use Arrow keys to move the focus in the 3x3 grid, then press Enter on the target cell to select it (the action to write is: KEY enter). You may also click the target cell directly.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "KEY ArrowDown"
+   },
+   {
+    "step": 1,
+    "action": "KEY ArrowDown"
+   },
+   {
+    "step": 2,
+    "action": "KEY Enter"
+   },
+   {
+    "step": 3,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T22_keynav",
+  "variant": 2,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "selected target cell": true,
+    "submitted": true
+   },
+   "targetrow": 0,
+   "targetcol": 1,
+   "selected": "r0c1",
+   "submitted": "1"
+  },
+  "elapsed": 1.9,
+  "instruction": "Use Arrow keys to move the focus in the 3x3 grid, then press Enter on the target cell to select it (the action to write is: KEY enter). You may also click the target cell directly.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "KEY ArrowRight"
+   },
+   {
+    "step": 1,
+    "action": "KEY Enter"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T23_undoredo",
+  "variant": 0,
+  "steps": 10,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "field1 non-empty": true,
+    "field2 empty after undo": true,
+    "field3 empty after undo": true,
+    "saved": true
+   },
+   "f1": "aaa",
+   "f2": "",
+   "f3": "",
+   "saved": "1"
+  },
+  "elapsed": 8.42,
+  "instruction": "Fill all three fields, then click Undo twice to remove the last two entries, then click Save. Final state: only field 1 has text.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 317.2 247.9"
+   },
+   {
+    "step": 1,
+    "action": "TYPE aaa"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 487.8 247.9"
+   },
+   {
+    "step": 3,
+    "action": "TYPE bbb"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 658.4 247.9"
+   },
+   {
+    "step": 5,
+    "action": "TYPE ccc"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 264.8 310.4"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 264.8 310.4"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 330 310.4"
+   },
+   {
+    "step": 9,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T23_undoredo",
+  "variant": 1,
+  "steps": 10,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "field1 non-empty": true,
+    "field2 empty after undo": true,
+    "field3 empty after undo": true,
+    "saved": true
+   },
+   "f1": "aaa",
+   "f2": "",
+   "f3": "",
+   "saved": "1"
+  },
+  "elapsed": 8.4,
+  "instruction": "Fill all three fields, then click Undo twice to remove the last two entries, then click Save. Final state: only field 1 has text.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 317.2 247.9"
+   },
+   {
+    "step": 1,
+    "action": "TYPE aaa"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 487.8 247.9"
+   },
+   {
+    "step": 3,
+    "action": "TYPE bbb"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 658.4 247.9"
+   },
+   {
+    "step": 5,
+    "action": "TYPE ccc"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 264.8 310.4"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 264.8 310.4"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 330 310.4"
+   },
+   {
+    "step": 9,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T23_undoredo",
+  "variant": 2,
+  "steps": 10,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "field1 non-empty": true,
+    "field2 empty after undo": true,
+    "field3 empty after undo": true,
+    "saved": true
+   },
+   "f1": "aaa",
+   "f2": "",
+   "f3": "",
+   "saved": "1"
+  },
+  "elapsed": 8.38,
+  "instruction": "Fill all three fields, then click Undo twice to remove the last two entries, then click Save. Final state: only field 1 has text.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 317.2 247.9"
+   },
+   {
+    "step": 1,
+    "action": "TYPE aaa"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 487.8 247.9"
+   },
+   {
+    "step": 3,
+    "action": "TYPE bbb"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 658.4 247.9"
+   },
+   {
+    "step": 5,
+    "action": "TYPE ccc"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 264.8 310.4"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 264.8 310.4"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 330 310.4"
+   },
+   {
+    "step": 9,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T24_multifilter",
+  "variant": 0,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "filter color applied": true,
+    "filter size applied": true,
+    "picked Apple": true,
+    "submitted": true
+   },
+   "f1": "1",
+   "f2": "1",
+   "picked": "Apple",
+   "submitted": "1"
+  },
+  "elapsed": 3.68,
+  "instruction": "Apply both filters (red color AND large size) to narrow the list, then click the remaining item (Apple) and Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 276.5 247.9"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 462.2 247.9"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 305.6"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 293.8 363.2"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T24_multifilter",
+  "variant": 1,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "filter color applied": true,
+    "filter size applied": true,
+    "picked Apple": true,
+    "submitted": true
+   },
+   "f1": "1",
+   "f2": "1",
+   "picked": "Apple",
+   "submitted": "1"
+  },
+  "elapsed": 3.63,
+  "instruction": "Apply both filters (red color AND large size) to narrow the list, then click the remaining item (Apple) and Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 276.5 247.9"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 462.2 247.9"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 305.6"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 293.8 363.2"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T24_multifilter",
+  "variant": 2,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "filter color applied": true,
+    "filter size applied": true,
+    "picked Apple": true,
+    "submitted": true
+   },
+   "f1": "1",
+   "f2": "1",
+   "picked": "Apple",
+   "submitted": "1"
+  },
+  "elapsed": 3.63,
+  "instruction": "Apply both filters (red color AND large size) to narrow the list, then click the remaining item (Apple) and Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 276.5 247.9"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 462.2 247.9"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 305.6"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 293.8 363.2"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T25_compute",
+  "variant": 0,
+  "steps": 4,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "typed == a+b (recomputed)": true,
+    "result matches": true,
+    "submitted": true
+   },
+   "a": 5,
+   "b": 3,
+   "result": 8,
+   "typed": "8",
+   "submitted": "1"
+  },
+  "elapsed": 2.79,
+  "instruction": "Compute A + B from the two numbers shown, type the result, and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 330.1 302.1"
+   },
+   {
+    "step": 1,
+    "action": "TYPE 8"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 269 359"
+   },
+   {
+    "step": 3,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T25_compute",
+  "variant": 1,
+  "steps": 4,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "typed == a+b (recomputed)": true,
+    "result matches": true,
+    "submitted": true
+   },
+   "a": 8,
+   "b": 2,
+   "result": 10,
+   "typed": "10",
+   "submitted": "1"
+  },
+  "elapsed": 2.82,
+  "instruction": "Compute A + B from the two numbers shown, type the result, and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 330.1 302.1"
+   },
+   {
+    "step": 1,
+    "action": "TYPE 10"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 269 359"
+   },
+   {
+    "step": 3,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T25_compute",
+  "variant": 2,
+  "steps": 4,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "typed == a+b (recomputed)": true,
+    "result matches": true,
+    "submitted": true
+   },
+   "a": 4,
+   "b": 6,
+   "result": 10,
+   "typed": "10",
+   "submitted": "1"
+  },
+  "elapsed": 2.94,
+  "instruction": "Compute A + B from the two numbers shown, type the result, and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 330.1 302.1"
+   },
+   {
+    "step": 1,
+    "action": "TYPE 10"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 269 359"
+   },
+   {
+    "step": 3,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T26_distractorlist",
+  "variant": 0,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "picked correct item@list": true,
+    "submitted": true
+   },
+   "targetlist": "A",
+   "targetitem": "Alpha",
+   "picked": "Alpha@A",
+   "submitted": "1"
+  },
+  "elapsed": 1.88,
+  "instruction": "Two lists look alike. Pick the target item from the target list (shown above), then Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 307.3 261.7"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 251 470.7"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T26_distractorlist",
+  "variant": 1,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "picked correct item@list": true,
+    "submitted": true
+   },
+   "targetlist": "B",
+   "targetitem": "Beta",
+   "picked": "Beta@B",
+   "submitted": "1"
+  },
+  "elapsed": 1.89,
+  "instruction": "Two lists look alike. Pick the target item from the target list (shown above), then Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 279.8"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 251 470.7"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T26_distractorlist",
+  "variant": 2,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 2 checks pass",
+  "state": {
+   "tests": {
+    "picked correct item@list": true,
+    "submitted": true
+   },
+   "targetlist": "A",
+   "targetitem": "Gamma",
+   "picked": "Gamma@A",
+   "submitted": "1"
+  },
+  "elapsed": 1.87,
+  "instruction": "Two lists look alike. Pick the target item from the target list (shown above), then Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 307.3 367.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 251 470.7"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ }
+]

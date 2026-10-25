@@ -1,0 +1,18 @@
+{
+ "name": "ornith-gui-xdotool",
+ "version": "3.20160805.1-5build1",
+ "ubuntu": "noble",
+ "files": [
+  "xdotool_3.20160805.1-5build1_amd64.deb",
+  "libxdo3_3.20160805.1-5build1_amd64.deb"
+ ],
+ "install": "dpkg -i *.deb   (hoac layout da giai nen: copy xdotool vao /usr/local/bin + LD_LIBRARY_PATH)",
+ "deps_present_in_kaggle_image": [
+  "libc6",
+  "libx11-6",
+  "libxinerama1",
+  "libxkbcommon0",
+  "libxtst6"
+ ],
+ "why": "image Kaggle CO Xvfb nhung THIEU xdotool; apt-get treo do DNS security.ubuntu.com fail => ship de offline"
+}

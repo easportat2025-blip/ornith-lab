@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Order desk - desktop env</title>
+<style>
+  body{margin:0;background:#f4f6fa;font:16px system-ui,sans-serif;padding:44px 80px}
+  h1{font-size:26px;margin:0 0 8px}
+  ol{font-size:17px;line-height:1.7;margin:0 0 18px}
+  label{display:block;font-size:14px;color:#5a6472;margin:12px 0 6px}
+  input[type=text]{width:540px;height:38px;font-size:16px;border:1px solid #b6bec9;
+        border-radius:6px;padding:0 12px;background:#fff}
+  .plan{display:block;width:320px;height:34px;margin:6px 0;font-size:16px;
+        text-align:left;padding-left:12px;border:1px solid #b6bec9;border-radius:6px;
+        background:#fff;cursor:pointer}
+  .plan.on{background:#d8ecff;border-color:#1f6feb;font-weight:700}
+  button.go{width:220px;height:44px;font-size:17px;border:0;border-radius:6px;
+        background:#1f6feb;color:#fff;cursor:pointer;margin-top:20px}
+  .note{position:absolute;right:80px;top:60px;background:#fff8dc;
+        border:1px solid #d8c97a;border-radius:8px;padding:16px 20px;width:330px;
+        font-size:17px;line-height:1.8}
+  .note b{color:#8a6d1a}
+  #status{margin-top:14px;font-size:16px;color:#1a7f37}
+</style>
+</head>
+<body>
+<h1>Order desk</h1>
+<ol>
+  <li>Type your <b>name</b> in the name field.</li>
+  <li>Pick the <b>plan</b> named in the note.</li>
+  <li>Type the <b>code</b> from the note.</li>
+  <li>Press <b>Submit</b>.</li>
+</ol>
+<div class="note" id="note">
+  <b>Order note</b><br>
+  name: <b id="nname">?</b><br>
+  plan: <b id="nplan">?</b><br>
+  code: <b id="ncode">?</b>
+</div>
+<label for="nm">Name</label>
+<input id="nm" type="text">
+<label>Plan</label>
+<button class="plan" id="p0" data-plan="Basic">Basic</button>
+<button class="plan" id="p1" data-plan="Pro">Pro</button>
+<button class="plan" id="p2" data-plan="Plus">Plus</button>
+<label for="cd">Code</label>
+<input id="cd" type="text">
+<button class="go" id="go">Submit</button>
+<div id="status"></div>
+<script>
+  function rnd(n){return Math.floor(Math.random()*n);}
+  function word(min,max){var L="abcdefghijkmnpqrstuvwxyz23456789";var n=min+rnd(max-min+1);
+    var s="";for(var i=0;i<n;i++)s+=L[rnd(L.length)];return s;}
+  var PLANS=["Basic","Pro","Plus"];
+  var SPEC={name:word(4,7), plan:PLANS[rnd(3)], code:word(4,6).toUpperCase()};
+  window.__spec=SPEC;
+  document.getElementById('nname').textContent=SPEC.name;
+  document.getElementById('nplan').textContent=SPEC.plan;
+  document.getElementById('ncode').textContent=SPEC.code;
+  var ORDER=[];
+  window.__order=ORDER;
+  window.__state={name:'',plan:'',code:'',submitted:0,ok:0};
+  // toa do chuan hoa 0..1000 (de success-policy khong hard-code)
+  function nrect(el){var r=el.getBoundingClientRect();
+    return [Math.round((r.left+r.width/2)/window.innerWidth*1000),
+            Math.round((r.top+r.height/2)/window.innerHeight*1000)];}
+  window.__targets={name:nrect(document.getElementById('nm')),
+                    plan_Basic:nrect(document.getElementById('p0')),
+                    plan_Pro:nrect(document.getElementById('p1')),
+                    plan_Plus:nrect(document.getElementById('p2')),
+                    code:nrect(document.getElementById('cd')),
+                    submit:nrect(document.getElementById('go'))};
+  document.getElementById('nm').addEventListener('input',function(){
+    window.__state.name=this.value;
+    // CHI ghi 1 lan cho moi truong: truong day ghi 1 entry cho MOI KY TU => ORDER
+    // dai > 4 => ok luon = 0 => task bat kha thi.
+    if(ORDER.indexOf('name')<0) ORDER.push('name');});
+  for(var i=0;i<3;i++){(function(btn){
+    btn.addEventListener('click',function(){
+      window.__state.plan=btn.getAttribute('data-plan'); ORDER.push('plan');
+      var all=document.querySelectorAll('.plan');
+      for(var j=0;j<all.length;j++)all[j].classList.remove('on');
+      btn.classList.add('on');});})(document.getElementById('p'+i));}
+  document.getElementById('cd').addEventListener('input',function(){
+    window.__state.code=this.value;
+    if(ORDER.indexOf('code')<0) ORDER.push('code');});
+  document.getElementById('go').addEventListener('click',function(){
+    ORDER.push('submit');
+    var want=['name','plan','code','submit'];
+    var same=ORDER.length===want.length;
+    for(var k=0;k<want.length && same;k++) if(ORDER[k]!==want[k]) same=false;
+    var ok=(same && window.__state.name===SPEC.name &&
+            window.__state.plan===SPEC.plan &&
+            window.__state.code===SPEC.code)?1:0;
+    window.__state.submitted=1; window.__state.ok=ok;
+    document.getElementById('status').textContent=
+      ok?'Order submitted':'Error: wrong order or wrong values';
+    document.body.setAttribute('data-submitted','1');
+    document.body.setAttribute('data-ok',String(ok));
+  });
+</script>
+</body>
+</html>

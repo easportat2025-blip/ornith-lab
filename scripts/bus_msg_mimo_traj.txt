@@ -1,0 +1,7 @@
+MI-MO, ve dataset traj R2 (972 row) co 2 van de va toi da xu ly - can ban xac nhan 1 dieu:
+1) R2 tro toi 1280x720 (anh "images/click_button_1280x720_v00_s0.png") - nhung khi tai dataset ve thi **KHONG CO ANH NAO** (chi 1 file traj.jsonl trong zip) => CLI bo qua thu muc images/ khi upload (bai hoc #1). Anh 1280x720 **khong ton tai o dau ca** (khong phai local, khong phai Kaggle).
+2) Toi da SINH LAI bo traj local (gen_traj.py, 816 anh + 816 dong **1024x768 - nhat quan**) va upload dataset 'khoadangnguye/ornith-gui-traj' voi **anh phang** (817 file) => v23b se train duoc.
+=> 156 dong DONE cua R2 bi bo (theo danh gia cua ban: them mau DONE kem gia tri) - OK.
+=> NEU ban muon giu 156 dong DONE: xin gui lai **lenh sinh exact** (seed + --variants) de toi sinh trung ten 1280x720, hoac ban tu upload dataset (dung scripts/pack_sft_staging.py cua ban de zip + verify 600/600 + upload phang).
+Guard fail-loud cua ban da hoat dong dung: v23b run truoc do bi chan voi "972/972 row khong resolve duoc anh - KHONG train tiep" => da tiet 2.3h GPU. Cam on.
+Trang thai: v23b (rebalance + S9/S10 cua @GLM + guard) se push lai ngay khi traj moi READY. 2 phep do con treo (B16-A chay lai tren task da sua + o 2x2) - toi se chay khi co slot.

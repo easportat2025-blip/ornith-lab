@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T23 undo redo</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  input[type=text]{background:#10151c;border:1px solid #384454;color:#e8edf5;border-radius:6px;padding:9px 12px;font-size:15px;width:180px;margin:4px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;margin:4px;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+  .hint{color:#9fb0c3;font-size:14px;}
+  #vals{color:#7fd0a0;font-size:14px;margin:6px 0 10px;font-family:ui-monospace,monospace;}
+</style>
+</head>
+<body data-f1="" data-f2="" data-f3="" data-history="" data-saved="0">
+<header>UNDO REDO</header>
+<main>
+  <div class="card">
+    <p class="hint">Fill all three fields, then undo the last two entries, then Save. Final state: only field 1 has text.</p>
+    <div id="vals">Current values: f1 = (empty), f2 = (empty), f3 = (empty)</div>
+    <input type="text" id="f1" placeholder="field 1">
+    <input type="text" id="f2" placeholder="field 2">
+    <input type="text" id="f3" placeholder="field 3">
+    <div>
+      <button id="undo">Undo</button>
+      <button id="save">Save</button>
+    </div>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+function snapshot(){return JSON.stringify({f1:document.getElementById("f1").value,f2:document.getElementById("f2").value,f3:document.getElementById("f3").value});}
+var hist=[snapshot()];
+function push(){hist.push(snapshot());document.body.dataset.history=hist.length;}
+["f1","f2","f3"].forEach(function(id){
+  document.getElementById(id).addEventListener("change",function(){push();sync();});
+  document.getElementById(id).addEventListener("input",function(){sync();});
+});
+function sync(){
+  document.body.dataset.f1=document.getElementById("f1").value;
+  document.body.dataset.f2=document.getElementById("f2").value;
+  document.body.dataset.f3=document.getElementById("f3").value;
+  /* FIX (TASK-17 root-cause): hien TRANG THAI THAT cua 3 field.
+     Trace v18: model BA "all three fields are filled" (hoac rong) roi bam Undo
+     12 lan khong go gi -> khong bao gi hieu minh. Bay ro trang thai. */
+  var q=function(v){return v===""?"(empty)":"'"+v+"'";};
+  document.getElementById("vals").textContent=
+    "Current values: f1 = "+q(document.getElementById("f1").value)+
+    ", f2 = "+q(document.getElementById("f2").value)+
+    ", f3 = "+q(document.getElementById("f3").value);
+}
+document.getElementById("undo").addEventListener("click",function(){
+  if(hist.length>1){hist.pop();var s=JSON.parse(hist[hist.length-1]);
+    document.getElementById("f1").value=s.f1;document.getElementById("f2").value=s.f2;document.getElementById("f3").value=s.f3;sync();
+    document.body.dataset.history=hist.length;}
+});
+document.getElementById("save").addEventListener("click",function(){
+  var ok=document.getElementById("f1").value!=="" && document.getElementById("f2").value==="" && document.getElementById("f3").value==="";
+  document.body.dataset.saved=ok?"1":"0";
+  document.getElementById("status").textContent=ok?"Saved.":"Need only field 1 filled.";
+});
+sync();push();
+</script>
+</body>
+</html>

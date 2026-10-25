@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T21 hidden value</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;margin:4px;}
+  input[type=text]{background:#10151c;border:1px solid #384454;color:#e8edf5;border-radius:6px;padding:9px 12px;font-size:15px;width:200px;}
+  .code{font-size:28px;font-weight:700;color:#7fd0a0;margin:8px 0;letter-spacing:2px;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+</style>
+</head>
+<body data-code="" data-hidden="0" data-submitted="0" data-typed="">
+<header>HIDDEN VALUE</header>
+<main>
+  <div class="card">
+    <div id="phase1">
+      <p>Remember this code:</p>
+      <div class="code" id="codebox">XXXX</div>
+      <button id="hidebtn">Hide code</button>
+    </div>
+    <div id="phase2" style="display:none">
+      <p>The code is now hidden. Enter it from memory:</p>
+      <input type="text" id="ans">
+      <button id="subbtn">Submit</button>
+    </div>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var CODES=["K7M2","Q4R9","P1W6"][V];
+document.getElementById("codebox").textContent=CODES[V];
+document.body.dataset.code=CODES[V];
+document.getElementById("hidebtn").addEventListener("click",function(){
+  document.body.dataset.hidden="1";
+  document.getElementById("phase1").style.display="none";
+  document.getElementById("phase2").style.display="block";
+});
+document.getElementById("subbtn").addEventListener("click",function(){
+  var v=document.getElementById("ans").value.trim();
+  document.body.dataset.typed=v;
+  if(v===CODES[V]){document.body.dataset.submitted="1";document.getElementById("status").textContent="Correct!";}
+  else{document.getElementById("status").textContent="Wrong code - try again.";}
+});
+</script>
+</body>
+</html>

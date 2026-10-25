@@ -1,0 +1,62 @@
+{
+  "suite": "B15.5",
+  "version": 1,
+  "viewport": {"width": 1280, "height": 720},
+  "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE",
+  "tasks": [
+    {
+      "task_id": "T13_wizard",
+      "name": "signup-wizard",
+      "difficulty": "hard",
+      "max_steps": 15,
+      "variants": [0, 1, 2],
+      "instruction": "Multi-step signup. First click Next on step 1 as-is to reveal the validation errors, then fix every flagged field: a username of at least MINCHARS characters, an email containing @, a city, and an age between 18 and 99. Click Next to reach step 3, tick the confirmation box and click Submit.",
+      "target": "errors revealed first, then submitted == 1 with every field independently re-validated"
+    },
+    {
+      "task_id": "T14_alerts",
+      "name": "dynamic-alert",
+      "difficulty": "hard",
+      "max_steps": 14,
+      "variants": [0, 1, 2],
+      "instruction": "The feed hides an alert tile. Scroll the feed to the bottom (press the End key - the feed is already focused; the Load alert button appears a moment later) to reveal the Load alert button, click it, then click the alert tile labeled DYNLABEL that appears. Clicking any other tile is a mistake.",
+      "target": "clickeddyn == 1 after dyncreated, wrongclick == 0, alert label matches"
+    },
+    {
+      "task_id": "T15_dialog",
+      "name": "dialog-flow",
+      "difficulty": "hard",
+      "max_steps": 13,
+      "variants": [0, 1, 2],
+      "instruction": "Open the request form dialog, scroll the terms panel to the very bottom (press the End key while the terms panel is focused - there is no mouse wheel), tick the confirmation box, click Continue, type the reference code shown on the page (REFCODE) into the Reference code field, click Submit request, then click Yes, submit to confirm.",
+      "target": "confirmed == 1, ref == REFCODE shown on page, scrolled before agreed"
+    },
+    {
+      "task_id": "T16_clipboard2",
+      "name": "double-clipboard",
+      "difficulty": "hard",
+      "max_steps": 13,
+      "variants": [0, 1, 2],
+      "instruction": "Copy the text of Source 1 into Target 1 and Source 2 into Target 2 using keyboard shortcuts only: click the source, Ctrl+A, Ctrl+C, click its target, Ctrl+V. Do both pairs, then click Verify transfer.",
+      "target": "dst1 == src1 and dst2 == src2 with pasted1 >= 1, pasted2 >= 1, verified == 1"
+    },
+    {
+      "task_id": "T17_reorder",
+      "name": "reorder-rows",
+      "difficulty": "hard",
+      "max_steps": 14,
+      "variants": [0, 1, 2],
+      "instruction": "Reorder the Current queue so it matches the Target order shown on the right (first listed = top row). Use the UP and DOWN buttons next to a row to move that row one place at a time, then click Save order.",
+      "target": "saved == 1 and the DOM order of rows equals the target order"
+    },
+    {
+      "task_id": "T18_countsubmit",
+      "name": "count-then-submit",
+      "difficulty": "hard",
+      "max_steps": 11,
+      "variants": [0, 1, 2],
+      "instruction": "Select exactly TARGETCOUNT chips so the meter reads 'Selected: TARGETCOUNT / TARGETCOUNT', then click Submit batch. Submit only succeeds when the count is exactly right.",
+      "target": "submitted == 1 with the checked-chip count recomputed in Python == target"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ticket submission</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:820px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:16px;margin-bottom:14px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;}
+  button:disabled{background:#3a4553;cursor:not-allowed;}
+  input[type=text]{background:#10151c;border:1px solid #384454;color:#e8edf5;border-radius:6px;padding:9px 12px;font-size:15px;width:340px;}
+  .hidden{display:none;}
+  #refbox{color:#7fd0a0;font-size:19px;letter-spacing:1px;}
+  /* modal */
+  #modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;}
+  #modal .sheet{background:#1d2531;border:1px solid #384454;border-radius:10px;width:620px;max-height:80vh;display:flex;flex-direction:column;}
+  #modal .sheet h2{margin:0;padding:14px 18px;border-bottom:1px solid #2c3644;font-size:18px;}
+  #terms{flex:1;overflow:auto;height:260px;padding:12px 18px;font-size:14px;line-height:1.55;color:#c3cddb;}
+  #terms p{margin:0 0 12px;}
+  #modal .foot{padding:12px 18px;border-top:1px solid #2c3644;display:flex;gap:12px;align-items:center;}
+  #ack{width:18px;height:18px;}
+  label{font-size:14px;color:#c3cddb;}
+  #status{font-size:15px;min-height:22px;margin-top:8px;color:#9fb0c3;}
+  #confirm{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;}
+  #confirm .sheet{background:#1d2531;border:1px solid #384454;border-radius:10px;padding:22px;width:420px;}
+  #confirm .row{margin-top:16px;display:flex;gap:12px;}
+</style>
+</head>
+<body data-modal="0" data-ack="0" data-scrolled="0" data-submitted="0" data-confirmed="0">
+<header>TICKET DESK v1</header>
+<main>
+  <div class="card">
+    <p style="margin:0 0 12px">Your reference code: <span id="refbox">RF-0000</span></p>
+    <button id="openbtn">Open request form</button>
+    <div id="form" class="hidden">
+      <p style="margin-top:14px">Reference code:</p>
+      <input type="text" id="ref" placeholder="e.g. RF-4821">
+      <p><button id="subbtn" disabled>Submit request</button></p>
+    </div>
+    <div id="status"></div>
+  </div>
+</main>
+
+<div id="modal">
+  <div class="sheet">
+    <h2>Terms of service</h2>
+    <div id="terms" tabindex="0">
+      <p>Section 1. This ticket desk handles routine requests only. Requests containing restricted keywords may be routed to a human reviewer within two business days.</p>
+      <p>Section 2. Reference codes are case sensitive. A reference code consists of the letters R and F, a hyphen, and four digits, for example RF-4821.</p>
+      <p>Section 3. Submitting a request does not guarantee resolution. The desk may close a request if no reference code is provided within the session.</p>
+      <p>Section 4. Duplicate requests are merged automatically. Merged requests inherit the reference code of the first submission.</p>
+      <p>Section 5. You may withdraw a request before submission at any time by closing this form. Withdrawn requests are not logged.</p>
+      <p>Section 6. The desk stores request metadata for thirty days. After thirty days metadata is discarded, but resolved tickets are archived.</p>
+      <p>Section 7. Archived tickets can be reopened once. Reopened tickets enter the queue at the back.</p>
+      <p>Section 8. Queue position is not an estimate of waiting time. Requests are processed in arrival order within each priority band.</p>
+      <p>Section 9. Priority bands are normal, elevated, and critical. Only the desk assigns bands. Self-declared priority has no effect.</p>
+      <p>Section 10. Elevated requests receive a first response within one business day. Critical requests receive a first response within four hours.</p>
+      <p>Section 11. If a request is mis-banded it is demoted, not deleted. Demoted requests keep their reference code.</p>
+      <p>Section 12. Reference codes are never reused. A withdrawn code is retired, so always use a fresh code for each new request.</p>
+      <p>Section 13. The acknowledgement checkbox below confirms you have scrolled through and accept these terms in full.</p>
+      <p style="color:#e8b04b">END OF TERMS. Tick the acknowledgement box to continue.</p>
+    </div>
+    <div class="foot">
+      <input type="checkbox" id="ack">
+      <label for="ack">I accept the terms</label>
+      <span style="flex:1"></span>
+      <button id="contbtn" disabled>Continue</button>
+    </div>
+  </div>
+</div>
+
+<div id="confirm">
+  <div class="sheet">
+    <h2 style="margin:0 0 8px;font-size:17px;">Submit this request?</h2>
+    <p style="font-size:14px;color:#c3cddb;margin:0;">Once submitted the reference code is locked to this ticket.</p>
+    <div class="row">
+      <button id="yesbtn">Yes, submit</button>
+      <button id="nobtn" style="background:#3a4553">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var modal=document.getElementById("modal"),ack=document.getElementById("ack"),
+    contbtn=document.getElementById("contbtn"),openbtn=document.getElementById("openbtn"),
+    form=document.getElementById("form"),ref=document.getElementById("ref"),
+    subbtn=document.getElementById("subbtn"),statusEl=document.getElementById("status"),
+    terms=document.getElementById("terms"),confirm=document.getElementById("confirm"),
+    yesbtn=document.getElementById("yesbtn"),nobtn=document.getElementById("nobtn");
+var CFG=["RF-4821","RF-7305","RF-1188"];
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+document.getElementById("refbox").textContent=CFG[V];
+document.body.dataset.ref=CFG[V];
+
+openbtn.addEventListener("click",function(){
+  modal.style.display="flex";
+  document.body.dataset.modal="1";
+  /* FIX (TASK-17 root-cause): tu focus panel #terms khi mo modal.
+     Truoc day agent phai "click vao panel roi moi bam End" -> trace v18/v21:
+     14/14 step chi noi "I need to scroll down", khong emit action.
+     Tu focus -> KEY End chay ngay (giong T14 da sua). */
+  terms.focus();
+});
+terms.addEventListener("scroll",function(){
+  if(terms.scrollTop+terms.clientHeight>=terms.scrollHeight-4){
+    if(document.body.dataset.scrolledat===undefined||!document.body.dataset.scrolledat){
+      document.body.dataset.scrolledat=String(performance.now());
+    }
+    document.body.dataset.scrolled="1";
+  }
+});
+ack.addEventListener("change",function(){
+  // TASK-24: chi accept duoc SAU khi da scroll xuong cuoi terms
+  // (thu tu sai -> checkbox bi bo chon, agent phai scroll truoc).
+  if (document.body.dataset.scrolled !== "1") {
+    ack.checked = false;
+    document.body.dataset.ack = "0";
+    document.body.dataset.ackedat = "";
+    contbtn.disabled = true;
+    return;
+  }
+  document.body.dataset.ackedat=String(performance.now());
+  document.body.dataset.ack=ack.checked?"1":"0";
+  contbtn.disabled=!ack.checked;
+});
+contbtn.addEventListener("click",function(){
+  modal.style.display="none";
+  form.classList.remove("hidden");
+  document.body.dataset.modal="0";
+});
+ref.addEventListener("input",function(){
+  subbtn.disabled=!/^RF-\d{4}$/.test(ref.value.trim());
+});
+subbtn.addEventListener("click",function(){
+  if(subbtn.disabled)return;
+  document.body.dataset.submitted="1";
+  confirm.style.display="flex";
+});
+yesbtn.addEventListener("click",function(){
+  document.body.dataset.confirmed="1";
+  confirm.style.display="none";
+  statusEl.textContent="Request submitted.";
+});
+nobtn.addEventListener("click",function(){
+  confirm.style.display="none";
+});
+
+// TASK-24: End/PageDown luon scroll container (khong can focus) -> agent
+// khong the "ket" neu khong click dung container truoc.
+document.addEventListener("keydown", function(e){
+  if (e.key === "End" || e.key === "PageDown") {
+    var c = document.getElementById("terms");
+    if (c && c.scrollHeight > c.clientHeight + 4) {
+      c.scrollTop = c.scrollHeight;
+      c.dispatchEvent(new Event("scroll"));
+      e.preventDefault();
+    }
+  }
+});
+</script>
+</body>
+</html>

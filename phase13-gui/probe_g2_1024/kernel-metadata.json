@@ -1,0 +1,27 @@
+{
+  "id": "dieniw/ornith-probe-g2-1024",
+  "title": "ornith-probe-g2-1024",
+  "code_file": "probe.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "enable_tpu": false,
+  "dataset_sources": [
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4",
+    "dieniw/gemma12b-wheels",
+    "dieniw/ornith-gui-train3d",
+    "dieniw/ornith-gui-train3d-hard",
+    "dieniw/ornith-policy-replay-data",
+    "dieniw/stack-wheels",
+    "dieniw/ornith-gui-desktop-replay",
+    "dieniw/ornith-gui-synth-s11"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

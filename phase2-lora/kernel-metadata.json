@@ -1,0 +1,21 @@
+{
+  "id": "khoadangnguye/gemma12b-phase2-lora",
+  "title": "gemma12b-phase2-lora",
+  "code_file": "train.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "khoadangnguye/gemma12b-wheels",
+    "khoadangnguye/gemma12b-gamedata-r6",
+    "khoadangnguye/gemma12b-gamedata-r5",
+    "khoadangnguye/gemma12b-adapter-r4"
+  ],
+  "competition_sources": ["arc-prize-2026-arc-agi-3"],
+  "kernel_sources": [],
+  "model_sources": ["google/gemma-4/transformers/gemma-4-12b-it/2"]
+}

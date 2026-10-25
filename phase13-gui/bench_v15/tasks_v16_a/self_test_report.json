@@ -1,0 +1,249 @@
+{
+ "success_policies_pass": 24,
+ "success_total": 24,
+ "fail_policies_rejected": 24,
+ "fail_total": 24,
+ "passed": true,
+ "rows": [
+  {
+   "task_id": "T19_wizardsum",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 8,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: submitted, answer == sum (recomputed)",
+   "ok": true
+  },
+  {
+   "task_id": "T19_wizardsum",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 8,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: submitted, answer == sum (recomputed)",
+   "ok": true
+  },
+  {
+   "task_id": "T19_wizardsum",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 8,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: submitted, answer == sum (recomputed)",
+   "ok": true
+  },
+  {
+   "task_id": "T20_distractor",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 2,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: picked correct button",
+   "ok": true
+  },
+  {
+   "task_id": "T20_distractor",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 2,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: picked correct button",
+   "ok": true
+  },
+  {
+   "task_id": "T20_distractor",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 2,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: picked correct button",
+   "ok": true
+  },
+  {
+   "task_id": "T21_hiddenval",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: code was hidden, typed == code (recomputed), submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T21_hiddenval",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: code was hidden, typed == code (recomputed), submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T21_hiddenval",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: code was hidden, typed == code (recomputed), submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T22_keynav",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: selected target cell, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T22_keynav",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 4,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: selected target cell, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T22_keynav",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: selected target cell, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T23_undoredo",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 10,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: field1 non-empty, saved",
+   "ok": true
+  },
+  {
+   "task_id": "T23_undoredo",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 10,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: field1 non-empty, saved",
+   "ok": true
+  },
+  {
+   "task_id": "T23_undoredo",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 10,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: field1 non-empty, saved",
+   "ok": true
+  },
+  {
+   "task_id": "T24_multifilter",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: filter color applied, filter size applied, picked Apple, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T24_multifilter",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: filter color applied, filter size applied, picked Apple, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T24_multifilter",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: filter color applied, filter size applied, picked Apple, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T25_compute",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 4,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: typed == a+b (recomputed), submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T25_compute",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 4,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: typed == a+b (recomputed), submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T25_compute",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 4,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: typed == a+b (recomputed), submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T26_distractorlist",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: picked correct item@list, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T26_distractorlist",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: picked correct item@list, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T26_distractorlist",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 2 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: picked correct item@list, submitted",
+   "ok": true
+  }
+ ]
+}

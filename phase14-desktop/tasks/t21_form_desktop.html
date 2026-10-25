@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Account Setup — desktop env</title>
+<style>
+  body{margin:0;background:#eef1f6;font:15px system-ui,sans-serif;color:#1d2330}
+  .wrap{max-width:860px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#6b7488;font-size:13px;margin-bottom:14px}
+  .card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;padding:18px;margin-bottom:14px}
+  .note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;padding:12px 14px;margin-bottom:16px}
+  .note b{color:#8a6d1f}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .row label{width:150px;font-size:14px;color:#414a5e}
+  input[type=text]{width:300px;padding:9px 10px;border:1px solid #b9c1d1;border-radius:6px;font-size:15px}
+  input[type=text]:focus{outline:2px solid #3b6fd4}
+  .cb{display:flex;align-items:center;gap:8px;margin:6px 0 14px 150px;font-size:14px}
+  button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;padding:10px 22px;font-size:15px;cursor:pointer}
+  button:disabled{background:#aab3c6;cursor:not-allowed}
+  #status{font-size:14px;color:#3b6fd4;min-height:20px;margin-top:8px}
+  #status.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Account Setup</h1>
+  <div class="sub">Fill every field with the value shown in the yellow box, then submit.</div>
+
+  <div class="card">
+    <div class="note">
+      <b>Your account details</b><br>
+      Username: <span id="nu">?</span><br>
+      Email: <span id="ne">?</span><br>
+      Password: <span id="np">?</span>
+    </div>
+    <div class="row"><label for="u">Username</label><input type="text" id="u" autocomplete="off"></div>
+    <div class="row"><label for="e">Email</label><input type="text" id="e" autocomplete="off"></div>
+    <div class="row"><label for="p">Password</label><input type="text" id="p" autocomplete="off"></div>
+    <div class="row"><label for="p2">Confirm password</label><input type="text" id="p2" autocomplete="off"></div>
+    <div class="cb"><input type="checkbox" id="terms"><span>I accept the terms of service</span></div>
+    <button id="submit" disabled>Create account</button>
+    <div id="status"></div>
+  </div>
+</div>
+<script>
+/* TASK-26 T21_form_desktop
+   Bien NGAU NHIEN: username / email / password doi moi lan chay.
+   Checker DOC DOM (o vung note + gia tri input), KHONG tin co-flag.
+*/
+const R = (a) => a[Math.floor(Math.random() * a.length)];
+const NU = R(["alex","robin","casey","morgan","quinn","riley","avery","jules"]);
+const NE = R(["mail.test","inbox.dev","postbox.net","quick.org","corp.io"]);
+const PWD = (function(){let s="";const c="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+  for(let i=0;i<8;i++)s+=c[Math.floor(Math.random()*c.length)];return s;})();
+const USER = NU + String(Math.floor(Math.random()*90)+10);
+const EMAIL = NU + String(Math.floor(Math.random()*900)+100) + "@" + NE;
+document.getElementById("nu").textContent = USER;
+document.getElementById("ne").textContent = EMAIL;
+document.getElementById("np").textContent = PWD;
+
+const u=document.getElementById("u"),e=document.getElementById("e"),
+      p=document.getElementById("p"),p2=document.getElementById("p2"),
+      terms=document.getElementById("terms"),submit=document.getElementById("submit"),
+      statusEl=document.getElementById("status");
+function ready(){
+  const ok = u.value.trim()===USER && e.value.trim()===EMAIL &&
+             p.value.trim()===PWD && p2.value.trim()===PWD && terms.checked;
+  submit.disabled = !ok;
+  return ok;
+}
+[u,e,p,p2].forEach(el=>el.addEventListener("input",function(){
+  const before=statusEl.textContent; ready();
+  if(statusEl.textContent===before && statusEl.textContent) statusEl.textContent="";
+  snapState();
+}));
+terms.addEventListener("change",function(){ ready(); });
+function snapState(){window.__state={u:u.value,e:e.value,p:p.value,p2:p2.value,
+  terms:terms.checked,status:statusEl.textContent};}
+submit.addEventListener("click",function(){
+  if(submit.disabled) return;
+  statusEl.className="";
+  statusEl.textContent="Account created for "+USER+".";
+  snapState();
+});
+/* toa do normalized cua cac phan tu (de viet success-policy) */
+snapState();
+window.__targets=(function(){
+  const out={};
+  ["nu","ne","np","u","e","p","p2","terms","submit"].forEach(function(id){
+    const r=document.getElementById(id).getBoundingClientRect();
+    out[id]=[Math.round((r.left+r.width/2)/window.innerWidth*1000),Math.round((r.top+r.height/2)/window.innerHeight*1000)];
+  });
+  return out;
+})();
+</script>
+</body>
+</html>

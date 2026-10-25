@@ -1,0 +1,16 @@
+{
+  "suite": "B16-A",
+  "version": 1,
+  "viewport": {"width": 1280, "height": 720},
+  "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE",
+  "tasks": [
+    {"task_id":"T19_wizardsum","name":"wizard-sum","difficulty":"hard","max_steps":12,"variants":[0,1,2],"instruction":"A 4-step wizard shows a number on each step. Go through all four steps reading each number, then on the final screen enter the SUM of all four numbers and click Submit.","target":"submitted == 1 and typed == n1+n2+n3+n4 (recomputed in Python)"},
+    {"task_id":"T20_distractor","name":"distractor-buttons","difficulty":"hard","max_steps":8,"variants":[0,1,2],"instruction":"Three buttons look identical. Click the one whose label matches the Target shown above (Option A/B/C). Clicking a wrong button counts as a mistake.","target":"picked == 'Option X' (target) and wrongclick == 0"},
+    {"task_id":"T21_hiddenval","name":"hidden-value","difficulty":"hard","max_steps":10,"variants":[0,1,2],"instruction":"A code is shown. Click 'Hide code' to hide it, then enter the code from memory into the field and click Submit.","target":"submitted == 1 and typed == code (recomputed from body dataset)"},
+    {"task_id":"T22_keynav","name":"keyboard-nav","difficulty":"hard","max_steps":12,"variants":[0,1,2],"instruction":"Use Arrow keys to move the focus in the 3x3 grid, then press Enter on the target cell to select it (the action to write is: KEY enter). You may also click the target cell directly.","target":"submitted == 1 and selected == target cell"},
+    {"task_id":"T23_undoredo","name":"undo-redo","difficulty":"hard","max_steps":12,"variants":[0,1,2],"instruction":"Fill all three fields, then click Undo twice to remove the last two entries, then click Save. Final state: only field 1 has text.","target":"saved == 1 and f2=='' and f3=='' and f1!=''"},
+    {"task_id":"T24_multifilter","name":"multi-filter","difficulty":"hard","max_steps":10,"variants":[0,1,2],"instruction":"Apply both filters (red color AND large size) to narrow the list, then click the remaining item (Apple) and Submit.","target":"submitted == 1 and picked == 'Apple' and f1==1 and f2==1"},
+    {"task_id":"T25_compute","name":"compute","difficulty":"hard","max_steps":8,"variants":[0,1,2],"instruction":"Compute A + B from the two numbers shown, type the result, and click Submit.","target":"submitted == 1 and typed == A+B (recomputed in Python)"},
+    {"task_id":"T26_distractorlist","name":"distractor-list","difficulty":"hard","max_steps":8,"variants":[0,1,2],"instruction":"Two lists look alike. Pick the target item from the target list (shown above), then Submit.","target":"submitted == 1 and picked == targetItem@targetList"}
+  ]
+}

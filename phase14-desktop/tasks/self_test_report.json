@@ -1,0 +1,145 @@
+{
+ "success_policies_pass": 15,
+ "success_total": 15,
+ "fail_policies_rejected": 15,
+ "fail_total": 15,
+ "reps_per_task": 3,
+ "passed": true,
+ "rows": [
+  {
+   "task_id": "T20_2048",
+   "rep": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T20_2048",
+   "rep": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T20_2048",
+   "rep": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T21_form_desktop",
+   "rep": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T21_form_desktop",
+   "rep": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T21_form_desktop",
+   "rep": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T22_calc",
+   "rep": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 5 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T22_calc",
+   "rep": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 5 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T22_calc",
+   "rep": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 5 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T23_table_sort",
+   "rep": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 5 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T23_table_sort",
+   "rep": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 5 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T23_table_sort",
+   "rep": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 5 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T24_text_edit",
+   "rep": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T24_text_edit",
+   "rep": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  },
+  {
+   "task_id": "T24_text_edit",
+   "rep": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "fail_click_rejected": true,
+   "fail_wrongvalue_rejected": true,
+   "ok": true
+  }
+ ]
+}

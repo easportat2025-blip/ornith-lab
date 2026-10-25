@@ -1,0 +1,21 @@
+{
+  "id": "khoadangnguye/gemma12b-eval-r1",
+  "title": "gemma12b-eval-r1",
+  "code_file": "eval.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "khoadangnguye/gemma12b-adapter-r1",
+    "khoadangnguye/gemma12b-gamedata",
+    "khoadangnguye/gemma12b-tools",
+    "khoadangnguye/gemma12b-wheels"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": ["google/gemma-4/transformers/gemma-4-12b-it/2"]
+}

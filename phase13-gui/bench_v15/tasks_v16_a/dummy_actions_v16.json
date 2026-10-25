@@ -1,0 +1,173 @@
+{
+ "T19_wizardsum@0": [
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 321.9 218.8",
+  "TYPE 14",
+  "CLICK 449 218.8",
+  "DONE"
+ ],
+ "T19_wizardsum@1": [
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 321.9 218.8",
+  "TYPE 16",
+  "CLICK 449 218.8",
+  "DONE"
+ ],
+ "T19_wizardsum@2": [
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 262.8 275.7",
+  "CLICK 321.9 218.8",
+  "TYPE 17",
+  "CLICK 449 218.8",
+  "DONE"
+ ],
+ "T20_distractor@0": [
+  "CLICK 383.6 263.2",
+  "DONE"
+ ],
+ "T20_distractor@1": [
+  "CLICK 280.5 263.2",
+  "DONE"
+ ],
+ "T20_distractor@2": [
+  "CLICK 486.7 263.2",
+  "DONE"
+ ],
+ "T21_hiddenval@0": [
+  "CLICK 277.2 281.3",
+  "CLICK 321.9 218.8",
+  "TYPE K",
+  "CLICK 449 218.8",
+  "DONE"
+ ],
+ "T21_hiddenval@1": [
+  "CLICK 277.2 281.3",
+  "CLICK 321.9 218.8",
+  "TYPE 4",
+  "CLICK 449 218.8",
+  "DONE"
+ ],
+ "T21_hiddenval@2": [
+  "CLICK 277.2 281.3",
+  "CLICK 321.9 218.8",
+  "TYPE W",
+  "CLICK 449 218.8",
+  "DONE"
+ ],
+ "T22_keynav@0": [
+  "KEY ArrowDown",
+  "KEY ArrowRight",
+  "KEY ArrowRight",
+  "KEY Enter",
+  "DONE"
+ ],
+ "T22_keynav@1": [
+  "KEY ArrowDown",
+  "KEY ArrowDown",
+  "KEY Enter",
+  "DONE"
+ ],
+ "T22_keynav@2": [
+  "KEY ArrowRight",
+  "KEY Enter",
+  "DONE"
+ ],
+ "T23_undoredo@0": [
+  "CLICK 317.2 247.9",
+  "TYPE aaa",
+  "CLICK 487.8 247.9",
+  "TYPE bbb",
+  "CLICK 658.4 247.9",
+  "TYPE ccc",
+  "CLICK 264.8 310.4",
+  "CLICK 264.8 310.4",
+  "CLICK 330 310.4",
+  "DONE"
+ ],
+ "T23_undoredo@1": [
+  "CLICK 317.2 247.9",
+  "TYPE aaa",
+  "CLICK 487.8 247.9",
+  "TYPE bbb",
+  "CLICK 658.4 247.9",
+  "TYPE ccc",
+  "CLICK 264.8 310.4",
+  "CLICK 264.8 310.4",
+  "CLICK 330 310.4",
+  "DONE"
+ ],
+ "T23_undoredo@2": [
+  "CLICK 317.2 247.9",
+  "TYPE aaa",
+  "CLICK 487.8 247.9",
+  "TYPE bbb",
+  "CLICK 658.4 247.9",
+  "TYPE ccc",
+  "CLICK 264.8 310.4",
+  "CLICK 264.8 310.4",
+  "CLICK 330 310.4",
+  "DONE"
+ ],
+ "T24_multifilter@0": [
+  "CLICK 276.5 247.9",
+  "CLICK 462.2 247.9",
+  "CLICK 500 305.6",
+  "CLICK 293.8 363.2",
+  "DONE"
+ ],
+ "T24_multifilter@1": [
+  "CLICK 276.5 247.9",
+  "CLICK 462.2 247.9",
+  "CLICK 500 305.6",
+  "CLICK 293.8 363.2",
+  "DONE"
+ ],
+ "T24_multifilter@2": [
+  "CLICK 276.5 247.9",
+  "CLICK 462.2 247.9",
+  "CLICK 500 305.6",
+  "CLICK 293.8 363.2",
+  "DONE"
+ ],
+ "T25_compute@0": [
+  "CLICK 330.1 302.1",
+  "TYPE 8",
+  "CLICK 269 359",
+  "DONE"
+ ],
+ "T25_compute@1": [
+  "CLICK 330.1 302.1",
+  "TYPE 10",
+  "CLICK 269 359",
+  "DONE"
+ ],
+ "T25_compute@2": [
+  "CLICK 330.1 302.1",
+  "TYPE 10",
+  "CLICK 269 359",
+  "DONE"
+ ],
+ "T26_distractorlist@0": [
+  "CLICK 307.3 261.7",
+  "CLICK 251 470.7",
+  "DONE"
+ ],
+ "T26_distractorlist@1": [
+  "CLICK 500 279.8",
+  "CLICK 251 470.7",
+  "DONE"
+ ],
+ "T26_distractorlist@2": [
+  "CLICK 307.3 367.3",
+  "CLICK 251 470.7",
+  "DONE"
+ ]
+}

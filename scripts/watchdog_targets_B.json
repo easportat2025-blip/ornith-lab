@@ -1,0 +1,139 @@
+[
+ {
+  "kernel": "dieniw/ornith-gui-sft-v25b",
+  "label": "sft-v25b",
+  "outdir": "phase13-gui/out_sft_v25b",
+  "pattern": "gui_result\\.json|.*\\.log",
+  "post": "scripts\\post_v25b_adapter.ps1"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-b15-v25b",
+  "label": "bench-b15-v25b",
+  "outdir": "phase13-gui/out_bench_b15_v25b",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v155-v25b",
+  "label": "bench-v155-v25b",
+  "outdir": "phase13-gui/out_bench_v155_v25b",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v16-v25b",
+  "label": "bench-v16-v25b",
+  "outdir": "phase13-gui/out_bench_v16_v25b",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-b17-v25b",
+  "label": "bench-b17-v25b",
+  "outdir": "phase13-gui/out_bench_b17_v25b",
+  "pattern": "b17_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-b17-v22",
+  "label": "bench-b17-v22",
+  "outdir": "phase13-gui/out_bench_b17_v22",
+  "pattern": "b17_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-bench-v155-b1",
+  "label": "bench-v155-B",
+  "outdir": "phase13-gui/out_bench_v155_B",
+  "pattern": ".*result\\.json|.*summary\\.json",
+  "post": "scripts\\post_gates\\post_dieniw_ornith-bench-v155-b1.ps1"
+ },
+ {
+  "kernel": "dieniw/ornith-bench-v16-b1",
+  "label": "bench-v16-B",
+  "outdir": "phase13-gui/out_bench_v16_B",
+  "pattern": ".*result\\.json|.*summary\\.json",
+  "post": "scripts\\post_gates\\post_dieniw_ornith-bench-v16-b1.ps1"
+ },
+ {
+  "kernel": "dieniw/ornith-bench-3d-b1",
+  "label": "bench-3d-B",
+  "outdir": "phase13-gui/out_bench_3d_B",
+  "pattern": ".*result\\.json|.*summary\\.json",
+  "post": "scripts\\\\post_gates\\\\post_ornith-bench-3d-b1.ps1"
+ },
+ {
+  "kernel": "dieniw/ornith-bench-3d-hard-b1",
+  "label": "bench-3d-hard-B",
+  "outdir": "phase13-gui/out_bench_3d_hard_B",
+  "pattern": ".*result\\.json|.*summary\\.json",
+  "post": "scripts\\\\post_gates\\\\post_ornith-bench-3d-hard-b1.ps1"
+ },
+ {
+  "label": "desktop-bench-b",
+  "kernel": "dieniw/ornith-gui-desktop-bench-b",
+  "outdir": "phase13-gui/out_desktop_bench_b",
+  "pattern": "desktop_result\\.json|actions\\.jsonl|reward\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v16-v22b",
+  "label": "bench-v16-v22b-B",
+  "outdir": "phase13-gui/out_bench_v16_v22b_B",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v155-v22-old",
+  "label": "bench-v155-v22-old-B",
+  "outdir": "phase13-gui/out_bench_v155_v22_old_B",
+  "pattern": "b15_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v155-v22old",
+  "label": "bench-v155-v22old-B",
+  "outdir": "phase13-gui/out_bench_v155_v22old_B",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-desktop-bench-b3",
+  "label": "desktop-bench-b3",
+  "outdir": "phase13-gui/out_desktop_bench_b3",
+  "pattern": "desktop_result\\.json|actions\\.jsonl|reward\\.json|infra_errors\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v155-v21new",
+  "label": "bench-v155-v21new-B",
+  "outdir": "phase13-gui/out_bench_v155_v21new_B",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v155-v22-b",
+  "label": "bench-v155-v22-b-B",
+  "outdir": "phase13-gui/out_bench_v155_v22_b",
+  "pattern": "b15_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-sft-v24",
+  "label": "sft-v24-B",
+  "outdir": "phase13-gui/out_sft_v24_B",
+  "pattern": "gui_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v155-v24",
+  "label": "bench-v155-v24-B",
+  "outdir": "phase13-gui/out_bench_v155_v24_B",
+  "pattern": "b15_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v16-v24",
+  "label": "bench-v16-v24-B",
+  "outdir": "phase13-gui/out_bench_v16_v24_B",
+  "pattern": "b15_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-bench-v24",
+  "label": "bench-v24-B",
+  "outdir": "phase13-gui/out_bench_v24_B",
+  "pattern": "b15_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "dieniw/ornith-gui-grpo-v1",
+  "label": "grpo-v1-B",
+  "outdir": "phase13-gui/out_grpo_v1_B",
+  "pattern": ".+result.*\\\\.json|.*\\\\.log|.*\\\\.json"
+ }
+]

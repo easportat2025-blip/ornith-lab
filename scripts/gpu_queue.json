@@ -1,0 +1,134 @@
+[
+ {
+  "id": "khoadangnguye/ornith-gui-sft-v23b",
+  "dir": "phase13-gui/kernel_v23b",
+  "note": "train v23b (GLM: rebalance + S9/S10 2 chu ky lap; DeepSeek: guard fail-loud)",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v155-v22-old",
+  "dir": "phase13-gui/kernel_bench_v155_v22_old",
+  "note": "O 2x2: v22 tren task B15.5 CU - tach do sua task vs do data (MiMo)",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v22",
+  "dir": "phase13-gui/kernel_bench_v22",
+  "note": "gate v22 tren B15 (adapter v22 - 5802 row)",
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v22.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v16-v22",
+  "dir": "phase13-gui/kernel_bench_v16_v22",
+  "note": "gate v22 tren B16 DA SUA (task moi) - tach do sua task vs do data",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v155-v22",
+  "dir": "phase13-gui/kernel_bench_v155_v22",
+  "note": "gate v22 tren B15.5 (trang da sua)",
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v155-v22.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-sft-v21",
+  "dir": "phase13-gui/kernel_v21",
+  "needs_dataset": "khoadangnguye/gui-selfplay",
+  "note": "1) train v21 = recipe v18 (action-only) + self-play 123 row (cap 30%)",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-sft-v22",
+  "dir": "phase13-gui/kernel_v22",
+  "note": "train v22 (uu tien cao): 4700 row = synth 1200 + real-ui 792 + traj 816 + targeted 500 + 3D 1200 + policy-replay 332 + selfplay 123",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v21",
+  "dir": "phase13-gui/kernel_bench_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "4) gate v21 tren B15 (baseline v18 = 27.8%; holdout variant2 = 33.3%)",
+  "expect_later": true,
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v21.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v155-v21",
+  "dir": "phase13-gui/kernel_bench_v155_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "5) gate v21 tren B15.5 (T13-T18, task chua rollout)",
+  "expect_later": true,
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v155-v21.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v14-v21",
+  "dir": "phase13-gui/kernel_bench_v14_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "6) regression v14 (3 task, v18 duoc 2/3)",
+  "expect_later": true,
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v14-v21.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v16-v21",
+  "dir": "phase13-gui/kernel_bench_v16_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "7) gate v21 tren B16-A (T19-T26, 24 ep)",
+  "expect_later": true,
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v16-v21.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-rollout-v21",
+  "dir": "phase13-gui/kernel_rollout_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "vong self-play 2: model v21 rollout tren B15 (72 ep) -> data cho v23",
+  "expect_later": true,
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-3d-v21",
+  "dir": "phase13-gui/kernel_bench_3d_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "gate v21 tren bench 3D grounding (metric track 3D)",
+  "expect_later": true,
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-3d-v21.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-3d-hard-v21",
+  "dir": "phase13-gui/kernel_bench_3d_hard_v21",
+  "after": "khoadangnguye/ornith-gui-sft-v21",
+  "needs_dataset": "khoadangnguye/ornith-gui-lora-v21",
+  "note": "gate v21 tren bench 3D HARD (B16-3D)",
+  "expect_later": true,
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-3d-hard-v21.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-bench-v15-think0",
+  "dir": "phase13-gui/kernel_bench_v18_think0",
+  "note": "2) do lever C1: enable_thinking=False tren B15 voi adapter v18",
+  "post": "scripts\\post_gates\\post_khoadangnguye_ornith-gui-bench-v15-think0.ps1",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-desktop-bench-smoke2",
+  "dir": "phase13-gui/kernel_desktop_bench_smoke2",
+  "note": "DESKTOP-ENV SMOKE (CPU, internet ON): chung minh env 8 task + reward + anh (policy dummy) [slug doi vi slug cu bi Kaggle 400]",
+  "paused": true
+ },
+ {
+  "id": "khoadangnguye/ornith-gui-desktop-bench-a",
+  "dir": "phase13-gui/kernel_desktop_bench_a",
+  "note": "DESKTOP-BENCH phan A (GLM split de chay song song 2 acc)"
+ }
+]

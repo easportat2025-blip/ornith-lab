@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Quiz Calc — desktop env</title>
+<style>
+  body{margin:0;background:#f3f0ea;font:15px system-ui,sans-serif;color:#23262b}
+  .wrap{max-width:820px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#6d6f76;font-size:13px;margin-bottom:14px}
+  .card{background:#fff;border:1px solid #ddd8cc;border-radius:10px;padding:18px;margin-bottom:14px}
+  .q{margin-bottom:16px;padding:12px 14px;border:1px solid #e3ded2;border-radius:8px;background:#fbfaf7}
+  .q .expr{font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+  .ans{width:150px;padding:9px 10px;border:1px solid #c3bdb0;border-radius:6px;font-size:16px}
+  .ans:focus{outline:2px solid #b4762a}
+  .mark{font-size:14px;margin-left:10px;color:#6d6f76}
+  .mark.ok{color:#1f7a3d}
+  .mark.bad{color:#b3261e}
+  button{background:#b4762a;color:#fff;border:0;border-radius:6px;padding:10px 20px;font-size:15px;cursor:pointer;margin-top:4px}
+  #status{font-size:14px;color:#8a5b12;min-height:20px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Quiz Calc</h1>
+  <div class="sub">Answer both questions, then submit. Press the Check button after each answer.</div>
+  <div class="card">
+    <div class="q" id="q1">
+      <div class="expr" id="e1">? + ? = ?</div>
+      <input type="text" class="ans" id="a1" autocomplete="off">
+      <span class="mark" id="m1"></span>
+      <div><button class="chk" id="c1">Check answer 1</button></div>
+    </div>
+    <div class="q" id="q2">
+      <div class="expr" id="e2">? - ? = ?</div>
+      <input type="text" class="ans" id="a2" autocomplete="off">
+      <span class="mark" id="m2"></span>
+      <div><button class="chk" id="c2">Check answer 2</button></div>
+    </div>
+    <button id="submit">Submit answers</button>
+    <div id="status"></div>
+  </div>
+</div>
+<script>
+/* TASK-26 T22_calc
+   Bien NGAU NHIEN: 2 bieu thuc (a+b, a-b) doi moi lan chay.
+   Checker DOC DOM (text bieu thuc) va TIN LAI trong Python. */
+function ri(a,b){return a+Math.floor(Math.random()*(b-a+1));}
+const Q1={a:ri(11,89),b:ri(3,40),op:"+"};
+const Q2={a:ri(40,95),b:ri(5,35),op:"-"};
+const ans1=Q1.a+Q1.b, ans2=Q2.a-Q2.b;
+document.getElementById("e1").textContent=Q1.a+" + "+Q1.b+" = ?";
+document.getElementById("e2").textContent=Q2.a+" - "+Q2.b+" = ?";
+
+const a1=document.getElementById("a1"),a2=document.getElementById("a2"),
+      m1=document.getElementById("m1"),m2=document.getElementById("m2"),
+      statusEl=document.getElementById("status"),submit=document.getElementById("submit");
+let ok1=false,ok2=false;
+function snapState(){window.__state={a1:a1.value,a2:a2.value,ok1:ok1,ok2:ok2,
+  status:statusEl.textContent};}
+a1.addEventListener("input",snapState);a2.addEventListener("input",snapState);
+function setMark(el,txt,cls){el.textContent=txt;el.className="mark"+(cls?" "+cls:"");}
+document.getElementById("c1").addEventListener("click",function(){
+  const v=a1.value.trim();
+  if(v===String(ans1)){ok1=true;setMark(m1,"Correct","ok");}
+  else{ok1=false;setMark(m1,"Not yet - try again","bad");}
+});
+document.getElementById("c2").addEventListener("click",function(){
+  const v=a2.value.trim();
+  if(v===String(ans2)){ok2=true;setMark(m2,"Correct","ok");}
+  else{ok2=false;setMark(m2,"Not yet - try again","bad");}
+});
+submit.addEventListener("click",function(){
+  if(ok1&&ok2) statusEl.textContent="Both answers accepted.";
+  else statusEl.textContent="Check both answers before submitting.";
+  snapState();
+});
+snapState();
+window.__targets=(function(){
+  const out={};
+  ["a1","c1","a2","c2","submit"].forEach(function(id){
+    const r=document.getElementById(id).getBoundingClientRect();
+    out[id]=[Math.round((r.left+r.width/2)/window.innerWidth*1000),Math.round((r.top+r.height/2)/window.innerHeight*1000)];
+  });
+  return out;
+})();
+</script>
+</body>
+</html>

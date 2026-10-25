@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2048 — desktop env</title>
+<style>
+  body{margin:0;background:#faf8ef;font:16px system-ui,sans-serif;display:flex;
+       flex-direction:column;align-items:center;justify-content:center;height:100vh}
+  h1{font-size:22px;margin:0 0 4px}
+  #score{font-size:15px;margin-bottom:10px;color:#776e65}
+  #board{display:grid;grid-template-columns:repeat(4,64px);gap:8px;
+         background:#bbada0;padding:8px;border-radius:6px}
+  .t{width:64px;height:64px;display:flex;align-items:center;justify-content:center;
+     font-size:26px;font-weight:700;border-radius:4px;background:#cdc1b4;color:#776e65}
+  .v2{background:#eee4da}.v4{background:#ede0c8}.v8{background:#f2b179;color:#f9f6f2}
+  .v16{background:#f59563;color:#f9f6f2}.v32{background:#f67c5f;color:#f9f6f2}
+  .v64{background:#f65e3b;color:#f9f6f2}.v128{background:#edcf72;color:#f9f6f2}
+  .v256{background:#edcc61;color:#f9f6f2}.v512{background:#edc850;color:#f9f6f2}
+  .v1024{background:#edc53f;color:#f9f6f2}
+  #hint{margin-top:12px;color:#776e65;font-size:13px}
+</style>
+</head>
+<body>
+<h1>2048</h1>
+<div id="score">Score: <span id="s">0</span></div>
+<div id="board"></div>
+<div id="hint">Arrow keys / WASD to move. Goal: reach 2048.</div>
+<script>
+const N=4;
+let grid, score;
+function reset(){grid=Array.from({length:N},()=>Array(N).fill(0));score=0;
+  const b=document.getElementById('board');b.innerHTML='';
+  for(let i=0;i<N*N;i++){const d=document.createElement('div');d.className='t';d.id='c'+i;b.appendChild(d);}render();}
+function render(){for(let i=0;i<N*N;i++){const v=grid[(i/N)|0][i%N];
+  const el=document.getElementById('c'+i);el.textContent=v||'';el.className='t'+(v?' v'+v:'');}
+  document.getElementById('s').textContent=score;window.__score=score;
+  window.__grid=grid.map(r=>r.slice());}
+function slide(row){const a=row.filter(x=>x);for(let i=a.length-1;i>0;i--){if(a[i]===a[i-1]){a[i]*=2;a[i-1]=0;score+=a[i];}}
+  while(a.length<N)a.push(0);return a;}
+function move(dir){const old=JSON.stringify(grid);
+  if(dir==='l'){for(let r=0;r<N;r++)grid[r]=slide(grid[r]);}
+  else if(dir==='r'){for(let r=0;r<N;r++)grid[r]=slide(grid[r].reverse()).reverse();}
+  else if(dir==='u'){for(let c=0;c<N;c++){const col=grid.map(r=>r[c]);const s=slide(col);for(let r=0;r<N;r++)grid[r][c]=s[r];}}
+  else if(dir==='d'){for(let c=0;c<N;c++){const col=grid.map(r=>r[c]).reverse();const s=slide(col).reverse();for(let r=0;r<N;r++)grid[r][c]=s[r];}}
+  if(JSON.stringify(grid)!==old){addTile();render();}}
+function addTile(){const e=[];for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!grid[r][c])e.push([r,c]);
+  if(!e.length)return;const p=e[Math.floor(Math.random()*e.length)];grid[p[0]][p[1]]=2;}
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();
+  if(['arrowleft','arrowright','arrowup','arrowdown','a','d','w','s'].includes(k)){
+    e.preventDefault();
+    move(k==='arrowleft'||k==='a'?'l':k==='arrowright'||k==='d'?'r':k==='arrowup'||k==='w'?'u':'d');}});
+reset();addTile();render();
+</script>
+</body>
+</html>

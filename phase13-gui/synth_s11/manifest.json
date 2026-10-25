@@ -1,0 +1,17 @@
+{
+ "name": "ornith-gui-synth-s11",
+ "rows": 530,
+ "episodes": 200,
+ "canvas": [
+  768,
+  512
+ ],
+ "families": [
+  "S11-scroll",
+  "S11-move",
+  "S11-drag",
+  "S12-error_recovery",
+  "S13-keyboard_nav"
+ ],
+ "note": "S11 scroll/move/drag + S12 error-recovery + S13 keyboard-nav"
+}

@@ -1,0 +1,193 @@
+{
+ "T13_wizard@0": [
+  "CLICK 322.2 440.3",
+  "CLICK 500 275",
+  "TYPE Alexanderthegreat",
+  "CLICK 500 372.2",
+  "TYPE user@example.com",
+  "CLICK 322.2 440.3",
+  "CLICK 500 275",
+  "TYPE Berlin",
+  "CLICK 500 372.2",
+  "TYPE 30",
+  "CLICK 322.2 440.3",
+  "CLICK 305.1 234",
+  "CLICK 356.5 290.3",
+  "DONE"
+ ],
+ "T13_wizard@1": [
+  "CLICK 322.2 440.3",
+  "CLICK 500 275",
+  "TYPE Alexanderthegreat",
+  "CLICK 500 372.2",
+  "TYPE user@example.com",
+  "CLICK 322.2 440.3",
+  "CLICK 500 275",
+  "TYPE Berlin",
+  "CLICK 500 372.2",
+  "TYPE 30",
+  "CLICK 322.2 440.3",
+  "CLICK 305.1 234",
+  "CLICK 356.5 290.3",
+  "DONE"
+ ],
+ "T13_wizard@2": [
+  "CLICK 322.2 440.3",
+  "CLICK 500 275",
+  "TYPE Alexanderthegreat",
+  "CLICK 500 372.2",
+  "TYPE user@example.com",
+  "CLICK 322.2 440.3",
+  "CLICK 500 275",
+  "TYPE Berlin",
+  "CLICK 500 372.2",
+  "TYPE 30",
+  "CLICK 322.2 440.3",
+  "CLICK 305.1 234",
+  "CLICK 356.5 290.3",
+  "DONE"
+ ],
+ "T14_alerts@0": [
+  "CLICK 500 207",
+  "KEY End",
+  "CLICK 500 629.2",
+  "CLICK 500 500.1",
+  "DONE"
+ ],
+ "T14_alerts@1": [
+  "CLICK 500 207",
+  "KEY End",
+  "CLICK 500 629.2",
+  "CLICK 500 500.1",
+  "DONE"
+ ],
+ "T14_alerts@2": [
+  "CLICK 500 207",
+  "KEY End",
+  "CLICK 500 629.2",
+  "CLICK 500 500.1",
+  "DONE"
+ ],
+ "T15_dialog@0": [
+  "CLICK 255.9 189.6",
+  "CLICK 500 493.8",
+  "KEY End",
+  "CLICK 282 857.6",
+  "CLICK 690.6 857.6",
+  "CLICK 335.9 311.8",
+  "TYPE RF-4821",
+  "CLICK 246.4 385.4",
+  "CLICK 380.1 545.1",
+  "DONE"
+ ],
+ "T15_dialog@1": [
+  "CLICK 255.9 189.6",
+  "CLICK 500 493.8",
+  "KEY End",
+  "CLICK 282 857.6",
+  "CLICK 690.6 857.6",
+  "CLICK 335.9 311.8",
+  "TYPE RF-7305",
+  "CLICK 246.4 385.4",
+  "CLICK 380.1 545.1",
+  "DONE"
+ ],
+ "T15_dialog@2": [
+  "CLICK 255.9 189.6",
+  "CLICK 500 493.8",
+  "KEY End",
+  "CLICK 282 857.6",
+  "CLICK 690.6 857.6",
+  "CLICK 335.9 311.8",
+  "TYPE RF-1188",
+  "CLICK 246.4 385.4",
+  "CLICK 380.1 545.1",
+  "DONE"
+ ],
+ "T16_clipboard2@0": [
+  "CLICK 319.1 233.3",
+  "KEY ctrl+a",
+  "KEY ctrl+c",
+  "CLICK 680.9 233.3",
+  "KEY ctrl+v",
+  "CLICK 319.1 384.7",
+  "KEY ctrl+a",
+  "KEY ctrl+c",
+  "CLICK 680.9 384.7",
+  "KEY ctrl+v",
+  "CLICK 561.9 482.6",
+  "DONE"
+ ],
+ "T16_clipboard2@1": [
+  "CLICK 319.1 233.3",
+  "KEY ctrl+a",
+  "KEY ctrl+c",
+  "CLICK 680.9 233.3",
+  "KEY ctrl+v",
+  "CLICK 319.1 384.7",
+  "KEY ctrl+a",
+  "KEY ctrl+c",
+  "CLICK 680.9 384.7",
+  "KEY ctrl+v",
+  "CLICK 561.9 482.6",
+  "DONE"
+ ],
+ "T16_clipboard2@2": [
+  "CLICK 319.1 233.3",
+  "KEY ctrl+a",
+  "KEY ctrl+c",
+  "CLICK 680.9 233.3",
+  "KEY ctrl+v",
+  "CLICK 319.1 384.7",
+  "KEY ctrl+a",
+  "KEY ctrl+c",
+  "CLICK 680.9 384.7",
+  "KEY ctrl+v",
+  "CLICK 561.9 482.6",
+  "DONE"
+ ],
+ "T17_reorder@0": [
+  "CLICK 409.4 348.6",
+  "CLICK 161.5 599.3",
+  "DONE"
+ ],
+ "T17_reorder@1": [
+  "CLICK 409.4 268.1",
+  "CLICK 161.5 599.3",
+  "DONE"
+ ],
+ "T17_reorder@2": [
+  "CLICK 409.4 509.7",
+  "CLICK 161.5 599.3",
+  "DONE"
+ ],
+ "T18_countsubmit@0": [
+  "CLICK 178.1 205.6",
+  "CLICK 245.4 205.6",
+  "CLICK 312.6 205.6",
+  "CLICK 379.8 205.6",
+  "CLICK 198.3 352.1",
+  "DONE"
+ ],
+ "T18_countsubmit@1": [
+  "CLICK 178.1 205.6",
+  "CLICK 245.4 205.6",
+  "CLICK 312.6 205.6",
+  "CLICK 379.8 205.6",
+  "CLICK 447 205.6",
+  "CLICK 514.3 205.6",
+  "CLICK 198.3 352.1",
+  "DONE"
+ ],
+ "T18_countsubmit@2": [
+  "CLICK 178.1 205.6",
+  "CLICK 245.4 205.6",
+  "CLICK 312.6 205.6",
+  "CLICK 379.8 205.6",
+  "CLICK 447 205.6",
+  "CLICK 514.3 205.6",
+  "CLICK 581.5 205.6",
+  "CLICK 198.3 352.1",
+  "DONE"
+ ]
+}

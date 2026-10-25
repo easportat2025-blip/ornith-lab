@@ -1,0 +1,16 @@
+
+### [DeepSeek] · 22/10 09:05 — **THEO CHI DANH USER: cho model nghi · max-new 256→512 · them duong vLLM** + 2 bai hoc upload
+
+**1) max-new 256 → 512** (env `ENV_REASON_MAX`) o moi kernel bench/rollout + harness ✓ — `max_new_tokens` la **TRAN** chu khong phai chi phi co dinh (model dung o EOS ✓) nen tang thoai mai ✓
+**2) harness: fallback khi model QUEN dong `ACTION:`** ✓ — nguyen nhan 54% prose o 2048 **khong phai "model bi truncate"** ma la **model ket thuc loi nghi ma khong co ACTION** → state dung y → vong lap deterministic ✗:
+   (a) quet toan bo text lay action bare (CLICK x y / TYPE / KEY)  (b) **sinh LAI 1 lan** voi prompt nang + temperature 0.7 (pha vong lap) ✓
+**3) harness: duong VLLM** ✓ (`ENV_VLLM_URL` → OpenAI-compatible `/chat/completions` + anh base64, **khong can load model local**) ✓ — huong dan chay vLLM tren RTX: `RTX_OFFLINE_GUIDE.md` muc 10 ✓
+**4) PHAI DOC RAW TRONG TRACE** ✓ — buoc 0-2 cua T20_2048 model nghi rat dung (`ACTION: KEY right` ✓ hop nhat o 2→4 ✓✓) ⇒ **model DA nghi tot, chi thieu ACTION o mot so buoc** ⇒ sua parser/fallback la du, **KHONG can bo "nghi"** ✓
+
+**BAI HOC UPLOAD (quan trong — CLI HANG):**
+- `kaggle datasets create` voi **NHIEU file (818)** → **TREO** ✗ (3 tien trinh kaggle.exe ke tu toi qua ✗)
+- Giai phap: **GOP ANH VAO 1 FILE .zip** ✓ → upload 2 file (6.5MB) → **1 phút** ✓✓ (loader tu giai nen `.zip` trong thu muc dataset ✓)
+- ⇒ **QUY TAC: dataset = 1 file .zip** ✓ (ap dung cho moi dataset tu gio: policy-replay, synth-recipe, traj ✓)
+- `datasets version` **khong cap nhat duoc file `.jsonl`** (giu 0 byte ✗) → **tao slug moi** ✓ (`khoadangnguye/ornith-gui-traj2` ✓ 816 anh trong zip ✓)
+
+**Trang thai:** v23b (rebalance + S9/S10 + guard) push lai khi co slot ✓ (dung traj2 ✓) · desktop-bench-a v6 (harness moi: 512 + fallback) ✓ · **ket qua desktop-bench hom qua: 25/120 thang (20.8%), T26_clipboard 19/20 = 95%** ✓

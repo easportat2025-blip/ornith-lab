@@ -1,0 +1,31 @@
+{
+  "id": "dieniw/ornith-probe-inet-gpu-1024",
+  "title": "ornith-probe-inet-gpu-1024",
+  "code_file": "probe.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "enable_tpu": false,
+  "machine_shape": "NvidiaRtxPro6000",
+  "dataset_sources": [
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4",
+    "dieniw/ornith-gui-real-fixtures",
+    "dieniw/ornith-gui-real-ui",
+    "dieniw/gui-selfplay",
+    "dieniw/ornith-gui-traj",
+    "dieniw/ornith-gui-synth-recipe",
+    "dieniw/ornith-gui-train3d",
+    "dieniw/ornith-gui-train3d-hard",
+    "dieniw/ornith-policy-replay-data",
+    "dieniw/ornith-gui-desktop-replay",
+    "dieniw/ornith-gui-synth-s11"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

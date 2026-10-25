@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T01 signup</title>
+<style>
+  :root { --accent:#2563eb; --bg:#f4f5f7; }
+  body.v1 { --accent:#059669; --bg:#f0f7f2; }
+  body.v2 { --accent:#d97706; --bg:#faf5ee; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); margin:0; padding:24px; }
+  .card { background:#fff; max-width:520px; margin:36px auto; padding:26px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+  h1 { font-size:19px; margin:0 0 14px; color:var(--accent); }
+  label { display:block; font-size:13px; margin:12px 0 4px; color:#444; }
+  input[type=text], input[type=password] { width:100%; box-sizing:border-box; padding:9px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; }
+  .row { display:flex; align-items:center; gap:8px; margin-top:14px; font-size:13px; }
+  .row label { margin:0; }
+  button { margin-top:18px; background:var(--accent); color:#fff; border:0; padding:10px 18px; border-radius:6px; font-size:14px; cursor:pointer; }
+  #err { display:none; background:#fee2e2; color:#b91c1c; padding:8px 10px; border-radius:6px; font-size:13px; margin-bottom:10px; }
+  #success { display:none; background:#dcfce7; color:#166534; padding:14px; border-radius:6px; font-size:15px; }
+</style>
+</head>
+<body class="v0" data-created="0">
+<div class="card">
+  <h1 id="title">Create your account</h1>
+  <div id="err"></div>
+  <form id="form" onsubmit="return false">
+    <label id="l_email" for="email">Email address</label>
+    <input type="text" id="email" autocomplete="off">
+    <label id="l_pass" for="pass">Password</label>
+    <input type="password" id="pass" autocomplete="off">
+    <label id="l_confirm" for="confirm">Confirm password</label>
+    <input type="password" id="confirm" autocomplete="off">
+    <div class="row">
+      <input type="checkbox" id="terms">
+      <label for="terms" id="l_terms">I accept the terms of service</label>
+    </div>
+    <button type="button" id="submit">Create account</button>
+  </form>
+  <div id="success">Account created — welcome!</div>
+</div>
+<script>
+"use strict";
+const V = Math.min(2, Math.max(0, parseInt(new URLSearchParams(location.search).get("v") || "0", 10)));
+document.body.className = "v" + V;
+const CFG = [
+  {title:"Create your account", btn:"Create account", min:8,  emailL:"Email address",    terms:"I accept the terms of service"},
+  {title:"Join us today",       btn:"Sign up",        min:10, emailL:"Your email",       terms:"I have read and agree to the terms"},
+  {title:"Register",            btn:"Register",       min:12, emailL:"E-mail",           terms:"Accept terms and conditions"}
+][V];
+document.body.dataset.min = String(CFG.min);
+document.getElementById("title").textContent = CFG.title;
+document.getElementById("submit").textContent = CFG.btn;
+document.getElementById("l_email").textContent = CFG.emailL;
+document.getElementById("l_terms").textContent = CFG.terms;
+const err = document.getElementById("err"), ok = document.getElementById("success");
+document.getElementById("submit").addEventListener("click", () => {
+  const email = document.getElementById("email").value.trim();
+  const pass = document.getElementById("pass").value;
+  const conf = document.getElementById("confirm").value;
+  const terms = document.getElementById("terms").checked;
+  const problems = [];
+  if (!email.includes("@")) problems.push("email must contain @");
+  if (pass.length < CFG.min) problems.push("password must be at least " + CFG.min + " characters");
+  if (conf !== pass) problems.push("passwords do not match");
+  if (!terms) problems.push("terms must be accepted");
+  if (problems.length) {
+    err.style.display = "block";
+    err.textContent = "Please fix: " + problems.join("; ");
+    ok.style.display = "none";
+    document.body.dataset.created = "0";
+  } else {
+    err.style.display = "none";
+    ok.style.display = "block";
+    document.body.dataset.created = "1";
+  }
+});
+window.__task_ok = false;
+</script>
+</body>
+</html>

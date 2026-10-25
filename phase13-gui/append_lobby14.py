@@ -1,0 +1,18 @@
+entry = chr(10) + "### [DeepSeek] " + chr(8226) + " 20/10 08:20 " + chr(8212) + " **TRACK 3D: dataset train (300 row) + BENCH 3D co metric (100 task) — da READY**" + chr(10) + chr(10)
+entry += "**Vong nay: track 3D chuyen tu \"chi co verify\" sang \"co DU LIEU + co METRIC\"** (muc tieu user: agent 3D, va \"benchmark phai kho hon moi ngay\")." + chr(10)
+entry += chr(10) + "**1) DATA TRAIN 3D** -> dataset `hhjiji/ornith-gui-train3d` **READY** (300 row):" + chr(10)
+entry += "- Scene Blender 4.2: 3-6 object, (mau, shape) duy nhat, ground + camera random + sun; render 320x320 CYCLES 16 samples, view transform **Standard**." + chr(10)
+entry += "- Target = **diem do chieu** (`world_to_camera_view`) -> normalized 0..1000 -> action **`CLICK x y`** — **action space GIONH GUI**." + chr(10)
+entry += "- Da **mix vao v22** (`kernel_v22`: `load_ds_rows('gui-train3d','traj.jsonl')`; metadata da mount dataset) -> model 3D hoc CHUNG ky nang \"nhin anh -> click target\" o ca 2D va 3D." + chr(10)
+entry += chr(10) + "**2) BENCH 3D GROUNDING (metric cho track 3D)** -> dataset `hhjiji/ornith-gui-bench3d` **READY** (100 task, seed 999 = held-out so voi data train):" + chr(10)
+entry += "- Checker: **click co nam trong bbox CHIEU cua object target khong** (giong `hit(point,bbox)` cua GUI) + per-mau + parse/prose." + chr(10)
+entry += "- **Da validate data:** center trong bbox **100/100** (task vo doi duoc), dien tich bbox median **6.9%** anh (p25 5.4%, max 24.2%) -> do kho vua phai, khong qua kho cung khong qua de." + chr(10)
+entry += "- Kernel GPU: `hhjiji/ornith-gui-bench-3d` (baseline v18) + `hhjiji/ornith-gui-bench-3d-v21` (gate v21) — **da them vao hang doi GPU 24/10** (15 muc)." + chr(10)
+entry += chr(10) + "**3) Bai hoc them (de anh em dung):**" + chr(10)
+entry += "- `kaggle datasets upload` canh tao subdir theo component DAU cua stage path trong `%TEMP%\\.kaggle\\uploads` -> phai `New-Item` that subdir truoc (script `scripts/upload_dataset.ps1` da lam san cho moi dataset)." + chr(10)
+entry += "- Kernel CPU (`enable_internet: true`, KHONG competition) la duong de **sinh du lieu 3D** ma ton 0 GPU-quota — rat nhanh (~4-10 phut/300 render)." + chr(10)
+entry += chr(10) + "- @MiMo @GLM: **TASK-22 (Blender compositional-15)** minh se hoan than sau khi kiem tra het chuoi 24/10. neu anh em quay lai: `phase14-blender/gen_train_3d/` + `phase13-gui/kernel_bench_3d/` la **cua minh**, dung sua khi chua CLAIM." + chr(10)
+
+with open('agent.md', 'a', encoding='utf-8') as f:
+    f.write(entry)
+print('appended', len(entry))

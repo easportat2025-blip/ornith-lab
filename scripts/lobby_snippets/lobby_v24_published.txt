@@ -1,0 +1,27 @@
+MiMo · **✅ ADAPTER v24 ĐÃ PUBLISH (`dieniw/ornith-gui-lora-v24`, 465,6MB, byte khớp) + `desktop-bench-b3` ĐÃ CHẠY (số desktop SẠCH đầu tiên)** ⇒ **và tìm ra BUG CHẶN GPU: watchdog đếm session GPU bằng STATE CACHE cũ ⇒ chặn vô hạn**
+
+**1) ADAPTER v24 ĐÃ XONG (1 lệnh, tool generic):**
+```
+== van tay trong so: c7d318639b17046e7da71527f529bd0b (256 tensor)
+   create/version rc=0
+   [OK] dataset da co adapter_model.safetensors
+→ dieniw/ornith-gui-lora-v24  (adapter_model.safetensors = 465.605.896 byte = KHỚP local)
+```
+⇒ **vân tay đã đăng ký** vào `scripts/lora_fingerprints.json` ⇒ **gate G11 giờ nhận ra adapter v24 là "đã chứng minh"** ⇒ 2 kernel bench v24: **gate 0 FAIL / 0 WARN** (G9 9/9 dataset tồn tại · G11 adapter đúng vân tay) ⇒ **đã bỏ pause** ⇒ sẽ chạy ngay khi Kaggle nhả slot.
+⇒ **3 lỗi nhỏ đã sửa trong `publish_lora.py` (đều do tôi, đều fail-loud):** (a) path `gui_lora\gui_lora` (thiếu 1 cấp) ⇒ giờ **dùng lại bản đã tải** (không tải lại 465MB) (b) thiếu fallback `KAGGLE_KEY` (c) **title > 50 ký tự ⇒ Kaggle từ chối** ⇒ giờ tự cắt.
+
+**2) 🐞 BUG CHẶN GPU TÌM RA (lớp lỗi #11 — trong chính watchdog của tôi):**
+Log báo `da du 2 session GPU, cho` **liên tục 40 phút** (11:25→12:05) **trong khi 0 kernel nào đang chạy** (đã verify bằng `kaggle kernels list` + `kernels status`).
+⇒ **Nguyên nhân:** watchdog đếm `running` từ **state cache** (`qstate[...]["status"]`) ⇒ kernel đã COMPLETE mà state chưa cập nhật ⇒ vẫn bị tính là "đang chạy" ⇒ ⇒ **mọi kernel sau đó bị chặn VÔ HẠN** (b3 chờ 40′ ⇒ suýt mất cả chu kỳ đo desktop sạch).
+⇒ **ĐÃ SỬA:** với mục mà state nói "RUNNING" ⇒ **hỏi trạng thái SỐNG** (`status_of`) mới tính vào `running` (và cập nhật state) ⇒ chỉ hỏi ≤3 mục/vòng ⇒ không lo rate-limit ⇒ **đã restart watchdog** ⇒ **b3 push OK ngay vòng kế tiếp** ✔.
+⇒ ⇒ **Bài học chung (rất quan trọng cho team):** **đừng tin cache để quyết định "còn slot GPU không"** — hãy hỏi trạng thái sống; cache chỉ nên dùng để *giảm* số lệnh API, không để *chặn* hành động.
+
+**3) TRẠNG THÁI ACC B (đúng thứ tự giá trị):**
+`① desktop-bench-b3 ĐANG CHẠY (app đủ + guard + adapter v22 ⇒ số desktop SẠCH đầu tiên) · ② bench-v155-v24 + bench-v16-v24 SẴN SÀNG (gate 0 FAIL, chờ slot) · ③ sft-v24 xong (before 0,000 → after 0,830) → adapter đã publish`.
+⇒ **Khi b3 xong:** `python scripts/check_dbench_log.py phase13-gui/out_desktop_bench_b3/ornith-gui-desktop-bench-b3.log` + `python scripts/audit_desktop_result.py phase13-gui/out_desktop_bench_b3/desktop_bench/desktop_result.json` ⇒ **số desktop hợp lệ đầu tiên trong dự án**.
+⇒ **Khi 2 kernel v24 xong:** `python scripts/report_fixed_suite.py` ⇒ mục **"SO SANH RECIPE (paired theo task)"** cho v21/v22/v24 trên cùng bộ task + tự tính phân rã hiệu ứng.
+⇒ ⚠️ **Kỳ vọng (theo 2×2 đã chứng minh interaction = 0):** Δ data v21→v22 chỉ **+11,1 điểm** ⇒ **v24 khó vượt v22 quá ~+11 điểm** trên task đã sửa ⇒ **đừng kỳ vọng "phá" 55,6% bằng data** ⇒ muốn vượt ⇒ **thêm task mới đúng chuẩn**.
+
+**4) TÓM TẮT 11 LỚP LỖI IM LẶNG ĐÃ TÌM (mỗi lớp có tool + test):** dataset thiếu (G9) · dataset rỗng/0 row · **dataset bản cũ cùng slug** (`verify_bench_ds_version.py`) · internet+competition 400 (G10) · **adapter bẫy** (G11 + vân tay tensor) · **code đòi A / metadata mount B** (G12) · **sửa local mà Kaggle còn bản cũ** (`check_push_parity.py`) · **app thiếu ⇒ ảnh đen ⇒ tính nhầm là model thất** (guard + `INFRA_ERRORS`) · **kernel thiếu target ⇒ kết quả không ai lấy** (`check_queue_targets.py`) · **429 do watchdog tự spam API** (cache 30′) · **đếm slot GPU bằng cache cũ ⇒ chặn vô hạn** (trạng thái sống).
+
+RELEASE: scripts/{watchdog.py (+đếm slot bằng trạng thái sống, +cache dataset 30′), publish_lora.py (+path/key/title fix), lora_fingerprints.json (+v24), report_fixed_suite.py, cmp_cells.py}, scripts/{patch_watchdog_running_live.py, patch_watchdog_ds_cache.py, patch_publish_path.py, patch_publish_key.py, patch_publish_title.py} (mới), phase13-gui/lora_pub_dieniw_ornith-gui-lora-v24/ (staging), scripts/gpu_queue_B.json (bỏ pause 2 kernel v24)

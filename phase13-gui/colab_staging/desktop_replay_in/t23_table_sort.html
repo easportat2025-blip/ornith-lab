@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data Table — desktop env</title>
+<style>
+  body{margin:0;background:#f6f7f9;font:15px system-ui,sans-serif;color:#1f2430}
+  .wrap{max-width:900px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#6b7280;font-size:13px;margin-bottom:14px}
+  .intro{background:#fff;border:1px solid #dfe3ea;border-radius:10px;padding:14px 16px;margin-bottom:12px;color:#414a5e;font-size:14px;line-height:1.5}
+  .card{background:#fff;border:1px solid #dfe3ea;border-radius:10px;padding:16px}
+  table{border-collapse:collapse;width:100%}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #eceff4;font-size:15px}
+  th{background:#f0f3f8;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:#5b6478}
+  th.sortable{cursor:pointer;user-select:none}
+  th.sortable:hover{background:#e4eaf5}
+  tr.sel{background:#e6f0ff}
+  tr.sel td:first-child::after{content:"  <- selected";color:#2f6fd0;font-size:12px}
+  #hint{margin-top:10px;font-size:13px;color:#6b7280}
+  button{background:#2f6fd0;color:#fff;border:0;border-radius:6px;padding:10px 20px;font-size:15px;cursor:pointer;margin-top:12px;position:fixed;right:20px;bottom:20px}
+  button:disabled{background:#aeb6c6;cursor:not-allowed}
+  #status{font-size:14px;color:#2f6fd0;min-height:20px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Quarterly Data</h1>
+  <div class="sub">The table is longer than the window - scroll to see every row.</div>
+  <div class="intro">
+    This report lists every sales region for the quarter. Each region has an owner and a
+    score. The table does not fit on the screen: <b>scroll down to the bottom</b> to see the
+    last rows before you decide which row has the highest score. Click the <b>Score</b> column
+    header once for ascending order and again for descending order.
+  </div>
+  <div class="card">
+    <table>
+      <thead><tr>
+        <th>Region</th>
+        <th>Owner</th>
+        <th class="sortable" id="hscore">Score <span id="arrow"></span></th>
+      </tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+    <div id="hint">Click the Score header to sort. Click it again to reverse the order.</div>
+    <button id="confirm" disabled>Confirm selection</button>
+    <div id="status"></div>
+  </div>
+  <div id="data" style="display:none"></div>
+</div>
+<script>
+/* TASK-26 T23_table_sort
+   Bien NGAU NHIEN: 12 hang (region/owner/score) doi moi lan chay.
+   Checker DOC DOM: #data (du lieu goc, khong doi) + tbody (thu tu hien tai)
+   -> TIN LAI thu tu mong doi trong Python. KHONG tin co-flag.
+   Bang dai hon viewport => agent phai SCROLL moi thay duoc hang cuoi. */
+const REG=["North","South","East","West","Central","Harbour","Ridge","Valley",
+           "Coast","Delta","Prairie","Summit"];
+const OWN=["Ivy","Jonas","Kira","Liam","Mona","Nils","Opal","Pavel","Quinn",
+           "Rosa","Sami","Tara"];
+const DATA=[];
+for(let i=0;i<12;i++)
+  DATA.push({region:REG[i],owner:OWN[i],score:10+Math.floor(Math.random()*89)});
+document.getElementById("data").textContent=JSON.stringify(DATA);
+
+const tb=document.getElementById("tb"),hscore=document.getElementById("hscore"),
+      arrow=document.getElementById("arrow"),confirm=document.getElementById("confirm"),
+      statusEl=document.getElementById("status");
+let order=DATA.map((r,i)=>i), dir=0, sel=null;
+function render(){
+  tb.innerHTML="";
+  order.forEach(function(oi){
+    const r=DATA[oi],tr=document.createElement("tr");
+    if(sel===oi) tr.className="sel";
+    tr.innerHTML="<td>"+r.region+"</td><td>"+r.owner+"</td><td>"+r.score+"</td>";
+    tr.addEventListener("click",function(){
+      sel=oi;confirm.disabled=false;
+      statusEl.textContent="Selected row "+r.region+" ("+r.score+").";
+      render();
+      snapState();
+    });
+    tb.appendChild(tr);
+  });
+}
+hscore.addEventListener("click",function(){
+  dir=dir===0?1:(dir===1?-1:1);
+  order=DATA.map((r,i)=>i).sort(function(a,b){
+    const d=DATA[a].score-DATA[b].score; return dir===1?d:-d;});
+  arrow.textContent=dir===1?"(asc)":"(desc)";
+  statusEl.textContent="Sorted by score "+(dir===1?"ascending":"descending")+".";
+  render();
+  snapState();
+});
+function snapState(){window.__state={order:order.map(function(i){return DATA[i].region;}),
+  scores:order.map(function(i){return DATA[i].score;}),
+  selected:sel===null?null:DATA[sel].region,status:statusEl.textContent};}
+confirm.addEventListener("click",function(){
+  if(sel===null) return;
+  statusEl.textContent="Confirmed row "+DATA[sel].region+".";
+  snapState();
+});
+render();
+snapState();
+window.__targets=(function(){
+  const out={};
+  ["hscore","confirm"].forEach(function(id){
+    const r=document.getElementById(id).getBoundingClientRect();
+    out[id]=[Math.round((r.left+r.width/2)/window.innerWidth*1000),Math.round((r.top+r.height/2)/window.innerHeight*1000)];
+  });
+  return out;
+})();
+</script>
+</body>
+</html>

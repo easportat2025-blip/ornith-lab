@@ -1,0 +1,20 @@
+MiMo · **DECISION MEMO (1 file, 8 phần) — mọi phép đo + 3 câu hỏi cần quyết + đề xuất tiêu chí gate + thứ tự dùng GPU** ⇒ file `DECISION_MEMO_2210.md` (agent.md đã 640KB, không ai đọc nổi)
+
+**VÌ SAO TÔI VIẾT**: agent.md là sổ cái append-only (644KB) ⇒ không ai đọc lại được 2h trước. Memo gom **mọi số đo + bằng chứng + khuyến nghị** vào 1 file đọc 3 phút.
+
+**TÓM TẮT 3 CÂU HỎI CẦN QUYẾT (mỗi câu có số liệu trong memo):**
+**Q1 — tiêu chí gate:** tôi đề xuất **so PAIRED theo task**, không so tổng `win_rate` ⇒ vì đã đo được: B15.5 lặp lại **y hệt** (10/18 cả 2 lần, **0 task lật cờ**) nhưng B16-A lệch **2 ep** do **đúng 2 task flaky** (T19, T26) ⇒ margin ≥1 ep chỉ an toàn ở suite tất định; suite có task flaky phải so theo task. ⇒ **v22 vẫn PASS** (B15.5 +38,9 điểm theo task · B16-A +25,0).
+**Q2 — recipe:** **v24** (S1–S10 + R2 972 + loop-recovery 600 + 3D 600, không truncate) — data pipeline đã verify đủ trong log (traj **972/972** · synth-recipe 600/600 · selfplay 118/118 · train3d 300/300) ⇒ **bỏ `sft-v23` khỏi queue** (recipe cũ, 409 + cắt sai).
+**Q3 — hosting:** **bỏ hẳn Space** (chỉ demo/UI, không tăng năng lực nghiên cứu) ⇒ quota GPU mới là tài nguyên quan trọng nhất.
+
+**TRẠNG THÁI 2 SLOT ACC B (đúng thứ tự giá trị):** `① sft-v24 ĐANG TRAIN · ② bench-v155-v21new ĐANG CHẠY (ô thứ 4 của 2×2) · ③ desktop-bench-b3 chờ slot (đã sửa xong, gate 0 FAIL) · ④ replication/3D cuối cùng`.
+⇒ **Khi ô (v21, task MỚI) xong** ⇒ `python scripts/report_fixed_suite.py` ⇒ **bảng 2×2 ĐỦ 4 Ô** ⇒ chốt H1 ("+50 là do DATA") vs H2 ("+50 là do SỬA TASK").
+
+**MEMO CŨNG TỔNG HỢP 9 LỚP LỖI IM LẶNG** (mỗi lớp 1 bằng chứng + 1 công cụ chặn): dataset thiếu (G9) · dataset rỗng/0 row · **dataset bản cũ cùng slug** (`verify_bench_ds_version.py`) · internet+competition 400 (G10) · **adapter bẫy** (G11 + vân tay tensor) · **code đòi A / metadata mount B** (G12) · **sửa local mà Kaggle còn bản cũ** (`check_push_parity.py`) · **app thiếu ⇒ ảnh đen ⇒ tính nhầm là model thất** (guard + `INFRA_ERRORS`) · **kernel không có target ⇒ kết quả không ai lấy** (`check_queue_targets.py` — nay 0 lỗi).
+⇒ **Gate G1–G12 đã nối vào watchdog (chạy trước MỖI lần push)** ⇒ lớp lỗi này bị chặn ở **0 phút GPU** thay vì 2h.
+
+**8 LỆNH 1 DÒNG** để kiểm tra mọi thứ (mục §7 trong memo) — trong đó `report_fixed_suite.py` giờ in ra: bảng 2×2 + delta cluster + **so paired + danh sách task flaky**.
+
+⇒ **LỖI CỦA TÔI (minh bạch):** mục agent.md 09:05 bị append 2 lần (nhầm lệnh) ⇒ 1 mục trùng, nội dung vẫn đúng.
+
+RELEASE: DECISION_MEMO_2210.md (mới), scripts/check_queue_targets.py (mới), scripts/cmp_cells.py, scripts/sum_bench.py (mới), scripts/report_fixed_suite.py (+so paired), scripts/watchdog_targets.json (+2 target), scripts/watchdog_targets_B.json (+2 target), phase13-gui/kernel_v23b/ (sửa dataset traj: traj2 400 row → traj R2 972 row)

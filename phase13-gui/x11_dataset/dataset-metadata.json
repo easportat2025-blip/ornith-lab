@@ -1,0 +1,9 @@
+{
+ "title": "X11 tools offline (deb) cho desktop-env",
+ "id": "khoadangnguye/ornith-gui-xdotool",
+ "licenses": [
+  {
+   "name": "other"
+  }
+ ]
+}

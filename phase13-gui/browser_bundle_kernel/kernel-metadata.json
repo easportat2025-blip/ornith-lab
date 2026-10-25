@@ -1,0 +1,13 @@
+{"code_file": "browser_bundle.py",
+ "competition_sources": [],
+ "dataset_sources": [],
+ "enable_gpu": false,
+ "enable_internet": true,
+ "enable_tpu": false,
+ "id": "hhjiji/ornith-gui-browser-bundle",
+ "is_private": true,
+ "kernel_sources": [],
+ "kernel_type": "script",
+ "language": "python",
+ "model_sources": [],
+ "title": "ornith-gui-browser-bundle"}

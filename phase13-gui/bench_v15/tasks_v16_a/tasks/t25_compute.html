@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T25 compute</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;margin:4px;}
+  input[type=text]{background:#10151c;border:1px solid #384454;color:#e8edf5;border-radius:6px;padding:9px 12px;font-size:15px;width:120px;}
+  .num{font-size:24px;font-weight:700;color:#7fd0a0;margin:4px 0;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+</style>
+</head>
+<body data-a="0" data-b="0" data-op="+" data-result="0" data-submitted="0" data-typed="">
+<header>COMPUTE</header>
+<main>
+  <div class="card">
+    <p>Compute A + B:</p>
+    <div>A = <span class="num" id="a">0</span></div>
+    <div>B = <span class="num" id="b">0</span></div>
+    <div>Result: <input type="text" id="ans"></div>
+    <button id="subbtn">Submit</button>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var CFG=[[5,3],[8,2],[4,6]][V];
+var a=CFG[0],b=CFG[1];
+document.getElementById("a").textContent=a;
+document.getElementById("b").textContent=b;
+var res=a+b;
+document.body.dataset.a=a;document.body.dataset.b=b;document.body.dataset.op="+";document.body.dataset.result=res;
+document.getElementById("subbtn").addEventListener("click",function(){
+  var v=document.getElementById("ans").value.trim();
+  document.body.dataset.typed=v;
+  if(v===String(res)){document.body.dataset.submitted="1";document.getElementById("status").textContent="Correct!";}
+  else{document.getElementById("status").textContent="Wrong result - try again.";}
+});
+</script>
+</body>
+</html>

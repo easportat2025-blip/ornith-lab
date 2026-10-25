@@ -1,0 +1,22 @@
+{
+  "code_file": "bench_gui_kaggle.py",
+  "competition_sources": [],
+  "dataset_sources": [
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4",
+    "khoadangnguye/ornith-gui-lora-v21"
+  ],
+  "enable_gpu": true,
+  "enable_internet": true,
+  "enable_tpu": false,
+  "id": "khoadangnguye/ornith-gui-bench-v14-v21",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "script",
+  "language": "python",
+  "machine_shape": "NvidiaRtxPro6000",
+  "model_sources": [],
+  "title": "ornith-gui-bench-v14-v21"
+}

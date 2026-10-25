@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Device Setup - desktop env</title>
+<style>
+  body{margin:0;background:#1b1f27;font:15px system-ui,sans-serif;color:#e6e9ef}
+  .wrap{max-width:900px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#98a2b6;font-size:13px;margin-bottom:14px}
+  .brief{background:#2f3644;border:1px solid #46506a;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:15px}
+  .brief b{color:#8fd0ff;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .row{display:flex;gap:16px}
+  .col{flex:1}
+  label{display:block;font-size:13px;color:#98a2b6;margin-bottom:6px}
+  input{width:100%;background:#232833;color:#e6e9ef;border:1px solid #46506a;border-radius:8px;padding:9px;font:14px ui-monospace,Menlo,Consolas,monospace}
+  input:focus{outline:2px solid #4a86e8}
+  button{background:#4a86e8;color:#fff;border:0;border-radius:6px;padding:10px 20px;font-size:15px;cursor:pointer}
+  #status{font-size:14px;color:#f0883e;min-height:20px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Device Setup</h1>
+  <div class="sub">Enter the activation code shown in the note, then activate.</div>
+  <div class="brief">Support note: activation code <b id="code">?</b></div>
+  <div class="row">
+    <div class="col">
+      <label>Activation code</label>
+      <input id="codein" spellcheck="false">
+    </div>
+  </div>
+  <div style="margin-top:14px"><button id="go">Activate</button></div>
+  <div id="status"></div>
+</div>
+<script>
+/* TASK-27 T27_errorecover (GLM, 22/10)
+   Nang luc W2 #4 "phuc hoi sau loi": app BAO LOI nhung ket qua DUNG
+   (code da dung) => agent phai KIEM LAI chu KHONG doi gia tri, bam lai.
+   Bien NGAU NHIEN: code moi moi lan tai.
+   Checker DOC DOM: window.__state = {code, status, activated, first_error} */
+const R=function(a){return a[Math.floor(Math.random()*a.length)];};
+const ALL=["ALPHA","BRAVO","CIRRUS","DELTA","EMBER","FLINT","GAMMA","HALO"];
+const CODE=R(ALL);
+document.getElementById("code").textContent=CODE;
+const codein=document.getElementById("codein");
+const go=document.getElementById("go");
+const statusEl=document.getElementById("status");
+let firstError=false, activated=false;
+function snap(){
+  window.__state={code:CODE, typed:codein.value, status:statusEl.textContent,
+                  activated:activated, first_error:firstError};
+}
+codein.addEventListener("input",snap);
+go.addEventListener("click",function(){
+  if(codein.value.trim()===CODE){
+    if(firstError){
+      // lan 2: app van bao loi (bug app) nhung thuc te da kich hoat
+      activated=true;
+      statusEl.textContent="Device activated.";
+    }else{
+      firstError=true;
+      statusEl.textContent="Error: invalid activation code. Please try again.";
+    }
+  }else{
+    statusEl.textContent="Error: invalid activation code. Please try again.";
+  }
+  snap();
+});
+snap();
+window.__targets=(function(){
+  function nrect(el){var r=el.getBoundingClientRect();
+    return [Math.round((r.left+r.width/2)/window.innerWidth*1000),
+            Math.round((r.top+r.height/2)/window.innerHeight*1000)];}
+  return {code:nrect(codein), activate:nrect(go)};
+})();
+</script>
+</body>
+</html>

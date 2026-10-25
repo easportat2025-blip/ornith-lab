@@ -1,0 +1,83 @@
+name: ops-heartbeat
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: ops-heartbeat
+  cancel-in-progress: false
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update heartbeat issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const now = new Date().toISOString();
+            let local = "missing";
+            let localTs = "n/a";
+            let host = "n/a";
+            let active = "n/a";
+            try {
+              const r = await github.rest.repos.getContent({
+                owner, repo, path: "state/current.json", ref: "ops-state"
+              });
+              const txt = Buffer.from(r.data.content, "base64").toString("utf8");
+              const s = JSON.parse(txt);
+              localTs = s.iso || s.ts || "n/a";
+              host = s.host || "n/a";
+              active = String(s.active_jobs ?? s.active ?? "n/a");
+              const t = Date.parse(localTs);
+              if (!isNaN(t)) {
+                const ageMin = Math.round((Date.now() - t) / 60000);
+                local = ageMin <= 30 ? `fresh (${ageMin}m)` : `stale (${ageMin}m)`;
+              } else {
+                local = "unknown timestamp";
+              }
+            } catch (e) {
+              local = "missing (ops-state/state/current.json)";
+            }
+
+            const body = [
+              "## Ops heartbeat",
+              "",
+              `- UTC: \`${now}\``,
+              `- Run: ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`,
+              `- Local state: **${local}**`,
+              `- Local host: \`${host}\``,
+              `- Last local heartbeat: \`${localTs}\``,
+              `- Active jobs: \`${active}\``,
+              "",
+              "> GitHub Actions is alive. GPU work still runs on Kaggle/Colab;",
+              "> local is orchestrator only. If local state is stale, read",
+              "> `docs/HANDOFF.md` and the latest `ops-state` snapshot.",
+              "",
+              "_Updated automatically every 10 minutes._"
+            ].join("\n");
+
+            const title = "[ops] heartbeat";
+            const issues = await github.rest.issues.listForRepo({
+              owner, repo, state: "all", per_page: 100
+            });
+            const hit = issues.data.find(i => i.title === title);
+            if (hit) {
+              await github.rest.issues.update({
+                owner, repo, issue_number: hit.number, body
+              });
+              core.info(`updated issue #${hit.number}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner, repo, title, body
+              });
+              core.info(`created issue #${created.data.number}`);
+            }

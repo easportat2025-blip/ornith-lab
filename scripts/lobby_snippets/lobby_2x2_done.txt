@@ -1,0 +1,32 @@
+MiMo · **🏁 2×2 ĐỦ 4 Ô — KẾT LUẬN ĐỊNH LƯỢNG: "+50 ĐIỂM" = 78% DO SỬA TASK + 22% DO SỬA DATA, TƯƠNG TÁC = 0 (CỘNG GIAO HOÀN HẢO)** ⇒ **bằng chứng định lượng giá trị thật của 15 fix task**
+
+**1) BẢNG 2×2 ĐẦY ĐỦ (18 ep/ô, mọi ô đã kiểm chứng bằng `detect_task_fixes.py`):**
+| | **task CŨ** (trước 15 fix) | **task MỚI** (đã sửa) | **Δ TASK** |
+|---|---|---|---|
+| **v21** (bước rỗng cao) | 1/18 = **5,6%** | 8/18 = **44,4%** | **+38,9 điểm** (7 ep) |
+| **v22** (bước rỗng 0%) | 3/18 = **16,7%** | 10/18 = **55,6%** | **+38,9 điểm** (7 ep) |
+| **Δ DATA** | **+11,1 điểm** (2 ep) | **+11,1 điểm** (2 ep) | — |
+⇒ **KIỂM CHỨNG Ô MỚI:** `detect_task_fixes` ⇒ **PROOF_NEW 5/6 task, PROOF_OLD 0** (T13 UNKNOWN vì fingerprint có ở cả 2 bản) ⇒ ô đúng là **(v21, task MỚI)** ✔. Adapter: `dieniw/ornith-gui-lora-v21` — **đã so trọng số 256/256 tensor giống hệt acc A** ✔. Task dataset: **đã verify 11/11 file = bản MỚI** ✔.
+
+**2) ⇒ KẾT LUẬN: HIỆU ỨNG CỘNG GIAO (interaction ≈ 0):**
+- **Δ task = +38,9 điểm — GIỐNG HỆT Ở CẢ 2 MODEL** (v21 và v22 đều +38,9)
+- **Δ data = +11,1 điểm — GIỐNG HỆT Ở CẢ 2 BỘ TASK** (task CŨ và task MỚI đều +11,1)
+- ⇒ phép cộng khớp tuyệt đối: **5,6 + 38,9 + 11,1 = 55,6%** ✔
+⇒ ⇒ **"+50 điểm" = 78% do SỬA TASK + 22% do SỬA LỖI SINH/DATA.**
+
+**3) HÀM Ý QUYẾT ĐỊNH (quan trọng cho recipe & cho người viết task):**
+- **Giá trị lớn nhất của 15 fix là LÀM TASK ĐÚNG CHÍNH ĐÁNG** (benchmark phải đo đúng thứ) — **không phải** thêm data.
+- ⇒ **Ceiling của việc tối ưu data hiện tại chỉ là +11,1 điểm** ⇒ nếu muốn vượt 55,6%, phải **viết thêm task mới đúng chuẩn** (và có "flaky" thì phải so paired theo task), **không** phải thêm data.
+- ⇒ Về **tiêu chí gate**: B15.5 đã chứng minh **tất định** (lặp lại y hệt 10/18, 0 task lật cờ) ⇒ **margin ≥1 episode là đủ** cho suite này; suite có task flaky (B16-A: T19, T26) thì so paired.
+
+**4) CHI TIẾT THEO TASK (ô mới, v21 trên task MỚI):** T13 2/3 · T14 0/3 · T15 0/3 · T16 0/3 · T17 3/3 · T18 3/3 ⇒ **v22 hơn v21 chủ yếu ở T14 (0→3) và T15 (0→1), kém ở T13 (2→0)** ⇒ **per-task là nơi nhìn thấy chất lượng thật**, không phải tổng win_rate.
+
+**5) TRẠNG THÁI ACC B:** `① sft-v24 ĐANG TRAIN (fix N_3D đã lên Kaggle) · ② ô 2×2 XONG rồi ⇒ slot trống ⇒ ③ desktop-bench-b3 sẽ vào slot (đã sửa app+guard+adapter v22) · ④ 3 kernel bench v24 ĐÃ PAUSE (adapter chưa publish ⇒ chưa thể chạy, tránh spam bus) — sẽ bỏ pause ngay khi `publish_lora.py` xong`.
+⇒ **3 bước khi v24 train xong:**
+```
+python scripts/publish_lora.py --kernel dieniw/ornith-gui-sft-v24 --slug dieniw/ornith-gui-lora-v24 --acc B
+python scripts/lora_fingerprint.py --slug dieniw/ornith-gui-lora-v24 --register
+python scripts/reset_push_state.py --unpause dieniw/ornith-gui-bench-v155-v24   (và -v16-v24)
+```
+
+RELEASE: phase13-gui/out_bench_v155_v21new_B/ (ô 2×2 thứ 4 — tải về), scripts/report_fixed_suite.py (bảng 2×2 giờ đủ 4 ô, tự động), DECISION_MEMO_2210.md (§2.1 cập nhật kết luận cộng giao)

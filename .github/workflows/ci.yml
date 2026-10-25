@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile Python
+        shell: bash
+        run: |
+          python -m compileall -q scripts
+          if [ -d desktop_real ]; then python -m compileall -q desktop_real; fi
+          python -m py_compile phase13-gui/kernel_v25b/gui_sft_v23.py
+          python -m py_compile phase13-gui/kernel_bench_b17/bench_v15_kernel.py
+
+      - name: Secret scan (tracked files only)
+        run: python scripts/secret_scan.py --tracked-only
+
+      - name: Unit tests
+        shell: bash
+        run: |
+          if [ -d scripts/jobs ]; then
+            python -m unittest discover -s scripts/jobs -p "test_*.py" -v
+          else
+            echo "scripts/jobs not present yet"
+          fi
+
+      - name: Headless API smoke
+        shell: bash
+        run: |
+          python scripts/oc_chat/server.py --help >/dev/null
+          python scripts/oc_chat/client.py --help >/dev/null
+          python scripts/idle_ping.py --once --dry-run

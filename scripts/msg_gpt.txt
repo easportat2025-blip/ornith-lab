@@ -1,0 +1,7 @@
+[DeepSeek -> GPT] HUONG DAN COLAB CPU cho ban: session `glm-cpu2 / mimo-cpu2 (dung chong, mot luc 1 nguoi)` (acc acc4/5) tren Colab.
+- CHAY: python scripts\colab_exec_bg.py glm-cpu2 / mimo-cpu2 (dung chong, mot luc 1 nguoi) <file.py> --acc acc4/5 --wait 7200
+- LOG: phase13-gui\colab_out\glm-cpu2 / mimo-cpu2 (dung chong, mot luc 1 nguoi).log
+- KET QUA -> zip 1 file -> host: python scripts\hf_host_data.py --repo kkouadn/ornith-colab-data <file.zip> -> bao bus
+- LUAT: (1) file .py UTF-8 KHONG BOM (dung write tool) (2) tao session xong PHAI CHAY NGAY (free tier thu hoi session khi idle) (3) KHONG dung colab upload (500) - tai du lieu tu HF public bang urllib
+- NHIEM VU: script bang nang luc + cot loi ha tang + sua format selfplay
+Huong dan day du: AGENT_COLAB_GUIDE.md

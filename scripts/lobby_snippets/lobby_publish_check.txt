@@ -1,0 +1,41 @@
+MiMo · CẢNH BÁO TRƯỚC KHI 2 PHEP ĐO CHẠY: **cả 2 dataset đều CHƯA có fix mới nhất** ⇒ 2 run sẽ đo trên TASK CŨ ⇒ tôi đã PAUSE 2 kernel cho tới khi version xong · + tool kiểm dataset đã publish đúng chưa (10 giây)
+
+**1) BẰNG CHỨNG (tải 1 file thật từ dataset trên Kaggle + grep marker fix):**
+```
+$ python scripts/check_published_tasks.py khoadangnguye/ornith-gui-bench-v16b \
+      --file "bench_v16/tasks/t23_undoredo.html" --marker "Current values: f1 = " --acc A
+KHONG co marker 'Current values: f1 = ' trong bench_v16/tasks/t23_undoredo.html
+=> SAI: dataset CHUA duoc version lai (van la phien ban CU)
+
+$ python scripts/check_published_tasks.py khoadangnguye/ornith-gui-bench-v155 \
+      --file "bench_v155/tasks/t13_wizard.html" --marker "Current value:" --acc A
+KHONG co marker 'Current value:' trong bench_v155/tasks/t13_wizard.html
+=> SAI: dataset CHUA duoc version lai (van la phien ban CU)
+```
+⇒ **Cả 2 dataset đều còn bản CŨ** ⇒ (a) `bench-v16-v22` re-run sẽ lại đo **task CŨ** (đúng cái vấn đề đã xảy ra với lần trước: PROOF_OLD) · (b) `bench-v155-v22-old` cần dataset bộ CŨ mà **CHƯA TỒN TẠI** (`khoadangnguye/ornith-gui-bench-v155-old` → **403**) ⇒ kernel sẽ **mount rỗng và âm thầm chạy NHẦM suite khác** (fallback) ⇒ **số đo sai mà không báo lỗi**.
+
+**2) TÔI ĐÃ PAUSE 2 KERNEL (để khỏi đốt 2 GPU slot + tránh 2 số đo sai):**
+- `khoadangnguye/ornith-gui-bench-v155-v22-old` (ô 2×2) — dataset bộ CŨ chưa có
+- `khoadangnguye/ornith-gui-bench-v16-v22` (B16-A task mới) — dataset chưa version
+⇒ **BỎ PAUSE chỉ sau khi 3 lệnh dưới xong** (thứ tự quan trọng!):
+```
+# (1) version 6 dataset bench (task da sua, ke ca fix T13/T16/T18 moi nhat)
+python scripts/rebuild_bench_datasets_multi.py --upload
+# (2) tao dataset BO TASK CU cho o 2x2 (staging da san: 12 file, da kiem chung 6/6 instruction khop run v21)
+kaggle datasets create -p "phase13-gui/old_bench_ds/khoadangnguye__ornith-gui-bench-v155-old"
+# (3) BO PAUSE 2 kernel + reset co 'pushed' de watchdog push lai
+python scripts/reset_push_state.py --unpause khoadangnguye/ornith-gui-bench-v155-v22-old khoadangnguye/ornith-gui-bench-v16-v22
+python scripts/reset_push_state.py khoadangnguye/ornith-gui-bench-v155-v22-old khoadangnguye/ornith-gui-bench-v16-v22
+```
+⇒ **XÁC MINH trước khi bỏ pause (10 giây mỗi lệnh):**
+```
+python scripts/check_published_tasks.py khoadangnguye/ornith-gui-bench-v16b --file "bench_v16/tasks/t23_undoredo.html" --marker "Current values: f1 = " --acc A
+python scripts/check_published_tasks.py khoadangnguye/ornith-gui-bench-v155 --file "bench_v155/tasks/t13_wizard.html" --marker "Current value:" --acc A
+```
+(cả 2 phải in "DUNG phien ban mong doi" ⇒ **thực sự đã version**) ⇒ rồi mới bỏ pause.
+
+**3) TOOL MỚI `scripts/check_published_tasks.py` — giải quyết một lớp lỗi im lặng:** "dataset đã publish đúng bản chưa?" trước đây **không có cách nào nhìn thấy từ log** ⇒ phải đoán ⇒ tôi đã đoán sai 1 lần rồi. Giờ: tải **1 file** + grep **1 chuỗi đặc trưng** ⇒ kết luận trong 10 giây ⇒ nên chạy **trước mỗi lần version** (và sau đó, để xác nhận dataset đúng bản).
+
+**4) LƯU Ý:** `bench-v155` CÓ fix T14/T15/T17/T18 (lý do lần chạy 16:08 ra PROOF_NEW 4/6) nhưng CHƯA có fix T13 (tôi sửa lúc 16:12, SAU lần version ~16:00) ⇒ **2 lần version đã trôi qua, mỗi lần lại thêm fix** ⇒ **phải version lại sau MỌI lần sửa task** (đó là lý do tôi thêm `rebuild_bench_datasets_multi.py` + `check_published_tasks.py`).
+
+RELEASE: scripts/check_published_tasks.py (mới)

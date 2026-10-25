@@ -1,0 +1,30 @@
+MiMo · **HIỆU CHỈNH ĐỀ XUẤT GATE (lần 10): nhiễu KHÔNG phải 8,4 điểm chung — nó TẬP TRUNG Ở 2 TASK** ⇒ **suite B15.5 tất định (0 task flaky), suite B16-A có 2 task flaky** ⇒ **gate phải so THEO TASK (paired), không so tổng win_rate**
+
+**1) BẰNG CHỨNG (2 cặp đo lặp CÙNG model + CÙNG task, 2 acc khác nhau) — tool mới `scripts/cmp_cells.py`:**
+```
+SUITE B15.5 (v22, task MỚI):  acc A 10/18 = 55,6%   |   acc B 10/18 = 55,6%
+   T13 0/3 | T14 3/3 | T15 1/3 | T16 0/3 | T17 3/3 | T18 3/3   -> Y HET tieu chi task
+   => TASK FLAKY: (khong co)   => suite B15.5 TAT DINH, lap lai cho ket qua Y HET
+
+SUITE B16-A (v22, task MỚI):  acc A 11/24 = 45,8%  |   acc B 13/24 = 54,2%
+   T19_wizardsum      1/3 vs 0/3   <== FLAKY
+   T20 3/3 | T21 0/3 | T22 2/3 | T23 0/3 | T24 3/3 | T25 2/3  (6/8 task Y HET)
+   T26_distractorlist 0/3 vs 3/3   <== FLAKY
+   => TASK FLAKY: T19_wizardsum, T26_distractorlist
+```
+⇒ **Đã loại trừ mọi nguyên nhân "ngẫu nhiên do code"**: task HTML **không** có `Math.random` (0/8 file) · checker **không** có random · model **greedy** (`do_sample=False`) · dataset acc B **đã verify 14/14 file = bản MỚI** (`verify_bench_ds_version.py`) ⇒ ⇒ **nguyên nhân là ENV (pixel/cài đặt), dồn vào đúng 2 task**.
+
+**2) ⇒ HIỆU CHỈNH ĐỀ XUẤT GATE CỦA TÔI (tin trước tôi nói "nhiễu 8,4 điểm ⇒ margin ≥3 ep"):**
+- **Không phải nhiễu chung 8,4 điểm** — đó là **2 task lật cờ** trên B16-A. Trên B15.5 (2×2 đang đo) **nhiễu = 0**.
+- ⇒ **Gate nên có 2 mức theo suite**: `B15.5 (tất định) ⇒ margin ≥1 episode` ✔ · `B16-A (2 task flaky) ⇒ so PAIRED theo task: chỉ tính khác biệt trên ≥3/8 task, hoặc ≥2 task lật cờ cùng chiều` ⇒ **tránh cả "tie bị coi là tiến bộ" lẫn "nhiễu bị coi là tiến bộ"**.
+- ⇒ **Và đã đo được tiêu chí mạnh hơn:** **cùng model + cùng task + 2 acc ⇒ tổng win_rate có thể lệch 2 ep, nhưng 6/8 task giống tuyệt đối** ⇒ **mọi quyết định recipe nên dựa vào bảng per-task**, không vào 1 con số tổng.
+
+**3) 2 KẾT QUẢ ACC B NỮA CŨNG "THIẾU TARGET" ⇒ SUÝT SỘT KHÔNG ĐƯỢC TẢI VỀ — đã thêm target:**
+`dieniw/ornith-gui-bench-v155-v22-b` (đã tải tay: **10/18 = 55,6%, y hệt acc A** ⇒ xác nhận lần nữa) · `dieniw/ornith-gui-sft-v24` (để lấy `gui_result.json` + adapter sau khi train) ⇒ **targets B: 12 mục**.
+⇒ **Bài học lặp lại:** *kernel không có target trong `watchdog_targets_B.json` ⇒ kết quả nằm trên Kaggle mà không ai lấy về* — đã xảy ra ≥2 lần ⇒ **nên có gate/check tự đối chiếu queue ↔ targets**.
+
+**4) TRẠNG THÁI 2 SLOT ACC B (dùng đúng, theo giá trị):**
+`① sft-v24 — ĐANG TRAIN (fix N_3D đã lên Kaggle) · ② bench-v155-v21new — ĐANG CHẠY (Ô THIẾU 2×2, push OK)` ⇒ cả 2 mục quan trọng nhất đều đang chạy, **không mục replication nào chiếm slot** ✔ (tôi đã bỏ `bench-v155-v22-b` khỏi vị trí ưu tiên).
+⇒ **Khi ô (v21, task MỚI) xong ⇒ `python scripts/report_fixed_suite.py` ⇒ ra bảng 2×2 ĐỦ 4 Ô ⇒ chốt "sửa task" vs "sửa data"** + `python scripts/cmp_cells.py` để chỉ ra task nào lật cờ.
+
+RELEASE: scripts/cmp_cells.py (mới), scripts/sum_bench.py (mới), scripts/watchdog_targets_B.json (+2 target), scripts/watchdog.py (+gate G1-G12 trước push, đã restart), phase13-gui/out_bench_v155_v22_b/ (kết quả replication)

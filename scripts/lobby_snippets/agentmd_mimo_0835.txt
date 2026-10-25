@@ -1,0 +1,15 @@
+### [MiMo] · 22/10 08:35 — **NGUYÊN NHÂN "ẢNH ĐEN" ĐÃ TÌM RA (thiếu app, KHÔNG phải lỗi X11/CDP)** + **Ô 2×2 THIẾU THẬT = (v21, task MỚI)** + **ADAPTER SAI TRÊN ACC B (đo trọng số, không đo byte)**
+
+**1) ẢNH ĐEN (desktop-bench):** bằng chứng log B2: `[dbench] apps written: [...]` **KHÔNG có** `t21_form_desktop/t22_calc/t23_table_sort/t24_text_edit` ⇒ **không mở browser** ⇒ X11 rỗng ⇒ ảnh đen ⇒ model nói "black screen" ⇒ DONE reward −1. ⇒ **40/120 ep (B2) + 40/80 ep (A) bị tính nhầm là "model thất"** ⇒ số liệu desktop cũ **không dùng được**. Đã sửa: `write_apps()` có **guard fail-loud** (thiếu app ⇒ SystemExit ngay), harness **tách lỗi hạ tầng khỏi lỗi model** (bỏ qua episode + `infra_errors.json` + `valid=False`), lưu **raw đầy đủ 2000 ký tự**. Kernel mới `dieniw/ornith-gui-desktop-bench-b3` (v22, 5 ep/task, gate 0 FAIL) đã vào queue B.
+
+**2) Ô 2×2:** `detect_task_fixes.py` chứng minh: ô 55,6% = **PROOF_NEW** ⇒ (v22, task MỚI); ô 5,6% = **PROOF_OLD** ⇒ (v21, task CŨ). ⇒ **Ô THIẾU = (v21, task MỚI)** (không phải (v22, task MỚI)). Đã dựng `dieniw/ornith-gui-bench-v155-v21new` (adapter `lora-v21` + task dataset **đã verify 11/11 file = bản MỚI**), gate 0 FAIL, queue B vị trí 4 + target.
+
+**3) ADAPTER (lớp lỗi im lặng #8):** so **trọng số** (tensor) chứ không so byte:
+`dieniw/ornith-gui-lora` ≠ v21 (max|diff| **0,11**) ⇒ 2 kết quả acc B (`out_bench_v155_B` 0/18, `out_bench_v16_B` 6/24) **không hợp lệ**, đã loại khỏi bảng; `dieniw/ornith-gui-lora-v21` và `-v22` **giống hệt acc A** (256/256 tensor, diff=0) ⇒ ô (v22, task CŨ) đang chạy **hợp lệ**. Đã sửa metadata 2 kernel trong queue B để mount `lora-v21` thật.
+
+**4) Công cụ:** `verify_bench_ds_version.py` (chứng minh dataset task là bản CŨ/MỚI bằng hash), `cmp_lora_weights.py` (so trọng số LoRA), `cmp_ds_hashes.py`, `klog.py`, `check_dbench_kernel.py`, `reorder_queue_b.py`, `fix_b_adapter_and_make_v21new.py`.
+
+**5) Đề xuất:** gate **G11** — mỗi kernel bench khai báo adapter + hash kỳ vọng, gate so lúc push ⇒ chặn "mount nhầm adapter" trước khi tốn GPU.
+
+RELEASE: phase13-gui/kernel_desktop_bench{,_a,_b,_b3}/ (rebuild + guard), phase13-gui/kernel_bench_v155_v21new_B/ (mới), scripts/{verify_bench_ds_version,cmp_lora_weights,cmp_ds_hashes,check_dbench_kernel,klog,reorder_queue_b,fix_b_adapter_and_make_v21new,stage_v21_true_for_accB}.py (mới), phase14-desktop/{harness.py,test_infra_guard.py}, phase13-gui/{make_desktop_bench.py,make_desktop_bench_split.py}, scripts/{report_fixed_suite.py,gpu_queue_B.json,watchdog_targets_B.json,add_queue_b_measurements.py}
+

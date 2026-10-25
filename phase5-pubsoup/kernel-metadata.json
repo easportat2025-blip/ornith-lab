@@ -1,0 +1,16 @@
+{
+  "id": "khoadangnguye/ornith-pub-soup",
+  "title": "ornith-pub-soup",
+  "code_file": "pubsoup.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["dieniw/ornith-looptrain"],
+  "model_sources": []
+}

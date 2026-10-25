@@ -1,0 +1,1195 @@
+[
+ {
+  "task_id": "T13_wizard",
+  "variant": 0,
+  "steps": 14,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 8 checks pass",
+  "state": {
+   "tests": {
+    "errors revealed first (step1err)": true,
+    "username >= MINCHARS chars": true,
+    "email contains @": true,
+    "city non-empty": true,
+    "age whole number 18-99": true,
+    "confirmation ticked": true,
+    "reached step 3": true,
+    "submitted": true
+   },
+   "min": 8,
+   "step": "3",
+   "step1err": "1",
+   "errcount": 1,
+   "submitted": "1",
+   "user": "Alexanderthegreat",
+   "email": "user@example.com",
+   "city": "Berlin",
+   "age": "30",
+   "agree": true
+  },
+  "elapsed": 12.76,
+  "instruction": "Multi-step signup. First click Next on step 1 as-is to reveal the validation errors, then fix every flagged field: a username of at least 8 characters, an email containing @, a city, and an age between 18 and 99. Click Next to reach step 3, tick the confirmation box and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 500 275"
+   },
+   {
+    "step": 2,
+    "action": "TYPE Alexanderthegreat"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 500 372.2"
+   },
+   {
+    "step": 4,
+    "action": "TYPE user@example.com"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 500 275"
+   },
+   {
+    "step": 7,
+    "action": "TYPE Berlin"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 500 372.2"
+   },
+   {
+    "step": 9,
+    "action": "TYPE 30"
+   },
+   {
+    "step": 10,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 11,
+    "action": "CLICK 305.1 234"
+   },
+   {
+    "step": 12,
+    "action": "CLICK 356.5 290.3"
+   },
+   {
+    "step": 13,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T13_wizard",
+  "variant": 1,
+  "steps": 14,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 8 checks pass",
+  "state": {
+   "tests": {
+    "errors revealed first (step1err)": true,
+    "username >= MINCHARS chars": true,
+    "email contains @": true,
+    "city non-empty": true,
+    "age whole number 18-99": true,
+    "confirmation ticked": true,
+    "reached step 3": true,
+    "submitted": true
+   },
+   "min": 10,
+   "step": "3",
+   "step1err": "1",
+   "errcount": 1,
+   "submitted": "1",
+   "user": "Alexanderthegreat",
+   "email": "user@example.com",
+   "city": "Berlin",
+   "age": "30",
+   "agree": true
+  },
+  "elapsed": 12.38,
+  "instruction": "Multi-step signup. First click Next on step 1 as-is to reveal the validation errors, then fix every flagged field: a username of at least 10 characters, an email containing @, a city, and an age between 18 and 99. Click Next to reach step 3, tick the confirmation box and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 500 275"
+   },
+   {
+    "step": 2,
+    "action": "TYPE Alexanderthegreat"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 500 372.2"
+   },
+   {
+    "step": 4,
+    "action": "TYPE user@example.com"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 500 275"
+   },
+   {
+    "step": 7,
+    "action": "TYPE Berlin"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 500 372.2"
+   },
+   {
+    "step": 9,
+    "action": "TYPE 30"
+   },
+   {
+    "step": 10,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 11,
+    "action": "CLICK 305.1 234"
+   },
+   {
+    "step": 12,
+    "action": "CLICK 356.5 290.3"
+   },
+   {
+    "step": 13,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T13_wizard",
+  "variant": 2,
+  "steps": 14,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 8 checks pass",
+  "state": {
+   "tests": {
+    "errors revealed first (step1err)": true,
+    "username >= MINCHARS chars": true,
+    "email contains @": true,
+    "city non-empty": true,
+    "age whole number 18-99": true,
+    "confirmation ticked": true,
+    "reached step 3": true,
+    "submitted": true
+   },
+   "min": 12,
+   "step": "3",
+   "step1err": "1",
+   "errcount": 1,
+   "submitted": "1",
+   "user": "Alexanderthegreat",
+   "email": "user@example.com",
+   "city": "Berlin",
+   "age": "30",
+   "agree": true
+  },
+  "elapsed": 12.4,
+  "instruction": "Multi-step signup. First click Next on step 1 as-is to reveal the validation errors, then fix every flagged field: a username of at least 12 characters, an email containing @, a city, and an age between 18 and 99. Click Next to reach step 3, tick the confirmation box and click Submit.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 500 275"
+   },
+   {
+    "step": 2,
+    "action": "TYPE Alexanderthegreat"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 500 372.2"
+   },
+   {
+    "step": 4,
+    "action": "TYPE user@example.com"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 500 275"
+   },
+   {
+    "step": 7,
+    "action": "TYPE Berlin"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 500 372.2"
+   },
+   {
+    "step": 9,
+    "action": "TYPE 30"
+   },
+   {
+    "step": 10,
+    "action": "CLICK 322.2 440.3"
+   },
+   {
+    "step": 11,
+    "action": "CLICK 305.1 234"
+   },
+   {
+    "step": 12,
+    "action": "CLICK 356.5 290.3"
+   },
+   {
+    "step": 13,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T14_alerts",
+  "variant": 0,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "feed scrolled to bottom": true,
+    "alert tile was created": true,
+    "alert text carries the label": true,
+    "clicked the alert tile": true,
+    "clicked after it appeared": true,
+    "no wrong clicks": true
+   },
+   "label": "ALERT-7X",
+   "picked": "ALERT-7X",
+   "pickedat": 3204.899999976158,
+   "shownat": 2297.1999999284744,
+   "alertshown": "1",
+   "wrongclick": 0,
+   "alerttext": "ALERT-7X: deploy requires approval",
+   "shown": true,
+   "pickedcls": true,
+   "scrolled": "1",
+   "atbottom": true
+  },
+  "elapsed": 3.7,
+  "instruction": "The feed hides an alert tile. Scroll the feed to the bottom (press the End key - the feed is already focused; the Load alert button appears a moment later) to reveal the Load alert button, click it, then click the alert tile labeled ALERT-7X that appears. Clicking any other tile is a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 207"
+   },
+   {
+    "step": 1,
+    "action": "KEY End"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 629.2"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 500 500.1"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T14_alerts",
+  "variant": 1,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "feed scrolled to bottom": true,
+    "alert tile was created": true,
+    "alert text carries the label": true,
+    "clicked the alert tile": true,
+    "clicked after it appeared": true,
+    "no wrong clicks": true
+   },
+   "label": "ALERT-3K",
+   "picked": "ALERT-3K",
+   "pickedat": 3131.600000023842,
+   "shownat": 2239,
+   "alertshown": "1",
+   "wrongclick": 0,
+   "alerttext": "ALERT-3K: storage almost full",
+   "shown": true,
+   "pickedcls": true,
+   "scrolled": "1",
+   "atbottom": true
+  },
+  "elapsed": 3.63,
+  "instruction": "The feed hides an alert tile. Scroll the feed to the bottom (press the End key - the feed is already focused; the Load alert button appears a moment later) to reveal the Load alert button, click it, then click the alert tile labeled ALERT-3K that appears. Clicking any other tile is a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 207"
+   },
+   {
+    "step": 1,
+    "action": "KEY End"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 629.2"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 500 500.1"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T14_alerts",
+  "variant": 2,
+  "steps": 5,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "feed scrolled to bottom": true,
+    "alert tile was created": true,
+    "alert text carries the label": true,
+    "clicked the alert tile": true,
+    "clicked after it appeared": true,
+    "no wrong clicks": true
+   },
+   "label": "ALERT-9M",
+   "picked": "ALERT-9M",
+   "pickedat": 3115.7999999523163,
+   "shownat": 2233,
+   "alertshown": "1",
+   "wrongclick": 0,
+   "alerttext": "ALERT-9M: unusual login blocked",
+   "shown": true,
+   "pickedcls": true,
+   "scrolled": "1",
+   "atbottom": true
+  },
+  "elapsed": 3.64,
+  "instruction": "The feed hides an alert tile. Scroll the feed to the bottom (press the End key - the feed is already focused; the Load alert button appears a moment later) to reveal the Load alert button, click it, then click the alert tile labeled ALERT-9M that appears. Clicking any other tile is a mistake.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 500 207"
+   },
+   {
+    "step": 1,
+    "action": "KEY End"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 500 629.2"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 500 500.1"
+   },
+   {
+    "step": 4,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T15_dialog",
+  "variant": 0,
+  "steps": 10,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "terms scrolled to bottom": true,
+    "scrolled before accepting": true,
+    "terms accepted": true,
+    "reference == shown code": true,
+    "submit clicked": true,
+    "final confirm clicked": true
+   },
+   "scrolled": "1",
+   "scrolledat": 2284.7000000476837,
+   "ackedat": 3186.2999999523163,
+   "ack": "1",
+   "submitted": "1",
+   "confirmed": "1",
+   "ref": "RF-4821",
+   "refcode": "RF-4821",
+   "termsbottom": true,
+   "modal": "none",
+   "confirm": "none"
+  },
+  "elapsed": 8.28,
+  "instruction": "Open the request form dialog, scroll the terms panel to the very bottom (press the End key while the terms panel is focused - there is no mouse wheel), tick the confirmation box, click Continue, type the reference code shown on the page (RF-4821) into the Reference code field, click Submit request, then click Yes, submit to confirm.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 255.9 189.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 500 493.8"
+   },
+   {
+    "step": 2,
+    "action": "KEY End"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 282 857.6"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 690.6 857.6"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 335.9 311.8"
+   },
+   {
+    "step": 6,
+    "action": "TYPE RF-4821"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 246.4 385.4"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 380.1 545.1"
+   },
+   {
+    "step": 9,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T15_dialog",
+  "variant": 1,
+  "steps": 10,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "terms scrolled to bottom": true,
+    "scrolled before accepting": true,
+    "terms accepted": true,
+    "reference == shown code": true,
+    "submit clicked": true,
+    "final confirm clicked": true
+   },
+   "scrolled": "1",
+   "scrolledat": 2257,
+   "ackedat": 3159.600000023842,
+   "ack": "1",
+   "submitted": "1",
+   "confirmed": "1",
+   "ref": "RF-7305",
+   "refcode": "RF-7305",
+   "termsbottom": true,
+   "modal": "none",
+   "confirm": "none"
+  },
+  "elapsed": 8.25,
+  "instruction": "Open the request form dialog, scroll the terms panel to the very bottom (press the End key while the terms panel is focused - there is no mouse wheel), tick the confirmation box, click Continue, type the reference code shown on the page (RF-7305) into the Reference code field, click Submit request, then click Yes, submit to confirm.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 255.9 189.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 500 493.8"
+   },
+   {
+    "step": 2,
+    "action": "KEY End"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 282 857.6"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 690.6 857.6"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 335.9 311.8"
+   },
+   {
+    "step": 6,
+    "action": "TYPE RF-7305"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 246.4 385.4"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 380.1 545.1"
+   },
+   {
+    "step": 9,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T15_dialog",
+  "variant": 2,
+  "steps": 10,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "terms scrolled to bottom": true,
+    "scrolled before accepting": true,
+    "terms accepted": true,
+    "reference == shown code": true,
+    "submit clicked": true,
+    "final confirm clicked": true
+   },
+   "scrolled": "1",
+   "scrolledat": 2255.7000000476837,
+   "ackedat": 3154.600000023842,
+   "ack": "1",
+   "submitted": "1",
+   "confirmed": "1",
+   "ref": "RF-1188",
+   "refcode": "RF-1188",
+   "termsbottom": true,
+   "modal": "none",
+   "confirm": "none"
+  },
+  "elapsed": 8.29,
+  "instruction": "Open the request form dialog, scroll the terms panel to the very bottom (press the End key while the terms panel is focused - there is no mouse wheel), tick the confirmation box, click Continue, type the reference code shown on the page (RF-1188) into the Reference code field, click Submit request, then click Yes, submit to confirm.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 255.9 189.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 500 493.8"
+   },
+   {
+    "step": 2,
+    "action": "KEY End"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 282 857.6"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 690.6 857.6"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 335.9 311.8"
+   },
+   {
+    "step": 6,
+    "action": "TYPE RF-1188"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 246.4 385.4"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 380.1 545.1"
+   },
+   {
+    "step": 9,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T16_clipboard2",
+  "variant": 0,
+  "steps": 12,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "target1 == source1": true,
+    "target2 == source2": true,
+    "paste used for target1": true,
+    "paste used for target2": true,
+    "copy happened": true,
+    "verified": true
+   },
+   "src1": "KX-771-A",
+   "src2": "MN-304-B",
+   "dst1": "KX-771-A",
+   "dst2": "MN-304-B",
+   "pasted1": 1,
+   "pasted2": 1,
+   "copied": 2,
+   "verified": "1"
+  },
+  "elapsed": 10.13,
+  "instruction": "Copy the text of Source 1 into Target 1 and Source 2 into Target 2 using keyboard shortcuts only: click the source, Ctrl+A, Ctrl+C, click its target, Ctrl+V. Do both pairs, then click Verify transfer.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 319.1 233.3"
+   },
+   {
+    "step": 1,
+    "action": "KEY ctrl+a"
+   },
+   {
+    "step": 2,
+    "action": "KEY ctrl+c"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 680.9 233.3"
+   },
+   {
+    "step": 4,
+    "action": "KEY ctrl+v"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 319.1 384.7"
+   },
+   {
+    "step": 6,
+    "action": "KEY ctrl+a"
+   },
+   {
+    "step": 7,
+    "action": "KEY ctrl+c"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 680.9 384.7"
+   },
+   {
+    "step": 9,
+    "action": "KEY ctrl+v"
+   },
+   {
+    "step": 10,
+    "action": "CLICK 561.9 482.6"
+   },
+   {
+    "step": 11,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T16_clipboard2",
+  "variant": 1,
+  "steps": 12,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "target1 == source1": true,
+    "target2 == source2": true,
+    "paste used for target1": true,
+    "paste used for target2": true,
+    "copy happened": true,
+    "verified": true
+   },
+   "src1": "PL-208-Q",
+   "src2": "WD-593-Z",
+   "dst1": "PL-208-Q",
+   "dst2": "WD-593-Z",
+   "pasted1": 1,
+   "pasted2": 1,
+   "copied": 2,
+   "verified": "1"
+  },
+  "elapsed": 10.07,
+  "instruction": "Copy the text of Source 1 into Target 1 and Source 2 into Target 2 using keyboard shortcuts only: click the source, Ctrl+A, Ctrl+C, click its target, Ctrl+V. Do both pairs, then click Verify transfer.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 319.1 233.3"
+   },
+   {
+    "step": 1,
+    "action": "KEY ctrl+a"
+   },
+   {
+    "step": 2,
+    "action": "KEY ctrl+c"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 680.9 233.3"
+   },
+   {
+    "step": 4,
+    "action": "KEY ctrl+v"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 319.1 384.7"
+   },
+   {
+    "step": 6,
+    "action": "KEY ctrl+a"
+   },
+   {
+    "step": 7,
+    "action": "KEY ctrl+c"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 680.9 384.7"
+   },
+   {
+    "step": 9,
+    "action": "KEY ctrl+v"
+   },
+   {
+    "step": 10,
+    "action": "CLICK 561.9 482.6"
+   },
+   {
+    "step": 11,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T16_clipboard2",
+  "variant": 2,
+  "steps": 12,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 6 checks pass",
+  "state": {
+   "tests": {
+    "target1 == source1": true,
+    "target2 == source2": true,
+    "paste used for target1": true,
+    "paste used for target2": true,
+    "copy happened": true,
+    "verified": true
+   },
+   "src1": "RT-117-C",
+   "src2": "BH-640-F",
+   "dst1": "RT-117-C",
+   "dst2": "BH-640-F",
+   "pasted1": 1,
+   "pasted2": 1,
+   "copied": 2,
+   "verified": "1"
+  },
+  "elapsed": 10.13,
+  "instruction": "Copy the text of Source 1 into Target 1 and Source 2 into Target 2 using keyboard shortcuts only: click the source, Ctrl+A, Ctrl+C, click its target, Ctrl+V. Do both pairs, then click Verify transfer.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 319.1 233.3"
+   },
+   {
+    "step": 1,
+    "action": "KEY ctrl+a"
+   },
+   {
+    "step": 2,
+    "action": "KEY ctrl+c"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 680.9 233.3"
+   },
+   {
+    "step": 4,
+    "action": "KEY ctrl+v"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 319.1 384.7"
+   },
+   {
+    "step": 6,
+    "action": "KEY ctrl+a"
+   },
+   {
+    "step": 7,
+    "action": "KEY ctrl+c"
+   },
+   {
+    "step": 8,
+    "action": "CLICK 680.9 384.7"
+   },
+   {
+    "step": 9,
+    "action": "KEY ctrl+v"
+   },
+   {
+    "step": 10,
+    "action": "CLICK 561.9 482.6"
+   },
+   {
+    "step": 11,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T17_reorder",
+  "variant": 0,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "row count intact": true,
+    "queue order == target order": true,
+    "saved flag": true
+   },
+   "cur": [
+    "Delta",
+    "Echo",
+    "Bravo",
+    "Alpha",
+    "Charlie"
+   ],
+   "target": [
+    "Delta",
+    "Echo",
+    "Bravo",
+    "Alpha",
+    "Charlie"
+   ],
+   "saved": "1",
+   "n": 5
+  },
+  "elapsed": 1.9,
+  "instruction": "Reorder the Current queue so it matches the Target order shown on the right (first listed = top row). Use the UP and DOWN buttons next to a row to move that row one place at a time, then click Save order.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 409.4 348.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 161.5 599.3"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T17_reorder",
+  "variant": 1,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "row count intact": true,
+    "queue order == target order": true,
+    "saved flag": true
+   },
+   "cur": [
+    "Kilo",
+    "Sierra",
+    "Oscar",
+    "Mike",
+    "Lima"
+   ],
+   "target": [
+    "Kilo",
+    "Sierra",
+    "Oscar",
+    "Mike",
+    "Lima"
+   ],
+   "saved": "1",
+   "n": 5
+  },
+  "elapsed": 1.92,
+  "instruction": "Reorder the Current queue so it matches the Target order shown on the right (first listed = top row). Use the UP and DOWN buttons next to a row to move that row one place at a time, then click Save order.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 409.4 268.1"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 161.5 599.3"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T17_reorder",
+  "variant": 2,
+  "steps": 3,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 3 checks pass",
+  "state": {
+   "tests": {
+    "row count intact": true,
+    "queue order == target order": true,
+    "saved flag": true
+   },
+   "cur": [
+    "Foxtrot",
+    "Golf",
+    "Hotel",
+    "Juliet",
+    "India"
+   ],
+   "target": [
+    "Foxtrot",
+    "Golf",
+    "Hotel",
+    "Juliet",
+    "India"
+   ],
+   "saved": "1",
+   "n": 5
+  },
+  "elapsed": 1.92,
+  "instruction": "Reorder the Current queue so it matches the Target order shown on the right (first listed = top row). Use the UP and DOWN buttons next to a row to move that row one place at a time, then click Save order.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 409.4 509.7"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 161.5 599.3"
+   },
+   {
+    "step": 2,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T18_countsubmit",
+  "variant": 0,
+  "steps": 6,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "recomputed selected count == target": true,
+    "selected class count matches": true,
+    "meter text matches": true,
+    "submitted": true
+   },
+   "target": 4,
+   "submitted": "1",
+   "rejected": 0,
+   "sel": 4,
+   "selcls": 4,
+   "meter": "Selected: 4 / 4"
+  },
+  "elapsed": 4.61,
+  "instruction": "Select exactly 4 chips so the meter reads 'Selected: 4 / 4', then click Submit batch. Submit only succeeds when the count is exactly right.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 178.1 205.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 245.4 205.6"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 312.6 205.6"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 379.8 205.6"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 198.3 352.1"
+   },
+   {
+    "step": 5,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T18_countsubmit",
+  "variant": 1,
+  "steps": 8,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "recomputed selected count == target": true,
+    "selected class count matches": true,
+    "meter text matches": true,
+    "submitted": true
+   },
+   "target": 6,
+   "submitted": "1",
+   "rejected": 0,
+   "sel": 6,
+   "selcls": 6,
+   "meter": "Selected: 6 / 6"
+  },
+  "elapsed": 6.39,
+  "instruction": "Select exactly 6 chips so the meter reads 'Selected: 6 / 6', then click Submit batch. Submit only succeeds when the count is exactly right.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 178.1 205.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 245.4 205.6"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 312.6 205.6"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 379.8 205.6"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 447 205.6"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 514.3 205.6"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 198.3 352.1"
+   },
+   {
+    "step": 7,
+    "action": "DONE"
+   }
+  ]
+ },
+ {
+  "task_id": "T18_countsubmit",
+  "variant": 2,
+  "steps": 9,
+  "success": true,
+  "score": 1.0,
+  "reason": "all 4 checks pass",
+  "state": {
+   "tests": {
+    "recomputed selected count == target": true,
+    "selected class count matches": true,
+    "meter text matches": true,
+    "submitted": true
+   },
+   "target": 7,
+   "submitted": "1",
+   "rejected": 0,
+   "sel": 7,
+   "selcls": 7,
+   "meter": "Selected: 7 / 7"
+  },
+  "elapsed": 7.28,
+  "instruction": "Select exactly 7 chips so the meter reads 'Selected: 7 / 7', then click Submit batch. Submit only succeeds when the count is exactly right.",
+  "trajectory": [
+   {
+    "step": 0,
+    "action": "CLICK 178.1 205.6"
+   },
+   {
+    "step": 1,
+    "action": "CLICK 245.4 205.6"
+   },
+   {
+    "step": 2,
+    "action": "CLICK 312.6 205.6"
+   },
+   {
+    "step": 3,
+    "action": "CLICK 379.8 205.6"
+   },
+   {
+    "step": 4,
+    "action": "CLICK 447 205.6"
+   },
+   {
+    "step": 5,
+    "action": "CLICK 514.3 205.6"
+   },
+   {
+    "step": 6,
+    "action": "CLICK 581.5 205.6"
+   },
+   {
+    "step": 7,
+    "action": "CLICK 198.3 352.1"
+   },
+   {
+    "step": 8,
+    "action": "DONE"
+   }
+  ]
+ }
+]

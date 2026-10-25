@@ -1,0 +1,34 @@
+{
+ "apps": {
+  "T20_2048": {
+   "app": "t20_2048.html",
+   "episodes": 6,
+   "solved": 6
+  },
+  "T21_form_desktop": {
+   "app": "t21_form_desktop.html",
+   "episodes": 6,
+   "solved": 6
+  },
+  "T22_calc": {
+   "app": "t22_calc.html",
+   "episodes": 6,
+   "solved": 6
+  },
+  "T23_table_sort": {
+   "app": "t23_table_sort.html",
+   "episodes": 6,
+   "solved": 0
+  },
+  "T24_text_edit": {
+   "app": "t24_text_edit.html",
+   "episodes": 6,
+   "solved": 6
+  }
+ },
+ "n_rows": 234,
+ "n_episodes": 30,
+ "n_solved": 24,
+ "n_skipped_unsolved": 6,
+ "solve_rate": 0.8
+}

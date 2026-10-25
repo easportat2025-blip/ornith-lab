@@ -1,0 +1,530 @@
+{"image": "images/s11a_0_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 0, "step": 0}
+{"image": "images/s11a_0_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 0, "step": 1}
+{"image": "images/s11b_1_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 1, "step": 0}
+{"image": "images/s11b_1_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE BRAVO", "family": "S11-move", "episode": 1, "step": 1}
+{"image": "images/s11b_1_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 1, "step": 2}
+{"image": "images/s11c_2_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 143 367 424 367", "family": "S11-drag", "episode": 2, "step": 0}
+{"image": "images/s11c_2_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 2, "step": 1}
+{"image": "images/s12_3_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 3, "step": 0}
+{"image": "images/s12_3_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 3, "step": 1}
+{"image": "images/s13_4_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 4, "step": 0}
+{"image": "images/s13_4_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 4, "step": 1}
+{"image": "images/s13_4_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE ALPHA", "family": "S13-keyboard_nav", "episode": 4, "step": 2}
+{"image": "images/s13_4_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 4, "step": 3}
+{"image": "images/s11a_5_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 5, "step": 0}
+{"image": "images/s11a_5_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 5, "step": 1}
+{"image": "images/s11a_5_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 434", "family": "S11-scroll", "episode": 5, "step": 2}
+{"image": "images/s11b_6_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 6, "step": 0}
+{"image": "images/s11b_6_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE CIRRUS", "family": "S11-move", "episode": 6, "step": 1}
+{"image": "images/s11b_6_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 6, "step": 2}
+{"image": "images/s11c_7_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 143 367 326 367", "family": "S11-drag", "episode": 7, "step": 0}
+{"image": "images/s11c_7_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 7, "step": 1}
+{"image": "images/s12_8_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 8, "step": 0}
+{"image": "images/s12_8_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 8, "step": 1}
+{"image": "images/s13_9_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 9, "step": 0}
+{"image": "images/s13_9_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 9, "step": 1}
+{"image": "images/s13_9_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE INDIGO", "family": "S13-keyboard_nav", "episode": 9, "step": 2}
+{"image": "images/s13_9_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 9, "step": 3}
+{"image": "images/s11a_10_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 10, "step": 0}
+{"image": "images/s11a_10_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 10, "step": 1}
+{"image": "images/s11b_11_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 11, "step": 0}
+{"image": "images/s11b_11_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE JADE", "family": "S11-move", "episode": 11, "step": 1}
+{"image": "images/s11b_11_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 11, "step": 2}
+{"image": "images/s11c_12_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 143 367 257 367", "family": "S11-drag", "episode": 12, "step": 0}
+{"image": "images/s11c_12_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 12, "step": 1}
+{"image": "images/s12_13_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 13, "step": 0}
+{"image": "images/s12_13_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 13, "step": 1}
+{"image": "images/s13_14_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 14, "step": 0}
+{"image": "images/s13_14_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 14, "step": 1}
+{"image": "images/s13_14_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE JADE", "family": "S13-keyboard_nav", "episode": 14, "step": 2}
+{"image": "images/s13_14_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 14, "step": 3}
+{"image": "images/s11a_15_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 15, "step": 0}
+{"image": "images/s11a_15_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 15, "step": 1}
+{"image": "images/s11a_15_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 15, "step": 2}
+{"image": "images/s11b_16_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 16, "step": 0}
+{"image": "images/s11b_16_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE HALO", "family": "S11-move", "episode": 16, "step": 1}
+{"image": "images/s11b_16_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 16, "step": 2}
+{"image": "images/s11c_17_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 212 367 326 367", "family": "S11-drag", "episode": 17, "step": 0}
+{"image": "images/s11c_17_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 17, "step": 1}
+{"image": "images/s12_18_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 18, "step": 0}
+{"image": "images/s12_18_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 18, "step": 1}
+{"image": "images/s13_19_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 19, "step": 0}
+{"image": "images/s13_19_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 19, "step": 1}
+{"image": "images/s13_19_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE FLINT", "family": "S13-keyboard_nav", "episode": 19, "step": 2}
+{"image": "images/s13_19_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 19, "step": 3}
+{"image": "images/s11a_20_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 20, "step": 0}
+{"image": "images/s11a_20_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 20, "step": 1}
+{"image": "images/s11b_21_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 21, "step": 0}
+{"image": "images/s11b_21_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE JADE", "family": "S11-move", "episode": 21, "step": 1}
+{"image": "images/s11b_21_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 21, "step": 2}
+{"image": "images/s11c_22_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 99 367 424 367", "family": "S11-drag", "episode": 22, "step": 0}
+{"image": "images/s11c_22_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 22, "step": 1}
+{"image": "images/s12_23_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 23, "step": 0}
+{"image": "images/s12_23_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 23, "step": 1}
+{"image": "images/s13_24_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 24, "step": 0}
+{"image": "images/s13_24_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 24, "step": 1}
+{"image": "images/s13_24_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE BRAVO", "family": "S13-keyboard_nav", "episode": 24, "step": 2}
+{"image": "images/s13_24_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 24, "step": 3}
+{"image": "images/s11a_25_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 25, "step": 0}
+{"image": "images/s11a_25_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 25, "step": 1}
+{"image": "images/s11b_26_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 26, "step": 0}
+{"image": "images/s11b_26_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE HALO", "family": "S11-move", "episode": 26, "step": 1}
+{"image": "images/s11b_26_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 26, "step": 2}
+{"image": "images/s11c_27_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 99 367 326 367", "family": "S11-drag", "episode": 27, "step": 0}
+{"image": "images/s11c_27_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 27, "step": 1}
+{"image": "images/s12_28_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 28, "step": 0}
+{"image": "images/s12_28_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 28, "step": 1}
+{"image": "images/s13_29_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 29, "step": 0}
+{"image": "images/s13_29_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 29, "step": 1}
+{"image": "images/s13_29_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE EMBER", "family": "S13-keyboard_nav", "episode": 29, "step": 2}
+{"image": "images/s13_29_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 29, "step": 3}
+{"image": "images/s11a_30_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 30, "step": 0}
+{"image": "images/s11a_30_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 30, "step": 1}
+{"image": "images/s11b_31_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 31, "step": 0}
+{"image": "images/s11b_31_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 31, "step": 1}
+{"image": "images/s11b_31_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 31, "step": 2}
+{"image": "images/s11c_32_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 212 367 326 367", "family": "S11-drag", "episode": 32, "step": 0}
+{"image": "images/s11c_32_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 32, "step": 1}
+{"image": "images/s12_33_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 33, "step": 0}
+{"image": "images/s12_33_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 33, "step": 1}
+{"image": "images/s13_34_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 34, "step": 0}
+{"image": "images/s13_34_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 34, "step": 1}
+{"image": "images/s13_34_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE CIRRUS", "family": "S13-keyboard_nav", "episode": 34, "step": 2}
+{"image": "images/s13_34_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 34, "step": 3}
+{"image": "images/s11a_35_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 35, "step": 0}
+{"image": "images/s11a_35_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 35, "step": 1}
+{"image": "images/s11b_36_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 36, "step": 0}
+{"image": "images/s11b_36_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE GAMMA", "family": "S11-move", "episode": 36, "step": 1}
+{"image": "images/s11b_36_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 36, "step": 2}
+{"image": "images/s11c_37_0.png", "instruction": "Drag the slider handle to the 88% position.", "action": "DRAG 143 367 497 367", "family": "S11-drag", "episode": 37, "step": 0}
+{"image": "images/s11c_37_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 37, "step": 1}
+{"image": "images/s12_38_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 38, "step": 0}
+{"image": "images/s12_38_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 38, "step": 1}
+{"image": "images/s13_39_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 39, "step": 0}
+{"image": "images/s13_39_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 39, "step": 1}
+{"image": "images/s13_39_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE INDIGO", "family": "S13-keyboard_nav", "episode": 39, "step": 2}
+{"image": "images/s13_39_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 39, "step": 3}
+{"image": "images/s11a_40_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 40, "step": 0}
+{"image": "images/s11a_40_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 40, "step": 1}
+{"image": "images/s11b_41_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 41, "step": 0}
+{"image": "images/s11b_41_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE KIWI", "family": "S11-move", "episode": 41, "step": 1}
+{"image": "images/s11b_41_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 41, "step": 2}
+{"image": "images/s11c_42_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 99 367 424 367", "family": "S11-drag", "episode": 42, "step": 0}
+{"image": "images/s11c_42_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 42, "step": 1}
+{"image": "images/s12_43_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 43, "step": 0}
+{"image": "images/s12_43_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 43, "step": 1}
+{"image": "images/s13_44_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 44, "step": 0}
+{"image": "images/s13_44_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 44, "step": 1}
+{"image": "images/s13_44_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE BRAVO", "family": "S13-keyboard_nav", "episode": 44, "step": 2}
+{"image": "images/s13_44_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 44, "step": 3}
+{"image": "images/s11a_45_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 45, "step": 0}
+{"image": "images/s11a_45_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 45, "step": 1}
+{"image": "images/s11b_46_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 46, "step": 0}
+{"image": "images/s11b_46_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE JADE", "family": "S11-move", "episode": 46, "step": 1}
+{"image": "images/s11b_46_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 46, "step": 2}
+{"image": "images/s11c_47_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 99 367 424 367", "family": "S11-drag", "episode": 47, "step": 0}
+{"image": "images/s11c_47_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 47, "step": 1}
+{"image": "images/s12_48_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 48, "step": 0}
+{"image": "images/s12_48_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 48, "step": 1}
+{"image": "images/s13_49_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 49, "step": 0}
+{"image": "images/s13_49_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 49, "step": 1}
+{"image": "images/s13_49_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE HALO", "family": "S13-keyboard_nav", "episode": 49, "step": 2}
+{"image": "images/s13_49_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 49, "step": 3}
+{"image": "images/s11a_50_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 50, "step": 0}
+{"image": "images/s11a_50_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 539", "family": "S11-scroll", "episode": 50, "step": 1}
+{"image": "images/s11b_51_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 51, "step": 0}
+{"image": "images/s11b_51_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE HALO", "family": "S11-move", "episode": 51, "step": 1}
+{"image": "images/s11b_51_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 51, "step": 2}
+{"image": "images/s11c_52_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 212 367 257 367", "family": "S11-drag", "episode": 52, "step": 0}
+{"image": "images/s11c_52_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 52, "step": 1}
+{"image": "images/s12_53_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 53, "step": 0}
+{"image": "images/s12_53_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 53, "step": 1}
+{"image": "images/s13_54_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 54, "step": 0}
+{"image": "images/s13_54_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 54, "step": 1}
+{"image": "images/s13_54_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE LOTUS", "family": "S13-keyboard_nav", "episode": 54, "step": 2}
+{"image": "images/s13_54_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 54, "step": 3}
+{"image": "images/s11a_55_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 55, "step": 0}
+{"image": "images/s11a_55_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 55, "step": 1}
+{"image": "images/s11a_55_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 434", "family": "S11-scroll", "episode": 55, "step": 2}
+{"image": "images/s11b_56_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 56, "step": 0}
+{"image": "images/s11b_56_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 56, "step": 1}
+{"image": "images/s11b_56_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 56, "step": 2}
+{"image": "images/s11c_57_0.png", "instruction": "Drag the slider handle to the 88% position.", "action": "DRAG 143 367 497 367", "family": "S11-drag", "episode": 57, "step": 0}
+{"image": "images/s11c_57_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 57, "step": 1}
+{"image": "images/s12_58_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 58, "step": 0}
+{"image": "images/s12_58_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 58, "step": 1}
+{"image": "images/s13_59_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 59, "step": 0}
+{"image": "images/s13_59_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 59, "step": 1}
+{"image": "images/s13_59_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE GAMMA", "family": "S13-keyboard_nav", "episode": 59, "step": 2}
+{"image": "images/s13_59_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 59, "step": 3}
+{"image": "images/s11a_60_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 60, "step": 0}
+{"image": "images/s11a_60_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 60, "step": 1}
+{"image": "images/s11a_60_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 60, "step": 2}
+{"image": "images/s11b_61_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 61, "step": 0}
+{"image": "images/s11b_61_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE JADE", "family": "S11-move", "episode": 61, "step": 1}
+{"image": "images/s11b_61_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 61, "step": 2}
+{"image": "images/s11c_62_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 143 367 326 367", "family": "S11-drag", "episode": 62, "step": 0}
+{"image": "images/s11c_62_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 62, "step": 1}
+{"image": "images/s12_63_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 63, "step": 0}
+{"image": "images/s12_63_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 63, "step": 1}
+{"image": "images/s13_64_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 64, "step": 0}
+{"image": "images/s13_64_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 64, "step": 1}
+{"image": "images/s13_64_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE BRAVO", "family": "S13-keyboard_nav", "episode": 64, "step": 2}
+{"image": "images/s13_64_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 64, "step": 3}
+{"image": "images/s11a_65_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 65, "step": 0}
+{"image": "images/s11a_65_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 65, "step": 1}
+{"image": "images/s11b_66_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 66, "step": 0}
+{"image": "images/s11b_66_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE KIWI", "family": "S11-move", "episode": 66, "step": 1}
+{"image": "images/s11b_66_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 66, "step": 2}
+{"image": "images/s11c_67_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 143 367 189 367", "family": "S11-drag", "episode": 67, "step": 0}
+{"image": "images/s11c_67_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 67, "step": 1}
+{"image": "images/s12_68_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 68, "step": 0}
+{"image": "images/s12_68_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 68, "step": 1}
+{"image": "images/s13_69_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 69, "step": 0}
+{"image": "images/s13_69_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 69, "step": 1}
+{"image": "images/s13_69_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE KIWI", "family": "S13-keyboard_nav", "episode": 69, "step": 2}
+{"image": "images/s13_69_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 69, "step": 3}
+{"image": "images/s11a_70_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 70, "step": 0}
+{"image": "images/s11a_70_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 70, "step": 1}
+{"image": "images/s11b_71_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 71, "step": 0}
+{"image": "images/s11b_71_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE JADE", "family": "S11-move", "episode": 71, "step": 1}
+{"image": "images/s11b_71_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 71, "step": 2}
+{"image": "images/s11c_72_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 212 367 424 367", "family": "S11-drag", "episode": 72, "step": 0}
+{"image": "images/s11c_72_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 72, "step": 1}
+{"image": "images/s12_73_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 73, "step": 0}
+{"image": "images/s12_73_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 73, "step": 1}
+{"image": "images/s13_74_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 74, "step": 0}
+{"image": "images/s13_74_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 74, "step": 1}
+{"image": "images/s13_74_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE FLINT", "family": "S13-keyboard_nav", "episode": 74, "step": 2}
+{"image": "images/s13_74_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 74, "step": 3}
+{"image": "images/s11a_75_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 75, "step": 0}
+{"image": "images/s11a_75_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 75, "step": 1}
+{"image": "images/s11b_76_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 76, "step": 0}
+{"image": "images/s11b_76_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE DELTA", "family": "S11-move", "episode": 76, "step": 1}
+{"image": "images/s11b_76_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 76, "step": 2}
+{"image": "images/s11c_77_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 143 367 189 367", "family": "S11-drag", "episode": 77, "step": 0}
+{"image": "images/s11c_77_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 77, "step": 1}
+{"image": "images/s12_78_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 78, "step": 0}
+{"image": "images/s12_78_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 78, "step": 1}
+{"image": "images/s13_79_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 79, "step": 0}
+{"image": "images/s13_79_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 79, "step": 1}
+{"image": "images/s13_79_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE FLINT", "family": "S13-keyboard_nav", "episode": 79, "step": 2}
+{"image": "images/s13_79_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 79, "step": 3}
+{"image": "images/s11a_80_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 80, "step": 0}
+{"image": "images/s11a_80_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 80, "step": 1}
+{"image": "images/s11b_81_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 81, "step": 0}
+{"image": "images/s11b_81_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 81, "step": 1}
+{"image": "images/s11b_81_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 81, "step": 2}
+{"image": "images/s11c_82_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 212 367 257 367", "family": "S11-drag", "episode": 82, "step": 0}
+{"image": "images/s11c_82_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 82, "step": 1}
+{"image": "images/s12_83_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 83, "step": 0}
+{"image": "images/s12_83_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 83, "step": 1}
+{"image": "images/s13_84_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 84, "step": 0}
+{"image": "images/s13_84_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 84, "step": 1}
+{"image": "images/s13_84_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE ALPHA", "family": "S13-keyboard_nav", "episode": 84, "step": 2}
+{"image": "images/s13_84_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 84, "step": 3}
+{"image": "images/s11a_85_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 85, "step": 0}
+{"image": "images/s11a_85_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 85, "step": 1}
+{"image": "images/s11a_85_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 434", "family": "S11-scroll", "episode": 85, "step": 2}
+{"image": "images/s11b_86_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 86, "step": 0}
+{"image": "images/s11b_86_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE HALO", "family": "S11-move", "episode": 86, "step": 1}
+{"image": "images/s11b_86_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 86, "step": 2}
+{"image": "images/s11c_87_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 212 367 189 367", "family": "S11-drag", "episode": 87, "step": 0}
+{"image": "images/s11c_87_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 87, "step": 1}
+{"image": "images/s12_88_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 88, "step": 0}
+{"image": "images/s12_88_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 88, "step": 1}
+{"image": "images/s13_89_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 89, "step": 0}
+{"image": "images/s13_89_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 89, "step": 1}
+{"image": "images/s13_89_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE BRAVO", "family": "S13-keyboard_nav", "episode": 89, "step": 2}
+{"image": "images/s13_89_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 89, "step": 3}
+{"image": "images/s11a_90_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 90, "step": 0}
+{"image": "images/s11a_90_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 539", "family": "S11-scroll", "episode": 90, "step": 1}
+{"image": "images/s11b_91_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 91, "step": 0}
+{"image": "images/s11b_91_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE HALO", "family": "S11-move", "episode": 91, "step": 1}
+{"image": "images/s11b_91_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 91, "step": 2}
+{"image": "images/s11c_92_0.png", "instruction": "Drag the slider handle to the 88% position.", "action": "DRAG 212 367 497 367", "family": "S11-drag", "episode": 92, "step": 0}
+{"image": "images/s11c_92_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 92, "step": 1}
+{"image": "images/s12_93_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 93, "step": 0}
+{"image": "images/s12_93_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 93, "step": 1}
+{"image": "images/s13_94_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 94, "step": 0}
+{"image": "images/s13_94_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 94, "step": 1}
+{"image": "images/s13_94_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE EMBER", "family": "S13-keyboard_nav", "episode": 94, "step": 2}
+{"image": "images/s13_94_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 94, "step": 3}
+{"image": "images/s11a_95_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 95, "step": 0}
+{"image": "images/s11a_95_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 95, "step": 1}
+{"image": "images/s11b_96_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 96, "step": 0}
+{"image": "images/s11b_96_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE DELTA", "family": "S11-move", "episode": 96, "step": 1}
+{"image": "images/s11b_96_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 96, "step": 2}
+{"image": "images/s11c_97_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 99 367 326 367", "family": "S11-drag", "episode": 97, "step": 0}
+{"image": "images/s11c_97_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 97, "step": 1}
+{"image": "images/s12_98_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 98, "step": 0}
+{"image": "images/s12_98_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 98, "step": 1}
+{"image": "images/s13_99_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 99, "step": 0}
+{"image": "images/s13_99_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 99, "step": 1}
+{"image": "images/s13_99_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE CIRRUS", "family": "S13-keyboard_nav", "episode": 99, "step": 2}
+{"image": "images/s13_99_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 99, "step": 3}
+{"image": "images/s11a_100_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 100, "step": 0}
+{"image": "images/s11a_100_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 100, "step": 1}
+{"image": "images/s11b_101_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 101, "step": 0}
+{"image": "images/s11b_101_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 101, "step": 1}
+{"image": "images/s11b_101_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 101, "step": 2}
+{"image": "images/s11c_102_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 143 367 424 367", "family": "S11-drag", "episode": 102, "step": 0}
+{"image": "images/s11c_102_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 102, "step": 1}
+{"image": "images/s12_103_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 103, "step": 0}
+{"image": "images/s12_103_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 103, "step": 1}
+{"image": "images/s13_104_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 104, "step": 0}
+{"image": "images/s13_104_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 104, "step": 1}
+{"image": "images/s13_104_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE LOTUS", "family": "S13-keyboard_nav", "episode": 104, "step": 2}
+{"image": "images/s13_104_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 104, "step": 3}
+{"image": "images/s11a_105_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 105, "step": 0}
+{"image": "images/s11a_105_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 105, "step": 1}
+{"image": "images/s11a_105_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 434", "family": "S11-scroll", "episode": 105, "step": 2}
+{"image": "images/s11b_106_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 106, "step": 0}
+{"image": "images/s11b_106_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE BRAVO", "family": "S11-move", "episode": 106, "step": 1}
+{"image": "images/s11b_106_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 106, "step": 2}
+{"image": "images/s11c_107_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 99 367 189 367", "family": "S11-drag", "episode": 107, "step": 0}
+{"image": "images/s11c_107_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 107, "step": 1}
+{"image": "images/s12_108_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 108, "step": 0}
+{"image": "images/s12_108_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 108, "step": 1}
+{"image": "images/s13_109_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 109, "step": 0}
+{"image": "images/s13_109_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 109, "step": 1}
+{"image": "images/s13_109_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE CIRRUS", "family": "S13-keyboard_nav", "episode": 109, "step": 2}
+{"image": "images/s13_109_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 109, "step": 3}
+{"image": "images/s11a_110_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 110, "step": 0}
+{"image": "images/s11a_110_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 110, "step": 1}
+{"image": "images/s11b_111_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 111, "step": 0}
+{"image": "images/s11b_111_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE EMBER", "family": "S11-move", "episode": 111, "step": 1}
+{"image": "images/s11b_111_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 111, "step": 2}
+{"image": "images/s11c_112_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 212 367 189 367", "family": "S11-drag", "episode": 112, "step": 0}
+{"image": "images/s11c_112_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 112, "step": 1}
+{"image": "images/s12_113_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 113, "step": 0}
+{"image": "images/s12_113_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 113, "step": 1}
+{"image": "images/s13_114_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 114, "step": 0}
+{"image": "images/s13_114_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 114, "step": 1}
+{"image": "images/s13_114_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE KIWI", "family": "S13-keyboard_nav", "episode": 114, "step": 2}
+{"image": "images/s13_114_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 114, "step": 3}
+{"image": "images/s11a_115_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 115, "step": 0}
+{"image": "images/s11a_115_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 539", "family": "S11-scroll", "episode": 115, "step": 1}
+{"image": "images/s11b_116_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 116, "step": 0}
+{"image": "images/s11b_116_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE JADE", "family": "S11-move", "episode": 116, "step": 1}
+{"image": "images/s11b_116_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 116, "step": 2}
+{"image": "images/s11c_117_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 99 367 257 367", "family": "S11-drag", "episode": 117, "step": 0}
+{"image": "images/s11c_117_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 117, "step": 1}
+{"image": "images/s12_118_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 118, "step": 0}
+{"image": "images/s12_118_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 118, "step": 1}
+{"image": "images/s13_119_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 119, "step": 0}
+{"image": "images/s13_119_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 119, "step": 1}
+{"image": "images/s13_119_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE EMBER", "family": "S13-keyboard_nav", "episode": 119, "step": 2}
+{"image": "images/s13_119_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 119, "step": 3}
+{"image": "images/s11a_120_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 120, "step": 0}
+{"image": "images/s11a_120_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 539", "family": "S11-scroll", "episode": 120, "step": 1}
+{"image": "images/s11b_121_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 121, "step": 0}
+{"image": "images/s11b_121_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE FLINT", "family": "S11-move", "episode": 121, "step": 1}
+{"image": "images/s11b_121_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 121, "step": 2}
+{"image": "images/s11c_122_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 143 367 189 367", "family": "S11-drag", "episode": 122, "step": 0}
+{"image": "images/s11c_122_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 122, "step": 1}
+{"image": "images/s12_123_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 123, "step": 0}
+{"image": "images/s12_123_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 123, "step": 1}
+{"image": "images/s13_124_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 124, "step": 0}
+{"image": "images/s13_124_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 124, "step": 1}
+{"image": "images/s13_124_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE INDIGO", "family": "S13-keyboard_nav", "episode": 124, "step": 2}
+{"image": "images/s13_124_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 124, "step": 3}
+{"image": "images/s11a_125_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 125, "step": 0}
+{"image": "images/s11a_125_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 125, "step": 1}
+{"image": "images/s11a_125_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 434", "family": "S11-scroll", "episode": 125, "step": 2}
+{"image": "images/s11b_126_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 126, "step": 0}
+{"image": "images/s11b_126_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE EMBER", "family": "S11-move", "episode": 126, "step": 1}
+{"image": "images/s11b_126_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 126, "step": 2}
+{"image": "images/s11c_127_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 99 367 257 367", "family": "S11-drag", "episode": 127, "step": 0}
+{"image": "images/s11c_127_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 127, "step": 1}
+{"image": "images/s12_128_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 128, "step": 0}
+{"image": "images/s12_128_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 128, "step": 1}
+{"image": "images/s13_129_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 129, "step": 0}
+{"image": "images/s13_129_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 129, "step": 1}
+{"image": "images/s13_129_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE CIRRUS", "family": "S13-keyboard_nav", "episode": 129, "step": 2}
+{"image": "images/s13_129_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 129, "step": 3}
+{"image": "images/s11a_130_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 130, "step": 0}
+{"image": "images/s11a_130_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 130, "step": 1}
+{"image": "images/s11a_130_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 130, "step": 2}
+{"image": "images/s11b_131_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 131, "step": 0}
+{"image": "images/s11b_131_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE GAMMA", "family": "S11-move", "episode": 131, "step": 1}
+{"image": "images/s11b_131_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 131, "step": 2}
+{"image": "images/s11c_132_0.png", "instruction": "Drag the slider handle to the 88% position.", "action": "DRAG 212 367 497 367", "family": "S11-drag", "episode": 132, "step": 0}
+{"image": "images/s11c_132_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 132, "step": 1}
+{"image": "images/s12_133_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 133, "step": 0}
+{"image": "images/s12_133_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 133, "step": 1}
+{"image": "images/s13_134_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 134, "step": 0}
+{"image": "images/s13_134_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 134, "step": 1}
+{"image": "images/s13_134_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE ALPHA", "family": "S13-keyboard_nav", "episode": 134, "step": 2}
+{"image": "images/s13_134_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 134, "step": 3}
+{"image": "images/s11a_135_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 135, "step": 0}
+{"image": "images/s11a_135_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 539", "family": "S11-scroll", "episode": 135, "step": 1}
+{"image": "images/s11b_136_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 136, "step": 0}
+{"image": "images/s11b_136_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE DELTA", "family": "S11-move", "episode": 136, "step": 1}
+{"image": "images/s11b_136_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 136, "step": 2}
+{"image": "images/s11c_137_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 99 367 326 367", "family": "S11-drag", "episode": 137, "step": 0}
+{"image": "images/s11c_137_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 137, "step": 1}
+{"image": "images/s12_138_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 138, "step": 0}
+{"image": "images/s12_138_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 138, "step": 1}
+{"image": "images/s13_139_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 139, "step": 0}
+{"image": "images/s13_139_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 139, "step": 1}
+{"image": "images/s13_139_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE EMBER", "family": "S13-keyboard_nav", "episode": 139, "step": 2}
+{"image": "images/s13_139_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 139, "step": 3}
+{"image": "images/s11a_140_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 140, "step": 0}
+{"image": "images/s11a_140_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 140, "step": 1}
+{"image": "images/s11b_141_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 141, "step": 0}
+{"image": "images/s11b_141_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE ALPHA", "family": "S11-move", "episode": 141, "step": 1}
+{"image": "images/s11b_141_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 141, "step": 2}
+{"image": "images/s11c_142_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 143 367 326 367", "family": "S11-drag", "episode": 142, "step": 0}
+{"image": "images/s11c_142_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 142, "step": 1}
+{"image": "images/s12_143_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 143, "step": 0}
+{"image": "images/s12_143_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 143, "step": 1}
+{"image": "images/s13_144_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 144, "step": 0}
+{"image": "images/s13_144_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 144, "step": 1}
+{"image": "images/s13_144_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE CIRRUS", "family": "S13-keyboard_nav", "episode": 144, "step": 2}
+{"image": "images/s13_144_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 144, "step": 3}
+{"image": "images/s11a_145_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 145, "step": 0}
+{"image": "images/s11a_145_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 145, "step": 1}
+{"image": "images/s11b_146_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 146, "step": 0}
+{"image": "images/s11b_146_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE LOTUS", "family": "S11-move", "episode": 146, "step": 1}
+{"image": "images/s11b_146_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 146, "step": 2}
+{"image": "images/s11c_147_0.png", "instruction": "Drag the slider handle to the 88% position.", "action": "DRAG 212 367 497 367", "family": "S11-drag", "episode": 147, "step": 0}
+{"image": "images/s11c_147_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 147, "step": 1}
+{"image": "images/s12_148_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 148, "step": 0}
+{"image": "images/s12_148_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 148, "step": 1}
+{"image": "images/s13_149_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 149, "step": 0}
+{"image": "images/s13_149_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 149, "step": 1}
+{"image": "images/s13_149_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE INDIGO", "family": "S13-keyboard_nav", "episode": 149, "step": 2}
+{"image": "images/s13_149_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 149, "step": 3}
+{"image": "images/s11a_150_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 150, "step": 0}
+{"image": "images/s11a_150_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 150, "step": 1}
+{"image": "images/s11b_151_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 151, "step": 0}
+{"image": "images/s11b_151_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE KIWI", "family": "S11-move", "episode": 151, "step": 1}
+{"image": "images/s11b_151_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 151, "step": 2}
+{"image": "images/s11c_152_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 99 367 326 367", "family": "S11-drag", "episode": 152, "step": 0}
+{"image": "images/s11c_152_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 152, "step": 1}
+{"image": "images/s12_153_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 153, "step": 0}
+{"image": "images/s12_153_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 153, "step": 1}
+{"image": "images/s13_154_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 154, "step": 0}
+{"image": "images/s13_154_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 154, "step": 1}
+{"image": "images/s13_154_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE ALPHA", "family": "S13-keyboard_nav", "episode": 154, "step": 2}
+{"image": "images/s13_154_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 154, "step": 3}
+{"image": "images/s11a_155_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 155, "step": 0}
+{"image": "images/s11a_155_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 155, "step": 1}
+{"image": "images/s11a_155_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 155, "step": 2}
+{"image": "images/s11b_156_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 156, "step": 0}
+{"image": "images/s11b_156_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 156, "step": 1}
+{"image": "images/s11b_156_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 156, "step": 2}
+{"image": "images/s11c_157_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 212 367 189 367", "family": "S11-drag", "episode": 157, "step": 0}
+{"image": "images/s11c_157_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 157, "step": 1}
+{"image": "images/s12_158_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 158, "step": 0}
+{"image": "images/s12_158_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 158, "step": 1}
+{"image": "images/s13_159_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 159, "step": 0}
+{"image": "images/s13_159_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 159, "step": 1}
+{"image": "images/s13_159_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE DELTA", "family": "S13-keyboard_nav", "episode": 159, "step": 2}
+{"image": "images/s13_159_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 159, "step": 3}
+{"image": "images/s11a_160_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 160, "step": 0}
+{"image": "images/s11a_160_1.png", "instruction": "Keep scrolling inside the list until the row with the code from the note is visible.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 160, "step": 1}
+{"image": "images/s11a_160_2.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 434", "family": "S11-scroll", "episode": 160, "step": 2}
+{"image": "images/s11b_161_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 161, "step": 0}
+{"image": "images/s11b_161_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE KIWI", "family": "S11-move", "episode": 161, "step": 1}
+{"image": "images/s11b_161_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 161, "step": 2}
+{"image": "images/s11c_162_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 99 367 257 367", "family": "S11-drag", "episode": 162, "step": 0}
+{"image": "images/s11c_162_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 162, "step": 1}
+{"image": "images/s12_163_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 163, "step": 0}
+{"image": "images/s12_163_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 163, "step": 1}
+{"image": "images/s13_164_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 164, "step": 0}
+{"image": "images/s13_164_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 164, "step": 1}
+{"image": "images/s13_164_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE LOTUS", "family": "S13-keyboard_nav", "episode": 164, "step": 2}
+{"image": "images/s13_164_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 164, "step": 3}
+{"image": "images/s11a_165_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 165, "step": 0}
+{"image": "images/s11a_165_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 165, "step": 1}
+{"image": "images/s11b_166_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 166, "step": 0}
+{"image": "images/s11b_166_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE KIWI", "family": "S11-move", "episode": 166, "step": 1}
+{"image": "images/s11b_166_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 166, "step": 2}
+{"image": "images/s11c_167_0.png", "instruction": "Drag the slider handle to the 72% position.", "action": "DRAG 143 367 424 367", "family": "S11-drag", "episode": 167, "step": 0}
+{"image": "images/s11c_167_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 167, "step": 1}
+{"image": "images/s12_168_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 168, "step": 0}
+{"image": "images/s12_168_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 168, "step": 1}
+{"image": "images/s13_169_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 169, "step": 0}
+{"image": "images/s13_169_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 169, "step": 1}
+{"image": "images/s13_169_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE HALO", "family": "S13-keyboard_nav", "episode": 169, "step": 2}
+{"image": "images/s13_169_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 169, "step": 3}
+{"image": "images/s11a_170_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 170, "step": 0}
+{"image": "images/s11a_170_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 170, "step": 1}
+{"image": "images/s11b_171_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 171, "step": 0}
+{"image": "images/s11b_171_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE DELTA", "family": "S11-move", "episode": 171, "step": 1}
+{"image": "images/s11b_171_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 171, "step": 2}
+{"image": "images/s11c_172_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 99 367 257 367", "family": "S11-drag", "episode": 172, "step": 0}
+{"image": "images/s11c_172_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 172, "step": 1}
+{"image": "images/s12_173_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 173, "step": 0}
+{"image": "images/s12_173_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 173, "step": 1}
+{"image": "images/s13_174_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 174, "step": 0}
+{"image": "images/s13_174_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 174, "step": 1}
+{"image": "images/s13_174_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE EMBER", "family": "S13-keyboard_nav", "episode": 174, "step": 2}
+{"image": "images/s13_174_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 174, "step": 3}
+{"image": "images/s11a_175_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 175, "step": 0}
+{"image": "images/s11a_175_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 175, "step": 1}
+{"image": "images/s11b_176_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 176, "step": 0}
+{"image": "images/s11b_176_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE CIRRUS", "family": "S11-move", "episode": 176, "step": 1}
+{"image": "images/s11b_176_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 176, "step": 2}
+{"image": "images/s11c_177_0.png", "instruction": "Drag the slider handle to the 20% position.", "action": "DRAG 143 367 189 367", "family": "S11-drag", "episode": 177, "step": 0}
+{"image": "images/s11c_177_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 177, "step": 1}
+{"image": "images/s12_178_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 178, "step": 0}
+{"image": "images/s12_178_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 178, "step": 1}
+{"image": "images/s13_179_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 179, "step": 0}
+{"image": "images/s13_179_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 179, "step": 1}
+{"image": "images/s13_179_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE CIRRUS", "family": "S13-keyboard_nav", "episode": 179, "step": 2}
+{"image": "images/s13_179_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 179, "step": 3}
+{"image": "images/s11a_180_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 180, "step": 0}
+{"image": "images/s11a_180_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 180, "step": 1}
+{"image": "images/s11b_181_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 181, "step": 0}
+{"image": "images/s11b_181_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE LOTUS", "family": "S11-move", "episode": 181, "step": 1}
+{"image": "images/s11b_181_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 181, "step": 2}
+{"image": "images/s11c_182_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 143 367 326 367", "family": "S11-drag", "episode": 182, "step": 0}
+{"image": "images/s11c_182_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 182, "step": 1}
+{"image": "images/s12_183_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 183, "step": 0}
+{"image": "images/s12_183_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 183, "step": 1}
+{"image": "images/s13_184_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 184, "step": 0}
+{"image": "images/s13_184_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 184, "step": 1}
+{"image": "images/s13_184_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE BRAVO", "family": "S13-keyboard_nav", "episode": 184, "step": 2}
+{"image": "images/s13_184_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 184, "step": 3}
+{"image": "images/s11a_185_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 185, "step": 0}
+{"image": "images/s11a_185_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 574", "family": "S11-scroll", "episode": 185, "step": 1}
+{"image": "images/s11b_186_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 186, "step": 0}
+{"image": "images/s11b_186_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 186, "step": 1}
+{"image": "images/s11b_186_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 186, "step": 2}
+{"image": "images/s11c_187_0.png", "instruction": "Drag the slider handle to the 50% position.", "action": "DRAG 99 367 326 367", "family": "S11-drag", "episode": 187, "step": 0}
+{"image": "images/s11c_187_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 187, "step": 1}
+{"image": "images/s12_188_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 188, "step": 0}
+{"image": "images/s12_188_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 188, "step": 1}
+{"image": "images/s13_189_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 189, "step": 0}
+{"image": "images/s13_189_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 189, "step": 1}
+{"image": "images/s13_189_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE INDIGO", "family": "S13-keyboard_nav", "episode": 189, "step": 2}
+{"image": "images/s13_189_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 189, "step": 3}
+{"image": "images/s11a_190_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 190, "step": 0}
+{"image": "images/s11a_190_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 469", "family": "S11-scroll", "episode": 190, "step": 1}
+{"image": "images/s11b_191_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 191, "step": 0}
+{"image": "images/s11b_191_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE INDIGO", "family": "S11-move", "episode": 191, "step": 1}
+{"image": "images/s11b_191_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 191, "step": 2}
+{"image": "images/s11c_192_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 99 367 257 367", "family": "S11-drag", "episode": 192, "step": 0}
+{"image": "images/s11c_192_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 192, "step": 1}
+{"image": "images/s12_193_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 193, "step": 0}
+{"image": "images/s12_193_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 193, "step": 1}
+{"image": "images/s13_194_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 194, "step": 0}
+{"image": "images/s13_194_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 194, "step": 1}
+{"image": "images/s13_194_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE EMBER", "family": "S13-keyboard_nav", "episode": 194, "step": 2}
+{"image": "images/s13_194_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 194, "step": 3}
+{"image": "images/s11a_195_0.png", "instruction": "The list of rows continues below the visible area. Scroll inside the list to reveal the row that contains the code from the note.", "action": "SCROLL 5", "family": "S11-scroll", "episode": 195, "step": 0}
+{"image": "images/s11a_195_1.png", "instruction": "Click the row whose code matches the note.", "action": "CLICK 273 504", "family": "S11-scroll", "episode": 195, "step": 1}
+{"image": "images/s11b_196_0.png", "instruction": "The code is hidden until you point at the locked panel. Move the pointer over the panel to reveal it.", "action": "MOVE 254 332", "family": "S11-move", "episode": 196, "step": 0}
+{"image": "images/s11b_196_1.png", "instruction": "The code is now visible. Type it into the empty field.", "action": "TYPE KIWI", "family": "S11-move", "episode": 196, "step": 1}
+{"image": "images/s11b_196_2.png", "instruction": "Click the field, then type the revealed code.", "action": "CLICK 254 621", "family": "S11-move", "episode": 196, "step": 2}
+{"image": "images/s11c_197_0.png", "instruction": "Drag the slider handle to the 35% position.", "action": "DRAG 99 367 257 367", "family": "S11-drag", "episode": 197, "step": 0}
+{"image": "images/s11c_197_1.png", "instruction": "The slider is at the requested value. Click Apply.", "action": "CLICK 176 523", "family": "S11-drag", "episode": 197, "step": 1}
+{"image": "images/s12_198_0.png", "instruction": "The page shows an error, but the code you typed already matches the note. Do not change the value; press Submit again to confirm.", "action": "CLICK 169 426", "family": "S12-error_recovery", "episode": 198, "step": 0}
+{"image": "images/s12_198_1.png", "instruction": "The code was accepted. The task is complete.", "action": "DONE", "family": "S12-error_recovery", "episode": 198, "step": 1}
+{"image": "images/s13_199_0.png", "instruction": "The first field is focused. Press Tab to move to the next field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 199, "step": 0}
+{"image": "images/s13_199_1.png", "instruction": "The second field is focused. Press Tab again to reach the code field.", "action": "KEY Tab", "family": "S13-keyboard_nav", "episode": 199, "step": 1}
+{"image": "images/s13_199_2.png", "instruction": "The code field is focused. Type the code from the note.", "action": "TYPE HALO", "family": "S13-keyboard_nav", "episode": 199, "step": 2}
+{"image": "images/s13_199_3.png", "instruction": "All fields are filled. Press Enter to submit.", "action": "KEY Enter", "family": "S13-keyboard_nav", "episode": 199, "step": 3}

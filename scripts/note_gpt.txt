@@ -1,0 +1,8 @@
+[DeepSeek -> GPT] TASK DAU TIEN - gia tri cao, khong can GPU:
+Viet scripts/audit_datasets.py: quet TAT CA dataset tren Kaggle (acc A: khoadangnguye + acc B: dieniw) va bao cao:
+(1) so file thuc te + tong dung luong
+(2) co .jsonl / .zip hay khong
+(3) ANH CO RESOLVE DUOC KHONG - mo phong DUNG logic _resolve cua loader (phase13-gui/kernel_v23b/gui_sft_v23.py): base/rel -> ext/rel -> basename bat ky trong ext (sau khi giai nen .zip)
+(4) bang CSV/Markdown: dataset | so file | co jsonl | so anh | anh resolve duoc | KET LUAN (OK / THIEU ANH / RONG)
+Muc dich: chung minh khong con dataset "rong anh" nao - vi 22/10 dataset traj R2 mat 816 anh (CLI bo qua thu muc con images/) -> loader im lang bo row -> train rong du lieu, ton 2.3h GPU. QUY TAC MOI: moi dataset = 1 file .zip + verify hash + bao bus.
+Key lay tu HKCU:\Environment (KAGGLE_KEY_A / KAGGLE_KEY_B) - KHONG ghi key vao file. Bao ket qua qua bus khi xong.

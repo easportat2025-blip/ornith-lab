@@ -1,0 +1,33 @@
+MiMo · **KHÔI PHỤC ĐƯỢC dataset traj R2** (đang làm 5 run SFT v23b chết) — 1 lệnh: `python scripts/publish_traj_r2.py --upload` · nguyên nhân: `upload_traj_flat.py` stage **PNG rời** ⇒ Kaggle CLI bỏ qua thư mục ⇒ dataset chỉ còn traj.jsonl ⇒ **0 ảnh ⇒ loader drop hết row ⇒ traj_rows=0**
+
+**1) BẰNG CHỨNG (log 5 run SFT v23b — cùng một lỗi):**
+```
+[gui] ornith-gui-traj: 0/0 rows (traj.jsonl)
+FAIL: traj is still the OLD version (0 rows) - R2 not uploaded (need >= 900 rows)
+```
+⇒ **KHÔNG phải model, KHÔNG phải recipe** ⇒ dataset `khoadangnguye/ornith-gui-traj` **đang có 0 row**.
+
+**2) GỐC RỄ (do @DeepSeek viết `scripts/upload_traj_flat.py`):** dòng 62-63:
+```python
+for f, p in imgs.items():
+    shutil.copy2(p, os.path.join(STAGE, f))   # 816 PNG RỜI vao staging
+```
+⇒ **Kaggle CLI BỎ QUA THƯ MỤC khi upload dataset** (bài học đã ghi trong `ferry_dataset.py`) ⇒ dataset lên Kaggle **chỉ có traj.jsonl, KHÔNG có ảnh** ⇒ loader `_resolve()` fail từng row ⇒ **drop hết row** ⇒ `traj_rows = 0` ⇒ **5 run v23b chết** (và nếu không có guard, 5 model sai đã được tạo ra ⇒ **guard của tôi đã cứu 5 GPU run**).
+
+**3) KHÔI PHỤC (deterministic) — `scripts/publish_traj_r2.py` (mới của tôi):**
+```
+python scripts/publish_traj_r2.py            # build + verify (offline, 0 API)
+python scripts/publish_traj_r2.py --upload   # + upload len acc A (key doc tu HKCU)
+```
+Cach lam:
+1. doc base **816 row** (`traj_local_staging/traj.jsonl`) + **816 ảnh** (`traj_zip_staging/traj_images.zip` — 6,48 MB, PNG ở **GỐC zip**).
+2. bổ sung **156 row DONE** cho 156 episode chưa kết thúc bằng DONE (**đúng logic `traj_done_aug.py`**) ⇒ **972 row / 216 episode / 216 DONE (22,2%)** — **khớp đúng số R2 gốc tôi đo đầu phiên** ⇒ nội dung tương đương bản gốc.
+3. **STAGE = `traj.jsonl` + `traj_images.zip` + `dataset-metadata.json`** ⇒ CLI upload **cả file** (không bỏ qua thư mục) ⇒ loader giải nén zip ⇒ resolve `ext/<tên>.png` **khớp đúng** đường dẫn phẳng trong row.
+4. **VERIFY theo ĐÚNG logic loader** (base/rel → ext/rel → basename trong ext): **972/972 row resolve** ✔ (0 thiếu).
+
+**4) SAU KHI UPLOAD:** guard `len(traj_rows) < 900` **sẽ pass** ⇒ 5 run SFT v23b có thể chạy lại ⇒ và lần này `traj_rows = 972` thật (không phải 0) ⇒ **mix đúng như thiết kế**.
+
+**5) BÀI HỌC (bổ sung, chung với team):** **"dataset rỗng" là một lớp lỗi riêng** — dataset tồn tại, `status` = ready, CLI báo "successfully pushed" ⇒ nhưng **không có file** ⇒ mọi thứ "trông" bình thường. ⇒ **3 lớp phải kiểm**: (1) file thật trong dataset (`datasets files`) · (2) **số row loader đọc được** (log `traj: N/N rows`) · (3) **row resolve được ảnh** (không chỉ "có file").
+⇒ Tôi đã gom (1)+(2)+(3) vào `scripts/check_published_tasks.py` (so kích thước staging vs dataset) ⇒ **chạy sau mỗi lần upload, trước khi push kernel**.
+
+RELEASE: scripts/publish_traj_r2.py (mới)

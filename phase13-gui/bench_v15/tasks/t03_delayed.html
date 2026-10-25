@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T03 delayed</title>
+<style>
+  :root { --accent:#7c3aed; --bg:#f6f4fb; }
+  body.v1 { --accent:#0369a1; --bg:#f2f7fb; }
+  body.v2 { --accent:#b45309; --bg:#fbf6f0; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); margin:0; padding:24px; }
+  .wrap { max-width:640px; margin:30px auto; }
+  h1 { font-size:18px; color:var(--accent); }
+  p.hint { font-size:13px; color:#555; margin-top:4px; }
+  #grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-top:18px; }
+  .tile { background:#fff; border:2px solid #e2e8f0; border-radius:10px; height:84px; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:600; color:#334155; cursor:pointer; user-select:none; }
+  .tile.active { border-color:var(--accent); background:#fdf4ff; color:var(--accent); box-shadow:0 0 0 3px rgba(124,58,237,.15); }
+  .tile.wrong { border-color:#dc2626; background:#fee2e2; }
+  #status { margin-top:14px; font-size:14px; color:#334155; min-height:20px; }
+  #success { display:none; margin-top:10px; background:#dcfce7; color:#166534; padding:12px; border-radius:6px; font-size:15px; }
+</style>
+</head>
+<body class="v0" data-appeared="0" data-correct="0" data-wrongs="0" data-appearedat="" data-clickedat="">
+<div class="wrap">
+  <h1>Find the active tile</h1>
+  <p class="hint">One tile becomes active after a short delay. Click it as soon as it appears.</p>
+  <div id="grid"></div>
+  <div id="status"></div>
+  <div id="success">Correct — you clicked the active tile!</div>
+</div>
+<script>
+"use strict";
+const V = Math.min(2, Math.max(0, parseInt(new URLSearchParams(location.search).get("v") || "0", 10)));
+document.body.className = "v" + V;
+const CFG = [
+  {delay:2200, n:12},
+  {delay:3000, n:12},
+  {delay:3800, n:12}
+][V];
+document.body.dataset.delay = String(CFG.delay);
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const rnd = mulberry32(0x7D3100 + V * 7919);
+const target = Math.floor(rnd() * CFG.n);
+document.body.dataset.target = String(target);
+const grid = document.getElementById("grid");
+const statusEl = document.getElementById("status"), ok = document.getElementById("success");
+let appeared = false;
+for (let i = 0; i < CFG.n; i++) {
+  const t = document.createElement("div");
+  t.className = "tile";
+  t.id = "tile" + i;
+  t.textContent = String(i + 1);
+  t.addEventListener("click", () => {
+    if (i === target && appeared) {
+      document.body.dataset.correct = "1";
+      document.body.dataset.clickedat = String(performance.now());
+      statusEl.textContent = "";
+      ok.style.display = "block";
+    } else {
+      document.body.dataset.wrongs = String(parseInt(document.body.dataset.wrongs || "0", 10) + 1);
+      t.classList.add("wrong");
+      statusEl.textContent = appeared ? "That tile is not the active one." : "Nothing happened — too early.";
+      setTimeout(() => t.classList.remove("wrong"), 500);
+    }
+  });
+  grid.appendChild(t);
+}
+setTimeout(() => {
+  appeared = true;
+  document.body.dataset.appeared = "1";
+  document.body.dataset.appearedat = String(performance.now());
+  const t = document.getElementById("tile" + target);
+  t.classList.add("active");
+  t.textContent = target + 1 + " ★";
+  statusEl.textContent = "The active tile just appeared — click it!";
+}, CFG.delay);
+window.__task_ok = false;
+</script>
+</body>
+</html>

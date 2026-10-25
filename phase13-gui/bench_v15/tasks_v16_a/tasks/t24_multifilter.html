@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T24 multi filter</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;margin:4px;}
+  button.filt{background:#2c3644;}
+  button.filt.on{background:#2f6fed;}
+  .item{padding:8px 12px;border-bottom:1px solid #2c3644;}
+  .item.hidden{display:none;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+</style>
+</head>
+<body data-f1="0" data-f2="0" data-picked="" data-submitted="0">
+<header>MULTI FILTER</header>
+<main>
+  <div class="card">
+    <p>Find the item that is both "red" and "large".</p>
+    <div id="applied">Filters applied: none</div>
+    <div>
+      <button class="filt" data-f="color" data-v="red">Color: red</button>
+      <button class="filt" data-f="color" data-v="blue">Color: blue</button>
+      <button class="filt" data-f="size" data-v="large">Size: large</button>
+      <button class="filt" data-f="size" data-v="small">Size: small</button>
+    </div>
+    <div id="list"></div>
+    <button id="subbtn">Submit selection</button>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var ITEMS=[
+  {name:"Apple",color:"red",size:"large"},
+  {name:"Cherry",color:"red",size:"small"},
+  {name:"Sky",color:"blue",size:"large"},
+  {name:"Berry",color:"blue",size:"small"}
+];
+var filters={color:null,size:null};
+var list=document.getElementById("list");
+function render(){
+  list.innerHTML="";
+  ITEMS.forEach(function(it){
+    var div=document.createElement("div");div.className="item";div.textContent=it.name+" ("+it.color+", "+it.size+")";
+    div.dataset.name=it.name;
+    var show=true;
+    if(filters.color && it.color!==filters.color)show=false;
+    if(filters.size && it.size!==filters.size)show=false;
+    if(!show)div.classList.add("hidden");
+    div.addEventListener("click",function(){document.body.dataset.picked=it.name;document.getElementById("status").textContent="Picked: "+it.name;});
+    list.appendChild(div);
+  });
+}
+document.querySelectorAll(".filt").forEach(function(b){
+  b.addEventListener("click",function(){
+    filters[b.dataset.f]=b.dataset.v;
+    document.body.dataset[b.dataset.f==="color"?"f1":"f2"]="1";
+    document.querySelectorAll(".filt[data-f='"+b.dataset.f+"']").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on");render();
+    showApplied();
+  });
+});
+/* FIX (TASK-17 root-cause): hien trang THUC TE cua filter + bao loi CU THE.
+   Trace v18: model BA "filters da chon san" (bua) roi bam Submit 9 lan,
+   app chi bao "Wrong or filters not applied" -> khong biet thieu gi -> lap. */
+function showApplied(){
+  var c=filters.color||"none", s=filters.size||"none";
+  document.getElementById("applied").textContent=
+    "Filters applied: color = "+c+", size = "+s+
+    (filters.color&&filters.size?"  (both set)":"  (one or both MISSING)");
+}
+document.getElementById("subbtn").addEventListener("click",function(){
+  var miss=[];
+  if(!filters.color)miss.push("no color filter");
+  if(!filters.size)miss.push("no size filter");
+  if(document.body.dataset.picked!=="Apple")miss.push("item not selected");
+  if(!miss.length){
+    document.body.dataset.submitted="1";document.getElementById("status").textContent="Submitted Apple.";
+  } else {
+    document.getElementById("status").textContent="Cannot submit: "+miss.join("; ")+".";
+  }
+});
+render();showApplied();
+</script>
+</body>
+</html>

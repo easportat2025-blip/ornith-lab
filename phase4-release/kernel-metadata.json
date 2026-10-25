@@ -1,0 +1,16 @@
+{
+  "id": "khoadangnguye/gemma12b-release-r4",
+  "title": "gemma12b-release-r4",
+  "code_file": "release.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "",
+  "dataset_sources": ["khoadangnguye/gemma12b-adapter-r4"],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": ["google/gemma-4/transformers/gemma-4-12b-it/2"]
+}

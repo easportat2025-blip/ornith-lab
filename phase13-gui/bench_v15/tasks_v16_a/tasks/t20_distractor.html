@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T20 distractor buttons</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0;}
+  button.opt{background:#2c3644;color:#e8edf5;border:1px solid #384454;border-radius:6px;padding:12px 18px;font-size:15px;cursor:pointer;min-width:120px;}
+  button.opt:hover{background:#3a4553;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+  .hint{color:#9fb0c3;font-size:14px;}
+</style>
+</head>
+<body data-correct="B" data-picked="" data-wrongclick="0" data-submitted="0">
+<header>DISTRACTOR BUTTONS</header>
+<main>
+  <div class="card">
+    <p class="hint">Click the button whose label matches the target shown above.</p>
+    <p>Target: <b id="target">Option B</b></p>
+    <div class="row">
+      <button class="opt" data-label="Option A">Option A</button>
+      <button class="opt" data-label="Option B">Option B</button>
+      <button class="opt" data-label="Option C">Option C</button>
+    </div>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var CFG=[{correct:"B",target:"Option B"},{correct:"A",target:"Option A"},{correct:"C",target:"Option C"}][V];
+document.body.dataset.correct=CFG.correct;
+document.getElementById("target").textContent=CFG.target;
+document.querySelectorAll(".opt").forEach(function(b){
+  b.addEventListener("click",function(){
+    var lbl=b.dataset.label;
+    if(lbl==="Option "+CFG.correct){document.body.dataset.picked=lbl;document.getElementById("status").textContent="Correct: "+lbl;}
+    else{document.body.dataset.wrongclick=String(+document.body.dataset.wrongclick+1);document.getElementById("status").textContent="Wrong: "+lbl;}
+  });
+});
+</script>
+</body>
+</html>

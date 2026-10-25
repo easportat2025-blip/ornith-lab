@@ -1,0 +1,25 @@
+{
+  "id": "dieniw/ornith-looptrain",
+  "title": "ornith-looptrain",
+  "code_file": "loop_train.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "NvidiaRTX6000Ada",
+  "dataset_sources": [
+    "khoadangnguye/gemma12b-wheels",
+    "khoadangnguye/gemma12b-tools",
+    "dieniw/stack-wheels",
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

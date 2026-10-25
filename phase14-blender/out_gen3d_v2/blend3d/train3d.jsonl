@@ -1,0 +1,300 @@
+{"image": "shots/e00000.png", "instruction": "Click on the purple cube.", "action": "CLICK 646 572", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00001.png", "instruction": "Choose the red sphere.", "action": "CLICK 763 495", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00002.png", "instruction": "Choose the blue cube.", "action": "CLICK 513 485", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00003.png", "instruction": "Click on the purple cube.", "action": "CLICK 502 502", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00004.png", "instruction": "Click on the white cylinder.", "action": "CLICK 526 406", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00005.png", "instruction": "Click on the teal cylinder.", "action": "CLICK 506 506", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00006.png", "instruction": "Click the red cylinder.", "action": "CLICK 749 482", "family": "select_red", "color": "red", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00007.png", "instruction": "Select the red cube in the scene.", "action": "CLICK 259 488", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00008.png", "instruction": "Select the yellow cylinder in the scene.", "action": "CLICK 793 519", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00009.png", "instruction": "Click the yellow sphere.", "action": "CLICK 474 408", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00010.png", "instruction": "Choose the teal sphere.", "action": "CLICK 507 510", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00011.png", "instruction": "Click the white sphere.", "action": "CLICK 248 494", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00012.png", "instruction": "Click the blue sphere.", "action": "CLICK 477 556", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00013.png", "instruction": "Select the red sphere in the scene.", "action": "CLICK 518 606", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00014.png", "instruction": "Select the purple cube in the scene.", "action": "CLICK 476 620", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00015.png", "instruction": "Click the orange cube.", "action": "CLICK 557 640", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00016.png", "instruction": "Choose the yellow sphere.", "action": "CLICK 542 423", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00017.png", "instruction": "Click the orange sphere.", "action": "CLICK 359 453", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00018.png", "instruction": "Click the orange sphere.", "action": "CLICK 498 518", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00019.png", "instruction": "Click on the green cylinder.", "action": "CLICK 311 604", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00020.png", "instruction": "Click on the blue cylinder.", "action": "CLICK 501 617", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00021.png", "instruction": "Select the blue cube in the scene.", "action": "CLICK 801 481", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00022.png", "instruction": "Select the red cube in the scene.", "action": "CLICK 364 456", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00023.png", "instruction": "Click the orange cube.", "action": "CLICK 483 512", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00024.png", "instruction": "Select the white sphere in the scene.", "action": "CLICK 234 512", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00025.png", "instruction": "Select the green cylinder in the scene.", "action": "CLICK 792 504", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00026.png", "instruction": "Choose the red sphere.", "action": "CLICK 761 506", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00027.png", "instruction": "Click on the blue cube.", "action": "CLICK 544 608", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00028.png", "instruction": "Click on the red sphere.", "action": "CLICK 372 409", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00029.png", "instruction": "Select the yellow cube in the scene.", "action": "CLICK 229 478", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00030.png", "instruction": "Choose the green sphere.", "action": "CLICK 659 566", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00031.png", "instruction": "Click on the orange sphere.", "action": "CLICK 679 595", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00032.png", "instruction": "Choose the purple sphere.", "action": "CLICK 771 485", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00033.png", "instruction": "Click the teal cylinder.", "action": "CLICK 381 485", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00034.png", "instruction": "Select the green cube in the scene.", "action": "CLICK 466 637", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00035.png", "instruction": "Click the green sphere.", "action": "CLICK 771 527", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00036.png", "instruction": "Select the orange cube in the scene.", "action": "CLICK 374 446", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00037.png", "instruction": "Choose the orange cube.", "action": "CLICK 480 421", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00038.png", "instruction": "Choose the blue sphere.", "action": "CLICK 312 532", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00039.png", "instruction": "Select the orange sphere in the scene.", "action": "CLICK 342 563", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00040.png", "instruction": "Click the yellow sphere.", "action": "CLICK 513 498", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00041.png", "instruction": "Select the purple sphere in the scene.", "action": "CLICK 650 565", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00042.png", "instruction": "Click on the white cube.", "action": "CLICK 483 442", "family": "select_white", "color": "white", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00043.png", "instruction": "Select the yellow cylinder in the scene.", "action": "CLICK 763 520", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00044.png", "instruction": "Click the red cube.", "action": "CLICK 368 438", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00045.png", "instruction": "Click on the red cube.", "action": "CLICK 494 504", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00046.png", "instruction": "Click on the blue cylinder.", "action": "CLICK 503 600", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00047.png", "instruction": "Choose the yellow sphere.", "action": "CLICK 222 523", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00048.png", "instruction": "Select the orange cylinder in the scene.", "action": "CLICK 401 453", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00049.png", "instruction": "Choose the red sphere.", "action": "CLICK 374 466", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00050.png", "instruction": "Choose the purple cylinder.", "action": "CLICK 670 596", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00051.png", "instruction": "Click on the red sphere.", "action": "CLICK 678 589", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00052.png", "instruction": "Choose the teal cube.", "action": "CLICK 338 542", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00053.png", "instruction": "Select the teal sphere in the scene.", "action": "CLICK 617 453", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00054.png", "instruction": "Click on the yellow sphere.", "action": "CLICK 244 477", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00055.png", "instruction": "Click on the white cylinder.", "action": "CLICK 488 564", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00056.png", "instruction": "Click on the teal cube.", "action": "CLICK 498 368", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00057.png", "instruction": "Choose the blue cube.", "action": "CLICK 361 482", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00058.png", "instruction": "Select the white cylinder in the scene.", "action": "CLICK 370 578", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00059.png", "instruction": "Select the yellow cube in the scene.", "action": "CLICK 499 455", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00060.png", "instruction": "Click the orange cylinder.", "action": "CLICK 501 515", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00061.png", "instruction": "Click the teal cube.", "action": "CLICK 384 507", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00062.png", "instruction": "Click the green cube.", "action": "CLICK 383 455", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00063.png", "instruction": "Click the orange sphere.", "action": "CLICK 388 506", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00064.png", "instruction": "Choose the red sphere.", "action": "CLICK 386 468", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00065.png", "instruction": "Click the red sphere.", "action": "CLICK 799 552", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00066.png", "instruction": "Click on the red cylinder.", "action": "CLICK 367 534", "family": "select_red", "color": "red", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00067.png", "instruction": "Select the orange sphere in the scene.", "action": "CLICK 356 524", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00068.png", "instruction": "Choose the orange cylinder.", "action": "CLICK 636 463", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00069.png", "instruction": "Click on the blue sphere.", "action": "CLICK 375 450", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00070.png", "instruction": "Click on the yellow sphere.", "action": "CLICK 340 524", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00071.png", "instruction": "Click on the blue sphere.", "action": "CLICK 478 611", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00072.png", "instruction": "Click the blue sphere.", "action": "CLICK 376 468", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00073.png", "instruction": "Choose the yellow cylinder.", "action": "CLICK 361 431", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00074.png", "instruction": "Click the blue cylinder.", "action": "CLICK 228 515", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00075.png", "instruction": "Click the orange sphere.", "action": "CLICK 492 629", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00076.png", "instruction": "Click the white cylinder.", "action": "CLICK 642 451", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00077.png", "instruction": "Click the blue cube.", "action": "CLICK 778 510", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00078.png", "instruction": "Click on the yellow cylinder.", "action": "CLICK 397 462", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00079.png", "instruction": "Click on the yellow cylinder.", "action": "CLICK 518 409", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00080.png", "instruction": "Select the green cube in the scene.", "action": "CLICK 637 434", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00081.png", "instruction": "Choose the blue sphere.", "action": "CLICK 248 508", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00082.png", "instruction": "Select the red sphere in the scene.", "action": "CLICK 224 538", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00083.png", "instruction": "Click on the white cylinder.", "action": "CLICK 640 556", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00084.png", "instruction": "Click the purple cylinder.", "action": "CLICK 521 545", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00085.png", "instruction": "Click the yellow cylinder.", "action": "CLICK 353 468", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00086.png", "instruction": "Click on the teal cylinder.", "action": "CLICK 236 473", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00087.png", "instruction": "Select the red sphere in the scene.", "action": "CLICK 755 494", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00088.png", "instruction": "Select the teal sphere in the scene.", "action": "CLICK 612 478", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00089.png", "instruction": "Click the yellow sphere.", "action": "CLICK 374 450", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00090.png", "instruction": "Click the green sphere.", "action": "CLICK 495 407", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00091.png", "instruction": "Click the green cube.", "action": "CLICK 622 488", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00092.png", "instruction": "Select the yellow cylinder in the scene.", "action": "CLICK 778 550", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00093.png", "instruction": "Click the teal sphere.", "action": "CLICK 589 449", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00094.png", "instruction": "Click the purple sphere.", "action": "CLICK 260 466", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00095.png", "instruction": "Click the green cube.", "action": "CLICK 406 472", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00096.png", "instruction": "Click the yellow sphere.", "action": "CLICK 400 463", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00097.png", "instruction": "Click on the red cube.", "action": "CLICK 500 518", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00098.png", "instruction": "Select the white cube in the scene.", "action": "CLICK 766 502", "family": "select_white", "color": "white", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00099.png", "instruction": "Click on the white sphere.", "action": "CLICK 216 475", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00100.png", "instruction": "Choose the green cube.", "action": "CLICK 515 420", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00101.png", "instruction": "Select the blue cube in the scene.", "action": "CLICK 209 555", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00102.png", "instruction": "Click on the teal cube.", "action": "CLICK 395 452", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00103.png", "instruction": "Select the red cube in the scene.", "action": "CLICK 214 535", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00104.png", "instruction": "Click on the orange cube.", "action": "CLICK 388 461", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00105.png", "instruction": "Select the purple sphere in the scene.", "action": "CLICK 484 573", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00106.png", "instruction": "Select the red cube in the scene.", "action": "CLICK 475 468", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00107.png", "instruction": "Click on the teal sphere.", "action": "CLICK 651 520", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00108.png", "instruction": "Choose the blue cube.", "action": "CLICK 783 473", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00109.png", "instruction": "Click the purple cylinder.", "action": "CLICK 756 514", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00110.png", "instruction": "Click the green cylinder.", "action": "CLICK 757 486", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00111.png", "instruction": "Choose the purple cylinder.", "action": "CLICK 495 515", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00112.png", "instruction": "Click on the blue cylinder.", "action": "CLICK 526 608", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00113.png", "instruction": "Select the yellow cube in the scene.", "action": "CLICK 226 546", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00114.png", "instruction": "Choose the yellow sphere.", "action": "CLICK 349 591", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00115.png", "instruction": "Click on the teal sphere.", "action": "CLICK 370 541", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00116.png", "instruction": "Select the orange cylinder in the scene.", "action": "CLICK 384 439", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00117.png", "instruction": "Click on the yellow cylinder.", "action": "CLICK 370 457", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00118.png", "instruction": "Click on the orange cube.", "action": "CLICK 511 403", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00119.png", "instruction": "Click the purple sphere.", "action": "CLICK 371 544", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00120.png", "instruction": "Choose the red cube.", "action": "CLICK 634 445", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00121.png", "instruction": "Select the orange cube in the scene.", "action": "CLICK 644 529", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00122.png", "instruction": "Click the white cylinder.", "action": "CLICK 747 496", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00123.png", "instruction": "Click on the blue sphere.", "action": "CLICK 390 436", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00124.png", "instruction": "Select the white sphere in the scene.", "action": "CLICK 220 463", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00125.png", "instruction": "Choose the orange sphere.", "action": "CLICK 474 448", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00126.png", "instruction": "Select the yellow sphere in the scene.", "action": "CLICK 474 518", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00127.png", "instruction": "Choose the white sphere.", "action": "CLICK 773 469", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00128.png", "instruction": "Click on the teal sphere.", "action": "CLICK 657 524", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00129.png", "instruction": "Choose the teal cylinder.", "action": "CLICK 387 433", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00130.png", "instruction": "Select the white cylinder in the scene.", "action": "CLICK 616 470", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00131.png", "instruction": "Click on the red cylinder.", "action": "CLICK 628 462", "family": "select_red", "color": "red", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00132.png", "instruction": "Choose the blue cube.", "action": "CLICK 635 478", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00133.png", "instruction": "Click on the blue cylinder.", "action": "CLICK 626 544", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00134.png", "instruction": "Click on the orange cube.", "action": "CLICK 361 501", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00135.png", "instruction": "Click the blue cube.", "action": "CLICK 521 475", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00136.png", "instruction": "Select the teal cylinder in the scene.", "action": "CLICK 374 479", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00137.png", "instruction": "Click the white cylinder.", "action": "CLICK 363 464", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00138.png", "instruction": "Click on the red cube.", "action": "CLICK 624 450", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00139.png", "instruction": "Choose the blue cube.", "action": "CLICK 512 487", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00140.png", "instruction": "Choose the white cube.", "action": "CLICK 368 478", "family": "select_white", "color": "white", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00141.png", "instruction": "Click on the purple cube.", "action": "CLICK 637 479", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00142.png", "instruction": "Click on the white sphere.", "action": "CLICK 618 502", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00143.png", "instruction": "Click on the yellow sphere.", "action": "CLICK 501 607", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00144.png", "instruction": "Click on the green sphere.", "action": "CLICK 521 430", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00145.png", "instruction": "Click on the green cube.", "action": "CLICK 369 448", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00146.png", "instruction": "Choose the purple sphere.", "action": "CLICK 749 497", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00147.png", "instruction": "Choose the blue sphere.", "action": "CLICK 486 650", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00148.png", "instruction": "Select the teal sphere in the scene.", "action": "CLICK 506 648", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00149.png", "instruction": "Click the blue cube.", "action": "CLICK 662 571", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00150.png", "instruction": "Select the teal sphere in the scene.", "action": "CLICK 332 531", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00151.png", "instruction": "Choose the purple sphere.", "action": "CLICK 631 524", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00152.png", "instruction": "Select the purple cube in the scene.", "action": "CLICK 674 546", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00153.png", "instruction": "Choose the teal cylinder.", "action": "CLICK 653 538", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00154.png", "instruction": "Select the yellow cube in the scene.", "action": "CLICK 237 553", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00155.png", "instruction": "Select the purple cube in the scene.", "action": "CLICK 622 459", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00156.png", "instruction": "Choose the orange sphere.", "action": "CLICK 779 539", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00157.png", "instruction": "Click on the green cube.", "action": "CLICK 380 451", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00158.png", "instruction": "Choose the red sphere.", "action": "CLICK 494 464", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00159.png", "instruction": "Choose the green cube.", "action": "CLICK 488 577", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00160.png", "instruction": "Click on the white cylinder.", "action": "CLICK 624 602", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00161.png", "instruction": "Click the yellow sphere.", "action": "CLICK 536 601", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00162.png", "instruction": "Click the orange sphere.", "action": "CLICK 496 475", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00163.png", "instruction": "Click the blue cylinder.", "action": "CLICK 551 582", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00164.png", "instruction": "Select the orange cylinder in the scene.", "action": "CLICK 617 461", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00165.png", "instruction": "Click the white cylinder.", "action": "CLICK 332 561", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00166.png", "instruction": "Click on the red sphere.", "action": "CLICK 319 540", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00167.png", "instruction": "Choose the teal cube.", "action": "CLICK 488 598", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00168.png", "instruction": "Click on the blue sphere.", "action": "CLICK 353 582", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00169.png", "instruction": "Select the blue cube in the scene.", "action": "CLICK 629 482", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00170.png", "instruction": "Click the purple sphere.", "action": "CLICK 220 500", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00171.png", "instruction": "Choose the green cylinder.", "action": "CLICK 217 513", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00172.png", "instruction": "Select the teal cylinder in the scene.", "action": "CLICK 365 470", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00173.png", "instruction": "Click the white cylinder.", "action": "CLICK 382 414", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00174.png", "instruction": "Choose the white sphere.", "action": "CLICK 486 525", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00175.png", "instruction": "Choose the purple cube.", "action": "CLICK 502 609", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00176.png", "instruction": "Choose the green sphere.", "action": "CLICK 600 473", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00177.png", "instruction": "Choose the teal cylinder.", "action": "CLICK 828 459", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00178.png", "instruction": "Select the purple cube in the scene.", "action": "CLICK 533 571", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00179.png", "instruction": "Click on the orange cube.", "action": "CLICK 355 506", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00180.png", "instruction": "Select the red cube in the scene.", "action": "CLICK 502 370", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00181.png", "instruction": "Click on the yellow cylinder.", "action": "CLICK 364 523", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00182.png", "instruction": "Choose the red cube.", "action": "CLICK 377 533", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00183.png", "instruction": "Select the yellow cube in the scene.", "action": "CLICK 605 418", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00184.png", "instruction": "Select the green cylinder in the scene.", "action": "CLICK 532 447", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00185.png", "instruction": "Select the purple cylinder in the scene.", "action": "CLICK 501 490", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00186.png", "instruction": "Select the teal cube in the scene.", "action": "CLICK 518 429", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00187.png", "instruction": "Select the blue cylinder in the scene.", "action": "CLICK 502 539", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00188.png", "instruction": "Click the teal cube.", "action": "CLICK 263 508", "family": "select_teal", "color": "teal", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00189.png", "instruction": "Select the green cube in the scene.", "action": "CLICK 262 536", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00190.png", "instruction": "Select the blue cube in the scene.", "action": "CLICK 368 437", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00191.png", "instruction": "Click on the yellow cylinder.", "action": "CLICK 532 408", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00192.png", "instruction": "Click the white sphere.", "action": "CLICK 229 492", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00193.png", "instruction": "Click the orange cylinder.", "action": "CLICK 523 542", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00194.png", "instruction": "Click on the yellow cube.", "action": "CLICK 633 443", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00195.png", "instruction": "Select the purple cylinder in the scene.", "action": "CLICK 664 504", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00196.png", "instruction": "Click the green cylinder.", "action": "CLICK 645 508", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00197.png", "instruction": "Select the white cylinder in the scene.", "action": "CLICK 655 566", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00198.png", "instruction": "Click the green sphere.", "action": "CLICK 510 486", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00199.png", "instruction": "Click the orange cylinder.", "action": "CLICK 180 502", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00200.png", "instruction": "Click the green cylinder.", "action": "CLICK 495 554", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00201.png", "instruction": "Choose the purple sphere.", "action": "CLICK 520 437", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00202.png", "instruction": "Choose the red cylinder.", "action": "CLICK 538 676", "family": "select_red", "color": "red", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00203.png", "instruction": "Select the orange cylinder in the scene.", "action": "CLICK 505 507", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00204.png", "instruction": "Click on the red cube.", "action": "CLICK 360 549", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00205.png", "instruction": "Click the purple cylinder.", "action": "CLICK 388 446", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00206.png", "instruction": "Select the purple sphere in the scene.", "action": "CLICK 212 492", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00207.png", "instruction": "Select the white cylinder in the scene.", "action": "CLICK 355 462", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00208.png", "instruction": "Click the yellow sphere.", "action": "CLICK 609 467", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00209.png", "instruction": "Click on the purple cube.", "action": "CLICK 380 455", "family": "select_purple", "color": "purple", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00210.png", "instruction": "Select the red sphere in the scene.", "action": "CLICK 647 486", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00211.png", "instruction": "Choose the yellow cylinder.", "action": "CLICK 515 642", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00212.png", "instruction": "Choose the white cylinder.", "action": "CLICK 349 542", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00213.png", "instruction": "Click the green sphere.", "action": "CLICK 625 563", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00214.png", "instruction": "Click on the yellow cylinder.", "action": "CLICK 242 463", "family": "select_yellow", "color": "yellow", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00215.png", "instruction": "Click on the red cube.", "action": "CLICK 502 507", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00216.png", "instruction": "Click the red cube.", "action": "CLICK 652 532", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00217.png", "instruction": "Click on the orange cylinder.", "action": "CLICK 491 498", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00218.png", "instruction": "Choose the purple sphere.", "action": "CLICK 514 579", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00219.png", "instruction": "Choose the white sphere.", "action": "CLICK 343 517", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00220.png", "instruction": "Click on the yellow sphere.", "action": "CLICK 382 472", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00221.png", "instruction": "Click on the green cube.", "action": "CLICK 412 455", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00222.png", "instruction": "Click on the white cylinder.", "action": "CLICK 490 416", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00223.png", "instruction": "Click the white cylinder.", "action": "CLICK 633 444", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00224.png", "instruction": "Click the blue sphere.", "action": "CLICK 336 589", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00225.png", "instruction": "Select the green cylinder in the scene.", "action": "CLICK 651 548", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00226.png", "instruction": "Choose the orange cylinder.", "action": "CLICK 475 454", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00227.png", "instruction": "Select the orange sphere in the scene.", "action": "CLICK 373 466", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00228.png", "instruction": "Select the blue cylinder in the scene.", "action": "CLICK 312 551", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00229.png", "instruction": "Select the yellow sphere in the scene.", "action": "CLICK 478 408", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00230.png", "instruction": "Choose the white cube.", "action": "CLICK 638 482", "family": "select_white", "color": "white", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00231.png", "instruction": "Choose the yellow cube.", "action": "CLICK 187 521", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00232.png", "instruction": "Select the yellow sphere in the scene.", "action": "CLICK 470 669", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00233.png", "instruction": "Select the green cylinder in the scene.", "action": "CLICK 490 641", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00234.png", "instruction": "Click on the orange cylinder.", "action": "CLICK 228 492", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00235.png", "instruction": "Select the purple sphere in the scene.", "action": "CLICK 320 505", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00236.png", "instruction": "Choose the red cylinder.", "action": "CLICK 652 549", "family": "select_red", "color": "red", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00237.png", "instruction": "Choose the yellow sphere.", "action": "CLICK 517 568", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00238.png", "instruction": "Click on the blue cylinder.", "action": "CLICK 598 473", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00239.png", "instruction": "Click on the orange cube.", "action": "CLICK 617 426", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00240.png", "instruction": "Select the green cylinder in the scene.", "action": "CLICK 640 556", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00241.png", "instruction": "Click the yellow cube.", "action": "CLICK 583 430", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00242.png", "instruction": "Select the blue sphere in the scene.", "action": "CLICK 509 592", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00243.png", "instruction": "Choose the blue cylinder.", "action": "CLICK 520 613", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00244.png", "instruction": "Click on the white sphere.", "action": "CLICK 206 468", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00245.png", "instruction": "Choose the white sphere.", "action": "CLICK 613 467", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00246.png", "instruction": "Click on the orange cylinder.", "action": "CLICK 638 463", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00247.png", "instruction": "Click the red sphere.", "action": "CLICK 443 629", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00248.png", "instruction": "Click the white cylinder.", "action": "CLICK 333 523", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00249.png", "instruction": "Click the orange sphere.", "action": "CLICK 512 532", "family": "select_orange", "color": "orange", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00250.png", "instruction": "Choose the yellow cube.", "action": "CLICK 238 478", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00251.png", "instruction": "Select the teal sphere in the scene.", "action": "CLICK 811 491", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00252.png", "instruction": "Choose the green cube.", "action": "CLICK 488 658", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00253.png", "instruction": "Click the yellow sphere.", "action": "CLICK 362 532", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00254.png", "instruction": "Click on the white cylinder.", "action": "CLICK 646 461", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00255.png", "instruction": "Click the red sphere.", "action": "CLICK 800 483", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00256.png", "instruction": "Select the teal sphere in the scene.", "action": "CLICK 734 523", "family": "select_teal", "color": "teal", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00257.png", "instruction": "Choose the orange cube.", "action": "CLICK 363 551", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00258.png", "instruction": "Click on the blue sphere.", "action": "CLICK 312 540", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00259.png", "instruction": "Select the white cylinder in the scene.", "action": "CLICK 637 511", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00260.png", "instruction": "Click the blue cylinder.", "action": "CLICK 768 477", "family": "select_blue", "color": "blue", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00261.png", "instruction": "Select the teal cylinder in the scene.", "action": "CLICK 388 420", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00262.png", "instruction": "Choose the red cube.", "action": "CLICK 638 547", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00263.png", "instruction": "Click the blue sphere.", "action": "CLICK 504 503", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00264.png", "instruction": "Choose the orange cylinder.", "action": "CLICK 498 643", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00265.png", "instruction": "Click on the red cube.", "action": "CLICK 332 568", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00266.png", "instruction": "Click the yellow cube.", "action": "CLICK 624 453", "family": "select_yellow", "color": "yellow", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00267.png", "instruction": "Choose the yellow sphere.", "action": "CLICK 197 539", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00268.png", "instruction": "Select the blue cube in the scene.", "action": "CLICK 611 558", "family": "select_blue", "color": "blue", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00269.png", "instruction": "Click on the teal cylinder.", "action": "CLICK 264 497", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00270.png", "instruction": "Click on the orange cube.", "action": "CLICK 650 412", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00271.png", "instruction": "Select the purple sphere in the scene.", "action": "CLICK 252 488", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00272.png", "instruction": "Select the white sphere in the scene.", "action": "CLICK 240 504", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00273.png", "instruction": "Click the green sphere.", "action": "CLICK 768 494", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00274.png", "instruction": "Click the teal cylinder.", "action": "CLICK 380 459", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00275.png", "instruction": "Click on the white cylinder.", "action": "CLICK 395 454", "family": "select_white", "color": "white", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00276.png", "instruction": "Select the green sphere in the scene.", "action": "CLICK 748 483", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00277.png", "instruction": "Click the orange cube.", "action": "CLICK 764 485", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00278.png", "instruction": "Select the orange cylinder in the scene.", "action": "CLICK 660 555", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00279.png", "instruction": "Select the yellow sphere in the scene.", "action": "CLICK 373 557", "family": "select_yellow", "color": "yellow", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00280.png", "instruction": "Choose the red cube.", "action": "CLICK 489 490", "family": "select_red", "color": "red", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00281.png", "instruction": "Choose the green cylinder.", "action": "CLICK 499 364", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00282.png", "instruction": "Select the blue sphere in the scene.", "action": "CLICK 508 413", "family": "select_blue", "color": "blue", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00283.png", "instruction": "Choose the orange cylinder.", "action": "CLICK 382 424", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00284.png", "instruction": "Click the green cube.", "action": "CLICK 379 480", "family": "select_green", "color": "green", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00285.png", "instruction": "Click the green sphere.", "action": "CLICK 656 528", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00286.png", "instruction": "Choose the purple sphere.", "action": "CLICK 504 619", "family": "select_purple", "color": "purple", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00287.png", "instruction": "Select the red sphere in the scene.", "action": "CLICK 401 435", "family": "select_red", "color": "red", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00288.png", "instruction": "Click the white cube.", "action": "CLICK 655 530", "family": "select_white", "color": "white", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00289.png", "instruction": "Click on the teal cylinder.", "action": "CLICK 614 463", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00290.png", "instruction": "Click the orange cylinder.", "action": "CLICK 492 489", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00291.png", "instruction": "Click the teal cylinder.", "action": "CLICK 806 467", "family": "select_teal", "color": "teal", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00292.png", "instruction": "Click the white sphere.", "action": "CLICK 376 439", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00293.png", "instruction": "Click the green sphere.", "action": "CLICK 529 419", "family": "select_green", "color": "green", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00294.png", "instruction": "Click the purple cylinder.", "action": "CLICK 249 516", "family": "select_purple", "color": "purple", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00295.png", "instruction": "Select the orange cube in the scene.", "action": "CLICK 251 516", "family": "select_orange", "color": "orange", "shape": "cube", "src": "blend3d-d1"}
+{"image": "shots/e00296.png", "instruction": "Click the white sphere.", "action": "CLICK 438 616", "family": "select_white", "color": "white", "shape": "sphere", "src": "blend3d-d1"}
+{"image": "shots/e00297.png", "instruction": "Click on the orange cylinder.", "action": "CLICK 650 537", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00298.png", "instruction": "Click on the orange cylinder.", "action": "CLICK 211 513", "family": "select_orange", "color": "orange", "shape": "cylinder", "src": "blend3d-d1"}
+{"image": "shots/e00299.png", "instruction": "Select the green cylinder in the scene.", "action": "CLICK 480 522", "family": "select_green", "color": "green", "shape": "cylinder", "src": "blend3d-d1"}

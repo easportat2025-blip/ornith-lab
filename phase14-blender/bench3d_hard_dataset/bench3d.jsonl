@@ -1,0 +1,100 @@
+{"image": "shots/e00000.png", "instruction": "Select the purple cube in the scene.", "bbox": [421.9, 402.1, 551.3, 540.9], "color": "purple", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00001.png", "instruction": "Choose the green cube.", "bbox": [447.2, 330.0, 565.9, 447.5], "color": "green", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00002.png", "instruction": "Click on the white cylinder.", "bbox": [337.2, 414.4, 484.5, 560.6], "color": "white", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00003.png", "instruction": "Choose the red cylinder.", "bbox": [392.8, 514.1, 545.5, 685.1], "color": "red", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00004.png", "instruction": "Choose the purple cylinder.", "bbox": [445.3, 467.5, 572.1, 591.2], "color": "purple", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00005.png", "instruction": "Click the yellow cylinder.", "bbox": [440.9, 442.0, 585.7, 586.2], "color": "yellow", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00006.png", "instruction": "Select the white cube in the scene.", "bbox": [556.0, 401.4, 680.2, 531.0], "color": "white", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00007.png", "instruction": "Select the yellow cube in the scene.", "bbox": [323.1, 408.2, 453.5, 532.1], "color": "yellow", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00008.png", "instruction": "Choose the white sphere.", "bbox": [217.1, 448.5, 348.7, 600.5], "color": "white", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00009.png", "instruction": "Click the blue cube.", "bbox": [154.9, 448.2, 346.6, 627.8], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00010.png", "instruction": "Click on the blue sphere.", "bbox": [420.7, 418.3, 580.4, 572.1], "color": "blue", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00011.png", "instruction": "Select the blue cube in the scene.", "bbox": [421.4, 396.7, 574.4, 556.6], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00012.png", "instruction": "Click the white cylinder.", "bbox": [272.7, 408.3, 437.1, 580.3], "color": "white", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00013.png", "instruction": "Click on the teal cylinder.", "bbox": [206.1, 409.9, 365.8, 568.7], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00014.png", "instruction": "Choose the green sphere.", "bbox": [397.9, 387.5, 561.1, 556.0], "color": "green", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00015.png", "instruction": "Click on the teal cylinder.", "bbox": [423.1, 412.1, 562.3, 557.4], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00016.png", "instruction": "Click on the blue cylinder.", "bbox": [655.9, 404.8, 755.5, 509.9], "color": "blue", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00017.png", "instruction": "Click on the white sphere.", "bbox": [536.1, 387.1, 668.2, 518.9], "color": "white", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00018.png", "instruction": "Select the teal sphere in the scene.", "bbox": [318.2, 382.4, 460.6, 542.2], "color": "teal", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00019.png", "instruction": "Click the green sphere.", "bbox": [511.4, 406.5, 690.7, 578.3], "color": "green", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00020.png", "instruction": "Click the yellow sphere.", "bbox": [533.6, 463.9, 700.1, 635.7], "color": "yellow", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00021.png", "instruction": "Choose the yellow cube.", "bbox": [417.8, 363.6, 563.2, 501.9], "color": "yellow", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00022.png", "instruction": "Select the purple cylinder in the scene.", "bbox": [670.0, 453.5, 808.5, 586.5], "color": "purple", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00023.png", "instruction": "Click on the teal cylinder.", "bbox": [201.4, 434.9, 343.9, 576.4], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00024.png", "instruction": "Click on the green cylinder.", "bbox": [419.5, 387.1, 546.3, 509.5], "color": "green", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00025.png", "instruction": "Click the yellow cube.", "bbox": [323.5, 442.7, 445.1, 568.3], "color": "yellow", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00026.png", "instruction": "Click the teal cylinder.", "bbox": [435.9, 466.5, 571.9, 604.8], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00027.png", "instruction": "Choose the red cylinder.", "bbox": [445.2, 374.7, 595.9, 532.9], "color": "red", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00028.png", "instruction": "Choose the red cube.", "bbox": [438.3, 343.8, 537.5, 451.9], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00029.png", "instruction": "Select the blue cylinder in the scene.", "bbox": [556.7, 449.0, 687.2, 592.0], "color": "blue", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00030.png", "instruction": "Choose the blue sphere.", "bbox": [549.0, 427.6, 690.6, 575.0], "color": "blue", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00031.png", "instruction": "Select the green cylinder in the scene.", "bbox": [522.6, 501.0, 660.2, 647.3], "color": "green", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00032.png", "instruction": "Select the teal sphere in the scene.", "bbox": [519.6, 412.0, 684.5, 585.3], "color": "teal", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00033.png", "instruction": "Choose the green cylinder.", "bbox": [309.6, 391.4, 478.9, 572.3], "color": "green", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00034.png", "instruction": "Select the red cylinder in the scene.", "bbox": [434.7, 459.5, 566.6, 594.8], "color": "red", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00035.png", "instruction": "Select the teal cylinder in the scene.", "bbox": [557.7, 446.4, 674.8, 560.0], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00036.png", "instruction": "Click on the yellow sphere.", "bbox": [550.8, 418.6, 700.6, 596.1], "color": "yellow", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00037.png", "instruction": "Click the yellow cylinder.", "bbox": [608.5, 430.3, 767.0, 590.4], "color": "yellow", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00038.png", "instruction": "Click on the white cube.", "bbox": [449.1, 459.4, 639.4, 675.0], "color": "white", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00039.png", "instruction": "Click the blue cylinder.", "bbox": [448.5, 447.9, 588.1, 586.2], "color": "blue", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00040.png", "instruction": "Choose the green sphere.", "bbox": [473.1, 314.2, 593.0, 450.9], "color": "green", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00041.png", "instruction": "Click on the green cube.", "bbox": [542.9, 397.1, 660.8, 510.3], "color": "green", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00042.png", "instruction": "Click the red cylinder.", "bbox": [335.1, 412.7, 464.5, 547.4], "color": "red", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00043.png", "instruction": "Choose the purple cylinder.", "bbox": [243.1, 440.4, 383.1, 572.6], "color": "purple", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00044.png", "instruction": "Select the blue cube in the scene.", "bbox": [422.6, 404.1, 563.7, 549.3], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00045.png", "instruction": "Click the teal cylinder.", "bbox": [430.0, 428.8, 544.2, 545.2], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00046.png", "instruction": "Click the orange cylinder.", "bbox": [431.9, 542.7, 548.1, 674.4], "color": "orange", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00047.png", "instruction": "Choose the blue cube.", "bbox": [438.4, 367.1, 556.6, 496.6], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00048.png", "instruction": "Click on the blue cylinder.", "bbox": [437.2, 442.7, 591.3, 599.5], "color": "blue", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00049.png", "instruction": "Choose the yellow cube.", "bbox": [444.0, 520.8, 596.1, 694.7], "color": "yellow", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00050.png", "instruction": "Select the teal sphere in the scene.", "bbox": [336.2, 393.0, 450.8, 506.3], "color": "teal", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00051.png", "instruction": "Choose the orange sphere.", "bbox": [544.0, 400.3, 692.2, 551.4], "color": "orange", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00052.png", "instruction": "Click on the purple cube.", "bbox": [319.7, 366.3, 482.8, 524.8], "color": "purple", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00053.png", "instruction": "Choose the blue cube.", "bbox": [312.3, 476.9, 458.1, 625.7], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00054.png", "instruction": "Choose the red cube.", "bbox": [515.4, 396.4, 672.5, 556.7], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00055.png", "instruction": "Select the green cube in the scene.", "bbox": [539.2, 385.1, 645.5, 508.7], "color": "green", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00056.png", "instruction": "Click on the purple cylinder.", "bbox": [467.1, 500.2, 596.8, 645.3], "color": "purple", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00057.png", "instruction": "Choose the purple cube.", "bbox": [573.2, 476.9, 706.3, 621.1], "color": "purple", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00058.png", "instruction": "Click the orange cylinder.", "bbox": [539.6, 406.0, 660.6, 526.5], "color": "orange", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00059.png", "instruction": "Select the yellow cube in the scene.", "bbox": [456.8, 354.7, 587.2, 491.4], "color": "yellow", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00060.png", "instruction": "Click the teal cylinder.", "bbox": [642.3, 407.9, 765.2, 532.5], "color": "teal", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00061.png", "instruction": "Choose the teal cube.", "bbox": [452.8, 308.1, 595.3, 455.0], "color": "teal", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00062.png", "instruction": "Click the blue cylinder.", "bbox": [331.5, 440.6, 477.3, 596.2], "color": "blue", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00063.png", "instruction": "Click the white cylinder.", "bbox": [320.5, 385.0, 500.3, 564.4], "color": "white", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00064.png", "instruction": "Choose the red sphere.", "bbox": [303.8, 406.0, 452.3, 568.4], "color": "red", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00065.png", "instruction": "Click the green cylinder.", "bbox": [450.8, 465.3, 538.5, 570.6], "color": "green", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00066.png", "instruction": "Click the green cylinder.", "bbox": [447.8, 341.5, 599.9, 489.6], "color": "green", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00067.png", "instruction": "Choose the red cylinder.", "bbox": [402.8, 435.8, 569.2, 607.1], "color": "red", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00068.png", "instruction": "Select the red cube in the scene.", "bbox": [159.3, 412.1, 299.4, 549.3], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00069.png", "instruction": "Click on the blue cube.", "bbox": [550.3, 487.9, 666.7, 606.1], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00070.png", "instruction": "Select the yellow sphere in the scene.", "bbox": [428.6, 417.5, 553.9, 562.4], "color": "yellow", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00071.png", "instruction": "Select the blue sphere in the scene.", "bbox": [249.7, 424.6, 366.1, 542.8], "color": "blue", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00072.png", "instruction": "Click on the blue cube.", "bbox": [384.8, 487.2, 556.3, 676.0], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00073.png", "instruction": "Choose the teal cube.", "bbox": [449.0, 383.8, 599.6, 540.6], "color": "teal", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00074.png", "instruction": "Click the white sphere.", "bbox": [421.4, 388.3, 534.9, 499.6], "color": "white", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00075.png", "instruction": "Click on the teal sphere.", "bbox": [191.7, 447.3, 351.3, 605.9], "color": "teal", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00076.png", "instruction": "Select the teal cube in the scene.", "bbox": [218.8, 427.5, 362.2, 561.4], "color": "teal", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00077.png", "instruction": "Click the blue cylinder.", "bbox": [219.5, 419.7, 382.2, 587.2], "color": "blue", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00078.png", "instruction": "Select the red cube in the scene.", "bbox": [329.2, 415.7, 475.2, 566.2], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00079.png", "instruction": "Choose the red cube.", "bbox": [431.2, 401.4, 579.0, 574.1], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00080.png", "instruction": "Click the red cube.", "bbox": [644.6, 451.6, 760.9, 580.4], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00081.png", "instruction": "Select the green cylinder in the scene.", "bbox": [223.8, 473.7, 339.7, 616.8], "color": "green", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00082.png", "instruction": "Click on the white cube.", "bbox": [554.1, 466.5, 686.0, 626.1], "color": "white", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00083.png", "instruction": "Click the teal sphere.", "bbox": [444.3, 463.0, 576.5, 615.6], "color": "teal", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00084.png", "instruction": "Click the blue cube.", "bbox": [340.7, 445.2, 480.3, 591.7], "color": "blue", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00085.png", "instruction": "Select the white cylinder in the scene.", "bbox": [643.6, 418.9, 765.3, 542.5], "color": "white", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00086.png", "instruction": "Click on the green cube.", "bbox": [463.9, 465.1, 579.2, 608.1], "color": "green", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00087.png", "instruction": "Choose the purple cube.", "bbox": [633.8, 366.9, 794.3, 515.3], "color": "purple", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00088.png", "instruction": "Click on the white cylinder.", "bbox": [338.8, 470.8, 459.3, 611.2], "color": "white", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00089.png", "instruction": "Choose the yellow sphere.", "bbox": [453.2, 474.1, 583.7, 603.2], "color": "yellow", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00090.png", "instruction": "Select the white cube in the scene.", "bbox": [199.0, 436.6, 358.3, 589.0], "color": "white", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00091.png", "instruction": "Click the teal cube.", "bbox": [445.8, 397.8, 553.2, 512.2], "color": "teal", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00092.png", "instruction": "Click on the red cube.", "bbox": [538.2, 360.6, 693.0, 512.3], "color": "red", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00093.png", "instruction": "Select the teal cube in the scene.", "bbox": [415.8, 377.2, 536.2, 517.0], "color": "teal", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00094.png", "instruction": "Select the purple cube in the scene.", "bbox": [511.9, 377.3, 680.9, 535.1], "color": "purple", "shape": "cube", "src": "bench3d-d1"}
+{"image": "shots/e00095.png", "instruction": "Select the yellow sphere in the scene.", "bbox": [562.5, 415.6, 664.9, 537.6], "color": "yellow", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00096.png", "instruction": "Choose the yellow cylinder.", "bbox": [553.6, 470.7, 713.3, 647.9], "color": "yellow", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00097.png", "instruction": "Click the purple sphere.", "bbox": [403.1, 513.7, 542.8, 671.0], "color": "purple", "shape": "sphere", "src": "bench3d-d1"}
+{"image": "shots/e00098.png", "instruction": "Click the orange cylinder.", "bbox": [548.7, 384.6, 665.4, 511.1], "color": "orange", "shape": "cylinder", "src": "bench3d-d1"}
+{"image": "shots/e00099.png", "instruction": "Click the purple cube.", "bbox": [226.0, 408.7, 362.4, 557.3], "color": "purple", "shape": "cube", "src": "bench3d-d1"}

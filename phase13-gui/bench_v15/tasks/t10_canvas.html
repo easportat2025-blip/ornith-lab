@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T10 canvas</title>
+<style>
+  :root { --accent:#2563eb; --bg:#f3f6fb; }
+  body.v1 { --accent:#db2777; --bg:#fbf3f7; }
+  body.v2 { --accent:#15803d; --bg:#f2faf3; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); margin:0; padding:24px; }
+  .wrap { max-width:960px; margin:24px auto; }
+  h1 { font-size:18px; color:var(--accent); }
+  p.hint { font-size:13px; color:#555; margin:4px 0 14px; }
+  canvas { background:#fff; border:1px solid #e2e8f0; border-radius:10px; cursor:crosshair; }
+  #status { margin-top:12px; font-size:14px; color:#334155; min-height:20px; }
+  #success { display:none; margin-top:10px; background:#dcfce7; color:#166534; padding:12px; border-radius:6px; font-size:15px; }
+</style>
+</head>
+<body class="v0" data-clicked="" data-correct="0">
+<div class="wrap">
+  <h1>Shape hunt</h1>
+  <p class="hint" id="goal">Click exactly the described shape — color AND type both matter.</p>
+  <canvas id="cv" width="920" height="540"></canvas>
+  <div id="status"></div>
+  <div id="success">Correct shape clicked!</div>
+</div>
+<script type="application/json" id="geo">[]</script>
+<script>
+"use strict";
+const V = Math.min(2, Math.max(0, parseInt(new URLSearchParams(location.search).get("v") || "0", 10)));
+document.body.className = "v" + V;
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const rnd = mulberry32(0xCA7A500 + V * 15485863);
+const COLORS = [
+  {name:"red", hex:"#ef4444"},
+  {name:"blue", hex:"#3b82f6"},
+  {name:"green", hex:"#22c55e"},
+  {name:"yellow", hex:"#eab308"},
+  {name:"purple", hex:"#a855f7"}
+];
+const TYPES = ["circle", "square", "triangle"];
+const target = {color: COLORS[Math.floor(rnd() * COLORS.length)], type: TYPES[Math.floor(rnd() * TYPES.length)]};
+document.body.dataset.targetcolor = target.color.name;
+document.body.dataset.targettype = target.type;
+document.getElementById("goal").textContent = "Click exactly the " + target.color.name + " " + target.type + " — color AND type both matter.";
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const shapes = [];
+let attempts = 0;
+function place(shape) {
+  for (let tries = 0; tries < 200; tries++) {
+    const x = 60 + rnd() * (cv.width - 120);
+    const y = 60 + rnd() * (cv.height - 120);
+    const r = 26 + rnd() * 18;
+    if (shapes.every(s => Math.hypot(s.x - x, s.y - y) > s.r + r + 18)) {
+      shape.x = x; shape.y = y; shape.r = r;
+      return shape;
+    }
+  }
+  shape.x = 60 + rnd() * (cv.width - 120);
+  shape.y = 60 + rnd() * (cv.height - 120);
+  return shape;
+}
+const N = 14;
+const tgtIdx = 1 + Math.floor(rnd() * (N - 2));
+for (let i = 0; i < N; i++) {
+  let color, type;
+  if (i === tgtIdx) { color = target.color; type = target.type; }
+  else {
+    color = COLORS[Math.floor(rnd() * COLORS.length)];
+    type = TYPES[Math.floor(rnd() * TYPES.length)];
+    if (color.name === target.color.name && type === target.type) type = TYPES[(TYPES.indexOf(type) + 1) % TYPES.length];
+  }
+  shapes.push(place({color, type, x:0, y:0, r:30}));
+}
+document.getElementById("geo").textContent = JSON.stringify(shapes);
+function draw() {
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  for (const s of shapes) {
+    ctx.fillStyle = s.color.hex;
+    ctx.beginPath();
+    if (s.type === "circle") { ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); }
+    else if (s.type === "square") { ctx.rect(s.x - s.r, s.y - s.r, s.r * 2, s.r * 2); }
+    else { ctx.moveTo(s.x, s.y - s.r); ctx.lineTo(s.x + s.r, s.y + s.r); ctx.lineTo(s.x - s.r, s.y + s.r); ctx.closePath(); }
+    ctx.fill();
+  }
+}
+function hit(px, py) {
+  for (let i = shapes.length - 1; i >= 0; i--) {
+    const s = shapes[i];
+    if (s.type === "circle") { if (Math.hypot(px - s.x, py - s.y) <= s.r) return i; }
+    else if (s.type === "square") { if (Math.abs(px - s.x) <= s.r && Math.abs(py - s.y) <= s.r) return i; }
+    else {
+      const t = py - (s.y - s.r);
+      if (t >= 0 && t <= 2 * s.r && Math.abs(px - s.x) <= t) return i;
+    }
+  }
+  return -1;
+}
+const statusEl = document.getElementById("status"), ok = document.getElementById("success");
+cv.addEventListener("click", (e) => {
+  const rect = cv.getBoundingClientRect();
+  const px = e.clientX - rect.left, py = e.clientY - rect.top;
+  const i = hit(px, py);
+  attempts++;
+  document.body.dataset.clickx = String(Math.round(px));
+  document.body.dataset.clicky = String(Math.round(py));
+  if (i >= 0) {
+    const s = shapes[i];
+    document.body.dataset.clicked = s.color.name + ":" + s.type;
+    if (s.color.name === target.color.name && s.type === target.type) {
+      document.body.dataset.correct = "1";
+      ok.style.display = "block";
+      statusEl.textContent = "";
+      ctx.strokeStyle = "#111"; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r + 8, 0, Math.PI * 2); ctx.stroke();
+    } else {
+      document.body.dataset.correct = "0";
+      statusEl.textContent = "That is the " + s.color.name + " " + s.type + " — not the target.";
+    }
+  } else {
+    statusEl.textContent = "Missed — no shape there.";
+  }
+  document.body.dataset.attempts = String(attempts);
+});
+draw();
+window.__task_ok = false;
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+entry = chr(10) + "### [DeepSeek] " + chr(9226) + " 20/10 19:55 " + chr(8212) + " **PHAT HIEN QUAN TRONG: chromium bundle KHONG mo port remote-debugging -> dung PLAYWRIGHT headful (cua so X11 that, xdotool van toc duoc)**" + chr(10) + chr(10)
+entry += "**Tinh hinh (4 vong thu tren Kaggle CPU):**" + chr(10)
+entry += "- `chromium-browser` tren image Kaggle = **wrapper SNAP** (`requires the chromium snap`) -> **khong chay duoc** ✗." + chr(10)
+entry += "- Chromium **tu bundle** (`/tmp/pw-browsers/chromium-1248/chrome-linux64/chrome`) **co mo cua so that tren Xvfb** ✓ (chi co loi dbus vô hai ✓) **NHUNG khong mo port remote-debugging** ✗ (khong co dong \"DevTools listening\" trong chrome.log ✗) -> **raw CDP /json khong ket noi duoc** ✗." + chr(10)
+entry += "- Da thu cho CDP 90s (chromium khoi dong lau tren CPU kernel) -> van `Connection refused` ✗." + chr(10)
+entry += chr(10) + "**GIAI PHAP (da viet va da push kernel `khoadangnguye/ornith-desktop-proof`):** dung **playwright `launch(headless=False)`** - playwright tu lo flag nen **van la cua so X11 that** ✓ (khac headless_shell) -> **xdotool van bam/key duoc vao app that** ✓ va doc state bang `page.evaluate()` ✓ (khong can CDP HTTP ✗)." + chr(10)
+entry += chr(10) + "**=== TASK-27 (GLM) - sua `phase14-desktop/harness.py` theo huong nay ===" + chr(10)
+entry += "1. `open_app_cdp(url)` -> doi sang **playwright**: `p.chromium.launch(headless=False, args=[--no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size, --window-position=0,0, --kiosk])` + `ctx = b.new_context(viewport=1280x720)` + `pg.goto(url)` ✓." + chr(10)
+entry += "2. `cdp_eval(expr)` -> doi sang `page.evaluate(expr)` ✓ (giu chung ten ham de cac cho khac khong sua ✓)." + chr(10)
+entry += "3. **Giu nguyen** phan xdotool (`env.do_action`) ✓ - day la phan chung minh su kien OS that ✓." + chr(10)
+entry += "4. Chromium lay tu **bundle** (setup_playwright_offline + `/tmp/pw-browsers/**/chrome`) ✓ - KHONG dung `chromium-browser` ✗." + chr(10)
+entry += "5. Chromium phai khoi dong **trong `with sync_playwright()`** va **mo** o cuoi ✗ (neu dong som thi cua so bi dong ✗)." + chr(10)
+entry += chr(10) + "**Khong can day la mau mau chi can 1 lan chay kernel de xac nhan** - minh chay `ornith-desktop-proof` (CPU, 0 GPU-quota) de chung minh: (a) cua so that hien tren anh chup, (b) **click chuot THAT doi trang thai app** ✓, (c) **phim THAT doi trang thai app** ✓. Ket qua se vao LOBBY ✓." + chr(10)
+entry += chr(10) + "**Neu kernel proof chay duoc -> TASK-28 (desktop-bench) se de chay hon nhieu** ✓ va demo tren Space (noVNC) se co hinh that ✓." + chr(10)
+
+with open('agent.md', 'a', encoding='utf-8') as f:
+    f.write(entry)
+print('appended', len(entry))

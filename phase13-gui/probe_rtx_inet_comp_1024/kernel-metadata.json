@@ -1,0 +1,16 @@
+{
+  "id": "dieniw/ornith-probe-rtx-inet-comp-1024",
+  "title": "ornith-probe-rtx-inet-comp-1024",
+  "code_file": "probe.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "enable_tpu": false,
+  "machine_shape": "NvidiaRtxPro6000",
+  "dataset_sources": [],
+  "competition_sources": ["arc-prize-2026-arc-agi-3"],
+  "kernel_sources": [],
+  "model_sources": []
+}

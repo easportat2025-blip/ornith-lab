@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orchestra · OpenCode multi-session</title>
+<style>
+  :root{
+    --bg:#0b0d12; --bg2:#0f1218; --panel:#12161f; --panel2:#161b26;
+    --line:#222a38; --line2:#2c3648;
+    --txt:#e7ecf5; --dim:#8b97ab; --dim2:#5d6a7e;
+    --accent:#8b5cf6; --accent2:#22d3ee; --ok:#34d399; --warn:#fbbf24; --err:#f87171;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:
+      radial-gradient(900px 500px at 12% -10%, rgba(139,92,246,.10), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(34,211,238,.07), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    font:14px/1.55 "Segoe UI Variable Text","Segoe UI",Inter,system-ui,sans-serif;
+    overflow:hidden;
+  }
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  input,textarea{font:inherit;color:inherit;background:none;border:0;outline:0}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#26303f;border-radius:8px;border:2px solid transparent;background-clip:padding-box}
+  ::-webkit-scrollbar-thumb:hover{background:#334052;border:2px solid transparent;background-clip:padding-box}
+  ::-webkit-scrollbar-track{background:transparent}
+
+  .app{display:grid;grid-template-columns:274px minmax(0,1fr) 306px;height:100vh}
+
+  /* ---------------------------------------------------- sidebar */
+  .side{background:linear-gradient(180deg,rgba(18,22,31,.92),rgba(13,16,23,.96));
+        border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+  .brand{display:flex;align-items:center;gap:11px;padding:16px 16px 14px;border-bottom:1px solid var(--line)}
+  .logo{width:34px;height:34px;border-radius:10px;flex:none;position:relative;
+        background:linear-gradient(140deg,#8b5cf6,#22d3ee);
+        box-shadow:0 6px 20px rgba(139,92,246,.35)}
+  .logo:after{content:"";position:absolute;inset:9px;border-radius:5px;
+        border:2px solid rgba(11,13,18,.85);border-right-color:transparent;transform:rotate(-35deg)}
+  .brand h1{font-size:14px;font-weight:650;letter-spacing:.12em}
+  .brand small{display:block;color:var(--dim2);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .brand .live{margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--err);box-shadow:0 0 0 3px rgba(248,113,113,.12)}
+  .brand .live.on{background:var(--ok);box-shadow:0 0 0 3px rgba(52,211,153,.14);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+
+  .side-scroll{flex:1;overflow:auto;padding:12px 10px 8px;min-height:0}
+  .lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim2);
+       font-weight:700;padding:10px 8px 7px;display:flex;align-items:center;gap:8px}
+  .lbl:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+  .room{display:flex;align-items:center;gap:10px;width:100%;padding:8px 9px;border-radius:11px;
+        text-align:left;position:relative;border:1px solid transparent;transition:.14s}
+  .room:hover{background:rgba(255,255,255,.035)}
+  .room.on{background:linear-gradient(90deg,rgba(139,92,246,.16),rgba(139,92,246,.04));border-color:rgba(139,92,246,.28)}
+  .room .hash{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;flex:none;
+        background:#1a2030;color:var(--dim);font-size:13px;font-weight:700}
+  .room.on .hash{background:rgba(139,92,246,.22);color:#c4b5fd}
+  .av{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;flex:none;
+      font-size:11.5px;font-weight:750;color:#0b0d12;letter-spacing:.02em}
+  .room .meta{min-width:0;flex:1}
+  .room .nm{display:block;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .room .rl{display:block;font-size:10.5px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dot{width:7px;height:7px;border-radius:50%;background:#3a4658;flex:none}
+  .dot.on{background:var(--ok);box-shadow:0 0 8px rgba(52,211,153,.6)}
+  .unread{min-width:18px;height:18px;border-radius:9px;background:var(--accent);color:#fff;
+          font-size:10.5px;font-weight:750;display:grid;place-items:center;padding:0 5px}
+  .sep{height:1px;background:var(--line);margin:9px 8px}
+  .side-foot{border-top:1px solid var(--line);padding:10px 12px;display:flex;align-items:center;gap:8px;
+             font-size:10.5px;color:var(--dim2)}
+  .pill{font-family:ui-monospace,Consolas,monospace;background:#151b26;border:1px solid var(--line);
+        padding:2px 7px;border-radius:7px;font-size:10px;color:var(--dim)}
+  .side-foot button{margin-left:auto;color:var(--dim);font-size:11px}
+  .side-foot button:hover{color:var(--txt)}
+
+  /* ---------------------------------------------------- main */
+  .main{display:flex;flex-direction:column;min-width:0;min-height:0;background:
+        linear-gradient(180deg,rgba(15,18,24,.55),rgba(11,13,18,.75))}
+  .top{height:62px;flex:none;display:flex;align-items:center;gap:12px;padding:0 20px;
+       border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+  .top .title{font-size:15px;font-weight:650;display:flex;align-items:center;gap:9px;min-width:0}
+  .top .title .tag{font-family:ui-monospace,Consolas,monospace;font-size:10px;color:var(--dim2);
+       border:1px solid var(--line2);padding:1px 6px;border-radius:6px}
+  .top .sub{font-size:11.5px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .grow{flex:1}
+  .icon-btn{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--dim);
+            border:1px solid transparent;transition:.14s}
+  .icon-btn:hover{background:#171d29;border-color:var(--line);color:var(--txt)}
+  .icon-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7}
+
+  .feed{flex:1;overflow:auto;padding:20px 22px 10px;min-height:0;scroll-behavior:smooth}
+  .feed-inner{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:3px}
+
+  .day{display:flex;align-items:center;gap:10px;margin:16px 0 10px;color:var(--dim2);
+       font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:650}
+  .day:before,.day:after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .msg{display:flex;gap:10px;padding:5px 0;animation:in .18s ease-out}
+  @keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .msg .av{margin-top:2px}
+  .msg .body{min-width:0;flex:1}
+  .msg .head{display:flex;align-items:baseline;gap:8px;margin-bottom:1px}
+  .msg .who{font-size:12.5px;font-weight:700}
+  .msg .time{font-size:10px;color:var(--dim2);font-family:ui-monospace,Consolas,monospace}
+  .msg .txt{font-size:13.5px;color:#d7deea;white-space:pre-wrap;word-break:break-word}
+  .msg .txt.clamp{max-height:230px;overflow:hidden;position:relative}
+  .msg .txt.clamp:after{content:"";position:absolute;left:0;right:0;bottom:0;height:64px;
+       background:linear-gradient(transparent,#0d1017 85%)}
+  .more{font-size:11px;color:#a78bfa;margin-top:3px;padding:2px 0}
+  .more:hover{text-decoration:underline}
+  .msg.mine{flex-direction:row-reverse}
+  .msg.mine .body{display:flex;flex-direction:column;align-items:flex-end}
+  .msg.mine .txt{background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(139,92,246,.10));
+       border:1px solid rgba(139,92,246,.30);padding:8px 12px;border-radius:13px 13px 4px 13px;
+       max-width:min(640px,86%)}
+  .msg.bus .txt{border-left:2px solid #334155;padding-left:11px;color:#c3ccd9}
+  .msg.system{justify-content:center;padding:4px 0}
+  .msg.system .txt{font-size:11px;color:var(--dim2);background:#121722;border:1px solid var(--line);
+       padding:3px 10px;border-radius:20px}
+  .msg.relay .txt{color:#9fb4c9;font-style:italic}
+  .chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+  .chip{font-size:10px;font-family:ui-monospace,Consolas,monospace;color:var(--dim);
+        background:#151b26;border:1px solid var(--line);padding:1px 6px;border-radius:6px}
+  .tagline{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim2);font-weight:650}
+
+  .empty{margin:auto;text-align:center;color:var(--dim2);padding:40px}
+  .empty .big{font-size:30px;margin-bottom:8px;opacity:.5}
+
+  /* composer */
+  .composer{flex:none;border-top:1px solid var(--line);padding:12px 20px 16px;
+            background:linear-gradient(180deg,rgba(15,18,24,.6),rgba(11,13,18,.95))}
+  .composer-in{max-width:920px;margin:0 auto}
+  .targets{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:0 2px 8px}
+  .targets .cap{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim2);font-weight:700;margin-right:2px}
+  .tg{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:8px;
+      border:1px solid var(--line);background:#131824;font-size:11.5px;color:var(--dim);transition:.12s}
+  .tg .av{width:15px;height:15px;border-radius:5px;font-size:8px}
+  .tg:hover{border-color:var(--line2);color:var(--txt)}
+  .tg.on{border-color:rgba(139,92,246,.45);background:rgba(139,92,246,.12);color:#ddd6fe}
+  .box{display:flex;align-items:flex-end;gap:10px;background:#111621;border:1px solid var(--line2);
+       border-radius:14px;padding:9px 10px 9px 14px;transition:.15s;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+  .box:focus-within{border-color:rgba(139,92,246,.55);box-shadow:0 0 0 3px rgba(139,92,246,.10),0 10px 30px rgba(0,0,0,.22)}
+  .box textarea{flex:1;resize:none;max-height:140px;min-height:24px;font-size:13.5px;line-height:1.5;padding:2px 0}
+  .box textarea::placeholder{color:#57647a}
+  .send{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;
+        background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;
+        box-shadow:0 6px 16px rgba(109,40,217,.35);transition:.15s}
+  .send:hover{transform:translateY(-1px);filter:brightness(1.08)}
+  .send:disabled{opacity:.4;transform:none;box-shadow:none;cursor:default}
+  .send svg{width:16px;height:16px;fill:currentColor}
+  .hint{display:flex;gap:12px;color:var(--dim2);font-size:10.5px;padding:7px 3px 0}
+  .hint b{color:var(--dim);font-weight:600}
+
+  /* ---------------------------------------------------- right */
+  .right{background:linear-gradient(180deg,rgba(17,21,30,.9),rgba(12,15,22,.96));
+         border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+  .right-scroll{flex:1;overflow:auto;padding:14px 14px 20px;min-height:0}
+  .card{background:#121722;border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:11px}
+  .card h3{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim2);
+           font-weight:750;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+  .card h3 .n{color:var(--dim);font-family:ui-monospace,Consolas,monospace;letter-spacing:0;font-size:10px}
+  .person{display:flex;align-items:center;gap:9px;padding:6px 0}
+  .person .meta{min-width:0;flex:1}
+  .person .nm{font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px}
+  .person .rl{font-size:10.5px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .person .st{font-size:9.5px;padding:1px 6px;border-radius:6px;border:1px solid var(--line);color:var(--dim2)}
+  .person .st.on{color:#6ee7b7;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.08)}
+  .kv{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;padding:3px 0}
+  .kv span{color:var(--dim2)}
+  .kv b{font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:10.5px;color:var(--dim)}
+  .switch{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+  .track{width:34px;height:19px;border-radius:12px;background:#232c3b;position:relative;transition:.18s;flex:none}
+  .track:after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;
+       background:#8494aa;transition:.18s}
+  .switch.on .track{background:rgba(139,92,246,.55)}
+  .switch.on .track:after{left:17px;background:#fff}
+  .switch .lbl2{font-size:12px;color:var(--dim)}
+  .note{font-size:11px;color:var(--dim2);line-height:1.5}
+  .note b{color:var(--dim)}
+
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(5,7,11,.72);backdrop-filter:blur(5px);
+         display:none;place-items:center;z-index:50}
+  .modal.on{display:grid}
+  .modal .sheet{width:min(880px,92vw);height:min(78vh,760px);background:#0f131b;border:1px solid var(--line2);
+       border-radius:18px;display:flex;flex-direction:column;overflow:hidden;
+       box-shadow:0 30px 90px rgba(0,0,0,.55)}
+  .sheet .sh{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .sheet .sh .t{font-size:13.5px;font-weight:650;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sheet .sb{flex:1;overflow:auto;padding:16px 18px}
+  .sheet .sb .msg{max-width:100%}
+
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);
+         background:#151c28;border:1px solid var(--line2);color:var(--txt);padding:8px 14px;
+         border-radius:10px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:80;
+         box-shadow:0 14px 40px rgba(0,0,0,.5)}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.err{border-color:rgba(248,113,113,.4)}
+  .toast.ok{border-color:rgba(52,211,153,.35)}
+
+  @media (max-width:1180px){.app{grid-template-columns:250px minmax(0,1fr)}.right{display:none}}
+  @media (max-width:760px){.app{grid-template-columns:1fr}.side{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- ------------------------------------------------ sidebar -->
+  <aside class="side">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>ORCHESTRA</h1>
+        <small>OpenCode sessions</small>
+      </div>
+      <div class="live" id="live" title="OpenCode server"></div>
+    </div>
+    <div class="side-scroll">
+      <div class="lbl">Phòng</div>
+      <button class="room on" data-room="all">
+        <span class="hash">#</span>
+        <span class="meta"><span class="nm">Tất cả agent</span><span class="rl">phòng chung · realtime</span></span>
+        <span class="unread" data-unread="all" hidden>0</span>
+      </button>
+      <div id="rooms"></div>
+      <div class="sep"></div>
+      <div class="lbl">Session khác <span class="pill" id="sessN">0</span></div>
+      <div id="sessions"></div>
+    </div>
+    <div class="side-foot">
+      <span>OpenCode</span><span class="pill" id="port">—</span>
+      <button id="clearBtn" title="Xoá lịch sử phòng">xoá log</button>
+    </div>
+  </aside>
+
+  <!-- ------------------------------------------------ main -->
+  <main class="main">
+    <div class="top">
+      <div style="min-width:0">
+        <div class="title" id="roomTitle"><span class="hash" style="font-weight:800">#</span> Tất cả agent</div>
+        <div class="sub" id="roomSub">tin nhắn từ mọi session · trả lời tự động chuyển về đúng agent</div>
+      </div>
+      <div class="grow"></div>
+      <button class="icon-btn" id="refresh" title="Tải lại">
+        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 3v6h-6"/></svg>
+      </button>
+      <button class="icon-btn" id="jump" title="Xuống tin mới nhất">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </button>
+    </div>
+
+    <div class="feed" id="feed"><div class="feed-inner" id="feedInner"></div></div>
+
+    <div class="composer">
+      <div class="composer-in">
+        <div class="targets" id="targets"><span class="cap">Gửi tới</span></div>
+        <div class="box">
+          <textarea id="input" rows="1" placeholder="Nhắn cho agent…  (Enter gửi · Shift+Enter xuống dòng)"></textarea>
+          <button class="send" id="send" title="Gửi (Enter)">
+            <svg viewBox="0 0 24 24"><path d="M3.4 20.4 21 12 3.4 3.6 6 12l-2.6 8.4ZM6 12h15"/></svg>
+          </button>
+        </div>
+        <div class="hint">
+          <span><b>Enter</b> gửi</span><span><b>Shift+Enter</b> xuống dòng</span>
+          <span><b>Ctrl+K</b> focus</span><span id="sendHint">chọn ít nhất 1 agent</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ------------------------------------------------ right -->
+  <aside class="right">
+    <div class="right-scroll">
+      <div class="card">
+        <h3>Đang trực <span class="n" id="onlineN">0/0</span></h3>
+        <div id="people"></div>
+      </div>
+      <div class="card">
+        <h3>Điều hướng</h3>
+        <div class="switch on" id="relaySw">
+          <div class="track"></div>
+          <div class="lbl2">Tự động chuyển tin bus vào session</div>
+        </div>
+        <div class="note" style="margin-top:9px">
+          Tin agent gửi lên bus (có <b>--to</b>) được đẩy thẳng vào session đích.
+          Trả lời được chuyển ngược về agent đã hỏi.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Phiên</h3>
+        <div class="kv"><span>Server</span><b id="kvPort">—</b></div>
+        <div class="kv"><span>Sessions</span><b id="kvSess">—</b></div>
+        <div class="kv"><span>Agent bật</span><b id="kvAgents">—</b></div>
+        <div class="kv"><span>Cập nhật</span><b id="kvNow">—</b></div>
+      </div>
+      <div class="card">
+        <h3>Gợi ý</h3>
+        <div class="note">
+          Chọn 1 agent ở cột trái để mở DM. Gõ <b>@GLM …</b> trong phòng chung
+          để gửi riêng cho GLM. Click session ở cột trái để xem transcript gốc.
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <div class="sh">
+      <div class="av" style="background:#334155;color:#cbd5e1">S</div>
+      <div class="t" id="mTitle">Transcript</div>
+      <div class="grow"></div>
+      <button class="icon-btn" id="mClose">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="sb" id="mBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const state = { agents: [], sessions: [], port: null, room: "all",
+                events: [], lastTs: 0, targets: new Set(), relay: true,
+                lastRead: {}, online: false };
+const LS = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem("orch."+k)) ?? d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem("orch."+k, JSON.stringify(v)); } catch {} }
+};
+state.lastRead = LS.get("lastRead", {});
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad = n => String(n).padStart(2, "0");
+const fmtTime = ts => { const d = new Date(ts*1000); return pad(d.getHours())+":"+pad(d.getMinutes()); };
+const fmtDay = ts => {
+  const d = new Date(ts*1000), n = new Date();
+  const same = (a,b) => a.toDateString() === b.toDateString();
+  if (same(d,n)) return "Hôm nay";
+  const y = new Date(n); y.setDate(n.getDate()-1);
+  if (same(d,y)) return "Hôm qua";
+  return pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear();
+};
+const initials = s => (String(s||"?").replace(/[^A-Za-zÀ-ỹ0-9]/g,"")[0] || "?").toUpperCase();
+const colorOf = name => (state.agents.find(a => a.name === name) || {}).color || "#64748b";
+const agentOf = name => state.agents.find(a => a.name === name);
+
+function toast(msg, kind="") {
+  const t = $("#toast");
+  t.textContent = msg; t.className = "toast on " + kind;
+  clearTimeout(t._h); t._h = setTimeout(() => t.className = "toast " + kind, 2600);
+}
+
+/* ------------------------------------------------------------ render side */
+function renderRooms() {
+  const box = $("#rooms");
+  box.innerHTML = state.agents.map(a => {
+    const un = unreadFor(a.name);
+    return `<button class="room" data-room="${esc(a.name)}">
+      <span class="av" style="background:${a.color}22;color:${a.color}">${esc(initials(a.name))}</span>
+      <span class="meta"><span class="nm">${esc(a.name)}</span>
+        <span class="rl">${esc(a.role || a.model || "agent")}</span></span>
+      <span class="dot ${a.active ? "on" : ""}" title="${a.active ? "đang chạy" : "idle"}"></span>
+      ${un ? `<span class="unread">${un > 99 ? "99+" : un}</span>` : ""}
+    </button>`;
+  }).join("");
+  $$("#rooms .room").forEach(b => b.onclick = () => setRoom(b.dataset.room));
+  $$(".room[data-room='all']").forEach(b => b.onclick = () => setRoom("all"));
+  const mapped = new Set(state.agents.map(a => a.sid));
+  const seenTitle = new Set(), others = [];
+  for (const s of state.sessions) {
+    if (mapped.has(s.id)) continue;
+    const k = (s.title || "").trim().toLowerCase();
+    if (seenTitle.has(k)) continue;
+    seenTitle.add(k); others.push(s);
+    if (others.length >= 10) break;
+  }
+  $("#sessN").textContent = others.length;
+  $("#sessions").innerHTML = others.map(s => `
+    <button class="room" data-sess="${esc(s.id)}">
+      <span class="hash">S</span>
+      <span class="meta"><span class="nm">${esc(s.title || s.id)}</span>
+        <span class="rl">${esc(s.model || "")}</span></span>
+      <span class="dot ${s.active ? "on" : ""}"></span>
+    </button>`).join("") || `<div class="note" style="padding:6px 9px">không có session khác</div>`;
+  $$("#sessions .room").forEach(b => b.onclick = () => openTranscript(b.dataset.sess));
+  markRoom();
+}
+
+function unreadFor(name) {
+  const last = state.lastRead[name] || 0;
+  return state.events.filter(e => e.ts > last &&
+    (e.from === name || e.to === name) && e.kind !== "system").length;
+}
+
+function markRoom() {
+  $$(".room[data-room]").forEach(b => b.classList.toggle("on", b.dataset.room === state.room));
+}
+
+function renderPeople() {
+  const on = state.agents.filter(a => a.active).length;
+  $("#onlineN").textContent = `${on}/${state.agents.length}`;
+  $("#kvAgents").textContent = state.agents.filter(a => a.enabled).length;
+  $("#people").innerHTML = state.agents.map(a => `
+    <div class="person">
+      <span class="av" style="background:${a.color}22;color:${a.color}">${esc(initials(a.name))}</span>
+      <span class="meta">
+        <span class="nm">${esc(a.name)} <span class="st ${a.active ? "on" : ""}">${a.active ? "live" : "idle"}</span></span>
+        <span class="rl" title="${esc(a.title)}">${esc(a.title || "")}</span>
+      </span>
+    </div>`).join("");
+  $("#kvPort").textContent = state.port || "—";
+  $("#kvSess").textContent = state.sessions.length;
+  $("#kvNow").textContent = fmtTime(Date.now()/1000);
+  $("#port").textContent = state.port || "off";
+  $("#live").classList.toggle("on", !!state.port);
+}
+
+function renderTargets() {
+  const wrap = $("#targets");
+  wrap.innerHTML = `<span class="cap">Gửi tới</span>` + state.agents
+    .filter(a => a.enabled)
+    .map(a => `<button class="tg ${state.targets.has(a.name) ? "on" : ""}" data-t="${esc(a.name)}">
+      <span class="av" style="background:${a.color}33;color:${a.color}">${esc(initials(a.name))}</span>${esc(a.name)}
+    </button>`).join("");
+  $$("#targets .tg").forEach(b => b.onclick = () => {
+    const n = b.dataset.t;
+    state.targets.has(n) ? state.targets.delete(n) : state.targets.add(n);
+    renderTargets(); updateSend();
+  });
+  $("#sendHint").textContent = state.targets.size ? `${state.targets.size} agent nhận` : "chọn ít nhất 1 agent";
+}
+
+function updateSend() {
+  $("#send").disabled = !$("#input").value.trim() || !state.targets.size;
+}
+
+/* ------------------------------------------------------------ feed */
+function roomEvents() {
+  let evs;
+  if (state.room === "all") evs = state.events;
+  else evs = state.events.filter(e => e.from === state.room || e.to === state.room ||
+    (e.kind === "user" && (e.to || "").includes(state.room)));
+  return [...evs].sort((a, b) => (a.ts || 0) - (b.ts || 0));
+}
+
+function msgHTML(e) {
+  if (e.kind === "system") return `<div class="msg system"><div class="txt">${esc(e.text)}</div></div>`;
+  const c = colorOf(e.from) || "#64748b";
+  const mine = e.kind === "user";
+  const isBus = e.kind === "bus";
+  const isRelay = e.kind === "relay";
+  const tools = (e.tools || []).slice(0, 4);
+  const text = String(e.text || "");
+  const long = text.length > 900;
+  const body = long ? text.slice(0, 900) : text;
+  return `<div class="msg ${mine ? "mine" : ""} ${isBus ? "bus" : ""} ${isRelay ? "relay" : ""}">
+    ${mine ? "" : `<span class="av" style="background:${c}22;color:${c}">${esc(initials(e.from))}</span>`}
+    <div class="body">
+      <div class="head">
+        <span class="who" style="color:${mine ? "#c4b5fd" : c}">${esc(e.from)}</span>
+        ${e.to ? `<span class="tagline">→ ${esc(e.to)}</span>` : ""}
+        ${e.tag ? `<span class="chip">${esc(e.tag)}</span>` : ""}
+        <span class="time">${fmtTime(e.ts)}</span>
+      </div>
+      <div class="txt ${long ? "clamp" : ""}" data-full="${long ? "1" : ""}">${esc(body)}</div>
+      ${long ? `<button class="more" data-full="${esc(text)}">Xem thêm (${text.length} ký tự)</button>` : ""}
+      ${tools.length ? `<div class="chips">${tools.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>` : ""}
+    </div>
+  </div>`;
+}
+
+function renderFeed(forceBottom = false) {
+  const feed = $("#feed"), inner = $("#feedInner");
+  const near = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 160;
+  const evs = roomEvents().slice(-400);
+  let html = "", day = "";
+  for (const e of evs) {
+    const d = fmtDay(e.ts);
+    if (d !== day) { html += `<div class="day">${esc(d)}</div>`; day = d; }
+    html += msgHTML(e);
+  }
+  inner.innerHTML = html || `<div class="empty"><div class="big">◇</div>
+    Chưa có tin nhắn.<br>Chọn agent và gửi tin đầu tiên — agent sẽ trả lời ngay trong phòng này.</div>`;
+  if (forceBottom || near) feed.scrollTop = feed.scrollHeight;
+}
+
+function setRoom(r) {
+  state.room = r;
+  state.lastRead[r] = Date.now()/1000;
+  LS.set("lastRead", state.lastRead);
+  const a = agentOf(r);
+  $("#roomTitle").innerHTML = a
+    ? `<span class="av" style="background:${a.color}22;color:${a.color};width:22px;height:22px;font-size:10px">${esc(initials(a.name))}</span> ${esc(a.name)}`
+    : `<span style="font-weight:800">#</span> Tất cả agent`;
+  $("#roomSub").textContent = a
+    ? `${a.role || "agent"} · ${a.title || ""}`
+    : "tin nhắn từ mọi session · trả lời tự động chuyển về đúng agent";
+  markRoom(); renderFeed(true); renderTargets();
+  if (a) { state.targets = new Set([a.name]); } else {
+    state.targets = new Set(state.agents.filter(x => x.enabled && x.name !== "DeepSeek").map(x => x.name));
+  }
+  renderTargets(); updateSend();
+}
+
+/* ------------------------------------------------------------ data */
+async function loadState() {
+  try {
+    const r = await fetch("/api/state");
+    const s = await r.json();
+    state.agents = s.agents || [];
+    state.sessions = s.sessions || [];
+    state.port = s.port; state.relay = s.relay;
+    if (!state.targets.size) state.targets = new Set(state.agents.filter(a => a.enabled && a.name !== "DeepSeek").map(a => a.name));
+    renderRooms(); renderPeople(); renderTargets(); updateSend();
+    $("#relaySw").classList.toggle("on", state.relay);
+    $("#kvPort").textContent = state.port || "—";
+  } catch (e) { state.port = null; renderPeople(); }
+}
+
+async function loadEvents() {
+  try {
+    const r = await fetch("/api/events?since=0&limit=500");
+    const d = await r.json();
+    state.events = d.events || [];
+    state.lastTs = state.events.length ? state.events[state.events.length-1].ts : 0;
+    renderFeed(); renderRooms();
+  } catch {}
+}
+
+function addEvent(e) {
+  if (e.id && state.events.some(x => x.id === e.id)) return;
+  if (e.ts <= state.lastTs && e.id && state.events.some(x => x.id === e.id)) return;
+  state.events.push(e);
+  if (state.events.length > 900) state.events.splice(0, state.events.length - 900);
+  state.lastTs = Math.max(state.lastTs, e.ts || 0);
+  const visible = state.room === "all" || e.from === state.room || e.to === state.room;
+  if (visible) { renderFeed(); renderRooms(); }
+  else { renderRooms(); }
+}
+
+function connect() {
+  try {
+    const es = new EventSource("/api/stream");
+    es.onmessage = ev => { try { addEvent(JSON.parse(ev.data)); } catch {} };
+    es.onerror = () => { es.close(); pollLoop(); };
+  } catch { pollLoop(); }
+}
+
+let polling = false;
+async function pollLoop() {
+  if (polling) return; polling = true;
+  for (;;) {
+    try {
+      const r = await fetch("/api/events?since=" + (state.lastTs || 0));
+      const d = await r.json();
+      (d.events || []).forEach(addEvent);
+    } catch {}
+    await new Promise(r => setTimeout(r, 2500));
+  }
+}
+
+/* ------------------------------------------------------------ send */
+async function send() {
+  const text = $("#input").value.trim();
+  if (!text || !state.targets.size) return;
+  // @mention: "@GLM nội dung" -> gửi riêng GLM
+  let targets = [...state.targets];
+  const m = text.match(/^@([A-Za-z][\w.-]*)\s+([\s\S]+)$/);
+  if (m && agentOf(m[1])) { targets = [m[1]]; }
+  const body = { text: m ? m[2] : text, targets, from: "user" };
+  $("#input").value = ""; autoGrow(); updateSend();
+  try {
+    const r = await fetch("/api/send", { method:"POST", headers:{"Content-Type":"application/json"},
+                                         body: JSON.stringify(body) });
+    const d = await r.json();
+    const bad = (d.results || []).filter(x => !x.ok);
+    if (d.ok) toast("Đã gửi → " + targets.join(", "), "ok");
+    else toast("Lỗi: " + (bad[0]?.error || d.error || "không gửi được"), "err");
+  } catch (e) { toast("Lỗi kết nối: " + e.message, "err"); }
+}
+
+/* ------------------------------------------------------------ transcript */
+async function openTranscript(sid) {
+  $("#modal").classList.add("on");
+  $("#mTitle").textContent = "Đang tải…";
+  $("#mBody").innerHTML = "";
+  try {
+    const r = await fetch("/api/transcript?sid=" + encodeURIComponent(sid) + "&limit=60");
+    const d = await r.json();
+    $("#mTitle").textContent = d.title || sid;
+    let day = "", html = "";
+    for (const m of d.messages || []) {
+      const e = { kind: m.role === "user" ? "user" : "bus", from: m.role === "user" ? "user" : (agentOf(state.room==="all"?"":state.room)?.name || "agent"),
+                  text: m.text, ts: m.ts, tools: m.tools };
+      const dd = fmtDay(m.ts || 0);
+      if (dd !== day) { html += `<div class="day">${esc(dd)}</div>`; day = dd; }
+      html += msgHTML(e);
+    }
+    $("#mBody").innerHTML = html || `<div class="empty">Không có tin nhắn text.</div>`;
+  } catch (e) { $("#mBody").innerHTML = `<div class="empty">Lỗi: ${esc(e.message)}</div>`; }
+}
+
+/* ------------------------------------------------------------ bind */
+function autoGrow() {
+  const t = $("#input"); t.style.height = "auto"; t.style.height = Math.min(t.scrollHeight, 140) + "px";
+}
+$("#input").addEventListener("input", () => { autoGrow(); updateSend(); });
+$("#input").addEventListener("keydown", e => {
+  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+});
+$("#send").onclick = send;
+$("#feed").addEventListener("click", e => {
+  const b = e.target.closest(".more");
+  if (!b) return;
+  const txt = b.parentElement.querySelector(".txt");
+  txt.textContent = b.dataset.full || "";
+  txt.classList.remove("clamp");
+  b.remove();
+});
+$("#refresh").onclick = async () => { await loadState(); await loadEvents(); toast("Đã tải lại"); };
+$("#jump").onclick = () => { const f = $("#feed"); f.scrollTop = f.scrollHeight; };
+$("#relaySw").onclick = async () => {
+  state.relay = !state.relay;
+  $("#relaySw").classList.toggle("on", state.relay);
+  await fetch("/api/relay", { method:"POST", headers:{"Content-Type":"application/json"},
+                              body: JSON.stringify({ on: state.relay }) });
+  toast("Relay " + (state.relay ? "bật" : "tắt"));
+};
+$("#clearBtn").onclick = async () => {
+  if (!confirm("Xoá toàn bộ lịch sử phòng chat?")) return;
+  await fetch("/api/clear", { method:"POST" }); state.events = []; state.lastTs = 0; renderFeed(true);
+};
+$("#mClose").onclick = () => $("#modal").classList.remove("on");
+$("#modal").onclick = e => { if (e.target.id === "modal") $("#modal").classList.remove("on"); };
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") $("#modal").classList.remove("on");
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); $("#input").focus(); }
+});
+
+/* ------------------------------------------------------------ boot */
+(async function boot() {
+  const STATIC = location.search.includes("static=1");
+  await loadState();
+  await loadEvents();
+  if (!localStorage.getItem("orch.lastRead")) {
+    state.agents.forEach(a => { state.lastRead[a.name] = Date.now()/1000; });
+    state.lastRead["all"] = Date.now()/1000;
+    LS.set("lastRead", state.lastRead);
+    renderRooms();
+  }
+  setRoom("all");
+  if (!STATIC) {
+    connect();
+    setInterval(loadState, 5000);
+    setInterval(renderRooms, 15000);
+  }
+  autoGrow();
+})();
+</script>
+</body>
+</html>

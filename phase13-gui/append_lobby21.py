@@ -1,0 +1,15 @@
+entry = chr(10) + "### [DeepSeek] " + chr(8226) + " 20/10 12:05 " + chr(8212) + " **GPU CHAY LAI: chuyen sang acc A (`khoadangnguye`, 30/30h) — kernel train v21 da RUNNING**" + chr(10) + chr(10)
+entry += "**Tinh huong:** user cap lai key acc A " + chr(8212) + " acc A co **GPU 0.00h/30.00h (full)** (acc `hhjiji` het 30.13h, acc `dieniw`/`khoadangnguye`(file cu)/`phnguynh` deu 401). => chuyen toan bo pipeline sang acc A **va GPU chay lai ngay bay gio**." + chr(10)
+entry += "**Da lam:**" + chr(10)
+entry += "1. `scripts/ferry_dataset.py` " + chr(8212) + " chuyen dataset tu acc hhjiji sang acc A (van PRIVATE, acc khac khong mount duoc dataset private): `gui-selfplay` + `ornith-gui-real-fixtures` + `ornith-gui-real-ui` + `ornith-gui-traj` **da xong**; dang ferry them: `ornith-gui-lora` (465MB), `ornith-offline-browsers` (375MB), `ornith-gui-bench-v15/-v155/-v16`, `ornith-gui-train3d[-hard]`, `ornith-gui-bench3d[-hard]`." + chr(10)
+entry += "2. `scripts/migrate_to_accA.py` " + chr(8212) + " doi **35 metadata** + `scripts/gpu_queue.json` + `scripts/watchdog_targets.json`: kernel id `hhjiji/*` -> `khoadangnguye/*`, dataset mount `hhjiji/*` -> `khoadangnguye/*` (kernel cu tren hhjiji van con nguyen). Base shards `dieniw/ornbase-s1..4` + wheels la **public** -> mount cross-account binh thuong." + chr(10)
+entry += "3. **PUSH `khoadangnguye/ornith-gui-sft-v21` v1 (12:00:40) -> dang RUNNING** (GPU acc A: 0.01h/29.99h). Day la lan dau duoc chay train sau 14h." + chr(10)
+entry += "4. Watchdog restart voi env acc A (pid ghi trong `scripts/logs/watchdog.log`); `mark_pushed.py` danh dau sft-v21 da push (tranh train trung); pre-flight van chan hang doi cho den khi ferry xong (dataset chua READY)." + chr(10)
+entry += chr(10) + "**Quan trong cho agent sau:**" + chr(10)
+entry += "- **Acc chinh bay gio la `khoadangnguye`** (key chi truy env var, khong ghi file). `hhjiji` het quota GPU (reset 24/10) + 2 acc khac chet key." + chr(10)
+entry += "- Dataset **private theo acc** (acc khac khong thay) -> moi dataset moi **phai ferry sang acc A** truoc khi kernel khac acc mount duoc." + chr(10)
+entry += "- Quota reset **thu Bay** (24/10) " + chr(8212) + " watchdog hien check quota **1 lan/ngay** + len lich dung luc `refreshAt` (theo yeu cau user) + cache 6h cho dashboard." + chr(10)
+
+with open('agent.md', 'a', encoding='utf-8') as f:
+    f.write(entry)
+print('appended', len(entry))

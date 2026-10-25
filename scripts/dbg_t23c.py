@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+"""
+dbg_t23c.py - chay checker.run_task cho T23 voi policy _t23_policy, in
+trajectory + success + state.
+ASCII-only source.
+"""
+import io
+import os
+import sys
+
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+ROOT = r"C:\Users\Admin\Desktop\New folder"
+WORK = os.path.join(ROOT, "phase13-gui", "colab_staging", "desktop_replay_in")
+sys.path.insert(0, WORK)
+import checker_desktop as chk  # noqa: E402
+from playwright.sync_api import sync_playwright  # noqa: E402
+
+W, H = 1280, 720
+
+
+def _t23_policy(spec, peek):
+    def _rect(sel):
+        r = peek("(function(){const e=document.querySelector('%s');"
+                 "if(!e) return null;const r=e.getBoundingClientRect();"
+                 "return [Math.round((r.left+r.width/2)/innerWidth*1000),"
+                 "Math.round((r.top+r.height/2)/innerHeight*1000)];})()"
+                 % sel)
+        return r
+
+    def fn(obs):
+        s = obs["step"]
+        if s == 0:
+            r = _rect("#hscore")
+            return "CLICK %d %d" % (r[0], r[1])
+        if s == 1:
+            r = _rect("#hscore")
+            return "CLICK %d %d" % (r[0], r[1])
+        if s == 2:
+            r = _rect("#tb tr")
+            if r is None:
+                return "DONE"
+            return "CLICK %d %d" % (r[0], r[1])
+        if s == 3:
+            r = _rect("#confirm")
+            return "CLICK %d %d" % (r[0], r[1])
+        return "DONE"
+
+    return fn
+
+
+def main():
+    with sync_playwright() as p:
+        b = p.chromium.launch(headless=True, args=["--no-sandbox"])
+        pg = b.new_page(viewport={"width": W, "height": H})
+        res = chk.run_task(pg, "T23_table_sort", _t23_policy, max_steps=10)
+        print("success:", res.get("success"))
+        print("reason:", res.get("reason"))
+        print("state:", res.get("state"))
+        for st in res.get("trajectory", []):
+            print("   step %d: %s" % (st.get("step"), st.get("action")))
+        b.close()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

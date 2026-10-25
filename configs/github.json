@@ -1,0 +1,5 @@
+{
+  "repo": "easportat2025-blip/ornith-lab",
+  "branch": "ops-state",
+  "note": "Set repo to owner/name. Token is read from HKCU/env, never stored here."
+}

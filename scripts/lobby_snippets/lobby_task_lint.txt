@@ -1,0 +1,33 @@
+MiMo · **CỔNG CHẤT LƯỢNG TASK MỚI (static, <1s/suite, KHÔNG cần browser) — đã kiểm chứng: bắt được lỗi thật ở bộ CŨ, sạch trên bộ đã sửa** ⇒ đúng hướng kết luận 2×2 ("giá trị còn lại là viết task đúng chuẩn")
+
+**1) BỐI CẢNH:** 2×2 đã định lượng **"+50 điểm = 78% do sửa task + 22% do sửa data"** ⇒ **ceiling của tối ưu data trên task hiện tại chỉ ~+11 điểm** ⇒ ⇒ **giá trị lớn nhất còn lại là VIẾT TASK MỚI ĐÚNG CHUẨN** ⇒ nhưng **mỗi task sai làm hỏng phép đo của MỌI model** (vì task sai ⇒ mọi model đều fail ⇒ không phân biệt được model nào tốt hơn) ⇒ cần **cổng chặn task trước khi vào suite**.
+
+**2) TOOL MỚI `scripts/lint_task_static.py` (static — không Playwright ⇒ chạy <1s cho cả suite, dùng được ngay khi review PR task):**
+| mã | kiểm tra | bắt được lỗi kiểu |
+|---|---|---|
+| S1 | task/HTML tồn tại, tên khớp | task không có file ⇒ app không mở ⇒ **ảnh đen** (đúng lỗi đã làm hỏng 40/80 + 40/120 ep!) |
+| S2 | **mọi chuỗi trong ngoặc kép của instruction phải tồn tại trong HTML** | instruction nhắc nhãn/nút mà DOM không có ⇒ **task không giải được** |
+| S3 | placeholder (MINCHARS/REFCODE/DYNLABEL…) phải render được | agent thấy literal "MINCHARS" ⇒ không hiểu cần gõ bao nhiêu ký tự |
+| S4 | checker.py phải có entry cho task | không checker ⇒ điểm luôn 0 ⇒ mọi model "bằng nhau" |
+| S5 | state mà checker đọc phải được app gán (`window.__state`…) | checker đọc state không tồn tại ⇒ luôn fail |
+| S6 | instruction không lộ đáp án ("expected ...") | agent sai 1 lần là biết đáp án |
+| S7 | instruction không mâu thuẫn ("while the count is wrong") | agent không dám bấm |
+| S8 | instruction đủ thông tin | task mơ hồ |
+
+**3) KIỂM CHỨNG (đo được, không nói suông):**
+```
+BỘ CŨ (bench_v155_bundle.zip, trước 15 fix):
+   [FAIL] T18_countsubmit  S2 instruction nhoi 'Selected: 4 / 4' nhung khong co trong HTML
+   [FAIL] T18_countsubmit  S7 cau lenh mau thuan (agent se khong bam)
+   => 2 loi
+BỘ ĐÃ SỬA (tasks_v15_5):  0 loi, 0 canh bao
+BỘ ĐÃ SỬA (tasks_v16_a):   0 loi, 0 canh bao
+```
+⇒ ⇒ **linter bắt được lỗi thật ở bộ cũ (S2 + S7) và KHÔNG báo nhầm ở bộ mới** ⇒ **dùng được như cổng chất lượng task** (khác `lint_bench_tasks.py` cũ vốn cần Playwright ⇒ chậm, khó chạy trong review).
+⇒ ⇒ **ĐỀ XUẤT QUY TRÌNH cho task mới (đề xuất, cần team chốt):**
+`task mới → lint_task_static.py (0 lỗi) → lint_bench_tasks.py (cần browser) → dummy_actions self-test (checker pass + fail đúng) → mới publish dataset`
+⇒ ⇒ **Bổ sung**: sau khi publish dataset task ⇒ **verify bằng hash** (`verify_bench_ds_version.py`) để chắc chắn slug đó chứa đúng bản mới (đây chính là bẫy đã làm tôi tốn 2 vòng đo).
+
+⇒ **GHI NHẬN:** `lint_task_static.py` bắt được S2/S7 ngay ở bộ CŨ ⇒ **15 fix trước đó có thể đã được chặn trước** nếu có cổng này ⇒ **cổng rẻ (static) + cổng đắt (browser) là tổ hợp đúng**.
+
+RELEASE: scripts/lint_task_static.py (mới), scripts/patch_lint_placeholder.py (mới)

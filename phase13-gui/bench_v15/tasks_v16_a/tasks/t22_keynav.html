@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T22 keyboard nav</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:300px;margin:12px 0;}
+  .cell{background:#10151c;border:1px solid #384454;border-radius:6px;padding:18px;text-align:center;font-size:18px;cursor:pointer;}
+  .cell.focus{outline:2px solid #2f6fed;background:#1b2f55;}
+  .cell.target{background:#1b3a2a;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+  .hint{color:#9fb0c3;font-size:14px;}
+</style>
+</head>
+<body data-row="0" data-col="0" data-selected="" data-targetrow="1" data-targetcol="2" data-submitted="0">
+<header>KEYBOARD NAV</header>
+<main>
+  <div class="card">
+    <p class="hint">Use Arrow keys to move, Enter to select the target cell. No mouse.</p>
+    <p>Target: row <b id="tr">2</b>, col <b id="tc">3</b> (1-based)</p>
+    <div class="grid" id="grid" tabindex="0"></div>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var CFG=[{tr:1,tc:2},{tr:2,tc:0},{tr:0,tc:1}][V];
+document.body.dataset.targetrow=CFG.tr;document.body.dataset.targetcol=CFG.tc;
+document.getElementById("tr").textContent=CFG.tr+1;
+document.getElementById("tc").textContent=CFG.tc+1;
+var grid=document.getElementById("grid");
+var cells=[];
+for(var r=0;r<3;r++)for(var c=0;c<3;c++){
+  var cell=document.createElement("div");cell.className="cell";cell.textContent=(r*3+c+1);
+  cell.dataset.r=r;cell.dataset.c=c;
+  grid.appendChild(cell);cells.push(cell);
+}
+function render(){
+  cells.forEach(function(cl){cl.classList.remove("focus");
+    if(+cl.dataset.r===+document.body.dataset.targetrow && +cl.dataset.c===+document.body.dataset.targetcol)cl.classList.add("target");
+  });
+  var f=cells.find(function(cl){return +cl.dataset.r===+document.body.dataset.row && +cl.dataset.c===+document.body.dataset.col;});
+  if(f)f.classList.add("focus");
+}
+render();
+/* FIX (TASK-17 root-cause): cho phep CHON bang CLICK o o luoi (ngoai phim Enter).
+   Trace v21: model ghi "ACTION: ENTER" (thieu tien to KEY) -> parser bo qua ->
+   12 step khong commit. Voi click, model van co duong di khac. */
+cells.forEach(function(cl){
+  cl.addEventListener("click",function(){
+    var r=+cl.dataset.r,c=+cl.dataset.c;
+    document.body.dataset.row=r;document.body.dataset.col=c;
+    if(r===+document.body.dataset.targetrow && c===+document.body.dataset.targetcol){
+      document.body.dataset.selected="r"+r+"c"+c;document.body.dataset.submitted="1";
+      document.getElementById("status").textContent="Selected target!";
+    } else {
+      document.getElementById("status").textContent="Wrong cell - move with the arrow keys.";
+    }
+    render();
+  });
+});
+document.addEventListener("keydown",function(e){
+  var r=+document.body.dataset.row,c=+document.body.dataset.col;
+  if(e.key==="ArrowUp"&&r>0){r--;e.preventDefault();}
+  else if(e.key==="ArrowDown"&&r<2){r++;e.preventDefault();}
+  else if(e.key==="ArrowLeft"&&c>0){c--;e.preventDefault();}
+  else if(e.key==="ArrowRight"&&c<2){c++;e.preventDefault();}
+  else if(e.key==="Enter"){
+    if(r===+document.body.dataset.targetrow && c===+document.body.dataset.targetcol){
+      document.body.dataset.selected="r"+r+"c"+c;document.body.dataset.submitted="1";
+      document.getElementById("status").textContent="Selected target!";
+    } else {document.getElementById("status").textContent="Wrong cell.";}
+    e.preventDefault();return;
+  }
+  document.body.dataset.row=r;document.body.dataset.col=c;render();
+});
+</script>
+</body>
+</html>

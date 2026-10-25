@@ -1,0 +1,11 @@
+{
+ "rows": 90,
+ "tasks": 30,
+ "old_ids": 87,
+ "mui2_ids": 45,
+ "hard_ids": 90,
+ "schema_self_test": "26/26",
+ "mock_ok": 30,
+ "failed": [],
+ "ok": true
+}

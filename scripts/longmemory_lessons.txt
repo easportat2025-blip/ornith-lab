@@ -1,0 +1,46 @@
+
+## 6. Dataset upload / loader (22/10 — 3 lần dính, tốn 2.3h GPU)
+
+- **QUY TẮC VÀNG: dataset = 1 file `.zip` duy nhất** (không phải hàng trăm file rời).
+  - `kaggle datasets create` với **nhiều file (818)** → **TREO im lặng** (process `kaggle.exe` kẹt vô hạn) ✗
+  - Gói ảnh vào 1 zip (6.5MB cho 816 ảnh) → upload **1 phút** ✓✓ (loader tự giải nén `.zip` trong thư mục dataset ✓ → `_resolve` tìm được basename ✓)
+- `datasets create/version` **BỎ QUA THƯ MỤC CON** → ảnh trong `images/` **bi mất im lặng** ✗ (dataset chỉ còn `.jsonl`).
+  - Sửa: đặt ảnh **phẳng ở gốc** hoặc đóng gói zip ✓
+- `datasets version` **KHÔNG cập nhật được file `.jsonl`** (giữ nguyên 0 byte ✗) → **tạo slug MỚI** ✓
+- `kaggle datasets download` **hay TREO khi output bị redirect** (pipe/Select-String) ✗ → dùng **Python API** (`scripts/fetch_dataset_files.py`) ✓
+- API **rate-limit 403** khi gọi dồn ✗ → giãn nhịp + cache ✓ (`scripts/list_ds_files.py` có phân trang ✓)
+- **VERIFY SAU MỖI LẦN UPLOAD**: đếm file + **so hash** dataset với local (`scripts/verify_ds_matches_local.py`) ✓ — không tin thông báo "success" ✗
+
+## 7. Loader + train: im lặng là mất data (22/10)
+
+- **Loader được bắt buộc FAIL-LOUD**: nếu có row không resolve được ảnh → `raise SystemExit` ✗ **không được** bỏ qua im lặng.
+  - Thực tế: dataset traj 972 dòng **0 ảnh** → loader im lặng → train với dữ liệu rỗng, **không ai biết**.
+  - Guard này **cứu 2.3h GPU** ✓ (chặn đúng lúc đó) ✓
+- **Sau mỗi lần đổi dataset/loader: chạy 1 kernel 2-3 phút để kiểm tra số row resolve** ✓ (đừng push train 2.5h rồi mới biết ✓)
+- **Câu cứng seed (PLAN.md §X) phải ENFORCE trong code, không chỉ ghi ra** ✗: v21/v22 dùng seed cố định (101/202/303/13/7) ✗ → đã đổi `SEED = random.randint(1, 10**9)` + log + ghi result ✓
+
+## 8. Suy luận (thinking) — đọc RAW, đừng đoán (22/10)
+
+- **`max_new_tokens=24` CẮT CỤT lời nghĩ** ✗ → tưởng model "nghĩ thay vì hành động" ✗ → **đọc RAW trong trace** ✓ mới thấy model nghĩ **rất đúng** (`ACTION: KEY right` ✓) → chỉ thiếu `ACTION:` ở một số bước ✗
+- Suy ra: **`max_new_tokens` là TRẦN, không phải chi phí cố định** (model dừng ở EOS ✓) → **tăng lên 512 là gần như miễn phí** ✓
+- **Greedy + state đứng yên = vòng lặp vô hạn** ✗ (cùng input → cùng output) → cần **fallback**: (a) quét text lấy action bare, (b) **sinh lại 1 lần với temperature > 0** ✓
+- **Đừng bỏ "nghĩ" chỉ vì 1 recipe (think) fail** ✗ — v20 fail ở B15 nhưng trace desktop cho thấy model nghĩ đúng ✓ → **giữ reasoning + sửa parser/fallback** ✓
+
+## 9. Môi trường computer-use thật (desktop-env) — bẫy đã gặp
+
+- `chromium-browser` trên image Kaggle = **wrapper SNAP** (không chạy) ✗ → lấy chromium từ bundle `ornith-offline-browsers` ✓
+- Chromium bundle **KHÔNG mở port `--remote-debugging`** ✗ → dùng **`playwright.launch(headless=False)`** ✓ (vẫn là cửa sổ X11 thật ✓ → xdotool bấm được ✓)
+- Bắt buộc `os.environ['DISPLAY']=':99'` trước khi launch ✗ (thiếu → *"Missing X server or $DISPLAY"*) ✓
+- **Lệch 86px** do thanh công cụ browser ✓ → cắt ảnh theo viewport ✓ (quan sát của agent = đúng vùng trang ✓)
+- Kernel **GPU + competition KHÔNG được bật internet** ✗ (400 *"Internet cannot be enabled for this competition with the current accelerator"*) ✗ → cài tool offline qua dataset `.deb` ✓ (`ornith-gui-xdotool`)
+- **Đo được năng lực thật**: model **đọc đúng giá trị ngẫu nhiên trên màn hình** ✓ (T26_clipboard 19/20 = 95% ✓) — tức là hướng "sinh data app thật có biến ngẫu nhiên" **đúng** ✓
+- Metric 3D **"knife-edge"** (click sát mép bbox) → 0.65 vs 0.27 chỉ chênh 10-20px ✗ → **3D không phải thước đo tốt lúc này** ✓ (ưu tiên GUI ✓)
+
+## 10. Vận hành / đa agent (22/10)
+
+- **BUS tin nhắn tức thì** (`scripts/bus.py` + `bus_post.py` + `watch_bus.py`): tin đến **~1s** ✓ và **đẩy thẳng vào session OpenCode** (API `POST /api/session/<id>/prompt` ✓, auth trong `~/.config/opencode/service.json` ✓) → agent nhận tin mà không cần poll ✓
+- `agent.md` viết kỹ thuật + ký tự lạ → người đọc hay bị lỗi font ✗ → **sinh `LOBBY_DIGEST.md`** (tự động ✓) làm bản đọc được ✓
+- **2 acc × 2 session GPU** = 4 slot song song ✓ (rẻ hơn VPS GPU ✓) — nhưng **chạm trần 2 session/acc** ✓ → queue tự retry ✓
+- **Ổ đĩa**: local chỉ giữ **thứ cần thiết** (adapter + log + kết quả + code) ✗ không lưu dataset (đã có trên Kaggle/USB) ✓; dọn VS Code + cache Chrome + npm-cache ✓
+- **Tự bật lại khi bật máy**: `.cmd` trong **Startup folder** → `scripts/start_all.ps1` (đọc key từ `HKCU:\Environment` ✓ — **không ghi key vào file** ✓)
+- **Máy RTX không có internet** ⇒ base model **giữ trên Kaggle** ✓; chuẩn bị dataset + wheels trên USB/ổ ngoài ✓; **vLLM** (`ENV_VLLM_URL` ✓) là đường tăng tốc cho RTX (9B bf16 ~20GB, RTX 96GB ✓)

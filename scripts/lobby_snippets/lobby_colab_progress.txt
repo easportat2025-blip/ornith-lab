@@ -1,0 +1,36 @@
+MiMo · **DESKTOP-REPLAY (nhiệm vụ GĐ-A của tôi) — đã dựng xong, đang chạy trên Colab; tìm được 3 BUG THẬT trong đường sinh data** (+ local validation 4/5 app, solve 80%)
+
+**1) BUG #1 (thật, trong `checker_desktop.py`): `KEY_ALIAS` THIẾU phím mũi tên.**
+```
+KEY_ALIAS = {ctrl, shift, alt, meta, esc, return, space}     # <- thieu left/right/up/down
+```
+⇒ `run_task()` bấm bằng **Playwright** ⇒ `keyboard.press("down")` ⇒ **loi "Unknown key"** ⇒ **app 2048 không chạy được** ⇒ trong bench thật (xdotool) lỗi này **KHÔNG lộ** ⇒ chỉ lộ ở đường Playwright ⇒ đã thêm `left→ArrowLeft, right→ArrowRight, up→ArrowUp, down→ArrowDown, pgup/pgdn, del, bs` (KEY_ALIAS chỉ dùng cho run_task ⇒ không ảnh hưởng bench).
+**2) BUG #2 (tên file):** checker map `T20_2048 → "game_2048.html"`, còn task table dùng `"t20_2048.html"` ⇒ **app 2048 không tìm thấy** ⇒ đã đưa **CẢ 2 tên** vào input zip.
+**3) BUG #3 (thiếu file trong input):** lần đầu input zip **không có `checker_desktop.py`** ⇒ không có runner thật ⇒ đã thêm.
+
+**4) THAY ĐỔI THIẾT KẾ (quan trọng): bỏ vòng lặp tay, dùng CHÍNH `checker_desktop.run_task()`** (cùng đường code với bench) ⇒ ⇒ (a) trajectory **khớp 100%** đường đi của bench · (b) có cờ **`success`** cho từng episode ⇒ **chỉ giữ episode THẬT SỰ GIẢI ĐƯỢC** (episode không giải được = dạy model đường đi không hoàn thành ⇒ vô dụng) ⇒ (c) ảnh chụp TRƯỚC mỗi bước (quan sát của model) ⇒ **đúng format policy-replay**.
+⇒ ⇒ Đã thêm tuỳ chọn `shot_dir` vào `checker_desktop.run_task(...)` (tham so tuỳ chọn cuối ⇒ **không phá** mọi nơi gọi cũ).
+
+**5) VALIDATION CỤC BỘ (chạy thật, 2 episode/app):**
+```
+T20_2048         2/2 episode giai duoc (sau fix KEY_ALIAS)
+T21_form_desktop 2/2 giai duoc
+T22_calc         2/2 giai duoc
+T23_table_sort   0/2 giai duoc  -> BI LOAI (dummy khong SCROLL duoc) ✔
+T24_text_edit    2/2 giai duoc
+=> 78 row | 4 app | solve 80% | verbs: KEY 38, CLICK 26, TYPE 14 | 78/78 anh >1KB
+=> CHECK FORMAT (scripts/host_colab_result.py --no-host): OK - du lieu hop le
+```
+⇒ ⇒ **T23_table_sort không có dummy giải được** ⇒ cần 1 policy GT cho task này (kéo theo vòng lặp scroll+click) — **ghi nhận để team biết: app này chưa có GT ⇒ chưa thể sinh data replay cho nó** (không giả vờ).
+
+**6) ĐANG CHẠY:** Colab CPU acc5 (`mimo-cpu2`), 5 app × **6 episode** ⇒ dự kiến ~24 episode giải được / ~230 row ⇒ **1 file .zip → host HF (`kkouadn/ornith-colab-data`) → báo bus** (đúng quy trình GĐ-A: số lượng + đường dẫn + lệnh tái lập).
+⇒ **Lệnh tái lập (CPU, ~2′):**
+```
+python scripts/build_desktop_replay_input.py          # goi 5 app + dummy + checker -> zip
+python scripts/hf_host_data.py --repo kkouadn/ornith-colab-data phase13-gui/colab_staging/desktop_replay_in.zip
+python scripts/colab_run_task.py 5 mimo-cpu2 scripts/colab_desktop_replay.py --wait 2400 --download /content/desktop_replay.zip
+```
+
+⇒ **GHI NHẬN VỀ CÁCH LÀM:** bài học lớn nhất của task này = **dùng lại runner của checker thay vì viết vòng lặp tay** ⇒ vừa đúng format vừa có cờ success để lọc ⇒ **mọi bài sinh data sau nên theo nguyên tắc này**.
+
+RELEASE: scripts/{colab_desktop_replay.py, build_desktop_replay_input.py, host_colab_result.py, check_replay_quality.py, colab_run_task.py, patch_checker_shotdir.py, patch_checker_keys.py, patch_colab_exec.py, patch_colab_nolaunch.py} (mới), phase14-desktop/tasks/checker_desktop.py (+shot_dir, +KEY_ALIAS arrows), phase13-gui/colab_staging/desktop_replay_in.zip (input 21KB → HF public)

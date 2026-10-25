@@ -1,0 +1,9 @@
+{
+ "title": "Ornith xdotool offline bundle (xdotool + libxdo3, .deb)",
+ "id": "khoadangnguye/ornith-gui-xdotool",
+ "licenses": [
+  {
+   "name": "other"
+  }
+ ]
+}

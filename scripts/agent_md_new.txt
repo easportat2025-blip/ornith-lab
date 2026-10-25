@@ -1,0 +1,55 @@
+=== AGENT.MD MOI (53 dong moi) ===
+
+
+## 23/10 14:35 - [DeepSeek] B17 packaged + v25b all-B + watchdog reset fixes
+
+**2x2 (GLM):** v21 old 1/18 -> new 8/18; v22 old 3/18 -> new 10/18.
+Delta task = +38.9, delta data = +11.1, interaction = 0.
+=> Fixing tasks/benchmark is 3.5x more leverage than fixing generation.
+=> B17 (new actions + loop recovery) is the #1 lever; target <= 6.7%.
+
+**Desktop signature (GLM):** 13.3% win, parse 98.6%, stuck 76.7%.
+T21 CLICK x14 without TYPE; T23 KEY Escape x11 after banner gone;
+T23_table_sort abandons after 4 steps. => repetition/loop is still #1.
+
+**B17 apps already existed** (MiMo+GLM): 9 tasks T30-T38, checker 9/9,
+GT policy 9/9. GLM thought they were not built; corrected.
+
+**B17 Kaggle package (new):**
+- dataset `dieniw/ornith-gui-bench-b17` (14 files, 0.1 MB; layout
+  `bench_b17/tasks/*.html` + `bench_b17/checker.py`), verified.
+- kernel `dieniw/ornith-gui-bench-b17-v22`:
+  - source `phase13-gui/kernel_bench_b17/bench_v15_kernel.py`
+  - 9 tasks x 3 variants = 27 ep; checker.CHECKS[task_id] -> tests dict
+  - actions: CLICK/TYPE/KEY/DONE + SCROLL n / MOVE x y / DRAG x1 y1 x2 y2
+  - SCROLL finds the largest visible scrollable element and wheels at its
+    center; MOVE = hover; DRAG = down/move/up (sliders)
+  - REASON_MAX=512 (env ORNI_REASON_MAX); output `b17_result.json`
+  - local tests: parser 5/5, T31 wheel reaches bottom, T32 drag hits target,
+    kernel suite_check + GT policies = 9/9
+  - check_kernel_sources PASS 9/9; prepush_gate 0 FAIL / 1 WARN
+- enqueued in `scripts/gpu_queue_B.json` (W1 baseline, v22 adapter).
+
+**v25b is B-owned, not A.** id `dieniw/ornith-gui-sft-v25b`; all 17 sources
+are now B-owned. Switched `khoadangnguye/gemma12b-{wheels,tools}` ->
+`dieniw/gemma12b-{wheels,tools}`. check_kernel_sources PASS 17/17; prepush
+gate (B env) 0 FAIL / 5 WARN (warnings are missing local staging only).
+Enqueued first in B queue so training starts at reset; B17 W1 second.
+
+**Watchdog fixes (both restarted 14:27):**
+- `quota_refresh_at()` parsed Kaggle UTC timestamp as local time -> reset
+  was scheduled 7h early. Now `tzinfo=UTC`; next check is 24/10 07:05 local.
+- quota cache (6h) survived reset -> added invalidation when refresh time
+  has passed. Without this, watchdog would wait up to 6h after reset.
+- `phase13-gui/preflight_queue.py` hardcoded A queue; now reads GPU_QUEUE,
+  so B preflight checks the B queue (16/16 ready, rc=0).
+
+**upload_staging.py:** now auto-zips top-level subdirs into `<dir>.zip`
+(Kaggle CLI skips directories). Note Kaggle expands `images.zip` containing
+`images/...` into `images/images/...`; loaders that resolve by basename are
+fine, but never trust remote file lists for exact paths.
+
+**Order at reset (B):** v25b train + B17 W1 run concurrently (2 GPU slots).
+After v25b finishes: upload adapter as `dieniw/ornith-gui-lora-v25b`, then
+run B17-v25b + B15/B15.5/B16 with same reason_max and compare against v22.
+=== HET ===

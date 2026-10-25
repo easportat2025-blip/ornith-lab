@@ -1,0 +1,189 @@
+{
+ "success_policies_pass": 18,
+ "success_total": 18,
+ "fail_policies_rejected": 18,
+ "fail_total": 18,
+ "passed": true,
+ "rows": [
+  {
+   "task_id": "T13_wizard",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 8 checks pass",
+   "success_steps": 14,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: errors revealed first (step1err), username >= MINCHARS chars, email contains @, city non-empty, age whole number 18-99, confirmation ticked, reached step 3, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T13_wizard",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 8 checks pass",
+   "success_steps": 14,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: errors revealed first (step1err), username >= MINCHARS chars, email contains @, city non-empty, age whole number 18-99, confirmation ticked, reached step 3, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T13_wizard",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 8 checks pass",
+   "success_steps": 14,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: errors revealed first (step1err), username >= MINCHARS chars, email contains @, city non-empty, age whole number 18-99, confirmation ticked, reached step 3, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T14_alerts",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: feed scrolled to bottom, alert tile was created, clicked the alert tile, clicked after it appeared",
+   "ok": true
+  },
+  {
+   "task_id": "T14_alerts",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: feed scrolled to bottom, alert tile was created, clicked the alert tile, clicked after it appeared",
+   "ok": true
+  },
+  {
+   "task_id": "T14_alerts",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 5,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: feed scrolled to bottom, alert tile was created, clicked the alert tile, clicked after it appeared",
+   "ok": true
+  },
+  {
+   "task_id": "T15_dialog",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 10,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: terms scrolled to bottom, scrolled before accepting, terms accepted, reference == shown code, submit clicked, final confirm clicked",
+   "ok": true
+  },
+  {
+   "task_id": "T15_dialog",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 10,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: terms scrolled to bottom, scrolled before accepting, terms accepted, reference == shown code, submit clicked, final confirm clicked",
+   "ok": true
+  },
+  {
+   "task_id": "T15_dialog",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 10,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: terms scrolled to bottom, scrolled before accepting, terms accepted, reference == shown code, submit clicked, final confirm clicked",
+   "ok": true
+  },
+  {
+   "task_id": "T16_clipboard2",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 12,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: target1 == source1, target2 == source2, paste used for target1, paste used for target2, copy happened, verified",
+   "ok": true
+  },
+  {
+   "task_id": "T16_clipboard2",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 12,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: target1 == source1, target2 == source2, paste used for target1, paste used for target2, copy happened, verified",
+   "ok": true
+  },
+  {
+   "task_id": "T16_clipboard2",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 6 checks pass",
+   "success_steps": 12,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: target1 == source1, target2 == source2, paste used for target1, paste used for target2, copy happened, verified",
+   "ok": true
+  },
+  {
+   "task_id": "T17_reorder",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: queue order == target order, saved flag",
+   "ok": true
+  },
+  {
+   "task_id": "T17_reorder",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: queue order == target order, saved flag",
+   "ok": true
+  },
+  {
+   "task_id": "T17_reorder",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 3 checks pass",
+   "success_steps": 3,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: queue order == target order, saved flag",
+   "ok": true
+  },
+  {
+   "task_id": "T18_countsubmit",
+   "variant": 0,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 6,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: recomputed selected count == target, selected class count matches, meter text matches, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T18_countsubmit",
+   "variant": 1,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 8,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: recomputed selected count == target, selected class count matches, meter text matches, submitted",
+   "ok": true
+  },
+  {
+   "task_id": "T18_countsubmit",
+   "variant": 2,
+   "success_policy_pass": true,
+   "success_reason": "all 4 checks pass",
+   "success_steps": 9,
+   "fail_policy_rejected": true,
+   "fail_reason": "failed: recomputed selected count == target, selected class count matches, meter text matches, submitted",
+   "ok": true
+  }
+ ]
+}

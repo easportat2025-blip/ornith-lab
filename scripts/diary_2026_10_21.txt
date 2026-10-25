@@ -1,0 +1,31 @@
+### 2026-10-21 — buoi sang: 2 vong train + moi truong computer-use + bus troi chuyen
+
+**A) KET QUA SO LIEU (chi tiet trong phan AUTO o tren)**
+- **train v22 v3 XONG**: 5802 row (synth 1200 + real-ui 792 + traj 816 + **targeted 1944** + 3D 600 + **policy-replay 332 task-that** + selfplay 118) · **1033 steps** · **seed 844155262** (cau cung: moi run seed moi) · 5209s.
+  - acc_after **0.89** · train_sub 1.00 · targeted_sub 1.00 · selfplay_sub 0.92 · train3d_sub 1.00 · traj_sub 1.00
+  - ⇒ **model hoc duoc data moi** (targeted + task-that + 3D) · **van con 1 khoang "cam xa"** tren B15.5 (parse 0.44)
+- **gate v21 vs v18 (cu, tren trang co bug)**: B15 30.6% vs 27.8% (+2.8%) · B15.5 5.6% vs 0% (+5.6%) · B16 29.2% vs 25% (+4.2%) · 3D 27% vs 65% (**xau**).
+- **Phan tich 3D**: metric "knife-edge" (click sat mep bbox) + 3D de hon GUI ⇒ uu tien GUI, giu 600 row 3D trong v23.
+
+**B) SUA 6 BUG THAT (nhieu loi "im lang")**
+1. 6 kernel 3D **thieu lenh goi `main()`** ⇒ moi ket qua 3D tren Kaggle deu rong.
+2. **Vi pham cau cung PLAN.md X** (seed co dinh 101/202/303/13/7) ⇒ da doi sang `SEED = random.randint` moi run + log + ghi result.
+3. Dataset policy-replay **mat 332 anh** (`datasets create` bo qua thu muc con) ⇒ upload anh phang o cap goc.
+4. 4 kernel bench 3D + 3D-hard **thieu dataset** ⇒ loader tu do ten `.jsonl` + fail-loud.
+5. `for_inference` (unsloth API) lam kernel desktop-bench crash ⇒ dung cach load cua bench V21 (transformers + peft).
+6. `dataset-metadata.json` co **UTF-8 BOM** (PowerShell `-Encoding utf8`) ⇒ Kaggle parse loi ⇒ bo BOM.
+
+**C) MOI TRUONG COMPUTER-USE THAT (DESKTOP-ENV)**
+- **Chung minh tren Kaggle**: Xvfb 1280x720 + chromium headful + **phim OS that lam app doi state** ✓ + anh chup man hinh that ✓.
+- 3 bẫy da lo: `chromium-browser` = wrapper SNAP (khong chay) · bundle chromium **khong mo port remote-debugging** (dung `playwright.launch(headless=False)`) · phai co `os.environ['DISPLAY']` · **offset 86px** do thanh cong cu browser (GLM da fix bang crop viewport ✓ 15/15 test).
+- **desktop-bench**: 8 task (4 cua GLM + 4 app cua MiMo) · 3 app **nhieu buoc + bien ngau nhien** · 2 script phan tich.
+
+**D) BUS TRAO DOI TUC THIEN (moi)**
+- `scripts/bus.py` (SSE) + `bus_post.py` (1 lenh) + `watch_bus.py` (**day tin thang vao session OpenCode**) ⇒ tin den trong ~1 giay; watchdog poll 60s + post bus moi khi kernel xong.
+- Da gui truc tiep vao session cua tung agent (3/3) · agent moi "GPT" duoc onboarding (`AGENT_ONBOARDING.md`) va da CLAIM viec dau.
+
+**E) CHAY OFFLINE tren may RTX (khong internet) — CHUAN BI**
+- `scripts/prepare_offline_bundle.py` (tai 1 lan o may co internet): base 4 shard + dataset + wheels ⇒ `<dest>/{base,input/<slug>,wheels}` + MANIFEST + RUN.md.
+- Kernel train da doi sang **duong dan ENV** ⇒ `ORNITH_WORK` / `ORNITH_BASE` / `ORNITH_INPUT` ⇒ chay local tren RTX khong doi 1 dong code.
+- **Kich thuoc can**: base ~24GB + dataset ~2GB + wheels ~1GB ≈ **~28GB** → chuan bi o dia co du chua (C: hien con 6.4GB sau khi don).
+- **KHONG chay duoc khi offline**: watchdog (push Kaggle) · space_sync (push HF) · bus van OK (noi bo).

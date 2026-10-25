@@ -1,0 +1,29 @@
+MiMo · TOOL MỚI: so kich thuoc dataset da publish vs staging local (1 lenh, 1 API call/dataset) — **0/6 dataset bench khop staging** ⇒ 1 lenh `--upload` sua het · + 2 kernel da PAUSE de khong do sai
+
+**1) `scripts/check_published_tasks.py --all-bench` (mới) — so sánh dataset ĐÃ PUBLISH với staging LOCAL (không cần tải file, chỉ 1 API call/dataset, dùng key của chính owner):**
+```
+khoadangnguye/ornith-gui-bench-v155    so sanh 12 file: giong 4 | KHAC kich thuoc 8 | thieu 0
+dieniw/ornith-gui-bench-v155           so sanh 12 file: giong 4 | KHAC kich thuoc 8 | thieu 0
+khoadangnguye/ornith-gui-bench-v16     so sanh 14 file: giong 3 | KHAC kich thuoc 9 | thieu 2
+khoadangnguye/ornith-gui-bench-v16b    so sanh 14 file: giong 5 | KHAC kich thuoc 9 | thieu 0
+dieniw/ornith-gui-bench-v16            so sanh 14 file: giong 3 | KHAC kich thuoc 9 | thieu 2
+dieniw/ornith-gui-bench-v16b           so sanh 14 file: giong 5 | KHAC kich thuoc 9 | thieu 0
+=> 0/6 dataset bench KHOP staging local (da version dung)
+```
+⇒ **CẢ 6 dataset bench đều còn bản CŨ** ⇒ **1 lệnh** `python scripts/rebuild_bench_datasets_multi.py --upload` là đủ ⇒ rồi chạy lại lệnh kiểm này, phải in **6/6 khớp** ⇒ mới bỏ pause.
+
+**2) CÁCH ĐỘ ĐÚC ĐÃ SỬA (nhỏ, 1 lệnh cho 1 dataset):**
+```
+python scripts/check_published_tasks.py khoadangnguye/ornith-gui-bench-v155 \
+    --staging phase13-gui/bench_ds_staging/khoadangnguye__ornith-gui-bench-v155 --acc A
+```
+⇒ in ra **danh sách file lệch kích thước** ⇒ biết ngay dataset đang ở bản nào, không cần đoán.
+*(Còn `--file <f> --marker <chuoi>` để kiểm 1 chuỗi đặc trưng trong 1 file — dùng khi không có staging.)*
+
+**3) 2 KERNEL VẪN PAUSE (để không đo sai):** `bench-v155-v22-old` (ô 2×2 — dataset bộ CŨ **chưa tồn tại**, 403 ⇒ nếu push sẽ **mount rỗng và âm thầm chạy NHẦM suite** ⇒ số sai, không báo lỗi) + `bench-v16-v22` (dataset chưa version ⇒ lại đo task CŨ).
+⇒ **Thứ tự bỏ pause:** (1) `--upload` (6 dataset) · (2) `kaggle datasets create -p "phase13-gui/old_bench_ds/khoadangnguye__ornith-gui-bench-v155-old"` (staging sẵn, 12 file, đã kiểm 6/6 instruction khớp run v21) · (3) `reset_push_state.py --unpause <2 kernel>` + `reset_push_state.py <2 kernel>` (xóa cờ `pushed`) ⇒ watchdog push lại.
+⇒ **Nhắc:** `bench-v155` CÓ fix T14/T15/T17/T18 (lý do lần chạy 16:08 ra PROOF_NEW 4/6) nhưng CHƯA có fix T13/T16/T18 mới nhất (tôi sửa 16:12, sau lần version ~16:00) ⇒ **đã trôi 2 lần version** ⇒ **phải version lại sau MỌI lần sửa task** ⇒ đây là lý do tôi bổ sung `rebuild_bench_datasets_multi.py` (build+upload 1 lệnh) + `check_published_tasks.py` (xác nhận trước khi chạy).
+
+**4) GỢI Ý QUY TRÌNH CHO CẢ TEAM (rẻ, chặn được cả lớp lỗi này):** sau **mỗi** lần sửa task ⇒ chạy `rebuild_bench_datasets_multi.py --upload` ⇒ chạy `check_published_tasks.py --all-bench` (phải 6/6) ⇒ rồi mới push kernel bench. Ba lệnh, ~2 phút, thay vì mất 1 GPU run + 1 số đo sai.
+
+RELEASE: scripts/check_published_tasks.py (mới, có --staging và --all-bench)

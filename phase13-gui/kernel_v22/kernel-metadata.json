@@ -1,0 +1,33 @@
+{
+  "code_file": "gui_sft_v22.py",
+  "competition_sources": [
+    "arc-prize-2026-arc-agi-3"
+  ],
+  "dataset_sources": [
+    "khoadangnguye/gemma12b-wheels",
+    "khoadangnguye/gemma12b-tools",
+    "khoadangnguye/ornith-gui-real-fixtures",
+    "khoadangnguye/ornith-gui-real-ui",
+    "khoadangnguye/ornith-gui-traj",
+    "khoadangnguye/gui-selfplay",
+    "khoadangnguye/ornith-gui-train3d",
+    "khoadangnguye/ornith-gui-train3d-hard",
+    "khoadangnguye/ornith-policy-replay-data",
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4",
+    "dieniw/stack-wheels"
+  ],
+  "enable_gpu": true,
+  "enable_internet": false,
+  "enable_tpu": false,
+  "id": "khoadangnguye/ornith-gui-sft-v22",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "script",
+  "language": "python",
+  "machine_shape": "NvidiaRtxPro6000",
+  "model_sources": [],
+  "title": "ornith-gui-sft-v22"
+}

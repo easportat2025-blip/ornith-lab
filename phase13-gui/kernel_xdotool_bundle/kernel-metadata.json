@@ -1,0 +1,16 @@
+{
+ "code_file": "build_xdotool_bundle.py",
+ "competition_sources": [],
+ "dataset_sources": [],
+ "enable_gpu": false,
+ "enable_internet": true,
+ "enable_tpu": false,
+ "id": "khoadangnguye/ornith-build-xdotool",
+ "is_private": true,
+ "kernel_sources": [],
+ "kernel_type": "script",
+ "language": "python",
+ "machine_shape": "",
+ "model_sources": [],
+ "title": "ornith-build-xdotool"
+}

@@ -1,0 +1,152 @@
+{
+ "suite": "B17",
+ "version": 1,
+ "viewport": {
+  "width": 1280,
+  "height": 720
+ },
+ "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE | SCROLL n | MOVE x y | DRAG x1 y1 x2 y2",
+ "tasks": [
+  {
+   "task_id": "T30_note_order",
+   "app": "t30_note_order.html",
+   "instruction": "Fill Field A and Field B with the values listed in the note box (the note lists them in the opposite order to the fields). Leave Field C empty, then press Submit.",
+   "capabilities": [
+    "read_note",
+    "type_text",
+    "click_button",
+    "no_decoy_fill",
+    "reordered_values"
+   ],
+   "spec_vars": [
+    "NAME_A",
+    "CODE_B"
+   ]
+  },
+  {
+   "task_id": "T31_scroll_code",
+   "app": "t31_scroll_code.html",
+   "instruction": "The archive list sits inside a scrollable panel. Scroll down to the bottom of the list, then click the row whose code matches the note, then press Confirm.",
+   "capabilities": [
+    "scroll",
+    "read_note",
+    "click_row",
+    "click_button",
+    "target_below_fold"
+   ],
+   "spec_vars": [
+    "CODE"
+   ]
+  },
+  {
+   "task_id": "T32_drag_slider",
+   "app": "t32_drag_slider.html",
+   "instruction": "Set the sensitivity slider to the value shown in the note by dragging its handle, then press Apply.",
+   "capabilities": [
+    "drag",
+    "read_note",
+    "click_button",
+    "continuous_value"
+   ],
+   "spec_vars": [
+    "VALUE"
+   ]
+  },
+  {
+   "task_id": "T33_error_retry",
+   "app": "t33_error_retry.html",
+   "instruction": "Type the setup code from the note into the code box and press Submit. If the app reports an error, press Submit once more without changing the value.",
+   "capabilities": [
+    "read_note",
+    "type_text",
+    "error_recovery",
+    "no_value_change",
+    "click_button"
+   ],
+   "spec_vars": [
+    "CODE"
+   ]
+  },
+  {
+   "task_id": "T34_tab_nav",
+   "app": "t34_tab_nav.html",
+   "instruction": "Fill the three fields with the values from the note using the Tab key to move between them, then press Enter to submit. Do not click the fields with the mouse.",
+   "capabilities": [
+    "keyboard_nav",
+    "read_note",
+    "type_text",
+    "key_enter_submit",
+    "no_mouse_click"
+   ],
+   "spec_vars": [
+    "FAM",
+    "GIV",
+    "CITY"
+   ]
+  },
+  {
+   "task_id": "T35_hover_code",
+   "app": "t35_hover_code.html",
+   "instruction": "Move the pointer over the card named Serial to reveal its code, type the code into the box, then press Verify.",
+   "capabilities": [
+    "hover_move",
+    "read_note",
+    "type_text",
+    "click_button"
+   ],
+   "spec_vars": [
+    "CODE"
+   ]
+  },
+  {
+   "task_id": "T36_wizard_steps",
+   "app": "t36_wizard_steps.html",
+   "instruction": "Complete the wizard in order: on step 1 pick the plan named in the note and press Next, on step 2 pick the add-on named in the note and press Next, then on step 3 press Finish.",
+   "capabilities": [
+    "multi_step",
+    "read_note",
+    "select_option",
+    "click_button",
+    "no_premature_submit"
+   ],
+   "spec_vars": [
+    "PLAN",
+    "ADDON"
+   ]
+  },
+  {
+   "task_id": "T38_recovery",
+   "app": "t38_recovery.html",
+   "instruction": "Open the Device Setup page. The support note shows a feature code. Click the Enable button on the row whose feature code matches the note. If a control does not respond, try a different control instead of clicking the same one again.",
+   "capabilities": [
+    "read_note",
+    "click_button",
+    "error_recovery",
+    "no_repeat_click",
+    "loop_recovery"
+   ],
+   "spec_vars": [
+    "CODE",
+    "C0",
+    "C1",
+    "C2",
+    "C3"
+   ]
+  },
+  {
+   "task_id": "T37_terms_guard",
+   "app": "t37_terms_guard.html",
+   "instruction": "Type the document title from the note into the Title box, tick the 'I have read the terms' checkbox, then press Save. The Save button stays disabled until the box is ticked.",
+   "capabilities": [
+    "read_note",
+    "type_text",
+    "checkbox",
+    "click_button",
+    "stuck_repeat_guard"
+   ],
+   "spec_vars": [
+    "TITLE"
+   ]
+  }
+ ]
+}

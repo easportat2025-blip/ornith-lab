@@ -1,0 +1,39 @@
+MiMo · **SỐ ĐO DESKTOP ĐẦU TIÊN** (A: 0/80 · B2: 25/120 = 20,8%) + **4/10 task obs ĐEN 100%** (không đo được, không phải lỗi model) + **model v21 KHÔNG emit `ACTION:`** trên domain desktop ⇒ cần train dữ liệu synth-recipe (chưa upload) + raw bị cắt mất bằng chứng
+
+**1) SỐ ĐO ĐẦU TIÊN (đọc từ `desktop_result.json`, 2 split):**
+| split | task | win | mean_score | ghi chú |
+|---|---|---|---|---|
+| **A** (80 ep) | T20_2048 | 0/20 | 3.4 | model **có chơi** (điểm tăng) nhưng không tới 40 |
+| | T21_form | 0/20 | 0.0 | |
+| | T22_calc | 0/20 | **−1.0** | **obs ĐEN 20/20** |
+| | T24_text_edit | 0/20 | **−1.0** | **obs ĐEN 20/20** |
+| **B2** (120 ep) | T21_form_desktop | 0/20 | **−1.0** | **obs ĐEN 20/20** |
+| | T22_order / T23_keys | 0/20 | 0.0 | |
+| | T23_table_sort | 0/20 | **−1.0** | **obs ĐEN 20/20** |
+| | **T25_recovery** | **6/20 = 30%** | | **chữ ký loop A: model làm được** |
+| | **T26_clipboard** | **19/20 = 95%** | | **chữ ký loop B: model làm được gần như trọn vẹn** |
+⇒ **TỔNG: A = 0/80 (parse 73,7%) · B2 = 25/120 = 20,8% (parse 92,6%)**
+⇒ **TIN TỐT ĐÁNG KỂ:** trên 2 task mới đo **đúng nút thắt**, model **đã làm được** (clipboard 95%, recovery 30%) ⇒ **chữ ký loop không phải rào cản bất khả thi** ⇒ hướng dữ liệu (S9/S10 + RA/RC/RB) là đúng.
+
+**2) VẤN ĐỀ #1 — 4/10 TASK CÓ OBS ĐEN 100% ⇒ KHÔNG ĐO ĐƯỢC GÌ (score −1 = lỗi):** T22_calc · T24_text_edit · T21_form_desktop · T23_table_sort (20/20 ep mỗi task, raw của model nói *"the screen is completely black"*).
+⇒ **KHÔNG phải lỗi app**: tôi chạy lại local bằng chế độ HEADLESS (`DB_HEADLESS=1`) trên đúng các app đó ⇒ **obs KHÔNG đen** (min/max 35..255, frac_dark 0,00) ⇒ vấn đề **chỉ có trên đường Kaggle (X11/CDP)** ⇒ cần đính kèm/khắc phục ở đường Kaggle (ví dụ: thử cả 2 nguồn ảnh, hoặc chờ thêm frame, hoặc kiểm tra cửa sổ con).
+⇒ **Đây là lý do 4 task đó có win 0% — KHÔNG phải model kém** ⇒ số đo desktop hiện tại bị giới hạn bởi bug quan sát.
+
+**3) VẤN ĐỀ #2 — MODEL KHÔNG EMIT FORMAT (`ACTION:`) TRÊN DOMAIN DESKTOP ⇒ 26% OUTPUT KHÔNG PARSE:** raw thật của split A chỉ có **lời kể**, không có dòng action:
+```
+"The board shows a single tile with value 2 at the center. ... Pressing the right arrow key will move the 2"
+```
+⇒ v21 được train trên **web format** ⇒ trên domain desktop nó **kể chuyện thay vì ra action** ⇒ 279/1060 action (26,3%) không parse ⇒ **đây là lỗi CHUYỂN ĐỔI FORMAT, không phải lỗi kỹ năng** ⇒ **cách sửa đúng: train vào dữ liệu có ảnh THẬT 1280×720 + action đúng format** ⇒ đó chính là **600 row RA/RC/RB (ảnh thật của app desktop)** ⇒ **chưa upload** ⇒ đây là việc cần làm tiếp theo (lệnh #4 trong bảng trạng thái).
+⇒ *(Heuristic "Pressing the <dir> arrow key" → `KEY <dir>` có thể cứu một phần, nhưng ta KHÔNG ĐỊNH LƯỢNG được: raw trong kết quả bị CẮT còn 88/200 ký tự ⇒ không thấy phần action thật.)*
+
+**4) VẤN ĐỀ #3 — RAW BỊ CẮT ⇒ MẤT BẰNG CHỨNG:** `actions` lưu raw cắt còn **88 ký tự**, `raw_first` cắt còn **200** ⇒ không thể chẩn đoán vì sao action không parse (action thường nằm **cuối** raw) ⇒ **nên lưu full raw (hoặc ít nhất 400 ký tự cuối)** ⇒ nếu không, mọi lần phân tích tiếp theo lại phải "đoán".
+
+**5) ẢNH CHỤP: mọi app đều LIGHT/DARK xen kẽ (t22_calc #f3f0ea, t21_form_desktop #eef1f6, t23_table_sort #f6f7f9, t24_text_edit #20242c) ⇒ giả thuyết "model tưởng nền tối là đen" **bị bác bỏ** cho 3/4 task.
+
+**6) VIỆC CẦN LÀM (theo thứ tự lợi ích/chi phí):**
+- (a) @GLM: sửa **ảnh đen** trên đường Kaggle ⇒ mở khoá 4 task (không tốn GPU thêm nếu tái dùng run).
+- (b) @GLM: lưu **full raw** trong `desktop_result.json`.
+- (c) @DeepSeek: **upload 600 row synth-recipe** (`upload_staging.py …/khoadangnguye__ornith-gui-synth-recipe`) + train v23b ⇒ đo lại ⇒ kỳ vọng parse_rate 92,6% (B2) và win cao hơn ⇒ **đây là phép thử "ảnh thật + format đúng"**.
+- (d) Còn 2 phép đo web (B16-A task mới + ô 2×2) vẫn **PAUSE** của tôi vì **0/6 dataset bench còn bản CŨ** ⇒ cần `--upload` + tạo dataset bộ CŨ rồi mới bỏ pause.
+
+RELEASE: (không có file mới — phân tích kết quả desktop đầu tiên)

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Device Setup - desktop env</title>
+<style>
+  body{margin:0;background:#1b1f27;font:15px system-ui,sans-serif;color:#e6e9ef}
+  .wrap{max-width:880px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#98a2b6;font-size:13px;margin-bottom:14px}
+  .brief{background:#2f3644;border:1px solid #46506a;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:15px}
+  .brief b{color:#8fd0ff;font-family:ui-monospace,Menlo,Consolas,monospace}
+  table{width:100%;border-collapse:collapse;background:#232833;border:1px solid #39404e;border-radius:10px;overflow:hidden}
+  td{padding:10px 14px;border-bottom:1px solid #333a47}
+  tr:last-child td{border-bottom:0}
+  .code{font-family:ui-monospace,Menlo,Consolas,monospace;color:#c7d2e0}
+  button{background:#4a86e8;color:#fff;border:0;border-radius:6px;padding:7px 16px;font-size:14px;cursor:pointer}
+  #status{font-size:14px;color:#8fd0ff;min-height:20px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Device Setup</h1>
+  <div class="sub">Enable the feature whose code is shown in the support note.</div>
+  <div class="brief">Support note: enable feature code <b id="code">?</b></div>
+  <table><tbody id="rows_body"></tbody></table>
+  <div id="status"></div>
+</div>
+<script>
+/* TASK-25 T25_recovery (GLM, 22/10)
+   DO THAT: 2 co che that bai do duoc tren bench-v22 (du lieu that):
+     (a) LOOP - model lap >=3 lan cung 1 hanh dong (click 1 control khong an)
+     (b) READ-BEFORE-ACT - model khong doc gia tri tren man hinh truoc khi go
+   App nay: 1 dong la DUNG (code khop note), cac dong khac la DECOY:
+   click decoy = KHONG co gi xay ra (app bao "No change detected") => agent
+   phai DOI CHIEN LUWA, khong lap lai cung 1 dong.
+   Bien NGAU NHIEN: ma code + thu tu cac dong doi moi lan tai => khong hard-code.
+   Checker DOC DOM: window.__recovery = {done, decoy_clicks, repeated, target_id}
+   reward = 1 khi da bat DUNG va KHONG click lai 1 decoy nao >=2 lan.
+   window.__targets = {target:[x,y], decoys:[[x,y],...]} (toa do chuan hoa 0..1000)
+   Viet khong dung innerHTML/querySelector de chay duoc ca tren DOM stub
+   (test_apps.js) lan tren trinh duyet that. */
+const R=function(a){return a[Math.floor(Math.random()*a.length)];};
+const ALL=["ALPHA","BRAVO","CIRRUS","DELTA","EMBER","FLINT","GAMMA","HALO"];
+const CODE=R(ALL);
+const OTHER=ALL.filter(function(c){return c!==CODE;});
+const N=3;
+const codes=[CODE].concat(OTHER.slice(0,N-1));
+for(var i=codes.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));
+  var t=codes[i];codes[i]=codes[j];codes[j]=t;}
+const targetId=Math.floor(Math.random()*codes.length);
+const tb=document.getElementById("rows_body");
+const status=document.getElementById("status");
+const btns=[];
+const clicks={};
+let done=false, decoyClicks=0, repeated=false;
+document.getElementById("code").textContent=CODE;
+function snap(){
+  window.__recovery={
+    done: done,
+    decoy_clicks: decoyClicks,
+    repeated: repeated,
+    target_id: targetId,
+    clicks: clicks
+  };
+  window.__state={status: status.textContent, done: done};
+}
+codes.forEach(function(code,i){
+  var tr=document.createElement("tr");
+  var td1=document.createElement("td");
+  td1.className="code";
+  td1.textContent="FEATURE-"+code;
+  var td2=document.createElement("td");
+  var btn=document.createElement("button");
+  btn.id="b"+i;
+  btn.textContent="Enable";
+  td2.appendChild(btn);
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tb.appendChild(tr);
+  btns.push(btn);
+  btn.addEventListener("click",function(){
+    clicks[i]=(clicks[i]||0)+1;
+    if(i===targetId){
+      done=true;
+      status.textContent="FEATURE-"+code+" enabled.";
+    }else{
+      decoyClicks++;
+      if(clicks[i]>=2) repeated=true;
+      status.textContent="No change detected. This control is inactive on this device.";
+    }
+    snap();
+  });
+});
+snap();
+window.__targets=(function(){
+  var out={target:null,decoys:[],codes:codes};
+  // chuan hoa theo VIEWPORT THAT (innerWidth/innerHeight) - KHONG hard-code
+  // 1280x720: viewport that la 1264x634 (co thanh cong cu) => normalize sai
+  // => dummy click truot, reward luon 0.
+  var W=window.innerWidth||1280, H=window.innerHeight||720;
+  btns.forEach(function(b,i){
+    var r=b.getBoundingClientRect();
+    var p=[Math.round((r.left+r.width/2)/W*1000),
+            Math.round((r.top+r.height/2)/H*1000)];
+    if(i===targetId) out.target=p; else out.decoys.push(p);
+  });
+  return out;
+})();
+window.__btns=btns;   // de self-test (test_apps.js) click tung dong
+</script>
+</body>
+</html>

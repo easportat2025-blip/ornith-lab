@@ -1,0 +1,32 @@
+{
+ "dieniw/ornith-gui-lora": {
+  "fp": "5ab85930b35698d40befa4856bf490d7b5f9f9ead8f2a2f791e353b0c82abb07",
+  "n_tensor": 256,
+  "note": "BAI: adapter CU (khac v21, max|diff|=0.11) - KHONG dung cho phep do"
+ },
+ "dieniw/ornith-gui-lora-v21": {
+  "fp": "a4701de6b6ee62625ef16bdd9dfccc4e3bc335df32db9f612ef25573fb7b5172",
+  "n_tensor": 256,
+  "note": "copy v21 tren acc B - trong so GIONH acc A"
+ },
+ "dieniw/ornith-gui-lora-v22": {
+  "fp": "22eebb2d7b4cea650a9197977c473d9dacf875382fd0a12ae61e6f44721fcace",
+  "n_tensor": 256,
+  "note": "copy v22 tren acc B - trong so giong acc A"
+ },
+ "dieniw/ornith-gui-lora-v24": {
+  "fp": "c7d318639b17046e7da71527f529bd0b06ced84f79334dc583afe2e052bfe888",
+  "n_tensor": 256,
+  "note": "v24 adapter used by bench v24 (B)"
+ },
+ "khoadangnguye/ornith-gui-lora-v21": {
+  "fp": "a4701de6b6ee62625ef16bdd9dfccc4e3bc335df32db9f612ef25573fb7b5172",
+  "n_tensor": 256,
+  "note": "v21 THAT (acc A) - adapter cua kernel_bench_v155_v21"
+ },
+ "khoadangnguye/ornith-gui-lora-v22": {
+  "fp": "22eebb2d7b4cea650a9197977c473d9dacf875382fd0a12ae61e6f44721fcace",
+  "n_tensor": 256,
+  "note": "v22 THAT (acc A)"
+ }
+}

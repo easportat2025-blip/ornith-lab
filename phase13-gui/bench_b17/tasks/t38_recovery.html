@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Device Setup</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;margin-bottom:12px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:8px 0 3px;font-weight:600}
+input[type=text]{width:320px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:8px}
+button:disabled{background:#aab3c6;cursor:not-allowed}
+.panel{max-height:150px;overflow-y:auto;border:1px solid #b9c1d1;
+border-radius:6px;width:520px}
+table{border-collapse:collapse;width:100%}
+td{border-bottom:1px solid #eef0f4;padding:5px 8px;font-size:14px}
+#msg{margin-top:8px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Device Setup</h2>
+<div class="note">Enable the feature whose code is <b><span id="vCODE"></span></b>.
+If a control does not respond, try a different control.</div>
+<table id="tb"><tr><th>Feature</th><th>Code</th><th>Controls</th><th>Status</th></tr>
+<tr><td>Audio</td><td id="c0"><span id="vC0"></span></td><td><button class="p" data-i="0">Enable</button>
+<button class="b" data-i="0">Enable (backup)</button></td><td id="s0">disabled</td></tr>
+<tr><td>Display</td><td id="c1"><span id="vC1"></span></td><td><button class="p" data-i="1">Enable</button>
+<button class="b" data-i="1">Enable (backup)</button></td><td id="s1">disabled</td></tr>
+<tr><td>Network</td><td id="c2"><span id="vC2"></span></td><td><button class="p" data-i="2">Enable</button>
+<button class="b" data-i="2">Enable (backup)</button></td><td id="s2">disabled</td></tr>
+<tr><td>Storage</td><td id="c3"><span id="vC3"></span></td><td><button class="p" data-i="3">Enable</button>
+<button class="b" data-i="3">Enable (backup)</button></td><td id="s3">disabled</td></tr>
+</table><div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+function norm(el){const r=el.getBoundingClientRect();
+return [Math.round((r.left+r.width/2)/innerWidth*1000),
+Math.round((r.top+r.height/2)/innerHeight*1000)]}
+function targets(){const o={};document.querySelectorAll('[id]').forEach(e=>{
+if(['__spec','__state','__targets'].includes(e.id))return;
+o[e.id]=norm(e)});return o}
+
+const POOL=["AX-7719","QR-2048","LM-6633","ZT-9105","BK-3384"];
+const CODES=POOL.slice().sort(()=>Math.random()-0.5).slice(0,4);
+const IDX=Math.floor(Math.random()*4);
+const CODE=CODES[IDX];
+window.__spec={vars:{CODE:CODE,C0:CODES[0],C1:CODES[1],C2:CODES[2],C3:CODES[3]},target_row:IDX};
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+let tries=0;
+function snap(){window.__state={code:CODE,tries:tries,enabled:document.getElementById('s'+IDX).textContent==='enabled',submitted:false};}
+document.querySelectorAll('.p').forEach(b=>b.addEventListener('click',()=>{tries++;
+snap();if(parseInt(b.dataset.i,10)===IDX){document.getElementById('msg').textContent='No response';
+document.getElementById('msg').className='bad';}
+else{}}));
+document.querySelectorAll('.b').forEach(b=>b.addEventListener('click',()=>{tries++;
+snap();if(parseInt(b.dataset.i,10)===IDX){document.getElementById('s'+IDX).textContent='enabled';
+document.getElementById('msg').textContent='Enabled';document.getElementById('msg').className='';}
+else{document.getElementById('msg').textContent='Wrong feature';document.getElementById('msg').className='bad';}
+window.__state.enabled=document.getElementById('s'+IDX).textContent==='enabled';
+window.__state.submitted=true;window.__state.ok=window.__state.enabled;}));
+snap();window.__targets=targets();</script>
+</body>
+</html>

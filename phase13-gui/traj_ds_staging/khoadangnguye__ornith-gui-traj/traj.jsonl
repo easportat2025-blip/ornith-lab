@@ -1,0 +1,972 @@
+{"image": "click_button_1280x720_v00_s0.png", "instruction": "Click on the green button.", "action": "CLICK 422 308", "point": [422, 308], "bbox": [352, 264, 492, 353], "label": "Green button"}
+{"image": "click_button_1280x720_v01_s0.png", "instruction": "Where do you click to use the orange button?", "action": "CLICK 404 292", "point": [404, 292], "bbox": [334, 247, 474, 336], "label": "Orange button"}
+{"image": "click_button_1280x720_v02_s0.png", "instruction": "Click on the green button. When you are done, say DONE.", "action": "CLICK 240 271", "point": [240, 271], "bbox": [170, 226, 310, 315], "label": "Green button"}
+{"image": "click_button_1280x720_v02_s1.png", "instruction": "Click on the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v03_s0.png", "instruction": "Click the red button.", "action": "CLICK 93 171", "point": [93, 171], "bbox": [23, 126, 163, 215], "label": "Red button"}
+{"image": "click_button_1280x720_v04_s0.png", "instruction": "Click the green button.", "action": "CLICK 245 279", "point": [245, 279], "bbox": [174, 235, 315, 324], "label": "Green button"}
+{"image": "click_button_1280x720_v05_s0.png", "instruction": "Click on the red button. When you are done, say DONE.", "action": "CLICK 237 265", "point": [237, 265], "bbox": [166, 221, 307, 310], "label": "Red button"}
+{"image": "click_button_1280x720_v05_s1.png", "instruction": "Click on the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v06_s0.png", "instruction": "Where do you click to use the purple button?", "action": "CLICK 84 272", "point": [84, 272], "bbox": [13, 228, 154, 317], "label": "Purple button"}
+{"image": "click_button_1280x720_v07_s0.png", "instruction": "Click the orange button. When you are done, say DONE.", "action": "CLICK 99 282", "point": [99, 282], "bbox": [29, 238, 170, 326], "label": "Orange button"}
+{"image": "click_button_1280x720_v07_s1.png", "instruction": "Click the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v08_s0.png", "instruction": "Click the green button.", "action": "CLICK 234 261", "point": [234, 261], "bbox": [164, 217, 305, 306], "label": "Green button"}
+{"image": "click_button_1280x720_v09_s0.png", "instruction": "Where do you click to use the yellow button?", "action": "CLICK 83 276", "point": [83, 276], "bbox": [12, 232, 153, 321], "label": "Yellow button"}
+{"image": "click_button_1280x720_v10_s0.png", "instruction": "Click on the blue button.", "action": "CLICK 248 183", "point": [248, 183], "bbox": [178, 139, 319, 228], "label": "Blue button"}
+{"image": "click_button_1280x720_v11_s0.png", "instruction": "Click on the red button.", "action": "CLICK 395 179", "point": [395, 179], "bbox": [324, 135, 465, 224], "label": "Red button"}
+{"image": "click_button_1280x720_v12_s0.png", "instruction": "Click on the red button.", "action": "CLICK 91 168", "point": [91, 168], "bbox": [21, 124, 162, 212], "label": "Red button"}
+{"image": "click_button_1280x720_v13_s0.png", "instruction": "Find the yellow button and click it.", "action": "CLICK 96 288", "point": [96, 288], "bbox": [26, 243, 166, 332], "label": "Yellow button"}
+{"image": "click_button_1280x720_v14_s0.png", "instruction": "Find the blue button and click it.", "action": "CLICK 402 165", "point": [402, 165], "bbox": [332, 121, 473, 210], "label": "Blue button"}
+{"image": "click_button_1280x720_v15_s0.png", "instruction": "Where do you click to use the green button?", "action": "CLICK 234 153", "point": [234, 153], "bbox": [164, 108, 305, 197], "label": "Green button"}
+{"image": "click_button_1280x720_v16_s0.png", "instruction": "Click the green button.", "action": "CLICK 417 178", "point": [417, 178], "bbox": [347, 133, 488, 222], "label": "Green button"}
+{"image": "click_button_1280x720_v17_s0.png", "instruction": "Click on the red button.", "action": "CLICK 392 172", "point": [392, 172], "bbox": [322, 128, 462, 217], "label": "Red button"}
+{"image": "click_button_1024x768_v00_s0.png", "instruction": "Find the purple button and click it.", "action": "CLICK 306 262", "point": [306, 262], "bbox": [218, 220, 394, 303], "label": "Purple button"}
+{"image": "click_button_1024x768_v01_s0.png", "instruction": "Click on the purple button. When you are done, say DONE.", "action": "CLICK 119 164", "point": [119, 164], "bbox": [31, 122, 207, 206], "label": "Purple button"}
+{"image": "click_button_1024x768_v01_s1.png", "instruction": "Click on the purple button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v02_s0.png", "instruction": "Click the orange button. When you are done, say DONE.", "action": "CLICK 522 171", "point": [522, 171], "bbox": [435, 129, 610, 212], "label": "Orange button"}
+{"image": "click_button_1024x768_v02_s1.png", "instruction": "Click the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v03_s0.png", "instruction": "Find the orange button and click it.", "action": "CLICK 492 254", "point": [492, 254], "bbox": [404, 212, 580, 296], "label": "Orange button"}
+{"image": "click_button_1024x768_v04_s0.png", "instruction": "Click the green button.", "action": "CLICK 317 160", "point": [317, 160], "bbox": [229, 118, 405, 202], "label": "Green button"}
+{"image": "click_button_1024x768_v05_s0.png", "instruction": "Click on the orange button.", "action": "CLICK 317 277", "point": [317, 277], "bbox": [229, 236, 405, 319], "label": "Orange button"}
+{"image": "click_button_1024x768_v06_s0.png", "instruction": "Find the green button and click it. When you are done, say DONE.", "action": "CLICK 296 152", "point": [296, 152], "bbox": [208, 111, 384, 194], "label": "Green button"}
+{"image": "click_button_1024x768_v06_s1.png", "instruction": "Find the green button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v07_s0.png", "instruction": "Click the yellow button.", "action": "CLICK 104 259", "point": [104, 259], "bbox": [16, 217, 191, 301], "label": "Yellow button"}
+{"image": "click_button_1024x768_v08_s0.png", "instruction": "Find the yellow button and click it.", "action": "CLICK 315 275", "point": [315, 275], "bbox": [228, 233, 403, 316], "label": "Yellow button"}
+{"image": "click_button_1024x768_v09_s0.png", "instruction": "Click on the green button.", "action": "CLICK 314 159", "point": [314, 159], "bbox": [227, 117, 402, 201], "label": "Green button"}
+{"image": "click_button_1024x768_v10_s0.png", "instruction": "Find the purple button and click it.", "action": "CLICK 302 154", "point": [302, 154], "bbox": [214, 112, 390, 195], "label": "Purple button"}
+{"image": "click_button_1024x768_v11_s0.png", "instruction": "Click on the purple button.", "action": "CLICK 293 145", "point": [293, 145], "bbox": [205, 103, 381, 186], "label": "Purple button"}
+{"image": "click_button_1024x768_v12_s0.png", "instruction": "Click on the orange button.", "action": "CLICK 492 263", "point": [492, 263], "bbox": [404, 221, 580, 305], "label": "Orange button"}
+{"image": "click_button_1024x768_v13_s0.png", "instruction": "Click on the blue button. When you are done, say DONE.", "action": "CLICK 502 146", "point": [502, 146], "bbox": [414, 104, 590, 188], "label": "Blue button"}
+{"image": "click_button_1024x768_v13_s1.png", "instruction": "Click on the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v14_s0.png", "instruction": "Click the yellow button.", "action": "CLICK 299 155", "point": [299, 155], "bbox": [211, 113, 387, 197], "label": "Yellow button"}
+{"image": "click_button_1024x768_v15_s0.png", "instruction": "Find the blue button and click it. When you are done, say DONE.", "action": "CLICK 108 264", "point": [108, 264], "bbox": [21, 223, 196, 306], "label": "Blue button"}
+{"image": "click_button_1024x768_v15_s1.png", "instruction": "Find the blue button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v16_s0.png", "instruction": "Click on the blue button.", "action": "CLICK 300 254", "point": [300, 254], "bbox": [212, 212, 388, 296], "label": "Blue button"}
+{"image": "click_button_1024x768_v17_s0.png", "instruction": "Tap the red button. When you are done, say DONE.", "action": "CLICK 113 156", "point": [113, 156], "bbox": [25, 115, 201, 198], "label": "Red button"}
+{"image": "click_button_1024x768_v17_s1.png", "instruction": "Tap the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v00_s0.png", "instruction": "Click the yellow button. When you are done, say DONE.", "action": "CLICK 161 222", "point": [161, 222], "bbox": [49, 168, 274, 275], "label": "Yellow button"}
+{"image": "click_button_800x600_v00_s1.png", "instruction": "Click the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v01_s0.png", "instruction": "Tap the blue button.", "action": "CLICK 670 223", "point": [670, 223], "bbox": [558, 170, 782, 277], "label": "Blue button"}
+{"image": "click_button_800x600_v02_s0.png", "instruction": "Tap the yellow button.", "action": "CLICK 672 220", "point": [672, 220], "bbox": [560, 167, 785, 273], "label": "Yellow button"}
+{"image": "click_button_800x600_v03_s0.png", "instruction": "Click the green button.", "action": "CLICK 644 185", "point": [644, 185], "bbox": [531, 132, 756, 238], "label": "Green button"}
+{"image": "click_button_800x600_v04_s0.png", "instruction": "Tap the blue button.", "action": "CLICK 635 332", "point": [635, 332], "bbox": [522, 278, 748, 385], "label": "Blue button"}
+{"image": "click_button_800x600_v05_s0.png", "instruction": "Where do you click to use the blue button? When you are done, say DONE.", "action": "CLICK 628 203", "point": [628, 203], "bbox": [515, 150, 740, 257], "label": "Blue button"}
+{"image": "click_button_800x600_v05_s1.png", "instruction": "Where do you click to use the blue button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v06_s0.png", "instruction": "Click the orange button.", "action": "CLICK 634 333", "point": [634, 333], "bbox": [521, 280, 746, 387], "label": "Orange button"}
+{"image": "click_button_800x600_v07_s0.png", "instruction": "Find the orange button and click it.", "action": "CLICK 621 317", "point": [621, 317], "bbox": [509, 263, 734, 370], "label": "Orange button"}
+{"image": "click_button_800x600_v08_s0.png", "instruction": "Tap the purple button. When you are done, say DONE.", "action": "CLICK 392 337", "point": [392, 337], "bbox": [280, 283, 505, 390], "label": "Purple button"}
+{"image": "click_button_800x600_v08_s1.png", "instruction": "Tap the purple button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v09_s0.png", "instruction": "Where do you click to use the purple button? When you are done, say DONE.", "action": "CLICK 161 222", "point": [161, 222], "bbox": [49, 168, 274, 275], "label": "Purple button"}
+{"image": "click_button_800x600_v09_s1.png", "instruction": "Where do you click to use the purple button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v10_s0.png", "instruction": "Click the orange button.", "action": "CLICK 638 347", "point": [638, 347], "bbox": [525, 293, 750, 400], "label": "Orange button"}
+{"image": "click_button_800x600_v11_s0.png", "instruction": "Click the red button.", "action": "CLICK 150 207", "point": [150, 207], "bbox": [38, 153, 262, 260], "label": "Red button"}
+{"image": "click_button_800x600_v12_s0.png", "instruction": "Click on the red button.", "action": "CLICK 391 335", "point": [391, 335], "bbox": [279, 282, 504, 388], "label": "Red button"}
+{"image": "click_button_800x600_v13_s0.png", "instruction": "Tap the green button.", "action": "CLICK 390 210", "point": [390, 210], "bbox": [278, 157, 502, 263], "label": "Green button"}
+{"image": "click_button_800x600_v14_s0.png", "instruction": "Tap the orange button. When you are done, say DONE.", "action": "CLICK 640 217", "point": [640, 217], "bbox": [528, 163, 752, 270], "label": "Orange button"}
+{"image": "click_button_800x600_v14_s1.png", "instruction": "Tap the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v15_s0.png", "instruction": "Click the yellow button.", "action": "CLICK 141 195", "point": [141, 195], "bbox": [29, 142, 254, 248], "label": "Yellow button"}
+{"image": "click_button_800x600_v16_s0.png", "instruction": "Click the red button.", "action": "CLICK 141 195", "point": [141, 195], "bbox": [29, 142, 254, 248], "label": "Red button"}
+{"image": "click_button_800x600_v17_s0.png", "instruction": "Click on the blue button. When you are done, say DONE.", "action": "CLICK 155 213", "point": [155, 213], "bbox": [42, 160, 268, 267], "label": "Blue button"}
+{"image": "click_button_800x600_v17_s1.png", "instruction": "Click on the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v00_s0.png", "instruction": "Click the red button.", "action": "CLICK 81 218", "point": [81, 218], "bbox": [19, 182, 144, 253], "label": "Red button"}
+{"image": "click_button_1440x900_v01_s0.png", "instruction": "Tap the blue button. When you are done, say DONE.", "action": "CLICK 340 127", "point": [340, 127], "bbox": [278, 91, 403, 162], "label": "Blue button"}
+{"image": "click_button_1440x900_v01_s1.png", "instruction": "Tap the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v02_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "CLICK 359 130", "point": [359, 130], "bbox": [297, 94, 422, 166], "label": "Green button"}
+{"image": "click_button_1440x900_v02_s1.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v03_s0.png", "instruction": "Tap the green button.", "action": "CLICK 223 140", "point": [223, 140], "bbox": [160, 104, 285, 176], "label": "Green button"}
+{"image": "click_button_1440x900_v04_s0.png", "instruction": "Find the yellow button and click it.", "action": "CLICK 87 237", "point": [87, 237], "bbox": [24, 201, 149, 272], "label": "Yellow button"}
+{"image": "click_button_1440x900_v05_s0.png", "instruction": "Click the red button. When you are done, say DONE.", "action": "CLICK 80 132", "point": [80, 132], "bbox": [17, 97, 142, 168], "label": "Red button"}
+{"image": "click_button_1440x900_v05_s1.png", "instruction": "Click the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v06_s0.png", "instruction": "Find the green button and click it.", "action": "CLICK 210 124", "point": [210, 124], "bbox": [148, 89, 273, 160], "label": "Green button"}
+{"image": "click_button_1440x900_v07_s0.png", "instruction": "Tap the blue button. When you are done, say DONE.", "action": "CLICK 216 133", "point": [216, 133], "bbox": [153, 98, 278, 169], "label": "Blue button"}
+{"image": "click_button_1440x900_v07_s1.png", "instruction": "Tap the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v08_s0.png", "instruction": "Where do you click to use the orange button? When you are done, say DONE.", "action": "CLICK 370 243", "point": [370, 243], "bbox": [308, 208, 433, 279], "label": "Orange button"}
+{"image": "click_button_1440x900_v08_s1.png", "instruction": "Where do you click to use the orange button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v09_s0.png", "instruction": "Click the yellow button.", "action": "CLICK 225 236", "point": [225, 236], "bbox": [162, 200, 288, 271], "label": "Yellow button"}
+{"image": "click_button_1440x900_v10_s0.png", "instruction": "Click on the yellow button. When you are done, say DONE.", "action": "CLICK 85 226", "point": [85, 226], "bbox": [23, 190, 148, 261], "label": "Yellow button"}
+{"image": "click_button_1440x900_v10_s1.png", "instruction": "Click on the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v11_s0.png", "instruction": "Where do you click to use the yellow button? When you are done, say DONE.", "action": "CLICK 83 223", "point": [83, 223], "bbox": [20, 188, 145, 259], "label": "Yellow button"}
+{"image": "click_button_1440x900_v11_s1.png", "instruction": "Where do you click to use the yellow button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v12_s0.png", "instruction": "Click on the yellow button.", "action": "CLICK 80 132", "point": [80, 132], "bbox": [17, 97, 142, 168], "label": "Yellow button"}
+{"image": "click_button_1440x900_v13_s0.png", "instruction": "Tap the orange button. When you are done, say DONE.", "action": "CLICK 353 220", "point": [353, 220], "bbox": [291, 184, 416, 256], "label": "Orange button"}
+{"image": "click_button_1440x900_v13_s1.png", "instruction": "Tap the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v14_s0.png", "instruction": "Click the green button.", "action": "CLICK 225 136", "point": [225, 136], "bbox": [162, 100, 288, 171], "label": "Green button"}
+{"image": "click_button_1440x900_v15_s0.png", "instruction": "Where do you click to use the red button?", "action": "CLICK 224 233", "point": [224, 233], "bbox": [161, 198, 286, 269], "label": "Red button"}
+{"image": "click_button_1440x900_v16_s0.png", "instruction": "Find the purple button and click it. When you are done, say DONE.", "action": "CLICK 223 232", "point": [223, 232], "bbox": [160, 197, 285, 268], "label": "Purple button"}
+{"image": "click_button_1440x900_v16_s1.png", "instruction": "Find the purple button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v17_s0.png", "instruction": "Where do you click to use the yellow button? When you are done, say DONE.", "action": "CLICK 210 211", "point": [210, 211], "bbox": [147, 176, 272, 247], "label": "Yellow button"}
+{"image": "click_button_1440x900_v17_s1.png", "instruction": "Where do you click to use the yellow button? When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v00_s0.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s1.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s2.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s3.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s4.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s5.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s6.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s7.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v00_s8.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v01_s0.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v01_s1.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v01_s2.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v01_s3.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v01_s4.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s0.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s1.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s2.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s3.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s4.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s5.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v02_s6.png", "instruction": "Increment the counter to 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v03_s0.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v03_s1.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v03_s2.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v04_s0.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v04_s1.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v04_s2.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v04_s3.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v04_s4.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s0.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s1.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s2.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s3.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s4.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s5.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s6.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s7.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v05_s8.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v06_s0.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v06_s1.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v06_s2.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v06_s3.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v06_s4.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v06_s5.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v06_s6.png", "instruction": "Make the counter show 7.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v07_s0.png", "instruction": "Increment the counter to 4.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v07_s1.png", "instruction": "Increment the counter to 4.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v07_s2.png", "instruction": "Increment the counter to 4.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v07_s3.png", "instruction": "Increment the counter to 4.", "action": "CLICK 549 299", "point": [549, 299], "bbox": [514, 236, 585, 361], "label": "Plus button"}
+{"image": "counter_1280x720_v08_s0.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v08_s1.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v09_s0.png", "instruction": "Make the counter show 5.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v09_s1.png", "instruction": "Make the counter show 5.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v09_s2.png", "instruction": "Make the counter show 5.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v09_s3.png", "instruction": "Make the counter show 5.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v09_s4.png", "instruction": "Make the counter show 5.", "action": "CLICK 549 354", "point": [549, 354], "bbox": [514, 292, 585, 417], "label": "Plus button"}
+{"image": "counter_1280x720_v10_s0.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v10_s1.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v11_s0.png", "instruction": "Increment the counter to 3.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v11_s1.png", "instruction": "Increment the counter to 3.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v11_s2.png", "instruction": "Increment the counter to 3.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v12_s0.png", "instruction": "Use the + button until the counter reaches 7.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v12_s1.png", "instruction": "Use the + button until the counter reaches 7.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v12_s2.png", "instruction": "Use the + button until the counter reaches 7.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v12_s3.png", "instruction": "Use the + button until the counter reaches 7.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v12_s4.png", "instruction": "Use the + button until the counter reaches 7.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v13_s0.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v13_s1.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v13_s2.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v14_s0.png", "instruction": "Make the counter show 4.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v14_s1.png", "instruction": "Make the counter show 4.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v14_s2.png", "instruction": "Make the counter show 4.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v14_s3.png", "instruction": "Make the counter show 4.", "action": "CLICK 549 382", "point": [549, 382], "bbox": [514, 319, 585, 444], "label": "Plus button"}
+{"image": "counter_1280x720_v15_s0.png", "instruction": "Make the counter show 4.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v15_s1.png", "instruction": "Make the counter show 4.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v16_s0.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v16_s1.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v16_s2.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v16_s3.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v17_s0.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v17_s1.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1280x720_v17_s2.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 549 321", "point": [549, 321], "bbox": [514, 258, 585, 383], "label": "Plus button"}
+{"image": "counter_1024x768_v00_s0.png", "instruction": "Make the counter show 3.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v00_s1.png", "instruction": "Make the counter show 3.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v01_s0.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v01_s1.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v01_s2.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v02_s0.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v02_s1.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v03_s0.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v03_s1.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v03_s2.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v04_s0.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v04_s1.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v04_s2.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v04_s3.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v04_s4.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v05_s0.png", "instruction": "Make the counter show 3. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v05_s1.png", "instruction": "Make the counter show 3. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v05_s2.png", "instruction": "Make the counter show 3. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v05_s3.png", "instruction": "Make the counter show 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v06_s0.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v06_s1.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v06_s2.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v06_s3.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v07_s0.png", "instruction": "Get the counter up to 6 using the + button.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v07_s1.png", "instruction": "Get the counter up to 6 using the + button.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v07_s2.png", "instruction": "Get the counter up to 6 using the + button.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v07_s3.png", "instruction": "Get the counter up to 6 using the + button.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v08_s0.png", "instruction": "Increment the counter to 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v08_s1.png", "instruction": "Increment the counter to 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v08_s2.png", "instruction": "Increment the counter to 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v09_s0.png", "instruction": "Increment the counter to 7.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v09_s1.png", "instruction": "Increment the counter to 7.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v09_s2.png", "instruction": "Increment the counter to 7.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v09_s3.png", "instruction": "Increment the counter to 7.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v09_s4.png", "instruction": "Increment the counter to 7.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v10_s0.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v10_s1.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v10_s2.png", "instruction": "Get the counter up to 3 using the + button.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v11_s0.png", "instruction": "Make the counter show 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v11_s1.png", "instruction": "Make the counter show 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v11_s2.png", "instruction": "Make the counter show 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v11_s3.png", "instruction": "Make the counter show 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v11_s4.png", "instruction": "Make the counter show 5.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v12_s0.png", "instruction": "Increment the counter to 6.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v12_s1.png", "instruction": "Increment the counter to 6.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v12_s2.png", "instruction": "Increment the counter to 6.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v12_s3.png", "instruction": "Increment the counter to 6.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v12_s4.png", "instruction": "Increment the counter to 6.", "action": "CLICK 562 280", "point": [562, 280], "bbox": [518, 221, 606, 339], "label": "Plus button"}
+{"image": "counter_1024x768_v13_s0.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v13_s1.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v13_s2.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v13_s3.png", "instruction": "Make the counter show 4.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v14_s0.png", "instruction": "Make the counter show 7.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v14_s1.png", "instruction": "Make the counter show 7.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v14_s2.png", "instruction": "Make the counter show 7.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v14_s3.png", "instruction": "Make the counter show 7.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v14_s4.png", "instruction": "Make the counter show 7.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v14_s5.png", "instruction": "Make the counter show 7.", "action": "CLICK 562 301", "point": [562, 301], "bbox": [518, 242, 606, 359], "label": "Plus button"}
+{"image": "counter_1024x768_v15_s0.png", "instruction": "Make the counter show 8.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v15_s1.png", "instruction": "Make the counter show 8.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v15_s2.png", "instruction": "Make the counter show 8.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v15_s3.png", "instruction": "Make the counter show 8.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v15_s4.png", "instruction": "Make the counter show 8.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v15_s5.png", "instruction": "Make the counter show 8.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v16_s0.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v16_s1.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v16_s2.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v16_s3.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v16_s4.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "CLICK 562 332", "point": [562, 332], "bbox": [518, 273, 606, 391], "label": "Plus button"}
+{"image": "counter_1024x768_v16_s5.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v17_s0.png", "instruction": "Increment the counter to 3.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v17_s1.png", "instruction": "Increment the counter to 3.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_1024x768_v17_s2.png", "instruction": "Increment the counter to 3.", "action": "CLICK 562 358", "point": [562, 358], "bbox": [518, 299, 606, 417], "label": "Plus button"}
+{"image": "counter_800x600_v00_s0.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v00_s1.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v00_s2.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v00_s3.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v00_s4.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v00_s5.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v00_s6.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v01_s0.png", "instruction": "Use the + button until the counter reaches 6.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v01_s1.png", "instruction": "Use the + button until the counter reaches 6.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v01_s2.png", "instruction": "Use the + button until the counter reaches 6.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v01_s3.png", "instruction": "Use the + button until the counter reaches 6.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v02_s0.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v02_s1.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v02_s2.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v02_s3.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v03_s0.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v03_s1.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v03_s2.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v03_s3.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v03_s4.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v04_s0.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v04_s1.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v04_s2.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v05_s0.png", "instruction": "Get the counter up to 7 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v05_s1.png", "instruction": "Get the counter up to 7 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v05_s2.png", "instruction": "Get the counter up to 7 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v05_s3.png", "instruction": "Get the counter up to 7 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v05_s4.png", "instruction": "Get the counter up to 7 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v06_s0.png", "instruction": "Make the counter show 4.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v06_s1.png", "instruction": "Make the counter show 4.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v07_s0.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 579 425", "point": [579, 425], "bbox": [523, 350, 635, 500], "label": "Plus button"}
+{"image": "counter_800x600_v07_s1.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 579 425", "point": [579, 425], "bbox": [523, 350, 635, 500], "label": "Plus button"}
+{"image": "counter_800x600_v07_s2.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 579 425", "point": [579, 425], "bbox": [523, 350, 635, 500], "label": "Plus button"}
+{"image": "counter_800x600_v07_s3.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 579 425", "point": [579, 425], "bbox": [523, 350, 635, 500], "label": "Plus button"}
+{"image": "counter_800x600_v08_s0.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v08_s1.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v08_s2.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v08_s3.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v08_s4.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v08_s5.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v08_s6.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v09_s0.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v09_s1.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v09_s2.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v09_s3.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v09_s4.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v09_s5.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v09_s6.png", "instruction": "Make the counter show 7.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v10_s0.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v10_s1.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v10_s2.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v10_s3.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v10_s4.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v11_s0.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s1.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s2.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s3.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s4.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s5.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s6.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v11_s7.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v12_s0.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v12_s1.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v12_s2.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v12_s3.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v12_s4.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v12_s5.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v13_s0.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v13_s1.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v13_s2.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v13_s3.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 579 385", "point": [579, 385], "bbox": [523, 310, 635, 460], "label": "Plus button"}
+{"image": "counter_800x600_v14_s0.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v14_s1.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v14_s2.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v14_s3.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v14_s4.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v14_s5.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v14_s6.png", "instruction": "Increment the counter to 7.", "action": "CLICK 579 358", "point": [579, 358], "bbox": [523, 283, 635, 433], "label": "Plus button"}
+{"image": "counter_800x600_v15_s0.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s1.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s2.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s3.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s4.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s5.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s6.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v15_s7.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s0.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s1.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s2.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s3.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s4.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s5.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s6.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v16_s7.png", "instruction": "Make the counter show 8.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v17_s0.png", "instruction": "Increment the counter to 6.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v17_s1.png", "instruction": "Increment the counter to 6.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v17_s2.png", "instruction": "Increment the counter to 6.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v17_s3.png", "instruction": "Increment the counter to 6.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_800x600_v17_s4.png", "instruction": "Increment the counter to 6.", "action": "CLICK 579 458", "point": [579, 458], "bbox": [523, 383, 635, 533], "label": "Plus button"}
+{"image": "counter_1440x900_v00_s0.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v00_s1.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v00_s2.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v01_s0.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v01_s1.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v01_s2.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v01_s3.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v01_s4.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v01_s5.png", "instruction": "Make the counter show 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v02_s0.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v02_s1.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v02_s2.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v02_s3.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v02_s4.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v02_s5.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v03_s0.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v03_s1.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v03_s2.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v03_s3.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v03_s4.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v03_s5.png", "instruction": "Increment the counter to 6.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s0.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s1.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s2.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s3.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s4.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s5.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v04_s6.png", "instruction": "Increment the counter to 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v05_s0.png", "instruction": "Make the counter show 3.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v05_s1.png", "instruction": "Make the counter show 3.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v05_s2.png", "instruction": "Make the counter show 3.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v06_s0.png", "instruction": "Make the counter show 4.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v06_s1.png", "instruction": "Make the counter show 4.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v06_s2.png", "instruction": "Make the counter show 4.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v07_s0.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v07_s1.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v07_s2.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v07_s3.png", "instruction": "Get the counter up to 5 using the + button.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v08_s0.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v08_s1.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v08_s2.png", "instruction": "Get the counter up to 4 using the + button.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v09_s0.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v09_s1.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v09_s2.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v09_s3.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v09_s4.png", "instruction": "Use the + button until the counter reaches 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v10_s0.png", "instruction": "Increment the counter to 3.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v10_s1.png", "instruction": "Increment the counter to 3.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v10_s2.png", "instruction": "Increment the counter to 3.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s0.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s1.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s2.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s3.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s4.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s5.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s6.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v11_s7.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v12_s0.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v12_s1.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v12_s2.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "CLICK 544 239", "point": [544, 239], "bbox": [513, 189, 575, 289], "label": "Plus button"}
+{"image": "counter_1440x900_v12_s3.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v13_s0.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v13_s1.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v13_s2.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v13_s3.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v13_s4.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v13_s5.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v13_s6.png", "instruction": "Use the + button until the counter reaches 8.", "action": "CLICK 544 257", "point": [544, 257], "bbox": [513, 207, 575, 307], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s0.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s1.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s2.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s3.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s4.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s5.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s6.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v14_s7.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v15_s0.png", "instruction": "Make the counter show 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v15_s1.png", "instruction": "Make the counter show 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v15_s2.png", "instruction": "Make the counter show 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v15_s3.png", "instruction": "Make the counter show 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v15_s4.png", "instruction": "Make the counter show 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v16_s0.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v16_s1.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v16_s2.png", "instruction": "Use the + button until the counter reaches 3.", "action": "CLICK 544 283", "point": [544, 283], "bbox": [513, 233, 575, 333], "label": "Plus button"}
+{"image": "counter_1440x900_v17_s0.png", "instruction": "Increment the counter to 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v17_s1.png", "instruction": "Increment the counter to 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "counter_1440x900_v17_s2.png", "instruction": "Increment the counter to 5.", "action": "CLICK 544 306", "point": [544, 306], "bbox": [513, 256, 575, 356], "label": "Plus button"}
+{"image": "login_form_1280x720_v00_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 233", "point": [500, 233], "bbox": [336, 206, 664, 261], "label": "Username field"}
+{"image": "login_form_1280x720_v00_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v00_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 343", "point": [500, 343], "bbox": [336, 315, 664, 371], "label": "Password field"}
+{"image": "login_form_1280x720_v00_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v00_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v01_s0.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 203", "point": [500, 203], "bbox": [320, 175, 680, 231], "label": "Username field"}
+{"image": "login_form_1280x720_v01_s1.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v01_s2.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 312", "point": [500, 312], "bbox": [320, 285, 680, 340], "label": "Password field"}
+{"image": "login_form_1280x720_v01_s3.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v01_s4.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v01_s5.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v02_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 217", "point": [500, 217], "bbox": [352, 189, 648, 244], "label": "Username field"}
+{"image": "login_form_1280x720_v02_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1280x720_v02_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 326", "point": [500, 326], "bbox": [352, 299, 648, 354], "label": "Password field"}
+{"image": "login_form_1280x720_v02_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1280x720_v02_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 465", "point": [500, 465], "bbox": [352, 436, 648, 494], "label": "Sign in button"}
+{"image": "login_form_1280x720_v03_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 210", "point": [500, 210], "bbox": [367, 182, 633, 238], "label": "Username field"}
+{"image": "login_form_1280x720_v03_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "TYPE maria"}
+{"image": "login_form_1280x720_v03_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 319", "point": [500, 319], "bbox": [367, 292, 633, 347], "label": "Password field"}
+{"image": "login_form_1280x720_v03_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "TYPE s3cret"}
+{"image": "login_form_1280x720_v03_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 458", "point": [500, 458], "bbox": [367, 429, 633, 488], "label": "Sign in button"}
+{"image": "login_form_1280x720_v03_s5.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v04_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 264", "point": [500, 264], "bbox": [367, 236, 633, 292], "label": "Username field"}
+{"image": "login_form_1280x720_v04_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v04_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 374", "point": [500, 374], "bbox": [367, 346, 633, 401], "label": "Password field"}
+{"image": "login_form_1280x720_v04_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v04_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 512", "point": [500, 512], "bbox": [367, 483, 633, 542], "label": "Sign in button"}
+{"image": "login_form_1280x720_v05_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 261", "point": [500, 261], "bbox": [367, 233, 633, 289], "label": "Username field"}
+{"image": "login_form_1280x720_v05_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1280x720_v05_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 371", "point": [500, 371], "bbox": [367, 343, 633, 399], "label": "Password field"}
+{"image": "login_form_1280x720_v05_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1280x720_v05_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 510", "point": [500, 510], "bbox": [367, 481, 633, 539], "label": "Sign in button"}
+{"image": "login_form_1280x720_v06_s0.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 197", "point": [500, 197], "bbox": [367, 169, 633, 225], "label": "Username field"}
+{"image": "login_form_1280x720_v06_s1.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1280x720_v06_s2.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 307", "point": [500, 307], "bbox": [367, 279, 633, 335], "label": "Password field"}
+{"image": "login_form_1280x720_v06_s3.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1280x720_v06_s4.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 446", "point": [500, 446], "bbox": [367, 417, 633, 475], "label": "Sign in button"}
+{"image": "login_form_1280x720_v07_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 242", "point": [500, 242], "bbox": [320, 214, 680, 269], "label": "Username field"}
+{"image": "login_form_1280x720_v07_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v07_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 351", "point": [500, 351], "bbox": [320, 324, 680, 379], "label": "Password field"}
+{"image": "login_form_1280x720_v07_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v07_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 490", "point": [500, 490], "bbox": [320, 461, 680, 519], "label": "Sign in button"}
+{"image": "login_form_1280x720_v08_s0.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 231", "point": [500, 231], "bbox": [320, 203, 680, 258], "label": "Username field"}
+{"image": "login_form_1280x720_v08_s1.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_1280x720_v08_s2.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 340", "point": [500, 340], "bbox": [320, 312, 680, 368], "label": "Password field"}
+{"image": "login_form_1280x720_v08_s3.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_1280x720_v08_s4.png", "instruction": "Sign in as tom with password qwerty.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v09_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 199", "point": [500, 199], "bbox": [352, 171, 648, 226], "label": "Username field"}
+{"image": "login_form_1280x720_v09_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v09_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 308", "point": [500, 308], "bbox": [352, 281, 648, 336], "label": "Password field"}
+{"image": "login_form_1280x720_v09_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v09_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 447", "point": [500, 447], "bbox": [352, 418, 648, 476], "label": "Sign in button"}
+{"image": "login_form_1280x720_v10_s0.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 242", "point": [500, 242], "bbox": [367, 214, 633, 269], "label": "Username field"}
+{"image": "login_form_1280x720_v10_s1.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_1280x720_v10_s2.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 351", "point": [500, 351], "bbox": [367, 324, 633, 379], "label": "Password field"}
+{"image": "login_form_1280x720_v10_s3.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_1280x720_v10_s4.png", "instruction": "Sign in as tom with password qwerty.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v11_s0.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 238", "point": [500, 238], "bbox": [352, 210, 648, 265], "label": "Username field"}
+{"image": "login_form_1280x720_v11_s1.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v11_s2.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 347", "point": [500, 347], "bbox": [352, 319, 648, 375], "label": "Password field"}
+{"image": "login_form_1280x720_v11_s3.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v11_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 486", "point": [500, 486], "bbox": [352, 457, 648, 515], "label": "Sign in button"}
+{"image": "login_form_1280x720_v11_s5.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v12_s0.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 276", "point": [500, 276], "bbox": [367, 249, 633, 304], "label": "Username field"}
+{"image": "login_form_1280x720_v12_s1.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "TYPE tom"}
+{"image": "login_form_1280x720_v12_s2.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 386", "point": [500, 386], "bbox": [367, 358, 633, 414], "label": "Password field"}
+{"image": "login_form_1280x720_v12_s3.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "TYPE qwerty"}
+{"image": "login_form_1280x720_v12_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v13_s0.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 249", "point": [500, 249], "bbox": [336, 221, 664, 276], "label": "Username field"}
+{"image": "login_form_1280x720_v13_s1.png", "instruction": "Log in with username tom and password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_1280x720_v13_s2.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 358", "point": [500, 358], "bbox": [336, 331, 664, 386], "label": "Password field"}
+{"image": "login_form_1280x720_v13_s3.png", "instruction": "Log in with username tom and password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_1280x720_v13_s4.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 497", "point": [500, 497], "bbox": [336, 468, 664, 526], "label": "Sign in button"}
+{"image": "login_form_1280x720_v14_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 246", "point": [500, 246], "bbox": [320, 218, 680, 274], "label": "Username field"}
+{"image": "login_form_1280x720_v14_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE maria"}
+{"image": "login_form_1280x720_v14_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 356", "point": [500, 356], "bbox": [320, 328, 680, 383], "label": "Password field"}
+{"image": "login_form_1280x720_v14_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE s3cret"}
+{"image": "login_form_1280x720_v14_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 494", "point": [500, 494], "bbox": [320, 465, 680, 524], "label": "Sign in button"}
+{"image": "login_form_1280x720_v15_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 253", "point": [500, 253], "bbox": [320, 225, 680, 281], "label": "Username field"}
+{"image": "login_form_1280x720_v15_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1280x720_v15_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 362", "point": [500, 362], "bbox": [320, 335, 680, 390], "label": "Password field"}
+{"image": "login_form_1280x720_v15_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1280x720_v15_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v16_s0.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 269", "point": [500, 269], "bbox": [352, 242, 648, 297], "label": "Username field"}
+{"image": "login_form_1280x720_v16_s1.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1280x720_v16_s2.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 379", "point": [500, 379], "bbox": [352, 351, 648, 407], "label": "Password field"}
+{"image": "login_form_1280x720_v16_s3.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1280x720_v16_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_1280x720_v16_s5.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v17_s0.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 201", "point": [500, 201], "bbox": [336, 174, 664, 229], "label": "Username field"}
+{"image": "login_form_1280x720_v17_s1.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1280x720_v17_s2.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 311", "point": [500, 311], "bbox": [336, 283, 664, 339], "label": "Password field"}
+{"image": "login_form_1280x720_v17_s3.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1280x720_v17_s4.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 450", "point": [500, 450], "bbox": [336, 421, 664, 479], "label": "Sign in button"}
+{"image": "login_form_1024x768_v00_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 251", "point": [500, 251], "bbox": [314, 225, 686, 277], "label": "Username field"}
+{"image": "login_form_1024x768_v00_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1024x768_v00_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 354", "point": [500, 354], "bbox": [314, 328, 686, 380], "label": "Password field"}
+{"image": "login_form_1024x768_v00_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1024x768_v00_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v01_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 197", "point": [500, 197], "bbox": [295, 171, 705, 223], "label": "Username field"}
+{"image": "login_form_1024x768_v01_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1024x768_v01_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 299", "point": [500, 299], "bbox": [295, 273, 705, 326], "label": "Password field"}
+{"image": "login_form_1024x768_v01_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1024x768_v01_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v02_s0.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 197", "point": [500, 197], "bbox": [275, 171, 725, 223], "label": "Username field"}
+{"image": "login_form_1024x768_v02_s1.png", "instruction": "Log in with username tom and password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_1024x768_v02_s2.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 299", "point": [500, 299], "bbox": [275, 273, 725, 326], "label": "Password field"}
+{"image": "login_form_1024x768_v02_s3.png", "instruction": "Log in with username tom and password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_1024x768_v02_s4.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 430", "point": [500, 430], "bbox": [275, 402, 725, 457], "label": "Sign in button"}
+{"image": "login_form_1024x768_v03_s0.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "CLICK 500 245", "point": [500, 245], "bbox": [275, 219, 725, 271], "label": "Username field"}
+{"image": "login_form_1024x768_v03_s1.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "TYPE admin"}
+{"image": "login_form_1024x768_v03_s2.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "CLICK 500 348", "point": [500, 348], "bbox": [275, 322, 725, 374], "label": "Password field"}
+{"image": "login_form_1024x768_v03_s3.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "TYPE 1234"}
+{"image": "login_form_1024x768_v03_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "CLICK 500 478", "point": [500, 478], "bbox": [275, 451, 725, 505], "label": "Sign in button"}
+{"image": "login_form_1024x768_v03_s5.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v04_s0.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 197", "point": [500, 197], "bbox": [295, 171, 705, 223], "label": "Username field"}
+{"image": "login_form_1024x768_v04_s1.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v04_s2.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 299", "point": [500, 299], "bbox": [295, 273, 705, 326], "label": "Password field"}
+{"image": "login_form_1024x768_v04_s3.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v04_s4.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 430", "point": [500, 430], "bbox": [295, 402, 705, 457], "label": "Sign in button"}
+{"image": "login_form_1024x768_v04_s5.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v05_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "CLICK 500 182", "point": [500, 182], "bbox": [295, 156, 705, 208], "label": "Username field"}
+{"image": "login_form_1024x768_v05_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v05_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "CLICK 500 285", "point": [500, 285], "bbox": [295, 259, 705, 311], "label": "Password field"}
+{"image": "login_form_1024x768_v05_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v05_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "CLICK 500 415", "point": [500, 415], "bbox": [295, 388, 705, 443], "label": "Sign in button"}
+{"image": "login_form_1024x768_v05_s5.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v06_s0.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 238", "point": [500, 238], "bbox": [334, 212, 666, 264], "label": "Username field"}
+{"image": "login_form_1024x768_v06_s1.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v06_s2.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 341", "point": [500, 341], "bbox": [334, 315, 666, 367], "label": "Password field"}
+{"image": "login_form_1024x768_v06_s3.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v06_s4.png", "instruction": "Sign in as user1 with password pass123.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v07_s0.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 186", "point": [500, 186], "bbox": [275, 160, 725, 212], "label": "Username field"}
+{"image": "login_form_1024x768_v07_s1.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v07_s2.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 289", "point": [500, 289], "bbox": [275, 263, 725, 315], "label": "Password field"}
+{"image": "login_form_1024x768_v07_s3.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v07_s4.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 419", "point": [500, 419], "bbox": [275, 392, 725, 447], "label": "Sign in button"}
+{"image": "login_form_1024x768_v07_s5.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v08_s0.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "CLICK 500 201", "point": [500, 201], "bbox": [334, 174, 666, 227], "label": "Username field"}
+{"image": "login_form_1024x768_v08_s1.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "TYPE admin"}
+{"image": "login_form_1024x768_v08_s2.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "CLICK 500 303", "point": [500, 303], "bbox": [334, 277, 666, 329], "label": "Password field"}
+{"image": "login_form_1024x768_v08_s3.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "TYPE 1234"}
+{"image": "login_form_1024x768_v08_s4.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v09_s0.png", "instruction": "Log in with username user1 and password pass123.", "action": "CLICK 500 182", "point": [500, 182], "bbox": [334, 156, 666, 208], "label": "Username field"}
+{"image": "login_form_1024x768_v09_s1.png", "instruction": "Log in with username user1 and password pass123.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v09_s2.png", "instruction": "Log in with username user1 and password pass123.", "action": "CLICK 500 285", "point": [500, 285], "bbox": [334, 259, 666, 311], "label": "Password field"}
+{"image": "login_form_1024x768_v09_s3.png", "instruction": "Log in with username user1 and password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v09_s4.png", "instruction": "Log in with username user1 and password pass123.", "action": "CLICK 500 415", "point": [500, 415], "bbox": [334, 388, 666, 443], "label": "Sign in button"}
+{"image": "login_form_1024x768_v10_s0.png", "instruction": "Log in with username user1 and password pass123.", "action": "CLICK 500 232", "point": [500, 232], "bbox": [334, 206, 666, 258], "label": "Username field"}
+{"image": "login_form_1024x768_v10_s1.png", "instruction": "Log in with username user1 and password pass123.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v10_s2.png", "instruction": "Log in with username user1 and password pass123.", "action": "CLICK 500 335", "point": [500, 335], "bbox": [334, 309, 666, 361], "label": "Password field"}
+{"image": "login_form_1024x768_v10_s3.png", "instruction": "Log in with username user1 and password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v10_s4.png", "instruction": "Log in with username user1 and password pass123.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v11_s0.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 238", "point": [500, 238], "bbox": [314, 212, 686, 264], "label": "Username field"}
+{"image": "login_form_1024x768_v11_s1.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1024x768_v11_s2.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "CLICK 500 341", "point": [500, 341], "bbox": [314, 315, 686, 367], "label": "Password field"}
+{"image": "login_form_1024x768_v11_s3.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1024x768_v11_s4.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v11_s5.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v12_s0.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "CLICK 500 203", "point": [500, 203], "bbox": [275, 177, 725, 229], "label": "Username field"}
+{"image": "login_form_1024x768_v12_s1.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "TYPE tom"}
+{"image": "login_form_1024x768_v12_s2.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "CLICK 500 306", "point": [500, 306], "bbox": [275, 280, 725, 332], "label": "Password field"}
+{"image": "login_form_1024x768_v12_s3.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "TYPE qwerty"}
+{"image": "login_form_1024x768_v12_s4.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v12_s5.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v13_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 207", "point": [500, 207], "bbox": [275, 181, 725, 233], "label": "Username field"}
+{"image": "login_form_1024x768_v13_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE maria"}
+{"image": "login_form_1024x768_v13_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 310", "point": [500, 310], "bbox": [275, 284, 725, 336], "label": "Password field"}
+{"image": "login_form_1024x768_v13_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE s3cret"}
+{"image": "login_form_1024x768_v13_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 440", "point": [500, 440], "bbox": [275, 413, 725, 467], "label": "Sign in button"}
+{"image": "login_form_1024x768_v14_s0.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 212", "point": [500, 212], "bbox": [334, 186, 666, 238], "label": "Username field"}
+{"image": "login_form_1024x768_v14_s1.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1024x768_v14_s2.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 315", "point": [500, 315], "bbox": [334, 289, 666, 341], "label": "Password field"}
+{"image": "login_form_1024x768_v14_s3.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1024x768_v14_s4.png", "instruction": "Sign in as admin with password 1234.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v15_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 227", "point": [500, 227], "bbox": [314, 201, 686, 253], "label": "Username field"}
+{"image": "login_form_1024x768_v15_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1024x768_v15_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 329", "point": [500, 329], "bbox": [314, 303, 686, 355], "label": "Password field"}
+{"image": "login_form_1024x768_v15_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1024x768_v15_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v16_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 207", "point": [500, 207], "bbox": [334, 181, 666, 233], "label": "Username field"}
+{"image": "login_form_1024x768_v16_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "TYPE maria"}
+{"image": "login_form_1024x768_v16_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 310", "point": [500, 310], "bbox": [334, 284, 666, 336], "label": "Password field"}
+{"image": "login_form_1024x768_v16_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "TYPE s3cret"}
+{"image": "login_form_1024x768_v16_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_1024x768_v16_s5.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v17_s0.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "CLICK 500 253", "point": [500, 253], "bbox": [314, 227, 686, 279], "label": "Username field"}
+{"image": "login_form_1024x768_v17_s1.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "TYPE maria"}
+{"image": "login_form_1024x768_v17_s2.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "CLICK 500 355", "point": [500, 355], "bbox": [314, 329, 686, 382], "label": "Password field"}
+{"image": "login_form_1024x768_v17_s3.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "TYPE s3cret"}
+{"image": "login_form_1024x768_v17_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "CLICK 500 486", "point": [500, 486], "bbox": [314, 458, 686, 513], "label": "Sign in button"}
+{"image": "login_form_1024x768_v17_s5.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v00_s0.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 247", "point": [500, 247], "bbox": [238, 213, 762, 280], "label": "Username field"}
+{"image": "login_form_800x600_v00_s1.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE admin"}
+{"image": "login_form_800x600_v00_s2.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 378", "point": [500, 378], "bbox": [238, 345, 762, 412], "label": "Password field"}
+{"image": "login_form_800x600_v00_s3.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_800x600_v00_s4.png", "instruction": "Sign in as admin with password 1234.", "action": "KEY enter"}
+{"image": "login_form_800x600_v01_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 315", "point": [500, 315], "bbox": [212, 282, 788, 348], "label": "Username field"}
+{"image": "login_form_800x600_v01_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v01_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 447", "point": [500, 447], "bbox": [212, 413, 788, 480], "label": "Password field"}
+{"image": "login_form_800x600_v01_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v01_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 613", "point": [500, 613], "bbox": [212, 578, 788, 648], "label": "Sign in button"}
+{"image": "login_form_800x600_v02_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 333", "point": [500, 333], "bbox": [262, 300, 738, 367], "label": "Username field"}
+{"image": "login_form_800x600_v02_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v02_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 465", "point": [500, 465], "bbox": [262, 432, 738, 498], "label": "Password field"}
+{"image": "login_form_800x600_v02_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v02_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "KEY enter"}
+{"image": "login_form_800x600_v03_s0.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 245", "point": [500, 245], "bbox": [238, 212, 762, 278], "label": "Username field"}
+{"image": "login_form_800x600_v03_s1.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE user1"}
+{"image": "login_form_800x600_v03_s2.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 377", "point": [500, 377], "bbox": [238, 343, 762, 410], "label": "Password field"}
+{"image": "login_form_800x600_v03_s3.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_800x600_v03_s4.png", "instruction": "Sign in as user1 with password pass123.", "action": "KEY enter"}
+{"image": "login_form_800x600_v04_s0.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "CLICK 500 333", "point": [500, 333], "bbox": [262, 300, 738, 367], "label": "Username field"}
+{"image": "login_form_800x600_v04_s1.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "TYPE admin"}
+{"image": "login_form_800x600_v04_s2.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "CLICK 500 465", "point": [500, 465], "bbox": [262, 432, 738, 498], "label": "Password field"}
+{"image": "login_form_800x600_v04_s3.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "TYPE 1234"}
+{"image": "login_form_800x600_v04_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_800x600_v04_s5.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v05_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 263", "point": [500, 263], "bbox": [288, 230, 712, 297], "label": "Username field"}
+{"image": "login_form_800x600_v05_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE user1"}
+{"image": "login_form_800x600_v05_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 395", "point": [500, 395], "bbox": [288, 362, 712, 428], "label": "Password field"}
+{"image": "login_form_800x600_v05_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE pass123"}
+{"image": "login_form_800x600_v05_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 562", "point": [500, 562], "bbox": [288, 527, 712, 597], "label": "Sign in button"}
+{"image": "login_form_800x600_v06_s0.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 330", "point": [500, 330], "bbox": [262, 297, 738, 363], "label": "Username field"}
+{"image": "login_form_800x600_v06_s1.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v06_s2.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 462", "point": [500, 462], "bbox": [262, 428, 738, 495], "label": "Password field"}
+{"image": "login_form_800x600_v06_s3.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v06_s4.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 628", "point": [500, 628], "bbox": [262, 593, 738, 663], "label": "Sign in button"}
+{"image": "login_form_800x600_v07_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 313", "point": [500, 313], "bbox": [288, 280, 712, 347], "label": "Username field"}
+{"image": "login_form_800x600_v07_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v07_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 445", "point": [500, 445], "bbox": [288, 412, 712, 478], "label": "Password field"}
+{"image": "login_form_800x600_v07_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v07_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 612", "point": [500, 612], "bbox": [288, 577, 712, 647], "label": "Sign in button"}
+{"image": "login_form_800x600_v08_s0.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 280", "point": [500, 280], "bbox": [238, 247, 762, 313], "label": "Username field"}
+{"image": "login_form_800x600_v08_s1.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE user1"}
+{"image": "login_form_800x600_v08_s2.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 412", "point": [500, 412], "bbox": [238, 378, 762, 445], "label": "Password field"}
+{"image": "login_form_800x600_v08_s3.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_800x600_v08_s4.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 578", "point": [500, 578], "bbox": [238, 543, 762, 613], "label": "Sign in button"}
+{"image": "login_form_800x600_v09_s0.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "CLICK 500 268", "point": [500, 268], "bbox": [288, 235, 712, 302], "label": "Username field"}
+{"image": "login_form_800x600_v09_s1.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "TYPE admin"}
+{"image": "login_form_800x600_v09_s2.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "CLICK 500 400", "point": [500, 400], "bbox": [288, 367, 712, 433], "label": "Password field"}
+{"image": "login_form_800x600_v09_s3.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "TYPE 1234"}
+{"image": "login_form_800x600_v09_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "CLICK 500 567", "point": [500, 567], "bbox": [288, 532, 712, 602], "label": "Sign in button"}
+{"image": "login_form_800x600_v09_s5.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v10_s0.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 248", "point": [500, 248], "bbox": [262, 215, 738, 282], "label": "Username field"}
+{"image": "login_form_800x600_v10_s1.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v10_s2.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 380", "point": [500, 380], "bbox": [262, 347, 738, 413], "label": "Password field"}
+{"image": "login_form_800x600_v10_s3.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v10_s4.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 547", "point": [500, 547], "bbox": [262, 512, 738, 582], "label": "Sign in button"}
+{"image": "login_form_800x600_v11_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 290", "point": [500, 290], "bbox": [262, 257, 738, 323], "label": "Username field"}
+{"image": "login_form_800x600_v11_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v11_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 422", "point": [500, 422], "bbox": [262, 388, 738, 455], "label": "Password field"}
+{"image": "login_form_800x600_v11_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v11_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "KEY enter"}
+{"image": "login_form_800x600_v12_s0.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 297", "point": [500, 297], "bbox": [288, 263, 712, 330], "label": "Username field"}
+{"image": "login_form_800x600_v12_s1.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_800x600_v12_s2.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 428", "point": [500, 428], "bbox": [288, 395, 712, 462], "label": "Password field"}
+{"image": "login_form_800x600_v12_s3.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_800x600_v12_s4.png", "instruction": "Sign in as tom with password qwerty.", "action": "KEY enter"}
+{"image": "login_form_800x600_v13_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 235", "point": [500, 235], "bbox": [262, 202, 738, 268], "label": "Username field"}
+{"image": "login_form_800x600_v13_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_800x600_v13_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 367", "point": [500, 367], "bbox": [262, 333, 738, 400], "label": "Password field"}
+{"image": "login_form_800x600_v13_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_800x600_v13_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "KEY enter"}
+{"image": "login_form_800x600_v14_s0.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 302", "point": [500, 302], "bbox": [288, 268, 712, 335], "label": "Username field"}
+{"image": "login_form_800x600_v14_s1.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "TYPE tom"}
+{"image": "login_form_800x600_v14_s2.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 433", "point": [500, 433], "bbox": [288, 400, 712, 467], "label": "Password field"}
+{"image": "login_form_800x600_v14_s3.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "TYPE qwerty"}
+{"image": "login_form_800x600_v14_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "KEY enter"}
+{"image": "login_form_800x600_v15_s0.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 295", "point": [500, 295], "bbox": [262, 262, 738, 328], "label": "Username field"}
+{"image": "login_form_800x600_v15_s1.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE user1"}
+{"image": "login_form_800x600_v15_s2.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 427", "point": [500, 427], "bbox": [262, 393, 738, 460], "label": "Password field"}
+{"image": "login_form_800x600_v15_s3.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_800x600_v15_s4.png", "instruction": "Sign in as user1 with password pass123.", "action": "KEY enter"}
+{"image": "login_form_800x600_v16_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 260", "point": [500, 260], "bbox": [238, 227, 762, 293], "label": "Username field"}
+{"image": "login_form_800x600_v16_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE maria"}
+{"image": "login_form_800x600_v16_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "CLICK 500 392", "point": [500, 392], "bbox": [238, 358, 762, 425], "label": "Password field"}
+{"image": "login_form_800x600_v16_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "TYPE s3cret"}
+{"image": "login_form_800x600_v16_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in.", "action": "KEY enter"}
+{"image": "login_form_800x600_v17_s0.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 235", "point": [500, 235], "bbox": [238, 202, 762, 268], "label": "Username field"}
+{"image": "login_form_800x600_v17_s1.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE user1"}
+{"image": "login_form_800x600_v17_s2.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 367", "point": [500, 367], "bbox": [238, 333, 762, 400], "label": "Password field"}
+{"image": "login_form_800x600_v17_s3.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "TYPE pass123"}
+{"image": "login_form_800x600_v17_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in.", "action": "CLICK 500 533", "point": [500, 533], "bbox": [238, 498, 762, 568], "label": "Sign in button"}
+{"image": "login_form_1440x900_v00_s0.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "CLICK 500 207", "point": [500, 207], "bbox": [368, 184, 632, 229], "label": "Username field"}
+{"image": "login_form_1440x900_v00_s1.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v00_s2.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "CLICK 500 294", "point": [500, 294], "bbox": [368, 272, 632, 317], "label": "Password field"}
+{"image": "login_form_1440x900_v00_s3.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v00_s4.png", "instruction": "Fill the login form with username admin and password 1234 and sign in.", "action": "CLICK 500 406", "point": [500, 406], "bbox": [368, 382, 632, 429], "label": "Sign in button"}
+{"image": "login_form_1440x900_v01_s0.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "CLICK 500 170", "point": [500, 170], "bbox": [340, 148, 660, 192], "label": "Username field"}
+{"image": "login_form_1440x900_v01_s1.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "TYPE maria"}
+{"image": "login_form_1440x900_v01_s2.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "CLICK 500 258", "point": [500, 258], "bbox": [340, 236, 660, 280], "label": "Password field"}
+{"image": "login_form_1440x900_v01_s3.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "TYPE s3cret"}
+{"image": "login_form_1440x900_v01_s4.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "CLICK 500 369", "point": [500, 369], "bbox": [340, 346, 660, 392], "label": "Sign in button"}
+{"image": "login_form_1440x900_v01_s5.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v02_s0.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 181", "point": [500, 181], "bbox": [368, 159, 632, 203], "label": "Username field"}
+{"image": "login_form_1440x900_v02_s1.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE user1"}
+{"image": "login_form_1440x900_v02_s2.png", "instruction": "Sign in as user1 with password pass123.", "action": "CLICK 500 269", "point": [500, 269], "bbox": [368, 247, 632, 291], "label": "Password field"}
+{"image": "login_form_1440x900_v02_s3.png", "instruction": "Sign in as user1 with password pass123.", "action": "TYPE pass123"}
+{"image": "login_form_1440x900_v02_s4.png", "instruction": "Sign in as user1 with password pass123.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v03_s0.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 213", "point": [500, 213], "bbox": [382, 191, 618, 236], "label": "Username field"}
+{"image": "login_form_1440x900_v03_s1.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1440x900_v03_s2.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 301", "point": [500, 301], "bbox": [382, 279, 618, 323], "label": "Password field"}
+{"image": "login_form_1440x900_v03_s3.png", "instruction": "Sign in as maria with password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1440x900_v03_s4.png", "instruction": "Sign in as maria with password s3cret.", "action": "CLICK 500 412", "point": [500, 412], "bbox": [382, 389, 618, 436], "label": "Sign in button"}
+{"image": "login_form_1440x900_v04_s0.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 217", "point": [500, 217], "bbox": [340, 194, 660, 239], "label": "Username field"}
+{"image": "login_form_1440x900_v04_s1.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "TYPE maria"}
+{"image": "login_form_1440x900_v04_s2.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 304", "point": [500, 304], "bbox": [340, 282, 660, 327], "label": "Password field"}
+{"image": "login_form_1440x900_v04_s3.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "TYPE s3cret"}
+{"image": "login_form_1440x900_v04_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "CLICK 500 416", "point": [500, 416], "bbox": [340, 392, 660, 439], "label": "Sign in button"}
+{"image": "login_form_1440x900_v04_s5.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v05_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 201", "point": [500, 201], "bbox": [340, 179, 660, 223], "label": "Username field"}
+{"image": "login_form_1440x900_v05_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v05_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 289", "point": [500, 289], "bbox": [340, 267, 660, 311], "label": "Password field"}
+{"image": "login_form_1440x900_v05_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v05_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 400", "point": [500, 400], "bbox": [340, 377, 660, 423], "label": "Sign in button"}
+{"image": "login_form_1440x900_v06_s0.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 171", "point": [500, 171], "bbox": [354, 149, 646, 193], "label": "Username field"}
+{"image": "login_form_1440x900_v06_s1.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v06_s2.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 259", "point": [500, 259], "bbox": [354, 237, 646, 281], "label": "Password field"}
+{"image": "login_form_1440x900_v06_s3.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v06_s4.png", "instruction": "Sign in as admin with password 1234.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v07_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 177", "point": [500, 177], "bbox": [354, 154, 646, 199], "label": "Username field"}
+{"image": "login_form_1440x900_v07_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v07_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 264", "point": [500, 264], "bbox": [354, 242, 646, 287], "label": "Password field"}
+{"image": "login_form_1440x900_v07_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v07_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 376", "point": [500, 376], "bbox": [354, 352, 646, 399], "label": "Sign in button"}
+{"image": "login_form_1440x900_v08_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 167", "point": [500, 167], "bbox": [368, 144, 632, 189], "label": "Username field"}
+{"image": "login_form_1440x900_v08_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v08_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 254", "point": [500, 254], "bbox": [368, 232, 632, 277], "label": "Password field"}
+{"image": "login_form_1440x900_v08_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v08_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v09_s0.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 221", "point": [500, 221], "bbox": [368, 199, 632, 243], "label": "Username field"}
+{"image": "login_form_1440x900_v09_s1.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "TYPE user1"}
+{"image": "login_form_1440x900_v09_s2.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 309", "point": [500, 309], "bbox": [368, 287, 632, 331], "label": "Password field"}
+{"image": "login_form_1440x900_v09_s3.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "TYPE pass123"}
+{"image": "login_form_1440x900_v09_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "CLICK 500 420", "point": [500, 420], "bbox": [368, 397, 632, 443], "label": "Sign in button"}
+{"image": "login_form_1440x900_v09_s5.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v10_s0.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 206", "point": [500, 206], "bbox": [382, 183, 618, 228], "label": "Username field"}
+{"image": "login_form_1440x900_v10_s1.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v10_s2.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 293", "point": [500, 293], "bbox": [382, 271, 618, 316], "label": "Password field"}
+{"image": "login_form_1440x900_v10_s3.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v10_s4.png", "instruction": "Sign in as admin with password 1234.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v11_s0.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 206", "point": [500, 206], "bbox": [354, 183, 646, 228], "label": "Username field"}
+{"image": "login_form_1440x900_v11_s1.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE maria"}
+{"image": "login_form_1440x900_v11_s2.png", "instruction": "Log in with username maria and password s3cret.", "action": "CLICK 500 293", "point": [500, 293], "bbox": [354, 271, 646, 316], "label": "Password field"}
+{"image": "login_form_1440x900_v11_s3.png", "instruction": "Log in with username maria and password s3cret.", "action": "TYPE s3cret"}
+{"image": "login_form_1440x900_v11_s4.png", "instruction": "Log in with username maria and password s3cret.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v12_s0.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "CLICK 500 167", "point": [500, 167], "bbox": [340, 144, 660, 189], "label": "Username field"}
+{"image": "login_form_1440x900_v12_s1.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "TYPE tom"}
+{"image": "login_form_1440x900_v12_s2.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "CLICK 500 254", "point": [500, 254], "bbox": [340, 232, 660, 277], "label": "Password field"}
+{"image": "login_form_1440x900_v12_s3.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "TYPE qwerty"}
+{"image": "login_form_1440x900_v12_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v12_s5.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v13_s0.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 171", "point": [500, 171], "bbox": [382, 149, 618, 193], "label": "Username field"}
+{"image": "login_form_1440x900_v13_s1.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v13_s2.png", "instruction": "Sign in as admin with password 1234.", "action": "CLICK 500 259", "point": [500, 259], "bbox": [382, 237, 618, 281], "label": "Password field"}
+{"image": "login_form_1440x900_v13_s3.png", "instruction": "Sign in as admin with password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v13_s4.png", "instruction": "Sign in as admin with password 1234.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v14_s0.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 207", "point": [500, 207], "bbox": [368, 184, 632, 229], "label": "Username field"}
+{"image": "login_form_1440x900_v14_s1.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "TYPE tom"}
+{"image": "login_form_1440x900_v14_s2.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 294", "point": [500, 294], "bbox": [368, 272, 632, 317], "label": "Password field"}
+{"image": "login_form_1440x900_v14_s3.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "TYPE qwerty"}
+{"image": "login_form_1440x900_v14_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in.", "action": "CLICK 500 406", "point": [500, 406], "bbox": [368, 382, 632, 429], "label": "Sign in button"}
+{"image": "login_form_1440x900_v15_s0.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 173", "point": [500, 173], "bbox": [340, 151, 660, 196], "label": "Username field"}
+{"image": "login_form_1440x900_v15_s1.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE admin"}
+{"image": "login_form_1440x900_v15_s2.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 261", "point": [500, 261], "bbox": [340, 239, 660, 283], "label": "Password field"}
+{"image": "login_form_1440x900_v15_s3.png", "instruction": "Log in with username admin and password 1234.", "action": "TYPE 1234"}
+{"image": "login_form_1440x900_v15_s4.png", "instruction": "Log in with username admin and password 1234.", "action": "CLICK 500 372", "point": [500, 372], "bbox": [340, 349, 660, 396], "label": "Sign in button"}
+{"image": "login_form_1440x900_v16_s0.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 214", "point": [500, 214], "bbox": [340, 192, 660, 237], "label": "Username field"}
+{"image": "login_form_1440x900_v16_s1.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_1440x900_v16_s2.png", "instruction": "Sign in as tom with password qwerty.", "action": "CLICK 500 302", "point": [500, 302], "bbox": [340, 280, 660, 324], "label": "Password field"}
+{"image": "login_form_1440x900_v16_s3.png", "instruction": "Sign in as tom with password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_1440x900_v16_s4.png", "instruction": "Sign in as tom with password qwerty.", "action": "KEY enter"}
+{"image": "login_form_1440x900_v17_s0.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 162", "point": [500, 162], "bbox": [354, 140, 646, 184], "label": "Username field"}
+{"image": "login_form_1440x900_v17_s1.png", "instruction": "Log in with username tom and password qwerty.", "action": "TYPE tom"}
+{"image": "login_form_1440x900_v17_s2.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 250", "point": [500, 250], "bbox": [354, 228, 646, 272], "label": "Password field"}
+{"image": "login_form_1440x900_v17_s3.png", "instruction": "Log in with username tom and password qwerty.", "action": "TYPE qwerty"}
+{"image": "login_form_1440x900_v17_s4.png", "instruction": "Log in with username tom and password qwerty.", "action": "CLICK 500 361", "point": [500, 361], "bbox": [354, 338, 646, 384], "label": "Sign in button"}
+{"image": "click_button_1280x720_v00_s0.png", "instruction": "Click on the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v01_s0.png", "instruction": "Where do you click to use the orange button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v03_s0.png", "instruction": "Click the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v04_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v06_s0.png", "instruction": "Where do you click to use the purple button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v08_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v09_s0.png", "instruction": "Where do you click to use the yellow button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v10_s0.png", "instruction": "Click on the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v11_s0.png", "instruction": "Click on the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v12_s0.png", "instruction": "Click on the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v13_s0.png", "instruction": "Find the yellow button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v14_s0.png", "instruction": "Find the blue button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v15_s0.png", "instruction": "Where do you click to use the green button? When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v16_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1280x720_v17_s0.png", "instruction": "Click on the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v00_s0.png", "instruction": "Find the purple button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v03_s0.png", "instruction": "Find the orange button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v04_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v05_s0.png", "instruction": "Click on the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v07_s0.png", "instruction": "Click the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v08_s0.png", "instruction": "Find the yellow button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v09_s0.png", "instruction": "Click on the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v10_s0.png", "instruction": "Find the purple button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v11_s0.png", "instruction": "Click on the purple button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v12_s0.png", "instruction": "Click on the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v14_s0.png", "instruction": "Click the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1024x768_v16_s0.png", "instruction": "Click on the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v01_s0.png", "instruction": "Tap the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v02_s0.png", "instruction": "Tap the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v03_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v04_s0.png", "instruction": "Tap the blue button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v06_s0.png", "instruction": "Click the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v07_s0.png", "instruction": "Find the orange button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v10_s0.png", "instruction": "Click the orange button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v11_s0.png", "instruction": "Click the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v12_s0.png", "instruction": "Click on the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v13_s0.png", "instruction": "Tap the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v15_s0.png", "instruction": "Click the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_800x600_v16_s0.png", "instruction": "Click the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v00_s0.png", "instruction": "Click the red button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v03_s0.png", "instruction": "Tap the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v04_s0.png", "instruction": "Find the yellow button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v06_s0.png", "instruction": "Find the green button and click it. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v09_s0.png", "instruction": "Click the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v12_s0.png", "instruction": "Click on the yellow button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v14_s0.png", "instruction": "Click the green button. When you are done, say DONE.", "action": "DONE"}
+{"image": "click_button_1440x900_v15_s0.png", "instruction": "Where do you click to use the red button? When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v01_s4.png", "instruction": "Get the counter up to 5 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v02_s6.png", "instruction": "Increment the counter to 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v03_s2.png", "instruction": "Use the + button until the counter reaches 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v04_s4.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v06_s6.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v07_s3.png", "instruction": "Increment the counter to 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v08_s1.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v09_s4.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v10_s1.png", "instruction": "Use the + button until the counter reaches 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v11_s2.png", "instruction": "Increment the counter to 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v12_s4.png", "instruction": "Use the + button until the counter reaches 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v13_s2.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v14_s3.png", "instruction": "Make the counter show 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v15_s1.png", "instruction": "Make the counter show 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1280x720_v17_s2.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v00_s1.png", "instruction": "Make the counter show 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v01_s2.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v02_s1.png", "instruction": "Get the counter up to 4 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v03_s2.png", "instruction": "Use the + button until the counter reaches 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v06_s3.png", "instruction": "Make the counter show 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v07_s3.png", "instruction": "Get the counter up to 6 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v08_s2.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v09_s4.png", "instruction": "Increment the counter to 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v10_s2.png", "instruction": "Get the counter up to 3 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v11_s4.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v12_s4.png", "instruction": "Increment the counter to 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v13_s3.png", "instruction": "Make the counter show 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v14_s5.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v15_s5.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1024x768_v17_s2.png", "instruction": "Increment the counter to 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v01_s3.png", "instruction": "Use the + button until the counter reaches 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v02_s3.png", "instruction": "Get the counter up to 5 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v05_s4.png", "instruction": "Get the counter up to 7 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v06_s1.png", "instruction": "Make the counter show 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v07_s3.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v09_s6.png", "instruction": "Make the counter show 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v11_s7.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v13_s3.png", "instruction": "Get the counter up to 4 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v14_s6.png", "instruction": "Increment the counter to 7. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v15_s7.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v16_s7.png", "instruction": "Make the counter show 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_800x600_v17_s4.png", "instruction": "Increment the counter to 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v00_s2.png", "instruction": "Use the + button until the counter reaches 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v02_s5.png", "instruction": "Increment the counter to 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v03_s5.png", "instruction": "Increment the counter to 6. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v05_s2.png", "instruction": "Make the counter show 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v06_s2.png", "instruction": "Make the counter show 4. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v07_s3.png", "instruction": "Get the counter up to 5 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v08_s2.png", "instruction": "Get the counter up to 4 using the + button. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v09_s4.png", "instruction": "Use the + button until the counter reaches 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v10_s2.png", "instruction": "Increment the counter to 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v13_s6.png", "instruction": "Use the + button until the counter reaches 8. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v15_s4.png", "instruction": "Make the counter show 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v16_s2.png", "instruction": "Use the + button until the counter reaches 3. When you are done, say DONE.", "action": "DONE"}
+{"image": "counter_1440x900_v17_s2.png", "instruction": "Increment the counter to 5. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v00_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v02_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v04_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v05_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v06_s4.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v07_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v08_s4.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v09_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v10_s4.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v12_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v13_s4.png", "instruction": "Log in with username tom and password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v14_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v15_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1280x720_v17_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v00_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v01_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v02_s4.png", "instruction": "Log in with username tom and password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v06_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v08_s4.png", "instruction": "Fill the login form with username admin and password 1234 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v09_s4.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v10_s4.png", "instruction": "Log in with username user1 and password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v13_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v14_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1024x768_v15_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v00_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v01_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v02_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v03_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v05_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v06_s4.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v07_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v08_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v10_s4.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v11_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v12_s4.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v13_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v14_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v15_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v16_s4.png", "instruction": "Fill the login form with username maria and password s3cret and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_800x600_v17_s4.png", "instruction": "Fill the login form with username user1 and password pass123 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v00_s4.png", "instruction": "Fill the login form with username admin and password 1234 and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v02_s4.png", "instruction": "Sign in as user1 with password pass123. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v03_s4.png", "instruction": "Sign in as maria with password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v05_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v06_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v07_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v08_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v10_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v11_s4.png", "instruction": "Log in with username maria and password s3cret. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v13_s4.png", "instruction": "Sign in as admin with password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v14_s4.png", "instruction": "Fill the login form with username tom and password qwerty and sign in. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v15_s4.png", "instruction": "Log in with username admin and password 1234. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v16_s4.png", "instruction": "Sign in as tom with password qwerty. When you are done, say DONE.", "action": "DONE"}
+{"image": "login_form_1440x900_v17_s4.png", "instruction": "Log in with username tom and password qwerty. When you are done, say DONE.", "action": "DONE"}

@@ -1,0 +1,26 @@
+### 22/10 20:55 — BÀN GIAO QUA ĐÊM (máy tắt, GPU Kaggle vẫn chạy)
+
+**A) Còn chạy trên Kaggle (KHÔNG cần máy) — 2 job:**
+- `khoadangnguye/ornith-gui-desktop-bench-a` (12 task, GLM) — RUNNING ✓
+- `dieniw/ornith-gui-desktop-bench-b2` (12 task, split B) — RUNNING ✓
+→ mai boot máy: watchdog tự tải output + chấm + ghi LOBBY + đẩy bus ✓
+
+**B) VIỆC CẦN LÀM NGAY MAI (theo thứ tự):**
+1. `python scripts/upload_traj_v2.py` — tạo dataset traj slug MỚI `khoadangnguye/ornith-gui-traj2` (816 ảnh + 816 dòng, ảnh PHẲNG) → `datasets version` KHÔNG cập nhật được file `traj.jsonl` (file vẫn 0 byte ✗) → **phải tạo slug mới** ✓
+2. Push `phase13-gui/kernel_v23b` (đã trỏ sang traj2 ✓) → train v23b (rebalance + S9/S10 + guard fail-loud) ✓
+3. Chạy 2 phép đo còn treo (MiMo đề xuất ✓): **B16-A chạy lại trên task đã sửa** + **ô 2×2** (v22 trên task B15.5 CŨ) → tách "do sửa task" vs "do data" ✓
+4. Đọc kết quả desktop-bench (12 task) → đây là **lần đầu đo agent trên app thật** ✓
+
+**C) BÀI HỌC HÔM NAY (3 lần dính, đã chặn được 2.3h GPU lãng phí):**
+- `kaggle datasets create/version` **BỎ QUA THƯ MỤC CON** ⇒ dataset chỉ còn file ở gốc ⇒ **ảnh biến mất** ⇒ dùng `scripts/pack_sft_staging.py` (MiMo) hoặc **làm phẳng ảnh** ✓
+- `datasets version` **KHÔNG cập nhật được file jsonl** (giữ 0 byte ✗) ⇒ **tạo slug mới** ✓
+- Loader **im lặng bỏ row không resolve ảnh** ⇒ đã thêm **guard fail-loud** (MiMo đề xuất ✓) trong v21/v22/v23 ✓
+- Kaggle API **rate-limit 403** khi gọi dồn → cần nghỉ hoặc giãn nhịp ✓
+- `kaggle datasets download` **hay treo khi output bị redirect** → dùng `scripts/fetch_dataset_files.py` (Python API) ✓
+
+**D) TRẠNG THÁI HỆ THỐNG:**
+- Local C: còn ~18GB — chỉ giữ adapter (out_sft_v21/v22) + kết quả + log + code ✓
+- USB `D:\ornith-offline`: `input/` 850MB ✓ (base model **giữ trên Kaggle** theo yêu cầu user ✓; `wheels/` chưa tải xong ✗)
+- 6 process nền: watchdog A/B, bus, watch_bus, space_sync ×2, watch_agent_md ✓ — **tự bật lại khi login Windows** (Startup folder ✓ `ornith_autostart.cmd` → `scripts/start_all.ps1` ✓, key đọc từ `HKCU:\Environment` ✓)
+- `LOBBY_DIGEST.md` (bản đọc được của LOBBY, tự sinh ✓) · `result.md` (số liệu tự thu thập ✓) · `RTX_OFFLINE_GUIDE.md` ✓
+- Còn cần user: **HF PRO hoặc VPS** (Docker Space bị HF chặn 402/403 ✗) để có OpenCode 24/7 + demo noVNC

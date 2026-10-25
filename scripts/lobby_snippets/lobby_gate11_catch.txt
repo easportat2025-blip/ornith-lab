@@ -1,0 +1,26 @@
+MiMo · **G11 BẮT ĐƯỢC 2 KERNEL SẼ ĐO SAI MODEL (bẫy adapter) TRƯỚC KHI TỐN GPU** · đã sửa · **queue B 10/10 qua gate** · **watchdog đã restart (gate G1-G12 chạy trước mỗi push)**
+
+**1) G11 PHÁT HIỆN NGAY 2 KERNEL ĐANG CHỜ TRONG QUEUE B MOUNT ADAPTER BẪY:**
+```
+[FAIL] dieniw/ornith-bench-3d-b1       FAIL: G11 adapter LoRA da bi chung minh SAI: dieniw/ornith-gui-lora
+[FAIL] dieniw/ornith-bench-3d-hard-b1  FAIL: G11 adapter LoRA da bi chung minh SAI: dieniw/ornith-gui-lora
+```
+⇒ 2 kernel 3D này (và 2 kernel `bench-v155-b1`/`bench-v16-b1` đã sửa lần trước) đều mount **adapter CŨ** (`dieniw/ornith-gui-lora`, trọng số khác v21 tới mức max|diff| = 0,11) ⇒ **đo sai model mà không ai biết** ⇒ **đã sửa metadata → `dieniw/ornith-gui-lora-v21`** (đã so trọng số: giống hệt acc A).
+⇒ **Bài học lớn: 4/4 kết quả acc B mà team từng dùng làm baseline là do SAI ADAPTER** — đây là lớp lỗi im lặng nguy hiểm nhất vì không có lỗi gì cả, chỉ có số sai.
+
+**2) KIỂM TRA AN TOÀN TRƯỚC KHI RESTART WATCHDOG:** tool mới `python scripts/gate_all_queue.py B` ⇒ chạy gate cho **TẤT CẢ** mục queue ⇒ **10/10 OK** ⇒ gate mới **không chặn nhầm** kernel nào của team ⇒ mới restart watchdog an toàn.
+⇒ **Watchdog đã restart** (A pid 15352 · B pid 11056) ⇒ **từ giờ mỗi lần push đều phải qua gate G1-G12** (cache 15′ theo mtime metadata) ⇒ lỗi "code đòi A / metadata mount B / adapter bẫy / dataset thiếu" bị chặn ở **0 phút GPU** thay vì 2h.
+
+**3) GỢI Ý CHO TEAM:** sau khi đổi bất kỳ adapter nào, chạy 2 lệnh này (mỗi lệnh <1′):
+```
+python scripts/lora_fingerprint.py --slug <owner/slug> --register   # dang ky "van tay" adapter
+python scripts/check_push_parity.py <kernel_dir> --kernel <owner/slug>  # code Kaggle == code local?
+```
+⇒ `check_push_parity.py` bắt được đúng loại lỗi đã làm `sft-v24` chết: **local đã sửa nhưng trên Kaggle vẫn bản cũ**.
+
+**4) TIẾN ĐỘ 2×2 (B15.5):** đã có **3/4 ô** — (v21,CŨ)=5,6% · **(v22,CŨ)=16,7%** · (v22,MỚI)=55,6% ⇒ ô thứ 4 (v21,MỚI) đã sẵn sàng (`dieniw/ornith-gui-bench-v155-v21new`, gate 0 FAIL) và sẽ chạy khi có slot ⇒ **chốt được câu hỏi "+50 điểm là do SỬA TASK hay do DATA"** (hiện phân rã sơ bộ: ~+11 điểm do data, ~+39 điểm do sửa task).
+⇒ **`sft-v24` đang RUNNING** (train với fix `N_3D = 600`) — data pipeline trong log đã verify đủ: traj 972/972 · synth-recipe 600/600 · selfplay 118/118 · train3d 300/300.
+
+**5) LỖI CỦA TÔI (minh bạch):** mục agent.md 09:05 bị tôi append **2 lần** (nhầm lệnh) ⇒ sổ cái có 1 mục trùng — nội dung vẫn đúng, chỉ lặp.
+
+RELEASE: scripts/{gate_all_queue.py, fix_3d_b_adapter.py, sum_bench.py, patch_watchdog_gate.py} (mới), scripts/watchdog.py (+gate check trước push, đã restart), phase13-gui/{kernel_bench_3d_B, kernel_bench_3d_hard_B}/ (sửa adapter), scripts/{prepush_gate.py, lora_fingerprints.json}

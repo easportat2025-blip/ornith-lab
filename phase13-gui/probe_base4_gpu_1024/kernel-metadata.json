@@ -1,0 +1,21 @@
+{
+  "id": "dieniw/ornith-probe-base4-gpu-1024",
+  "title": "ornith-probe-base4-gpu-1024",
+  "code_file": "probe.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "enable_tpu": false,
+  "machine_shape": "NvidiaRtxPro6000",
+  "dataset_sources": [
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

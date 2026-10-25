@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Color Buttons</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 24px; background: #f4f4f4; }
+  header { display: flex; justify-content: space-between; align-items: center; }
+  h1 { font-size: 22px; margin: 0; }
+  #clicked { font-size: 16px; color: #333; }
+  .grid { display: grid; grid-template-columns: repeat(3, 180px); gap: 18px; margin-top: 36px; }
+  button { height: 64px; border: 0; border-radius: 10px; font-size: 16px; color: #fff; cursor: pointer; }
+  #btn-red { background: #d0342c; } #btn-green { background: #2e9e44; }
+  #btn-blue { background: #1e6fd9; } #btn-yellow { background: #c9a10a; color: #222; }
+  #btn-purple { background: #7a3bbd; } #btn-orange { background: #d97a1e; }
+  #reset { background: #555; height: 36px; margin-top: 28px; width: 120px; }
+</style></head>
+<body>
+<header><h1>Color Button Panel</h1><span id="clicked">Clicked: 0</span></header>
+<div class="grid">
+  <button id="btn-red" data-label="Red button">Red</button>
+  <button id="btn-green" data-label="Green button">Green</button>
+  <button id="btn-blue" data-label="Blue button">Blue</button>
+  <button id="btn-yellow" data-label="Yellow button">Yellow</button>
+  <button id="btn-purple" data-label="Purple button">Purple</button>
+  <button id="btn-orange" data-label="Orange button">Orange</button>
+</div>
+<button id="reset" data-label="Reset button">Reset</button>
+<script>
+  window.__goal_reached = false;
+  window.__task_ok = false;
+  window.__clicks = 0;
+  var Q = new URLSearchParams(location.search);
+  var reqDone = Q.get('req') === 'done';
+  window.__target = Q.get('target') || 'btn-green';
+  document.querySelectorAll('.grid button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      window.__clicks += 1;
+      document.getElementById('clicked').textContent = 'Clicked: ' + window.__clicks;
+      if (b.id === window.__target) {
+        window.__task_ok = true;
+        if (!reqDone) window.__goal_reached = true;
+      }
+    });
+  });
+  document.getElementById('reset').addEventListener('click', function () {
+    window.__clicks = 0;
+    document.getElementById('clicked').textContent = 'Clicked: 0';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+MiMo · đã thêm **target cho kernel 2×2** vào `watchdog_targets.json` (30 target) — không có nó thì kernel chạy xong nhưng watchdog **bỏ qua** ⇒ kết quả không được tải về ⇒ ô 2×2 của thí nghiệm bị bỏ qua.
+
+```
+{"label": "bench-v155-v22-old",
+ "kernel": "khoadangnguye/ornith-gui-bench-v155-v22-old",
+ "outdir": "phase13-gui/out_bench_v155_v22_old",
+ "pattern": "b15_result\\.json|.*\\.log"}
+```
+⇒ kết quả sẽ về đúng đường dẫn mà `scripts/report_fixed_suite.py` đọc sẵn (`phase13-gui/out_bench_v155_v22_old/b15_result.json`) ⇒ **1 lệnh là ra báo cáo cuối**.
+
+**Trạng thái:** GPU đang bão hoà (3 session) ⇒ 2 kernel bench (B16-A task mới + ô 2×2) chờ slot ⇒ watchdog push ngay khi trống.
+
+⇒ **Còn 1 lệnh duy nhất chặn pipeline SFT** (5 run v23b): `python scripts/publish_traj_r2.py --upload` (đã dựng sẵn + verify 972/972 row resolve theo đúng logic loader).
+
+**Ghi chú về lịch sửa hôm nay (để đọc lại dễ hơn):** hôm nay có **9 lớp lỗi im lặng** đã bị chặn/tìm ra, đều bằng bằng chứng chạy thật: (1) kernel không có dataset ⇒ Kaggle bỏ qua; (2) dataset rỗng (0 row); (3) dataset cũ (task sửa chưa version); (4) `enable_internet` + competition ⇒ 400; (5) app HTML chưa inline ⇒ score −1; (6) phím bị bỏ qua do sai case (Playwright vs X11); (7) `window.status` che mất dòng phản hồi; (8) builder đọc app nhưng không nhúng placeholder ⇒ NameError; (9) `var status` đè lên `window.status` ⇒ assign im lặng.
+⇒ **Nguyên tắc chung đã đi vào tooling:** *mọi thứ phải có guard fail-loud + 1 lệnh verify*, và **không kết luận từ log mà phải đo trực tiếp** (nhiều lần tôi đoán sai 2 lần trước khi đọc code/metadata).
+
+RELEASE: scripts/watchdog_targets.json (them target 2x2)

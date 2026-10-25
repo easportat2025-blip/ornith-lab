@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Profile - desktop web env</title>
+<style>
+  body{margin:0;background:#f6f7f9;font:15px system-ui,sans-serif;color:#1f2430}
+  .wrap{max-width:860px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 4px}
+  .sub{color:#6b7280;font-size:13px;margin-bottom:14px}
+  .note{background:#fffbe6;border:1px solid #e6d98a;border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:15px}
+  .note b{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .card{background:#fff;border:1px solid #dfe3ea;border-radius:10px;padding:16px}
+  label{display:block;font-size:13px;color:#6b7280;margin-bottom:6px}
+  input{width:100%;padding:9px 10px;border:1px solid #cfd5e0;border-radius:6px;font:14px ui-monospace,Menlo,Consolas,monospace}
+  .row{display:flex;gap:10px;margin-top:14px}
+  button{padding:10px 18px;border:0;border-radius:6px;font-size:15px;cursor:pointer;background:#2f6fd0;color:#fff}
+  button.ghost{background:#8b93a3}
+  #status{margin-top:12px;font-size:14px;color:#2f6fd0;min-height:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Profile</h1>
+  <div class="sub">Apply the display name from the note to the profile.</div>
+  <div class="note">Support note: display name = <b id="want">?</b></div>
+  <div class="card">
+    <label>Display name</label>
+    <input id="nm" spellcheck="false">
+    <div class="row">
+      <button id="apply">Apply name</button>
+      <button id="refresh" class="ghost">Refresh preview</button>
+    </div>
+  </div>
+  <div id="status"></div>
+</div>
+<script>
+/* TASK-38 T38_recovery_trap (GLM, 24/10)
+   Nang luc W2 #3 "PHA VONG LAP": 1 control (Refresh preview) KHONG lam gi
+   (no-op) => agent lap click no do se lap vo han => phai DOI CHIEN LUWA sang
+   control khac. Dong thoi giá trị phai DOC trên màn hình (read-before-act).
+   Bien NGAU NHIEN: tên hiển thị doi moi lan tai.
+   Checker DOC DOM + TIN LAI: window.__state = {typed, applied, clicks} */
+const R=function(a){return a[Math.floor(Math.random()*a.length)];};
+const A=R(["Alex","Robin","Casey","Morgan","Quinn","Riley","Avery","Jordan"]);
+const B=R(["Kite","Nova","Iris","Onyx","Zephyr","Echo","Vega"]);
+const WANT=A+" "+B;
+document.getElementById("want").textContent=WANT;
+window.__spec={vars:{WANT:WANT}};   /* nhat app khac B17 cung cap __spec.vars ==> policy/checker doc duoc GT */
+const nm=document.getElementById("nm");
+const apply=document.getElementById("apply");
+const refresh=document.getElementById("refresh");
+const statusEl=document.getElementById("status");
+let applied=false, clicks={apply:0,refresh:0};
+function snap(){
+  window.__state={typed:nm.value, want:WANT, applied:applied, clicks:clicks,
+                  status:statusEl.textContent};
+}
+apply.addEventListener("click",function(){
+  clicks.apply++;
+  if(nm.value.trim()===WANT){
+    applied=true;
+    statusEl.textContent="Name applied.";
+  }else{
+    statusEl.textContent="Error: name does not match the note.";
+  }
+  snap();
+});
+refresh.addEventListener("click",function(){
+  clicks.refresh++;
+  // NO-OP: khong doi gi (ke ca khong doi status) => lap click o day la vong lap that
+  statusEl.textContent=statusEl.textContent;   // giu nguyen trang thai
+  snap();
+});
+nm.addEventListener("input",snap);
+snap();
+window.__targets=(function(){
+  function norm(el){const r=el.getBoundingClientRect();
+    return [Math.round((r.left+r.width/2)/(window.innerWidth||1280)*1000),
+            Math.round((r.top+r.height/2)/(window.innerHeight||720)*1000)];}
+  return {name:norm(nm), apply:norm(apply), refresh:norm(refresh)};
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+entry = chr(10) + "### [DeepSeek] " + chr(9226) + " 20/10 20:15 " + chr(8212) + " **DESKTOP-ENV DA CHUNG MINH DUOC tren Kaggle CPU: cua so that + phim that + (offset 86px cua thanh cong cu)**" + chr(10) + chr(10)
+entry += "**Ket qua kernel `khoadangnguye/ornith-desktop-proof` (CPU, 0 GPU-quota):**" + chr(10)
+entry += "- Xvfb 1280x720 OK · **chromium HEADFUL (playwright) mo cua so that tren X11** OK · doc state app qua DOM OK · **anh chup man hinh OK** (18KB, thay ro browser + trang game ✓)." + chr(10)
+entry += "- **PHIM THAT → app doi state** ✓✓ (ArrowLeft lam grid 2046 doi) → su kien ban phim OS that da toi app ✓." + chr(10)
+entry += "- **CHUOT THAT**: lan 1 khong doi state ✗ → **nguyen nhân da tim ra: OFFSET 86px** ✗ (thanh cong cu browser: tab + address) → toa do CSS cua trang lech 86px so voi toa do MAN HINH. Da sua: `off_y = WINDOW_H - window.innerHeight` ✓ va **crop anh theo viewport** (`agent_view.png`) de toa do agent khop CSS cua trang ✓." + chr(10)
+entry += "- **3 loi da tach ra khi dung Playwright (quan trong cho TASK-27/28):** (1) `chromium-browser` tren image Kaggle = **wrapper SNAP** -> khong chay ✗; (2) chromium **bundle khong mo port remote-debugging** ✗ -> dung `playwright.launch(headless=False)` (playwright tu lo flag) ✓; (3) **process chinh phai co `os.environ['DISPLAY']`** ✗ (chi subprocess co) -> chromium bao *Missing X server or $DISPLAY* ✗." + chr(10)
+entry += chr(10) + "**GLM - TASK-27 sua `phase14-desktop/harness.py` theo 4 dieu kien tren:**" + chr(10)
+entry += "1. `os.environ['DISPLAY']=':99'` **truoc** khi launch ✓ (bat buoc ✓)." + chr(10)
+entry += "2. `playwright.chromium.launch(headless=False, args=[--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--window-size=1280,720,--window-position=0,0])` ✓ + `new_context(viewport={1280,720})` ✓ (van la cua so that ✓)." + chr(10)
+entry += "3. `cdp_eval(expr)` -> `page.evaluate(expr)` ✓ (giu ten ham ✓)." + chr(10)
+entry += "4. **Anh quan sat cho agent = CROP theo viewport** (`off_y = 720 - window.innerHeight`) ✓ → toa do 0..1000 cua agent khop CSS cua trang ✓; **neu giu anh ca man hinh thi moi hanh dong phai cong them off_y** ✓." + chr(10)
+entry += chr(10) + "**Gia tri cua viec nay:** tu gio agent co the **thao tac that tren ung dung that** (khong phai click DOM) - cung giao dien voi B15 (`CLICK x y` 0..1000, `TYPE`, `KEY`) → **code/model hien tai chay lai duoc** ✓. Tiep theo: (a) GLM viet `harness.py` theo tren + **TASK-28 bench tren app that** ✓; (b) **sinh data SFT task-that** bang success-policy tren app that ✓ (nhieu hon 332 row ✓); (c) **demo noVNC tren Space** de user xem agent thao tac that ✓." + chr(10)
+entry += chr(10) + "**Tin khac:** gate v21 = **30.6%** (baseline 27.8%) - phan tich: model **biet format** nhung **khong lam theo yeu cau cu the** → can them data *co bien ngau nhien trong trang* (da gui yeu cau cu cho TASK-26 ✓). **Docker Space bi PAUSED** (het quota CPU free tier?) → can **user bam Resume trong UI** ✓; static Space (dashboard) van RUNNING ✓." + chr(10)
+
+with open('agent.md', 'a', encoding='utf-8') as f:
+    f.write(entry)
+print('appended', len(entry))

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T08 errorfix</title>
+<style>
+  :root { --accent:#dc2626; --bg:#fbf3f3; }
+  body.v1 { --accent:#0369a1; --bg:#f2f7fb; }
+  body.v2 { --accent:#a16207; --bg:#fbf8f0; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); margin:0; padding:24px; }
+  .card { background:#fff; max-width:520px; margin:32px auto; padding:26px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+  h1 { font-size:18px; color:var(--accent); margin:0 0 6px; }
+  p.hint { font-size:13px; color:#555; margin:0 0 16px; }
+  .field { margin-bottom:14px; }
+  label { display:block; font-size:13px; margin-bottom:4px; color:#444; }
+  input { width:100%; box-sizing:border-box; padding:9px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; }
+  input.bad { border-color:#dc2626; background:#fef2f2; }
+  .err { display:none; color:#b91c1c; font-size:12px; margin-top:3px; }
+  button { margin-top:6px; background:var(--accent); color:#fff; border:0; padding:10px 18px; border-radius:6px; font-size:14px; cursor:pointer; }
+  #success { display:none; margin-top:14px; background:#dcfce7; color:#166534; padding:14px; border-radius:6px; font-size:15px; }
+</style>
+</head>
+<body class="v0" data-errorsshown="0" data-submittedok="0" data-submitcount="0">
+<div class="card">
+  <h1>Order request</h1>
+  <p class="hint">Fill the form. Submitting incomplete shows you what is wrong.</p>
+  <form id="form" onsubmit="return false">
+    <div class="field">
+      <label for="name">Full name (required)</label>
+      <input type="text" id="name" autocomplete="off">
+      <div class="err" id="err_name">Name is required.</div>
+    </div>
+    <div class="field">
+      <label for="email">Email (required, must contain @)</label>
+      <input type="text" id="email" autocomplete="off">
+      <div class="err" id="err_email">Email must contain @.</div>
+    </div>
+    <div class="field">
+      <label for="qty">Quantity (required, whole number 1-9)</label>
+      <input type="text" id="qty" autocomplete="off">
+      <div class="err" id="err_qty">Quantity must be a whole number from 1 to 9.</div>
+    </div>
+    <button type="button" id="sub">Submit request</button>
+  </form>
+  <div id="success">Request submitted — all fields valid.</div>
+</div>
+<script>
+"use strict";
+const V = Math.min(2, Math.max(0, parseInt(new URLSearchParams(location.search).get("v") || "0", 10)));
+document.body.className = "v" + V;
+["Register now", "Send request", "Place order"][V] &&
+  (document.querySelector("#sub").textContent = ["Register now", "Send request", "Place order"][V]);
+const ok = document.getElementById("success");
+document.getElementById("sub").addEventListener("click", () => {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const qty = document.getElementById("qty").value.trim();
+  const badName = name === "";
+  const badEmail = !email.includes("@");
+  const badQty = !/^[1-9]$/.test(qty);
+  document.getElementById("err_name").style.display = badName ? "block" : "none";
+  document.getElementById("err_email").style.display = badEmail ? "block" : "none";
+  document.getElementById("err_qty").style.display = badQty ? "block" : "none";
+  document.getElementById("name").classList.toggle("bad", badName);
+  document.getElementById("email").classList.toggle("bad", badEmail);
+  document.getElementById("qty").classList.toggle("bad", badQty);
+  document.body.dataset.submitcount = String(parseInt(document.body.dataset.submitcount || "0", 10) + 1);
+  if (badName || badEmail || badQty) {
+    document.body.dataset.errorsshown = "1";
+    document.body.dataset.submittedok = "0";
+    ok.style.display = "none";
+  } else {
+    document.body.dataset.submittedok = "1";
+    ok.style.display = "block";
+  }
+});
+window.__task_ok = false;
+</script>
+</body>
+</html>

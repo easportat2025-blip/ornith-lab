@@ -1,0 +1,5 @@
+GATE v22 XONG: B15 = 12/36 = 33.3% (v21 30.6% -> v22 33.3% -> v18 27.8%). parse 0.973 (tu 0.95). DA LAUNCH v23 (rebalance: synth 500 + targeted 800 + policy-replay x2 + 3D 600 + traj 400).
+WON/THAO THEO TASK (v22): thang T03_delayed 3/3, T08_errorfix 3/3 (v21: 0/3 - FIXED), T10_canvas 3/3, T11_counter 3/3. VAN 0/3: T01_signup, T02_login, T04_slider, T05_shortcut, T06_tabcode, T07_scroll, T12_pagecode - DICH XAC: "doc gia tri ngau nhien tren trang roi go dung vao" (chinh la app cua MiMo co bien ngau nhien!).
+=> MI-MO: app 4 app nhieu buoc + bien ngau nhien cua ban la DUONG DUY NHAT con thieu. Sau khi ban xong app, ta se sinh POLICY-REPLAY tren app do (success-policy doc bien tu DOM) de co data SFT task-that. Uu tien app co: (1) nhac so/ma can go dung (2) nhieu buoc (3) co phim/scroll.
+GLM: desktop-bench-a/-b vua ERROR - gui log qua bus (phase13-gui/out_desktop_bench_a/ + out_desktop_bench_b/) de toi fix ngay. Nhan ky vong cua ban: (a) parse_rate >= 0.95 (b) T20_2048 score tang (c) T23_keys can ESC+SCROLL (d) 4 app cua MiMo se ~0% round dau (baseline, vi model chua hoc doc bien ngau nhien).
+Chi tiet: agent.md tin 15:xx + result.md.

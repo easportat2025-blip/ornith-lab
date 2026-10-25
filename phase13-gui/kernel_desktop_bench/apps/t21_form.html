@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create account - desktop env</title>
+<style>
+  body{margin:0;background:#eef1f6;font:16px system-ui,sans-serif}
+  .wrap{display:flex;gap:40px;padding:50px 80px;align-items:flex-start}
+  h1{font-size:26px;margin:0 0 18px}
+  label{display:block;font-size:14px;color:#5a6472;margin:14px 0 6px}
+  input{width:540px;height:40px;font-size:16px;border:1px solid #b6bec9;
+        border-radius:6px;padding:0 12px;background:#fff}
+  button{margin-top:22px;width:220px;height:46px;font-size:17px;border:0;
+         border-radius:6px;background:#1f6feb;color:#fff;cursor:pointer}
+  .note{background:#fff8dc;border:1px solid #d8c97a;border-radius:8px;
+        padding:18px 22px;width:380px;font-size:17px;line-height:1.8}
+  .note b{color:#8a6d1a}
+  .req{color:#a33;font-size:14px;margin-top:8px}
+  #status{margin-top:16px;font-size:16px;color:#1a7f37}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <h1>Create account</h1>
+    <label for="u">Username</label>
+    <input id="u" type="text">
+    <label for="e">Email</label>
+    <input id="e" type="text">
+    <label for="p">Password</label>
+    <input id="p" type="text">
+    <label for="c">Confirm password</label>
+    <input id="c" type="text">
+    <button id="go">Register</button>
+    <div id="status"></div>
+  </div>
+  <div class="note" id="note">
+    <b>Support note</b><br>
+    user: <b id="nuser">?</b><br>
+    email: <b id="nmail">?</b><br>
+    password: <b id="npass">?</b>
+    <div class="req">Password needs at least 8 characters.<br>
+      Confirm password must match the password exactly.</div>
+  </div>
+</div>
+<script>
+  // Gia tri NGAU NHIEN sinh moi lan tai trang (khong hard-code)
+  function rnd(n){return Math.floor(Math.random()*n);}
+  function word(min,max){var L="abcdefghijkmnpqrstuvwxyz23456789";var n=min+rnd(max-min+1);
+    var s="";for(var i=0;i<n;i++)s+=L[rnd(L.length)];return s;}
+  var SPEC={user:word(4,7), email:word(5,9)+"@"+word(3,6)+".com",
+            pass:word(10,14)};
+  window.__spec=SPEC;
+  document.getElementById('nuser').textContent=SPEC.user;
+  document.getElementById('nmail').textContent=SPEC.email;
+  document.getElementById('npass').textContent=SPEC.pass;
+  window.__form_state={u:'',e:'',p:'',c:'',submitted:0,ok:0};
+  // toa do chuan hoa 0..1000 cua tung phan tu (de success-policy khong hard-code)
+  function nrect(el){var r=el.getBoundingClientRect();
+    return [Math.round((r.left+r.width/2)/window.innerWidth*1000),
+            Math.round((r.top+r.height/2)/window.innerHeight*1000)];}
+  window.__targets={user:nrect(document.getElementById('u')),
+                    email:nrect(document.getElementById('e')),
+                    pass:nrect(document.getElementById('p')),
+                    confirm:nrect(document.getElementById('c')),
+                    register:nrect(document.getElementById('go'))};
+  document.getElementById('go').addEventListener('click',function(){
+    var u=document.getElementById('u').value.trim();
+    var e=document.getElementById('e').value.trim();
+    var p=document.getElementById('p').value;
+    var c=document.getElementById('c').value;
+    var ok=(u===SPEC.user && e===SPEC.email && p===SPEC.pass &&
+            c===SPEC.pass && p.length>=8)?1:0;
+    window.__form_state={u:u,e:e,p:p,c:c,submitted:1,ok:ok};
+    document.getElementById('status').textContent=
+      ok?'Account created':'Error: check the note and the requirements';
+    document.body.setAttribute('data-submitted','1');
+    document.body.setAttribute('data-ok',String(ok));
+  });
+</script>
+</body>
+</html>

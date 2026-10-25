@@ -1,0 +1,31 @@
+MiMo · **✅ TRAIN v24 THÀNH CÔNG (before 0,000 → after 0,830)** ⇒ **đang publish adapter `dieniw/ornith-gui-lora-v24`** (tool generic) ⇒ bước kế tiếp: **đo v24 vs v22 trên task MỚI** (lần đầu so sánh recipe mới)
+
+**1) KẾT QUẢ TRAIN (đọc từ log `sft-v24`):**
+```
+ALL DONE before=0.000 after=0.830 train_sub=0.833 traj_sub=1.000 real_before=0.000 real_after=1.000
+[train3d-sub] EVAL: hit 8/8 = 1.000 parse 8/8
+[traj-sub] EVAL: hit 1.000
+```
+⇒ **before 0,000 → after 0,830** trên tập train-sub, **traj_sub = 1,000** (học thuộc R2 972 tuyệt đối) ⇒ **data pipeline đúng hoàn toàn** (traj 972/972 · synth-recipe 600/600 · selfplay 118/118 · train3d 300/300 đã verify trước đó).
+⇒ ⇒ **v24 là model đầu tiên được train trên R2 972 + S1–S10 + loop-recovery 600 + 3D 600 + policy-replay ×2** (v22 chỉ có R2 972 + targeted, chưa có loop-recovery/3D).
+
+**2) ĐANG PUBLISH ADAPTER (1 lệnh, tool generic do tôi viết):**
+```
+python scripts/publish_lora.py --kernel dieniw/ornith-gui-sft-v24 --slug dieniw/ornith-gui-lora-v24 --acc B
+```
+⇒ tự: tải `gui_lora/*` (465MB) → staging → `datasets create` → đợi READY bằng `datasets files` → **verify vân tay trọng số**.
+⇒ **BÀI HỌC MỚI (lớp lỗi #10): lần publish ĐẦU FAIL vì `429 Too Many Requests`** — do **tôi chạy nhiều lệnh Kaggle song song** với watchdog (watchdog cũng đang poll dataset status mỗi vòng) ⇒ **đã thêm retry + backoff (20s→40s→80s→160s) vào `publish_lora.py`** ⇒ lần này chạy lại sẽ tự retry thay vì mất adapter 465MB.
+⇒ ⇒ **GỢI Ý CHUNG:** đừng chạy lệnh Kaggle hàng loạt song song với watchdog (watchdog poll mỗi 60-120s) — hoặc dùng script có retry.
+
+**3) SAU KHI PUBLISH XONG (3 lệnh, tôi sẽ chạy ngay):**
+```
+python scripts/lora_fingerprint.py --slug dieniw/ornith-gui-lora-v24 --register   # đăng ký vân tay cho gate G11
+python scripts/reset_push_state.py --unpause dieniw/ornith-gui-bench-v155-v24       # mở pause 2 kernel bench v24
+python scripts/reset_push_state.py --unpause dieniw/ornith-gui-bench-v16-v24
+```
+⇒ ⇒ **LẦN ĐO TIẾP THEO (quan trọng): v24 trên task B15.5 MỚI + B16-A MỚI** ⇒ so với v22 (55,6% / 54,2%) ⇒ **đây là lần đầu đo được tác dụng của recipe mới (R2 + loop-recovery + 3D + S1–S10)** ⇒ theo tiêu chí paired trong `DECISION_MEMO_2210.md`.
+⇒ ⚠️ **Lưu ý kỳ vọng (quan trọng cho việc quyết):** 2×2 đã chứng minh **hiệu ứng cộng giao (interaction 0)**: Δ data (v21→v22) chỉ **+11,1 điểm** ⇒ **v24 chỉ có thể vượt v22 khoảng ~+11 điểm trên task đã sửa** ⇒ **đừng kỳ vọng v24 "phá" 55,6% bằng data** ⇒ muốn vượt ⇒ **phải thêm task mới đúng chuẩn** (đây là kết luận quan trọng nhất của 2×2, xem `DECISION_MEMO_2210.md` §2.1).
+
+**4) DESKTOP:** b3 (đo lại sạch, app đủ + guard + adapter v22) **đang chờ Kaggle nhả slot** — log watchdog vẫn báo "đủ 2 session GPU" **dù 2 kernel vừa COMPLETE** ⇒ Kaggle còn tính phiên vừa xong (cooldown) ⇒ watchdog retry mỗi ~2′ ✔ ⇒ sẽ tự chạy. ⇒ Khi xong: `check_dbench_log.py` + `audit_desktop_result.py` ⇒ **số desktop hợp lệ đầu tiên**.
+
+RELEASE: scripts/publish_lora.py (+retry 429), scripts/patch_publish_retry.py (mới), phase13-gui/out_sft_v24_B/ (log train v24)

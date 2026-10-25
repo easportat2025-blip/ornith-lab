@@ -1,0 +1,110 @@
+{
+ "T20_2048": {
+  "app": "t20_2048.html",
+  "instruction": "You are playing 2048 on the desktop. Use the arrow keys to move the tiles and try to reach a score of 40. Stop when the score is high enough.",
+  "reward_js": "(window.__score || 0)",
+  "threshold": 40,
+  "max_steps": 24,
+  "cap": "multi_step",
+  "dummy": "2048"
+ },
+ "T21_form": {
+  "app": "t21_form.html",
+  "instruction": "Fill the sign-up form on the desktop. Use the values shown in the support note on the page (username, email and password - the password needs at least 8 characters and the confirm field must match it exactly), then press Register.",
+  "reward_js": "((window.__form_state && window.__form_state.ok) ? 1 : 0)",
+  "threshold": 1,
+  "max_steps": 16,
+  "cap": "read_before_act",
+  "dummy": "form"
+ },
+ "T22_order": {
+  "app": "t22_order.html",
+  "instruction": "Complete the order desk on the desktop in exactly the order shown on the page: type your name, pick the plan named in the order note, type the code from the note, then press Submit.",
+  "reward_js": "((window.__state && window.__state.ok) ? 1 : 0)",
+  "threshold": 1,
+  "max_steps": 16,
+  "cap": "multi_step",
+  "dummy": "order"
+ },
+ "T23_keys": {
+  "app": "t23_keys.html",
+  "instruction": "Work with the Archive list on the desktop. Press ESC to dismiss the notice, then scroll down to the bottom of the list, then click the row whose code matches the note.",
+  "reward_js": "((window.__state && window.__state.ok) ? 1 : 0)",
+  "threshold": 1,
+  "max_steps": 14,
+  "cap": "keyboard_nav,scroll",
+  "dummy": "keys"
+ },
+ "T25_recovery": {
+  "app": "t25_recovery.html",
+  "instruction": "Open the Device Setup page on the desktop. The support note shows a feature code. Click the Enable button on the row whose feature code matches the note. If a control does not respond, try a different control instead of clicking the same one again.",
+  "reward_js": "(function(){var r=window.__recovery||{};return (r.done && !r.repeated)?1:0;})()",
+  "threshold": 1,
+  "max_steps": 12,
+  "cap": "loop_recovery",
+  "dummy": "recovery"
+ },
+ "T26_clipboard": {
+  "app": "t26_clipboard.html",
+  "instruction": "Copy the text from the Source box into the Target box on the desktop using keyboard shortcuts only: click the Source box, select all (ctrl+a), copy (ctrl+c), click the Target box, paste (ctrl+v). Do not type the text.",
+  "reward_js": "((window.__clip && window.__clip.ok) ? 1 : 0)",
+  "threshold": 1,
+  "max_steps": 12,
+  "cap": "clipboard",
+  "dummy": "clipboard"
+ },
+ "T27_errorecover": {
+  "app": "t27_errorecover.html",
+  "instruction": "Open the Device Setup page on the desktop and enter the activation code shown in the support note, then press Activate. If the page reports an error, check the note again before changing anything.",
+  "reward_js": "(function(){var st=window.__state||{};return (st.activated && st.typed===st.code)?1:0;})()",
+  "threshold": 1,
+  "max_steps": 12,
+  "dummy": "errorecover",
+  "cap": "error_recovery"
+ },
+ "T28_distractor": {
+  "app": "t28_distractor.html",
+  "instruction": "Open the Contacts page on the desktop. Several contacts look almost the same; select the one whose badge matches the badge shown in the support note.",
+  "reward_js": "((window.__state && window.__state.ok) ? 1 : 0)",
+  "threshold": 1,
+  "max_steps": 10,
+  "dummy": "distractor",
+  "cap": "distractor"
+ },
+ "T21_form_desktop": {
+  "app": "t21_form_desktop.html",
+  "instruction": "Fill the account setup form on the desktop using the values shown in the note (username, email and password), type the password again in the confirm field, tick the terms checkbox, then press Register.",
+  "reward_js": "(function(){var q=function(id){return ((document.getElementById(id)||{}).value||'').trim();};var t=function(id){return ((document.getElementById(id)||{}).textContent||'').trim();};var st=window.__state||{};return (q('u')&&q('u')===t('nu')&&q('e')===t('ne')&&q('p')===t('np')&&q('p2')===t('np')&&st.terms&&((st.status||'').indexOf('Account created')>=0))?1:0;})()",
+  "threshold": 1,
+  "max_steps": 14,
+  "cap": "read_before_act",
+  "dummy": "form_desktop"
+ },
+ "T22_calc": {
+  "app": "t22_calc.html",
+  "instruction": "Answer the two arithmetic questions shown on the desktop page, type each answer in its field, then submit.",
+  "reward_js": "(function(){var g=function(id){return ((document.getElementById(id)||{}).value||'').trim();};var x=function(id){return ((document.getElementById(id)||{}).textContent||'');};var sv=function(e){var m=e.match(/(\\d+)\\s*([+-])\\s*(\\d+)/);if(!m)return null;var a=parseInt(m[1],10),b=parseInt(m[3],10);return m[2]==='+'?a+b:a-b;};var s1=sv(x('e1')),s2=sv(x('e2'));var st=window.__state||{};return (s1!==null&&s2!==null&&g('a1')===String(s1)&&g('a2')===String(s2)&&((st.status||'').indexOf('accepted')>=0))?1:0;})()",
+  "threshold": 1,
+  "max_steps": 12,
+  "cap": "read_before_act",
+  "dummy": "calc"
+ },
+ "T23_table_sort": {
+  "app": "t23_table_sort.html",
+  "instruction": "The data table on the desktop does not fit on the screen. Scroll down to the bottom to see all rows, reorder them so the score column is descending, select the top row, then confirm.",
+  "reward_js": "(function(){var data=[];try{data=JSON.parse(((document.getElementById('data')||{}).textContent||'[]'));}catch(e){data=[];}if(!data.length)return 0;var rows=Array.from(document.querySelectorAll('#tb tr')).map(function(tr){return Array.from(tr.children).map(function(td){return td.textContent.trim();});});var exp=data.slice().sort(function(a,b){return b.score-a.score;}).map(function(d){return [d.region,d.owner,String(d.score)];});var sel=document.querySelector('#tb tr.sel');var selOk=!!sel&&sel.children[0].textContent.trim()===exp[0][0];var status=((document.getElementById('status')||{}).textContent||'');var same=rows.length===exp.length&&rows.every(function(r,i){return r.every(function(c,j){return c===exp[i][j];});});return (same&&selOk&&status.indexOf('Confirmed')>=0)?1:0;})()",
+  "threshold": 1,
+  "max_steps": 18,
+  "cap": "scroll",
+  "dummy": "table_sort"
+ },
+ "T24_text_edit": {
+  "app": "t24_text_edit.html",
+  "instruction": "Replace the text in the editor on the desktop with the exact target text shown on the page, then save the document.",
+  "reward_js": "(function(){var want=((document.getElementById('want')||{}).textContent||'').trim();var txt=((document.getElementById('ta')||{}).value||'').trim();var status=((document.getElementById('status')||{}).textContent||'');return (want&&txt===want&&status.indexOf('Saved')>=0)?1:0;})()",
+  "threshold": 1,
+  "max_steps": 10,
+  "cap": "clipboard",
+  "dummy": "text_edit"
+ }
+}

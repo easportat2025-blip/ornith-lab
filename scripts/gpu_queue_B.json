@@ -1,0 +1,132 @@
+[
+ {
+  "id": "dieniw/ornith-gui-sft-v25b",
+  "dir": "phase13-gui/kernel_v25b",
+  "acc": "B",
+  "note": "TRAIN v25b = v24 + desktop-replay + S11 (SCROLL/MOVE/DRAG) | seed moi, 17 source B-owned"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-b15-v25b",
+  "dir": "phase13-gui/kernel_bench_b15_v25b",
+  "acc": "B",
+  "after": "dieniw/ornith-gui-sft-v25b",
+  "expect_later": true,
+  "note": "GATE B15 voi adapter v25b (so sanh v22/v24)"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v155-v25b",
+  "dir": "phase13-gui/kernel_bench_v155_v25b",
+  "acc": "B",
+  "after": "dieniw/ornith-gui-sft-v25b",
+  "expect_later": true,
+  "note": "GATE B15.5 voi adapter v25b"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v16-v25b",
+  "dir": "phase13-gui/kernel_bench_v16_v25b",
+  "acc": "B",
+  "after": "dieniw/ornith-gui-sft-v25b",
+  "expect_later": true,
+  "note": "GATE B16-A voi adapter v25b"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-b17-v25b",
+  "dir": "phase13-gui/kernel_bench_b17_v25b",
+  "acc": "B",
+  "after": "dieniw/ornith-gui-sft-v25b",
+  "expect_later": true,
+  "note": "GATE B17 voi adapter v25b (27 ep, SCROLL/MOVE/DRAG)"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-b17-v22",
+  "dir": "phase13-gui/kernel_bench_b17",
+  "acc": "B",
+  "note": "W1: adapter v22 tren B17 (9 task x 3 = 27 ep; SCROLL/MOVE/DRAG + loop recovery)"
+ },
+ {
+  "id": "dieniw/ornith-gui-sft-v24",
+  "dir": "phase13-gui/kernel_v24b",
+  "acc": "B"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v155-v24",
+  "dir": "phase13-gui/kernel_bench_v155_v24_B",
+  "acc": "B",
+  "note": "GATE B15.5 voi adapter v24"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v16-v24",
+  "dir": "phase13-gui/kernel_bench_v16_v24_B",
+  "acc": "B",
+  "note": "GATE B16-A voi adapter v24"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v24",
+  "dir": "phase13-gui/kernel_bench_v24_b",
+  "acc": "B",
+  "note": "GATE B15 voi adapter v24"
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v155-v22-old",
+  "dir": "phase13-gui/kernel_bench_v155_v22_old_b",
+  "acc": "B",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v16-v22b",
+  "dir": "phase13-gui/kernel_bench_v16_v22_B2",
+  "note": "B16-A tren task DA SUA (acc A het quota => chuyen sang B)",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v155-v21new",
+  "dir": "phase13-gui/kernel_bench_v155_v21new_B",
+  "note": "O THIEU 2x2: (v21, task MOI) - tach 'sua task' vs 'sua data'",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-gui-desktop-bench-b3",
+  "dir": "phase13-gui/kernel_desktop_bench_b3",
+  "note": "DESKTOP-BENCH b3 (app day du + guard + v22) - sua loi anh den"
+ },
+ {
+  "id": "dieniw/ornith-bench-v155-b1",
+  "dir": "phase13-gui/kernel_bench_v155_B",
+  "note": "11) baseline adapter v18 tren B15.5 (de doc ket qua gate)",
+  "post": "scripts\\post_gates\\post_dieniw_ornith-bench-v155-b1.ps1",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-bench-v16-b1",
+  "dir": "phase13-gui/kernel_bench_v16_B",
+  "note": "12) baseline adapter v18 tren B16-A (de doc ket qua gate)",
+  "post": "scripts\\post_gates\\post_dieniw_ornith-bench-v16-b1.ps1",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-bench-3d-b1",
+  "dir": "phase13-gui/kernel_bench_3d_B",
+  "note": "baseline adapter v18 tren bench 3D grounding (bbox-hit, ~100 ep)",
+  "post": "scripts\\post_gates\\post_dieniw_ornith-bench-3d-b1.ps1",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-gui-grpo-v1",
+  "dir": "phase13-gui/kernel_grpo_v1",
+  "acc": "B",
+  "note": "RL/GRPO v1 (reward verifiable, init tu adapter v24) - W3"
+ },
+ {
+  "id": "dieniw/ornith-bench-3d-hard-b1",
+  "dir": "phase13-gui/kernel_bench_3d_hard_B",
+  "note": "baseline adapter v18 tren bench 3D HARD (100 task, bbox median 2.0%)",
+  "post": "scripts\\post_gates\\post_dieniw_ornith-bench-3d-hard-b1.ps1",
+  "paused": true
+ },
+ {
+  "id": "dieniw/ornith-gui-bench-v155-v22-b",
+  "dir": "phase13-gui/kernel_bench_v155_v22_b",
+  "acc": "B",
+  "paused": true
+ }
+]

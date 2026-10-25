@@ -1,0 +1,20 @@
+{
+  "code_file": "replay_policy.py",
+  "competition_sources": [],
+  "dataset_sources": [
+    "khoadangnguye/ornith-gui-bench-v15",
+    "khoadangnguye/ornith-gui-bench-v155",
+    "khoadangnguye/ornith-gui-bench-v16",
+    "khoadangnguye/ornith-offline-browsers"
+  ],
+  "enable_gpu": false,
+  "enable_internet": true,
+  "enable_tpu": false,
+  "id": "khoadangnguye/ornith-policy-replay",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "script",
+  "language": "python",
+  "model_sources": [],
+  "title": "ornith-policy-replay"
+}

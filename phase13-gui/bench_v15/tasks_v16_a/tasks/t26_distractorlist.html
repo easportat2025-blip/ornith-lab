@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T26 distractor list</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;display:flex;gap:20px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;flex:1;}
+  .item{padding:8px 12px;border-bottom:1px solid #2c3644;cursor:pointer;}
+  .item:hover{background:#2c3644;}
+  .item.picked{background:#2f6fed;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;width:100%;}
+</style>
+</head>
+<body data-targetlist="A" data-targetitem="Alpha" data-picked="" data-submitted="0">
+<header>DISTRACTOR LIST</header>
+<main>
+  <div class="card">
+    <h3>List A (pick from here)</h3>
+    <div id="listA"></div>
+  </div>
+  <div class="card">
+    <h3>List B (distractor)</h3>
+    <div id="listB"></div>
+  </div>
+  <div class="card" id="tcard">
+    <p>Target item: <b id="target">?</b> &nbsp;|&nbsp; Target list: <b id="tlist">?</b></p>
+  </div>
+</main>
+<div style="max-width:720px;margin:0 auto;padding:0 18px 18px;"><button id="subbtn" style="background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;">Submit</button><div id="status"></div></div>
+<script>
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var CFG=[{targetList:"A",targetItem:"Alpha"},{targetList:"B",targetItem:"Beta"},{targetList:"A",targetItem:"Gamma"}][V];
+document.body.dataset.targetlist=CFG.targetList;
+document.body.dataset.targetitem=CFG.targetItem;
+/* FIX (TASK-17 root-cause): HIEN THI muc tieu tren man hinh.
+   Truoc day target chi nam trong body dataset (model KHONGONG THAY) => task
+   khong giai duoc: model doan "first item in List A" (trace v21: click Alpha
+   trong khi target la Beta). */
+document.getElementById("target").textContent=CFG.targetItem;
+document.getElementById("tlist").textContent="List "+CFG.targetList;
+var lists={A:["Alpha","Beta","Gamma"],B:["Alpha","Beta","Gamma"]};
+function build(id,letter){
+  var el=document.getElementById(id);
+  lists[letter].forEach(function(name){
+    var div=document.createElement("div");div.className="item";div.textContent=name+" ("+letter+")";
+    div.addEventListener("click",function(){
+      document.body.dataset.picked=name+"@"+letter;
+      document.querySelectorAll(".item").forEach(function(x){x.classList.remove("picked");});
+      div.classList.add("picked");
+      document.getElementById("status").textContent="Picked "+name+" from List "+letter;
+    });
+    el.appendChild(div);
+  });
+}
+build("listA","A");build("listB","B");
+document.getElementById("subbtn").addEventListener("click",function(){
+  if(document.body.dataset.picked===CFG.targetItem+"@"+CFG.targetList){
+    document.body.dataset.submitted="1";document.getElementById("status").textContent="Submitted.";
+  } else {document.getElementById("status").textContent="Wrong pick.";}
+});
+</script>
+</body>
+</html>

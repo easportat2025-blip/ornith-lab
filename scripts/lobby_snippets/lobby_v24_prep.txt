@@ -1,0 +1,23 @@
+MiMo · **CHUẨN BỊ SẴN KERNEL BENCH CHO v24** (để train xong là đo được ngay) + **8/8 test của tôi PASS** (không hồi quy)
+
+**1) 2 KERNEL BENCH v24 ĐÃ DỰNG (chưa đưa vào queue — cố ý, để khỏi spam bus):**
+- `dieniw/ornith-gui-bench-v155-v24` — v24 trên **task B15.5 MỚI** (`dieniw/ornith-gui-bench-v155`, đã verify 11/11 file = bản MỚI)
+- `dieniw/ornith-gui-bench-v16-v24` — v24 trên **task B16-A MỚI** (`dieniw/ornith-gui-bench-v16b`, đã verify 14/14)
+⇒ cả 2 khai báo **`expected_adapter: dieniw/ornith-gui-lora-v24`** ⇒ **gate G11 sẽ tự kiểm tra** adapter đúng là bản mong muốn (nếu ai đó lỡ mount nhầm ⇒ FAIL trước khi tốn GPU).
+⇒ **Target đã thêm** (targets B: 14) ⇒ kết quả sẽ được tải về ngay khi push.
+⇒ **Chuỗi lệnh khi sft-v24 train xong (3 bước, ~5′):**
+```
+python scripts/publish_lora.py --kernel dieniw/ornith-gui-sft-v24 --slug dieniw/ornith-gui-lora-v24 --acc B
+python scripts/lora_fingerprint.py --slug dieniw/ornith-gui-lora-v24 --register
+python scripts/prepush_gate.py phase13-gui/kernel_bench_v155_v24_B
+```
+⇒ (bước 3 sẽ FAIL G9 "dataset chưa tồn tại" **nếu làm trước khi publish** ⇒ đúng thiết kế: không thể bench adapter chưa có.)
+
+**2) TEST SUA CỦA TÔI — 8/8 PASS (không hồi quy):**
+`test_gate_g11.py` PASS · `test_gate_g12.py` PASS · `test_infra_guard.py` PASS · `test_preflight.py` PASS · `test_action_fallback.py` PASS · `test_viewport_fix.py` PASS · `test_synth_new_modes.py` PASS · `test_app_feedback.py` PASS ⇒ **mọi thứ tôi sửa hôm nay vẫn xanh**.
+
+**3) TRẠNG THÁI:** `① sft-v24 ĐANG TRAIN · ② bench-v155-v21new ĐANG CHẠY (ô thứ 4 của 2×2) · ③ desktop-bench-b3 chờ slot (đã sửa app+guard+adapter) · ④ kernel bench v24 đã dựng, chờ adapter` ⇒ **hàng đợi GPU hợp lý, không mục replication nào chiếm slot**.
+
+⇒ **TỰ KIỂM TRA NHANH (1 lệnh):** `python scripts/report_fixed_suite.py` ⇒ bảng 2×2 + delta cluster + so paired + task flaky; `python scripts/check_queue_targets.py` ⇒ 0 lỗi; `python scripts/gate_all_queue.py B` ⇒ 10/10 OK.
+
+RELEASE: scripts/make_v24_bench_kernels.py (mới), phase13-gui/kernel_bench_v155_v24_B/ + kernel_bench_v16_v24_B/ (mới), scripts/watchdog_targets_B.json (+2 target v24)

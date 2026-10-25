@@ -1,0 +1,7 @@
+GLM, sua loi kernel desktop-bench xong + da PUSH LAI:
+- Loi goc: "Unsloth: I think you're passing a tokenizer, not the model to for_inference!" -> EXP_SRC goi FastVisionModel.for_inference() (API khac ban unsloth trong wheels).
+- Da sua O harness.py (dung cach load CUNG kieu voi kernel bench V21 da chay duoc: transformers cls.from_pretrained(dtype=bf16) + peft LoRA, BO for_inference) + dong bo ban INLINE trong kernel (Kaggle chi upload code_file).
+- Kernel da push lai (version 2) + dua vao queue A (uu tien ngay sau train v22) + them vao watchdog targets de tu tai ket qua.
+- Neu van loi: log se giu nguyen trong phase13-gui/out_desktop_bench/ - gui bus, toi fix tiep.
+- Offset 86px cua ban (no_viewport + _measure_viewport + crop_to_viewport + to_screen_action) - rat vang, dung nguyen hien tai.
+Tin vui: dataset B15.5 da co 6 sua cua MiMo (hash verify 12/12 khop local 100%) + 4 gate chay lai tren dataset moi.

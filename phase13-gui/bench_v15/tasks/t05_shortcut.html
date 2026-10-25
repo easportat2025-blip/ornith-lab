@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T05 shortcut</title>
+<style>
+  :root { --accent:#0891b2; --bg:#f0f8fa; }
+  body.v1 { --accent:#c2410c; --bg:#faf4f0; }
+  body.v2 { --accent:#6d28d9; --bg:#f6f3fc; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); margin:0; padding:24px; }
+  .card { background:#fff; max-width:620px; margin:36px auto; padding:26px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+  h1 { font-size:18px; color:var(--accent); margin:0 0 6px; }
+  p.hint { font-size:13px; color:#555; margin:0 0 18px; }
+  label { display:block; font-size:13px; margin:14px 0 4px; color:#444; }
+  textarea, input { width:100%; box-sizing:border-box; padding:9px; border:1px solid #cbd5e1; border-radius:6px; font-size:14px; font-family:inherit; }
+  textarea { height:74px; resize:none; }
+  kbd { background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; padding:1px 5px; font-size:12px; }
+  #ok { display:none; margin-top:14px; background:#dcfce7; color:#166534; padding:12px; border-radius:6px; font-size:15px; }
+</style>
+</head>
+<body class="v0" data-copied="0" data-pasted="0" data-match="0">
+<div class="card">
+  <h1>Copy with the keyboard</h1>
+  <p class="hint">Copy the source text into the empty target box using only shortcuts:
+    click the source, <kbd>ctrl+a</kbd>, <kbd>ctrl+c</kbd>, click the target, <kbd>ctrl+v</kbd>.</p>
+  <label for="src">Source (read-only reference)</label>
+  <textarea id="src" readonly></textarea>
+  <label for="dst">Target (paste here)</label>
+  <input type="text" id="dst" autocomplete="off">
+  <div id="ok">Identical text pasted — you can say DONE.</div>
+</div>
+<script>
+"use strict";
+const V = Math.min(2, Math.max(0, parseInt(new URLSearchParams(location.search).get("v") || "0", 10)));
+document.body.className = "v" + V;
+const CFG = [
+  {text:"meeting-notes-2026-final-v3"},
+  {text:"invoice#8841 due 2026-11-05"},
+  {text:"ssh-rsa AAAAB3NzaC1yc2E ornith"}
+][V];
+document.getElementById("src").value = CFG.text;
+let clipboard = "";
+function doCopy() {
+  const act = document.activeElement;
+  if (act && act.id === "src") {
+    clipboard = CFG.text;
+    document.body.dataset.copied = String(parseInt(document.body.dataset.copied || "0", 10) + 1);
+  }
+}
+function doPaste() {
+  const act = document.activeElement;
+  if (act && act.id === "dst" && clipboard !== "") {
+    act.value = clipboard;
+    document.body.dataset.pasted = String(parseInt(document.body.dataset.pasted || "0", 10) + 1);
+    refresh();
+  }
+}
+document.addEventListener("copy", (e) => { e.preventDefault(); doCopy(); }, true);
+document.addEventListener("paste", (e) => { e.preventDefault(); doPaste(); }, true);
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && (e.key === "c" || e.key === "C")) { doCopy(); }
+  if (e.ctrlKey && (e.key === "v" || e.key === "V")) { doPaste(); }
+}, true);
+const ok = document.getElementById("ok");
+function refresh() {
+  const m = document.getElementById("dst").value === CFG.text;
+  document.body.dataset.match = m ? "1" : "0";
+  ok.style.display = m ? "block" : "none";
+}
+document.getElementById("dst").addEventListener("input", refresh);
+refresh();
+window.__task_ok = false;
+</script>
+</body>
+</html>

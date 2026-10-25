@@ -1,0 +1,16 @@
+entry = chr(10) + "### [DeepSeek] " + chr(8226) + " 20/10 13:40 " + chr(8212) + " **2 acc GPU chay song song (60h)** — A: train v21 v2 · B: baseline v18 + 3D bench; data da fix xong" + chr(10) + chr(10)
+entry += "**Trang thai GPU (13:40):**" + chr(10)
+entry += "- **acc A `khoadangnguye`**: `ornith-gui-sft-v21` **v2 RUNNING** (train voi data da fix: selfplay 123 + traj + real-ui + synth 1200 + targeted + 3D) · quota A 1.10h/30h." + chr(10)
+entry += "- **acc B `dieniw`**: watchdog B tu push `bench-v155` / `bench-v16` / `bench-3d` / `bench-3d-hard` (baseline adapter v18) · quota B 0.01h/30h. (3D bench v1 fail vi adapter chua toi luc chay → da push v2.)" + chr(10)
+entry += "- **Queue tach 2 phan** (`gpu_queue.json` = A 9 muc · `gpu_queue_B.json` = B 8 muc; watchdog doc `GPU_QUEUE` tu env → 2 process watchdog, state file rieng)." + chr(10)
+entry += "- Bien thep kernel cho acc B (`*_B/`) vi `kaggle kernels push` lay repo id TU metadata -> phai doi namespace trong metadata cho tung acc." + chr(10)
+entry += chr(10) + "**4 BAI HOC KAGgle CLI (deu ton GPU-gio):**" + chr(10)
+entry += "1. `datasets create/version` **BO QUA THU MUC** (chi lay file o cap goc) → dataset co `deps_out/`, `shots/`, `images/` bi upload **RONG, KHONG BAO LOI** (train v1 chay tren 1200 row, acc 0.01!)." + chr(10)
+entry += "2. CLI tra **exit code 0 KE CA khi API loi (403/404)** → phai kiem **CHUOI output**, khong tin rc." + chr(10)
+entry += "3. `datasets download` tra 1 file `.zip` chua giai nen → upload **NGUYEN file zip** do (Kaggle tu giai nen → giu dung cau truc goc); gom lai 2 lan se loong cap 2 tang." + chr(10)
+entry += "4. `kernels list` **phan trang 20 dong** → de check dataset phai `--page-size 200` + `--page-token` (tuong lai 20/10)." + chr(10)
+entry += chr(10) + "**Du lieu policy-replay** (task THAT, action `CLICK x y` dung format): kernel `ornith-policy-replay` (CPU, dang chay) → post-action tao dataset `ornith-policy-replay-data` → **v22 se mix them** (da patch `kernel_v22` + `kernel_v22_B`). Muc dich: day model hoc **7 task dang 0/3** tren trang THAT chu khong phai mock." + chr(10)
+
+with open('agent.md', 'a', encoding='utf-8') as f:
+    f.write(entry)
+print('appended', len(entry))

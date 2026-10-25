@@ -1,0 +1,15 @@
+{
+ "n_spec": 300,
+ "n_rows": 300,
+ "by_family": {
+  "select_purple": 31,
+  "select_red": 38,
+  "select_blue": 39,
+  "select_white": 39,
+  "select_teal": 31,
+  "select_yellow": 42,
+  "select_orange": 44,
+  "select_green": 36
+ },
+ "t_sec": 594.8
+}

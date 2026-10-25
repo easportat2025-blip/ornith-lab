@@ -1,0 +1,28 @@
+{
+ "code_file": "grpo_v1.py",
+ "competition_sources": [
+  "arc-prize-2026-arc-agi-3"
+ ],
+ "dataset_sources": [
+  "dieniw/gemma12b-wheels",
+  "dieniw/stack-wheels",
+  "dieniw/ornbase-s1",
+  "dieniw/ornbase-s2",
+  "dieniw/ornbase-s3",
+  "dieniw/ornbase-s4",
+  "dieniw/ornith-gui-lora-v24",
+  "dieniw/ornith-policy-replay-data",
+  "dieniw/ornith-gui-traj"
+ ],
+ "enable_gpu": true,
+ "enable_internet": false,
+ "enable_tpu": false,
+ "id": "dieniw/ornith-gui-grpo-v1",
+ "is_private": true,
+ "kernel_sources": [],
+ "kernel_type": "script",
+ "language": "python",
+ "machine_shape": "NvidiaRtxPro6000",
+ "model_sources": [],
+ "title": "ornith-gui-grpo-v1"
+}

@@ -1,0 +1,155 @@
+{
+ "suite": "desktop",
+ "version": 1,
+ "viewport": {
+  "width": 1280,
+  "height": 720
+ },
+ "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE | SCROLL n",
+ "tasks": [
+  {
+   "task_id": "T20_2048",
+   "name": "t20_2048",
+   "file": "t20_2048.html",
+   "difficulty": "hard",
+   "max_steps": 24,
+   "variants": [
+    0
+   ],
+   "instruction": "You are playing 2048 on the desktop. Use the arrow keys to move the tiles and try to reach a score of 40. Stop when the score is high enough.",
+   "target": "reward >= 40 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T21_form",
+   "name": "t21_form",
+   "file": "t21_form.html",
+   "difficulty": "hard",
+   "max_steps": 16,
+   "variants": [
+    0
+   ],
+   "instruction": "Fill the sign-up form on the desktop. Use the values shown in the support note on the page (username, email and password - the password needs at least 8 characters and the confirm field must match it exactly), then press Register.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T21_form_desktop",
+   "name": "t21_form_desktop",
+   "file": "t21_form_desktop.html",
+   "difficulty": "hard",
+   "max_steps": 14,
+   "variants": [
+    0
+   ],
+   "instruction": "Fill the account setup form on the desktop using the values shown in the note (username, email and password), type the password again in the confirm field, tick the terms checkbox, then press Register.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T22_calc",
+   "name": "t22_calc",
+   "file": "t22_calc.html",
+   "difficulty": "hard",
+   "max_steps": 12,
+   "variants": [
+    0
+   ],
+   "instruction": "Answer the two arithmetic questions shown on the desktop page, type each answer in its field, then submit.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T22_order",
+   "name": "t22_order",
+   "file": "t22_order.html",
+   "difficulty": "hard",
+   "max_steps": 16,
+   "variants": [
+    0
+   ],
+   "instruction": "Complete the order desk on the desktop in exactly the order shown on the page: type your name, pick the plan named in the order note, type the code from the note, then press Submit.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T23_keys",
+   "name": "t23_keys",
+   "file": "t23_keys.html",
+   "difficulty": "hard",
+   "max_steps": 14,
+   "variants": [
+    0
+   ],
+   "instruction": "Work with the Archive list on the desktop. Press ESC to dismiss the notice, then scroll down to the bottom of the list, then click the row whose code matches the note.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T23_table_sort",
+   "name": "t23_table_sort",
+   "file": "t23_table_sort.html",
+   "difficulty": "hard",
+   "max_steps": 18,
+   "variants": [
+    0
+   ],
+   "instruction": "The data table on the desktop does not fit on the screen. Scroll down to the bottom to see all rows, reorder them so the score column is descending, select the top row, then confirm.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T24_text_edit",
+   "name": "t24_text_edit",
+   "file": "t24_text_edit.html",
+   "difficulty": "hard",
+   "max_steps": 10,
+   "variants": [
+    0
+   ],
+   "instruction": "Replace the text in the editor on the desktop with the exact target text shown on the page, then save the document.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T25_recovery",
+   "name": "t25_recovery",
+   "file": "t25_recovery.html",
+   "difficulty": "hard",
+   "max_steps": 12,
+   "variants": [
+    0
+   ],
+   "instruction": "Open the Device Setup page on the desktop. The support note shows a feature code. Click the Enable button on the row whose feature code matches the note. If a control does not respond, try a different control instead of clicking the same one again.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T26_clipboard",
+   "name": "t26_clipboard",
+   "file": "t26_clipboard.html",
+   "difficulty": "hard",
+   "max_steps": 12,
+   "variants": [
+    0
+   ],
+   "instruction": "Copy the text from the Source box into the Target box on the desktop using keyboard shortcuts only: click the Source box, select all (ctrl+a), copy (ctrl+c), click the Target box, paste (ctrl+v). Do not type the text.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T27_errorecover",
+   "name": "t27_errorecover",
+   "file": "t27_errorecover.html",
+   "difficulty": "hard",
+   "max_steps": 12,
+   "variants": [
+    0
+   ],
+   "instruction": "Open the Device Setup page on the desktop and enter the activation code shown in the support note, then press Activate. If the page reports an error, check the note again before changing anything.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  },
+  {
+   "task_id": "T28_distractor",
+   "name": "t28_distractor",
+   "file": "t28_distractor.html",
+   "difficulty": "hard",
+   "max_steps": 10,
+   "variants": [
+    0
+   ],
+   "instruction": "Open the Contacts page on the desktop. Several contacts look almost the same; select the one whose badge matches the badge shown in the support note.",
+   "target": "reward >= 1 (doc DOM bang chinh app, khong tin co-flag)"
+  }
+ ]
+}

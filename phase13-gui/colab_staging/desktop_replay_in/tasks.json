@@ -1,0 +1,40 @@
+{
+ "tasks": [
+  {
+   "task_id": "T20_2048",
+   "app": "t20_2048.html",
+   "instruction": "You are playing 2048 on the desktop. Use the arrow keys to move the tiles and try to reach a score of 40. Stop when the score is high enough.",
+   "dummy": "Dummy2048"
+  },
+  {
+   "task_id": "T21_form_desktop",
+   "app": "t21_form_desktop.html",
+   "instruction": "Fill the account setup form on the desktop using the values shown in the note (username, email and password), type the password again in the confirm field, tick the terms checkbox, then press Register.",
+   "dummy": "DummyFormDesktop"
+  },
+  {
+   "task_id": "T22_calc",
+   "app": "t22_calc.html",
+   "instruction": "Answer the two arithmetic questions shown on the desktop page, type each answer in its field, then submit.",
+   "dummy": "DummyCalc"
+  },
+  {
+   "task_id": "T23_table_sort",
+   "app": "t23_table_sort.html",
+   "instruction": "The data table on the desktop does not fit on the screen. Scroll down to the bottom to see all rows, reorder them so the score column is descending, select the top row, then confirm.",
+   "dummy": "DummyTableSort"
+  },
+  {
+   "task_id": "T24_text_edit",
+   "app": "t24_text_edit.html",
+   "instruction": "Replace the text in the editor on the desktop with the exact target text shown on the page, then save the document.",
+   "dummy": "DummyTextEdit"
+  },
+  {
+   "task_id": "T23_table_sort",
+   "app": "t23_table_sort.html",
+   "instruction": "The data table on the desktop does not fit on the screen. Scroll down to the bottom to see all rows, reorder them so the score column is descending, select the top row, then confirm.",
+   "dummy": "DummyTableSort"
+  }
+ ]
+}

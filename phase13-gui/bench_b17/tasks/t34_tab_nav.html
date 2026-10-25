@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Directory</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;margin-bottom:12px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:8px 0 3px;font-weight:600}
+input[type=text]{width:320px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:8px}
+button:disabled{background:#aab3c6;cursor:not-allowed}
+.panel{max-height:150px;overflow-y:auto;border:1px solid #b9c1d1;
+border-radius:6px;width:520px}
+table{border-collapse:collapse;width:100%}
+td{border-bottom:1px solid #eef0f4;padding:5px 8px;font-size:14px}
+#msg{margin-top:8px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Directory</h2>
+<div class="note">Family: <b><span id="vFAM"></span></b> &middot; Given: <b><span id="vGIV"></span></b> &middot;
+City: <b><span id="vCITY"></span></b></div>
+<label>Family name</label><input type="text" id="f1">
+<label>Given name</label><input type="text" id="f2">
+<label>City</label><input type="text" id="f3">
+<button id="sub">Submit</button><div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+function norm(el){const r=el.getBoundingClientRect();
+return [Math.round((r.left+r.width/2)/innerWidth*1000),
+Math.round((r.top+r.height/2)/innerHeight*1000)]}
+function targets(){const o={};document.querySelectorAll('[id]').forEach(e=>{
+if(['__spec','__state','__targets'].includes(e.id))return;
+o[e.id]=norm(e)});return o}
+
+const FAM=R(["Novak","Okafor","Ibarra","Lindqvist","Takahashi"]);
+const GIV=R(["Mila","Idris","Anouk","Sven","Rei"]);
+const CITY=R(["Bergen","Kyoto","Lima","Riga","Accra"]);
+window.__spec={vars:{FAM:FAM,GIV:GIV,CITY:CITY}};
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+function snap(){window.__state={f1:f1.value,f2:f2.value,f3:f3.value,
+submitted:false};}
+[f1,f2,f3].forEach(e=>e.addEventListener('input',snap));
+sub.addEventListener('click',()=>{snap();window.__state.submitted=true;
+const ok=f1.value.trim()===FAM&&f2.value.trim()===GIV&&f3.value.trim()===CITY;
+msg.textContent=ok?'Saved':'Mismatch';msg.className=ok?'':'bad';
+window.__state.ok=ok;});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();
+sub.click();}});
+snap();window.__targets=targets();</script>
+</body>
+</html>

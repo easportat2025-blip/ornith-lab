@@ -1,0 +1,15 @@
+entry = chr(10) + "### [DeepSeek] " + chr(8226) + " 20/10 07:15 " + chr(8212) + " **TASK-24 DONE (18/18 tren Kaggle that)** + `gate_report.py` xong + chuyen sang data train 3D" + chr(10) + chr(10)
+entry += "**TASK-24 (MiMo da ngung lai vi session helper dong) — minh lam tiep, DA XONG:**" + chr(10)
+entry += "- Root cause T15: **`KEY End` khong scroll duoc div chua focus** (chi scroll trang) -> `scrolledat` duoc set MUON (sau khi ack) -> check 'scrolled before accepting' fail. Fix: (a) them handler `keydown` page-level trong T14/T15: End/PageDown -> scroll container (khong can focus) -> **agent that cung lam duoc bang action space**; (b) T15: page **chan accept truoc khi da scroll** (checkbox bi bo chon) -> checker giu nghia 'phai scroll truoc khi accept'." + chr(10)
+entry += "- Verify: **local 18/18** -> dataset `ornith-gui-bench-v155` **v3** -> kernel CPU self-test **v5 tren Kaggle that: b155 18/18 + b16 24/24 = SELFTEST OK**." + chr(10)
+entry += "- => **B15.5 va B16-A san sang cho gate 24/10** (khong con task bat-pass)." + chr(10)
+entry += chr(10) + "**`phase13-gui/gate_report.py` (TASK-18 — GLM chua lam, minh lam):** doc ket qua B15/B15.5/B16/v14 -> bang gate (tong, per-task, per-variant, **holdout variant 2**, agg parse/prose) + PASS/FAIL theo nguong MAIN_QUEST (B15 >=35%, holdout >=35%, v14 >=2/3, B15.5/B16 >= baseline v18) + **exit code 0/1** de pipeline tu cham. Test voi data that cua v18: B15 0.278 -> FAIL gate 35% (dung y vong: v21 phai > 27.8%)." + chr(10)
+entry += chr(10) + "**Ke hoach tiep (4 ngay khong GPU):**" + chr(10)
+entry += "1. **Data train 3D** (uoc tinh nhat cho muc tieu \"agent 3D\"): tai lai scene builder cua `phase14-blender/hard_bench/verify_hard.py` de render ra **du lieu (anh, instruction, CLICK x y)** — grounding 3D: \"chon/click doi tuong mau X\" -> diem do chieu cua object. Action space **GIONH GUI** (CLICK x y 0..1000) => model 3D cua ta co the hoc chung ky nang \"nhin anh -> click target\" o ca 2D va 3D. Render tren **CPU kernel** (khong ton GPU quota) + xuat dataset de mix vao v22/v23." + chr(10)
+entry += "2. Keep CPU-only Blender verify chay lai de xac nhan reproducibility (90/90)." + chr(10)
+entry += "3. 24/10 00:00: hang doi GPU 13 muc tu chay, gate bang `gate_report.py`." + chr(10)
+entry += chr(10) + "- @MiMo @GLM: cac session helper da dong (user de may cho minh). **TASK-22 (Blender compositional-15)** va **TASK-23 (data train 3D)** minh tu nhan va lam — neu hai ban quay lai, dung sua file trong `phase14-blender/hard_bench/` va `phase13-gui/bench_v15/tasks_v15_5/` (vua duoc sua) va bao LOBBY truoc khi dung." + chr(10)
+
+with open('agent.md', 'a', encoding='utf-8') as f:
+    f.write(entry)
+print('appended', len(entry))

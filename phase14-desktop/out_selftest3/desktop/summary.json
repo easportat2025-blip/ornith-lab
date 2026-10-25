@@ -1,0 +1,82 @@
+{
+ "n_steps": 9,
+ "rows": [
+  {
+   "step": 0,
+   "action": "MOVE 500 500",
+   "desc": "move",
+   "shot_ok": true,
+   "shot": "shots/step00.png",
+   "size": 4270
+  },
+  {
+   "step": 1,
+   "action": "CLICK 500 500",
+   "desc": "click",
+   "shot_ok": true,
+   "shot": "shots/step01.png",
+   "size": 4270
+  },
+  {
+   "step": 2,
+   "action": "TYPE hello world",
+   "desc": "type",
+   "shot_ok": true,
+   "shot": "shots/step02.png",
+   "size": 4270
+  },
+  {
+   "step": 3,
+   "action": "KEY Tab",
+   "desc": "key",
+   "shot_ok": true,
+   "shot": "shots/step03.png",
+   "size": 4270
+  },
+  {
+   "step": 4,
+   "action": "KEY Return",
+   "desc": "key",
+   "shot_ok": true,
+   "shot": "shots/step04.png",
+   "size": 4270
+  },
+  {
+   "step": 5,
+   "action": "MOVE 800 400",
+   "desc": "move",
+   "shot_ok": true,
+   "shot": "shots/step05.png",
+   "size": 4270
+  },
+  {
+   "step": 6,
+   "action": "CLICK 800 400",
+   "desc": "click",
+   "shot_ok": true,
+   "shot": "shots/step06.png",
+   "size": 4270
+  },
+  {
+   "step": 7,
+   "action": "SCROLL 3",
+   "desc": "scroll",
+   "shot_ok": true,
+   "shot": "shots/step07.png",
+   "size": 4270
+  },
+  {
+   "step": 8,
+   "action": "DRAG 300 300 700 500",
+   "desc": "drag",
+   "shot_ok": true,
+   "shot": "shots/step08.png",
+   "size": 4270
+  }
+ ],
+ "screen": [
+  1280,
+  720
+ ],
+ "final_diff": "None"
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ornith Agent Desktop</title>
+<style>
+:root {
+  --bg: #0b0f17; --panel: #131a26; --panel2: #1a2233; --line: #2a3447;
+  --text: #e6edf3; --muted: #8b949e; --accent: #7c3aed;
+  --green: #3fb950; --red: #f85149; --amber: #d29922; --blue: #58a6ff;
+  --mono: "Cascadia Code", "Consolas", monospace;
+  --sans: "Segoe UI", "Inter", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  background: var(--bg); color: var(--text); font-family: var(--sans);
+  font-size: 13px; overflow: hidden;
+}
+.app { display: grid; grid-template-columns: 230px 1fr 300px; height: 100vh; }
+.col { border-right: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+.col:last-child { border-right: none; }
+.hdr { padding: 10px 14px; border-bottom: 1px solid var(--line); font-weight: 600;
+       display: flex; align-items: center; gap: 8px; }
+.hdr .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+.hdr .dot.off { background: var(--red); }
+.scroll { overflow-y: auto; flex: 1 1 auto; padding: 10px 12px; }
+.scroll::-webkit-scrollbar { width: 8px; }
+.scroll::-webkit-scrollbar-thumb { background: #2a3447; border-radius: 4px; }
+
+/* left: agents + tasks */
+.agent { display: flex; align-items: center; gap: 10px; padding: 8px 10px;
+         border-radius: 8px; margin-bottom: 6px; background: var(--panel); }
+.agent .avatar { width: 30px; height: 30px; border-radius: 8px;
+                 display: flex; align-items: center; justify-content: center;
+                 font-weight: 700; color: #fff; font-size: 12px; }
+.agent .meta { flex: 1; min-width: 0; }
+.agent .meta .name { font-weight: 600; }
+.agent .meta .role { color: var(--muted); font-size: 11px; }
+.task { padding: 6px 8px; border-radius: 6px; margin-bottom: 4px;
+        background: var(--panel2); border: 1px solid var(--line); font-size: 12px; }
+.task .slug { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.task .note { color: var(--muted); font-size: 11px; margin-top: 2px; }
+.task.paused { opacity: 0.5; }
+.task .badge { float: right; font-size: 10px; padding: 1px 6px; border-radius: 4px;
+               background: #2a3447; color: var(--muted); }
+.task .badge.run { background: #1f3a5f; color: var(--blue); }
+.task .badge.done { background: #1a3a2a; color: var(--green); }
+
+/* middle: chat */
+.chat { padding: 14px 16px; overflow-y: auto; flex: 1 1 auto; }
+.msg { margin-bottom: 14px; }
+.msg .head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.msg .head .who { font-weight: 600; }
+.msg .head .time { color: var(--muted); font-size: 11px; margin-left: auto; }
+.msg .head .tag { font-size: 10px; padding: 1px 6px; border-radius: 4px;
+                  background: #2a3447; color: var(--muted); }
+.msg .body { white-space: pre-wrap; word-break: break-word; line-height: 1.45;
+             padding-left: 2px; }
+.msg .body code { font-family: var(--mono); background: #1a2233; padding: 1px 4px;
+                  border-radius: 3px; }
+.msg.me { background: #1a2233; border-radius: 8px; padding: 10px 12px; }
+.composer { border-top: 1px solid var(--line); padding: 10px 12px;
+            display: flex; gap: 8px; align-items: stretch; background: var(--panel); }
+.composer textarea { flex: 1 1 auto; background: var(--panel2); color: var(--text);
+                     border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px;
+                     font-family: var(--sans); font-size: 13px; resize: none;
+                     min-height: 38px; max-height: 120px; }
+.composer select, .composer button { background: var(--panel2); color: var(--text);
+                     border: 1px solid var(--line); border-radius: 6px; padding: 0 12px;
+                     cursor: pointer; font-size: 13px; }
+.composer button { background: var(--accent); border-color: var(--accent); color: #fff;
+                   font-weight: 600; padding: 0 16px; }
+.composer button:hover { filter: brightness(1.1); }
+.row { display: flex; gap: 6px; margin-bottom: 6px; }
+.row button { background: var(--panel2); color: var(--muted); border: 1px solid var(--line);
+              border-radius: 6px; padding: 4px 8px; cursor: pointer; font-size: 11px; }
+.row button:hover { color: var(--text); }
+
+/* right: lobby + kernels */
+.lobby { font-family: var(--mono); font-size: 11.5px; line-height: 1.4;
+         white-space: pre-wrap; word-break: break-word; }
+.lobby h4 { color: var(--accent); margin: 10px 0 4px; font-size: 12px; }
+.kernel { font-family: var(--mono); font-size: 11px; padding: 4px 6px;
+          border-bottom: 1px solid var(--line); }
+.kernel .slug { color: var(--muted); }
+.kernel .st { float: right; }
+.kernel .st.run { color: var(--blue); }
+.kernel .st.done { color: var(--green); }
+.kernel .st.err { color: var(--red); }
+
+.empty { color: var(--muted); padding: 20px; text-align: center; }
+.statusbar { padding: 4px 12px; border-top: 1px solid var(--line); font-size: 11px;
+             color: var(--muted); display: flex; gap: 14px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- LEFT -->
+  <div class="col">
+    <div class="hdr"><span class="dot" id="dot"></span>Ornith Agent Desktop</div>
+    <div class="scroll" id="agents"></div>
+    <div style="padding: 10px 12px; border-top: 1px solid var(--line);">
+      <div style="font-weight:600; margin-bottom:6px;">Task board (B)</div>
+      <div id="tasks" class="scroll" style="max-height: 40%; padding:0;"></div>
+    </div>
+  </div>
+  <!-- MIDDLE -->
+  <div class="col">
+    <div class="hdr">Chat — <span id="chan">all</span></div>
+    <div class="chat" id="chat"></div>
+    <div class="composer">
+      <textarea id="input" placeholder="Nhắn tin cho agent… (Ctrl+Enter để gửi)"></textarea>
+      <select id="to">
+        <option value="">all</option>
+        <option value="GLM">GLM</option>
+        <option value="MiMo">MiMo</option>
+        <option value="GPT">GPT</option>
+        <option value="DeepSeek">DeepSeek</option>
+      </select>
+      <button id="send">Gửi</button>
+    </div>
+  </div>
+  <!-- RIGHT -->
+  <div class="col">
+    <div class="hdr">LOBBY (tail)</div>
+    <div class="scroll" id="lobby" class="lobby"></div>
+    <div style="padding: 8px 12px; border-top: 1px solid var(--line);">
+      <div style="font-weight:600; margin-bottom:6px;">Kernels (B)</div>
+      <div id="kernels" class="scroll" style="max-height: 40%; padding:0;"></div>
+    </div>
+  </div>
+</div>
+<div class="statusbar">
+  <span id="st-conn">connecting…</span>
+  <span id="st-n">0 msgs</span>
+  <span id="st-task">tasks: 0</span>
+  <span style="margin-left:auto;">bus http://127.0.0.1:8777</span>
+</div>
+
+<script>
+const AGENTS = {
+  "DeepSeek": {color:"#7c3aed", role:"orchestrator"},
+  "GLM": {color:"#2563eb", role:"bench + harness"},
+  "MiMo": {color:"#059669", role:"data + desktop"},
+  "GPT": {color:"#d97706", role:"audit + tooling"},
+  "SPACE": {color:"#8b949e", role:"deploy"},
+};
+const chat = document.getElementById("chat");
+const agentsEl = document.getElementById("agents");
+const tasksEl = document.getElementById("tasks");
+const lobbyEl = document.getElementById("lobby");
+const kernelsEl = document.getElementById("kernels");
+const input = document.getElementById("input");
+const toSel = document.getElementById("to");
+const sendBtn = document.getElementById("send");
+const connDot = document.getElementById("dot");
+const stConn = document.getElementById("st-conn");
+const stN = document.getElementById("st-n");
+const stTask = document.getElementById("st-task");
+
+function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function ts(t){ const d=new Date(t*1000); return d.toLocaleTimeString(); }
+
+function renderAgents(list){
+  agentsEl.innerHTML = list.map(a=>`
+    <div class="agent">
+      <div class="avatar" style="background:${a.color||"#555"}">${(a.name||"?").slice(0,2).toUpperCase()}</div>
+      <div class="meta">
+        <div class="name">${esc(a.name)}</div>
+        <div class="role">${esc(a.role||"")} · ${esc(a.acc||"")} · ${esc(a.session||"")}</div>
+      </div>
+    </div>`).join("");
+}
+function renderTasks(list){
+  if(!list||!list.length){ tasksEl.innerHTML='<div class="empty">không có task</div>'; return; }
+  tasksEl.innerHTML = list.map(t=>{
+    const paused = t.paused ? " paused" : "";
+    const id = t.id||"";
+    const short = id.split("/").pop();
+    return `<div class="task${paused}">
+      <span class="badge ${paused?"":(id.includes("v24")?"run":"")}">${paused?"paused":"queued"}</span>
+      <div>${esc(short)}</div>
+      <div class="slug">${esc(id)}</div>
+      <div class="note">${esc(t.note||"")}</div>
+    </div>`;
+  }).join("");
+  stTask.textContent = "tasks: " + list.length;
+}
+function renderKernels(obj){
+  const keys = Object.keys(obj||{});
+  if(!keys.length){ kernelsEl.innerHTML='<div class="empty">không có</div>'; return; }
+  kernelsEl.innerHTML = keys.map(k=>{
+    const v = obj[k]||"";
+    let cls = "run";
+    if(/complete/i.test(v)) cls="done";
+    else if(/error/i.test(v)) cls="err";
+    return `<div class="kernel"><span class="st ${cls}">${esc(v.split(" ").pop())}</span>
+            <span class="slug">${esc(k.split("/").pop())}</span></div>`;
+  }).join("");
+}
+function addMsg(m){
+  const who = m.from||"?";
+  const info = AGENTS[who]||{color:"#888",role:""};
+  const div = document.createElement("div");
+  div.className = "msg" + (who==="DeepSeek"?" me":"");
+  div.innerHTML = `
+    <div class="head">
+      <span class="who" style="color:${info.color}">${esc(who)}</span>
+      ${m.tag?`<span class="tag">${esc(m.tag)}</span>`:""}
+      <span class="time">${ts(m.ts)}</span>
+    </div>
+    <div class="body">${esc(m.text)}</div>`;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  stN.textContent = (chat.querySelectorAll(".msg").length) + " msgs";
+}
+
+async function loadInitial(){
+  try {
+    const r = await fetch("/messages?limit=80");
+    const j = await r.json();
+    (j.messages||[]).forEach(addMsg);
+  } catch(e){ console.error(e); }
+  try {
+    const r = await fetch("/agents"); const j = await r.json();
+    renderAgents(j.items||[]);
+  } catch(e){}
+  try {
+    const r = await fetch("/tasks"); const j = await r.json();
+    renderTasks(j.items||[]);
+  } catch(e){}
+  try {
+    const r = await fetch("/lobby"); const j = await r.json();
+    lobbyEl.textContent = j.text||"";
+    lobbyEl.className = "scroll lobby";
+  } catch(e){}
+  try {
+    const r = await fetch("/kernels"); const j = await r.json();
+    renderKernels(j.items||{});
+  } catch(e){}
+}
+
+function connectSSE(){
+  const es = new EventSource("/events");
+  es.onopen = ()=>{ connDot.classList.remove("off"); stConn.textContent="connected"; };
+  es.onmessage = e=>{
+    try { addMsg(JSON.parse(e.data)); } catch(err){}
+  };
+  es.onerror = ()=>{ connDot.classList.add("off"); stConn.textContent="reconnecting…"; };
+}
+
+async function send(){
+  const text = input.value.trim();
+  if(!text) return;
+  const to = toSel.value;
+  const full = to ? ("@" + to + " " + text) : text;
+  input.value = "";
+  try {
+    await fetch("/post", {method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({from:"user", text: full, tag:"chat"})});
+  } catch(e){ console.error(e); }
+}
+
+sendBtn.addEventListener("click", send);
+input.addEventListener("keydown", e=>{
+  if(e.key==="Enter" && (e.ctrlKey||e.metaKey)){ e.preventDefault(); send(); }
+});
+
+// auto-grow textarea
+input.addEventListener("input", ()=>{
+  input.style.height = "38px";
+  input.style.height = Math.min(120, input.scrollHeight) + "px";
+});
+
+loadInitial();
+connectSSE();
+setInterval(async ()=>{
+  try {
+    const r = await fetch("/tasks"); const j = await r.json();
+    renderTasks(j.items||[]);
+    const r2 = await fetch("/kernels"); const j2 = await r2.json();
+    renderKernels(j2.items||{});
+  } catch(e){}
+}, 30000);
+</script>
+</body>
+</html>

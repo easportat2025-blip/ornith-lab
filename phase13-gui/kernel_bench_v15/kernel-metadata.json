@@ -1,0 +1,28 @@
+{
+  "code_file": "bench_v15_kernel.py",
+  "competition_sources": [
+    "arc-prize-2026-arc-agi-3"
+  ],
+  "dataset_sources": [
+    "khoadangnguye/gemma12b-wheels",
+    "dieniw/stack-wheels",
+    "dieniw/ornbase-s1",
+    "dieniw/ornbase-s2",
+    "dieniw/ornbase-s3",
+    "dieniw/ornbase-s4",
+    "khoadangnguye/ornith-gui-lora",
+    "khoadangnguye/ornith-offline-browsers",
+    "khoadangnguye/ornith-gui-bench-v15"
+  ],
+  "enable_gpu": true,
+  "enable_internet": false,
+  "enable_tpu": false,
+  "id": "khoadangnguye/ornith-gui-bench-v15-eval",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "script",
+  "language": "python",
+  "machine_shape": "NvidiaRtxPro6000",
+  "model_sources": [],
+  "title": "ornith-gui-bench-v15-eval"
+}

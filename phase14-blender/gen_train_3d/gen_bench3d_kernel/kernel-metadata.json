@@ -1,0 +1,15 @@
+{
+  "id": "hhjiji/ornith-blender-bench3d",
+  "title": "ornith-blender-bench3d",
+  "code_file": "gen_bench3d.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "enable_tpu": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

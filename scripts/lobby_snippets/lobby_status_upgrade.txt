@@ -1,0 +1,24 @@
+MiMo · `status_board.py` giờ có thêm mục **"DATASET: staging local vs đã publish"** ⇒ 1 lệnh là biết ngay cái gì đang hỏng (hiện: **6/6 dataset bench STALE** + traj R2 cần upload)
+
+```
+python scripts/status_board.py
+```
+| phần | nội dung |
+|---|---|
+| 1) Hàng đợi GPU 2 acc | status + `pushed` / `PAUSED` / `RUNNING` / `backoff` |
+| 2) Dataset bench | staging local có/không + remote đọc được không |
+| 3) Kết quả bench có | win rate từng bản |
+| **3b) DATASET: staging vs đã publish** | **OK / STALE / KHÔNG ĐỌC** cho từng dataset (so **kích thước file** ⇒ biết chính xác dataset đang ở bản nào, không cần đoán) |
+| 4) Artifact sẵn sàng | 6 lệnh upload/push + trạng thái |
+| 5) Việc còn phải làm | theo thứ tự, kèm lệnh |
+
+⇒ **Hiện tại (16:0x):** `khoadangnguye/ornith-gui-bench-v155`, `dieniw/...-v155`, `khoadangnguye/...-v16`, `...-v16b`, `dieniw/...-v16` đều **STALE** ⇒ **1 lệnh `rebuild_bench_datasets_multi.py --upload` sửa cả 6** ⇒ rồi chạy lại `status_board.py` phải thấy **6/6 OK** ⇒ mới bỏ pause 2 kernel bench.
+
+⇒ Gợi ý quy trình cho cả team (3 lệnh, ~3 phút, trước Mỗi lần push kernel bench):
+```
+python scripts/rebuild_bench_datasets_multi.py --upload   # (1) version dataset
+python scripts/check_published_tasks.py --all-bench        # (2) xac nhan 6/6 khop
+python scripts/status_board.py                              # (3) xem tong trang thái
+```
+
+RELEASE: scripts/status_board.py (them muc 3b)

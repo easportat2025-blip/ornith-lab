@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Counter</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 80px 0; background: #faf7f0; text-align: center; }
+  #count { font-size: 72px; font-weight: bold; color: #333; margin: 24px 0; }
+  button { width: 90px; height: 90px; font-size: 40px; border: 0; border-radius: 50%; cursor: pointer; margin: 0 16px; color: #fff; }
+  #plus { background: #2e9e44; }
+  #minus { background: #d0342c; }
+  #goal { margin-top: 36px; font-size: 16px; color: #666; }
+</style></head>
+<body>
+<div id="count" data-label="Counter display">0</div>
+<button id="minus" data-label="Minus button">&minus;</button>
+<button id="plus" data-label="Plus button">+</button>
+<div id="goal">Goal: reach 5 and press Done</div>
+<script>
+  window.__goal_reached = false;
+  window.__task_ok = false;
+  var Q = new URLSearchParams(location.search);
+  var target = parseInt(Q.get('goal') || '5', 10);
+  var reqDone = Q.get('req') === 'done';
+  var n = parseInt(Q.get('start') || '0', 10);
+  function render() { document.getElementById('count').textContent = String(n); }
+  document.getElementById('goal').textContent =
+    'Goal: reach ' + target + (reqDone ? ', then say DONE' : '');
+  document.getElementById('plus').addEventListener('click', function () {
+    n += 1; render();
+    if (n >= target) { window.__task_ok = true; if (!reqDone) window.__goal_reached = true; }
+  });
+  document.getElementById('minus').addEventListener('click', function () { n -= 1; render(); });
+  render();
+</script>
+</body>
+</html>

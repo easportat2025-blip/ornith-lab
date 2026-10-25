@@ -1,0 +1,223 @@
+[
+ {
+  "label": "rollout-base",
+  "kernel": "khoadangnguye/ornith-gui-rollout-base",
+  "outdir": "phase13-gui/out_rollout_base",
+  "pattern": "rollout_bundle\\.zip|rollout_rows\\.jsonl|rollout_summary\\.json|.*\\.log",
+  "post": "scripts/after_rollout.ps1"
+ },
+ {
+  "label": "rollout-v20",
+  "kernel": "khoadangnguye/ornith-gui-rollout-v20",
+  "outdir": "phase13-gui/out_rollout",
+  "pattern": "rollout_bundle\\.zip|rollout_rows\\.jsonl|rollout_summary\\.json|.*\\.log",
+  "post": "scripts/after_rollout_v20.ps1"
+ },
+ {
+  "label": "bench-v18",
+  "kernel": "khoadangnguye/ornith-gui-bench-v15-eval",
+  "outdir": "phase13-gui/out_bench_v15",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v20",
+  "kernel": "khoadangnguye/ornith-gui-bench-v15-eval-v20",
+  "outdir": "phase13-gui/out_bench_v15_v20",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "sft-v21",
+  "kernel": "khoadangnguye/ornith-gui-sft-v21",
+  "outdir": "phase13-gui/out_sft_v21",
+  "pattern": "gui_result\\.json|.*\\.log",
+  "post": "scripts/after_sft_v21.ps1"
+ },
+ {
+  "label": "bench-v21",
+  "kernel": "khoadangnguye/ornith-gui-bench-v21",
+  "outdir": "phase13-gui/out_bench_v21",
+  "pattern": "b15_result\\.json|.*\\.log",
+  "post": "scripts\\\\post_gates\\\\post_khoadangnguye_ornith-gui-bench-v21.ps1"
+ },
+ {
+  "label": "bench-v155",
+  "kernel": "khoadangnguye/ornith-gui-bench-v155",
+  "outdir": "phase13-gui/out_bench_v155",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v155-v21",
+  "kernel": "khoadangnguye/ornith-gui-bench-v155-v21",
+  "outdir": "phase13-gui/out_bench_v155_v21",
+  "pattern": "b15_result\\.json|.*\\.log",
+  "post": "scripts\\\\post_gates\\\\post_khoadangnguye_ornith-gui-bench-v155-v21.ps1"
+ },
+ {
+  "label": "sft-v22",
+  "kernel": "khoadangnguye/ornith-gui-sft-v22",
+  "outdir": "phase13-gui/out_sft_v22",
+  "pattern": "gui_result\\.json|.*\\.log",
+  "post": "scripts/post_v22_adapter.ps1"
+ },
+ {
+  "label": "bench-v22",
+  "kernel": "khoadangnguye/ornith-gui-bench-v22",
+  "outdir": "phase13-gui/out_bench_v22",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v155-v22",
+  "kernel": "khoadangnguye/ornith-gui-bench-v155-v22",
+  "outdir": "phase13-gui/out_bench_v155_v22",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v16-v22",
+  "kernel": "khoadangnguye/ornith-gui-bench-v16-v22",
+  "outdir": "phase13-gui/out_bench_v16_v22",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v16",
+  "kernel": "khoadangnguye/ornith-gui-bench-v16",
+  "outdir": "phase13-gui/out_bench_v16",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v16-v21",
+  "kernel": "khoadangnguye/ornith-gui-bench-v16-v21",
+  "outdir": "phase13-gui/out_bench_v16_v21",
+  "pattern": "b15_result\\.json|.*\\.log",
+  "post": "scripts\\\\post_gates\\\\post_khoadangnguye_ornith-gui-bench-v16-v21.ps1"
+ },
+ {
+  "label": "bench-v155",
+  "kernel": "khoadangnguye/ornith-gui-bench-v155",
+  "outdir": "phase13-gui/out_bench_v155",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v14-v21",
+  "kernel": "khoadangnguye/ornith-gui-bench-v14-v21",
+  "outdir": "phase13-gui/out_bench_v14_v21",
+  "pattern": "bench_result\\.json|.*\\.log",
+  "post": "scripts\\\\post_gates\\\\post_khoadangnguye_ornith-gui-bench-v14-v21.ps1"
+ },
+ {
+  "label": "bench-v18-think0",
+  "kernel": "khoadangnguye/ornith-gui-bench-v15-think0",
+  "outdir": "phase13-gui/out_bench_v18_think0",
+  "pattern": "b15_result\\.json|.*\\.log",
+  "post": "scripts\\\\post_gates\\\\post_khoadangnguye_ornith-gui-bench-v15-think0.ps1"
+ },
+ {
+  "label": "sft-v22",
+  "kernel": "khoadangnguye/ornith-gui-sft-v22",
+  "outdir": "phase13-gui/out_sft_v22",
+  "pattern": "gui_result\\.json|.*\\.log"
+ },
+ {
+  "label": "rollout-v21",
+  "kernel": "khoadangnguye/ornith-gui-rollout-v21",
+  "outdir": "phase13-gui/out_rollout_v21",
+  "pattern": "rollout_bundle\\\\.zip|rollout_rows\\\\.jsonl|rollout_summary\\\\.json|.*\\\\.log",
+  "post": "scripts/after_rollout_v21.ps1"
+ },
+ {
+  "label": "suite-selftest",
+  "kernel": "khoadangnguye/ornith-suite-selftest",
+  "outdir": "phase13-gui/out_suite_selftest",
+  "pattern": "selftest_report\\.json|.*\\.log"
+ },
+ {
+  "label": "blender-gen3d",
+  "kernel": "khoadangnguye/ornith-blender-gen3d",
+  "outdir": "phase14-blender/out_gen3d",
+  "pattern": "gen3d_summary\\\\.json|train3d\\\\.jsonl|.*\\\\.log"
+ },
+ {
+  "label": "bench-3d",
+  "kernel": "khoadangnguye/ornith-gui-bench-3d",
+  "outdir": "phase13-gui/out_bench_3d",
+  "pattern": "bench3d_result\\\\.json|.*\\\\.log",
+  "post": "scripts\\\\post_gates\\\\post_ornith-gui-bench-3d.ps1"
+ },
+ {
+  "label": "bench-3d-v21",
+  "kernel": "khoadangnguye/ornith-gui-bench-3d-v21",
+  "outdir": "phase13-gui/out_bench_3d_v21",
+  "pattern": "bench3d_result\\\\.json|.*\\\\.log",
+  "post": "scripts\\\\post_gates\\\\post_ornith-gui-bench-3d-v21.ps1"
+ },
+ {
+  "label": "bench-3d-hard",
+  "kernel": "khoadangnguye/ornith-gui-bench-3d-hard",
+  "outdir": "phase13-gui/out_bench_3d_hard",
+  "pattern": "bench3d_result\\\\.json|.*\\\\.log",
+  "post": "scripts\\\\post_gates\\\\post_ornith-gui-bench-3d-hard.ps1"
+ },
+ {
+  "label": "bench-3d-hard-v21",
+  "kernel": "khoadangnguye/ornith-gui-bench-3d-hard-v21",
+  "outdir": "phase13-gui/out_bench_3d_hard_v21",
+  "pattern": "bench3d_result\\\\.json|.*\\\\.log",
+  "post": "scripts\\\\post_gates\\\\post_ornith-gui-bench-3d-hard-v21.ps1"
+ },
+ {
+  "label": "policy-replay",
+  "kernel": "khoadangnguye/ornith-policy-replay",
+  "outdir": "phase13-gui/out_policy_replay",
+  "pattern": "traj\\\\.jsonl|shots\\\\.zip|replay_summary\\\\.json|.*\\\\.log",
+  "post": "scripts/post_policy_replay.ps1"
+ },
+ {
+  "label": "desktop-bench",
+  "kernel": "khoadangnguye/ornith-gui-desktop-bench",
+  "outdir": "phase13-gui/out_desktop_bench",
+  "pattern": "desktop_result\\.json|actions\\.jsonl|reward\\.json|.*\\.log"
+ },
+ {
+  "label": "desktop-bench-a",
+  "kernel": "khoadangnguye/ornith-gui-desktop-bench-a",
+  "outdir": "phase13-gui/out_desktop_bench_a",
+  "pattern": "desktop_result\\.json|actions\\.jsonl|reward\\.json|.*\\.log"
+ },
+ {
+  "label": "desktop-bench-b",
+  "kernel": "dieniw/ornith-gui-desktop-bench-b",
+  "outdir": "phase13-gui/out_desktop_bench_b",
+  "pattern": "desktop_result\\.json|actions\\.jsonl|reward\\.json|.*\\.log"
+ },
+ {
+  "label": "bench-v155-v22-old",
+  "kernel": "khoadangnguye/ornith-gui-bench-v155-v22-old",
+  "outdir": "phase13-gui/out_bench_v155_v22_old",
+  "pattern": "b15_result\\.json|.*\\.log"
+ },
+ {
+  "label": "sft-v24",
+  "kernel": "dieniw/ornith-gui-sft-v24",
+  "outdir": "phase13-gui/out_sft_v24",
+  "pattern": "gui_result\\.json|.*\\.log|gui_lora/.*",
+  "post": "scripts\\post_v24_adapter.ps1"
+ },
+ {
+  "kernel": "khoadangnguye/ornith-gui-sft-v23b",
+  "label": "sft-v23b",
+  "outdir": "phase13-gui/out_sft_v23b5",
+  "pattern": "gui_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "kernel": "khoadangnguye/ornith-gui-desktop-bench-smoke2",
+  "label": "desktop-bench-smoke2",
+  "outdir": "phase13-gui/out_desktop_smoke2",
+  "pattern": "desktop_result\\\\.json|.*\\\\.log"
+ },
+ {
+  "label": "grpo-v1",
+  "kernel": "dieniw/ornith-gui-grpo-v1",
+  "outdir": "phase13-gui/out_grpo_v1",
+  "pattern": "grpo_result\\.json|.*\\.log|gui_lora/.*",
+  "post": "scripts\\post_grpo_adapter.ps1"
+ }
+]

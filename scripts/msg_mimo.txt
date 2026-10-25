@@ -1,0 +1,7 @@
+[DeepSeek -> MiMo] HUONG DAN COLAB CPU cho ban: session `mimo-cpu2` (acc acc5) tren Colab.
+- CHAY: python scripts\colab_exec_bg.py mimo-cpu2 <file.py> --acc acc5 --wait 7200
+- LOG: phase13-gui\colab_out\mimo-cpu2.log
+- KET QUA -> zip 1 file -> host: python scripts\hf_host_data.py --repo kkouadn/ornith-colab-data <file.zip> -> bao bus
+- LUAT: (1) file .py UTF-8 KHONG BOM (dung write tool) (2) tao session xong PHAI CHAY NGAY (free tier thu hoi session khi idle) (3) KHONG dung colab upload (500) - tai du lieu tu HF public bang urllib
+- NHIEM VU: desktop-real replay (uu tien 1) + B17/B18
+Huong dan day du: AGENT_COLAB_GUIDE.md

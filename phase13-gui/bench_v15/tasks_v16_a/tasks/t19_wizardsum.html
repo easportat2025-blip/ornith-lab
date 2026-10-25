@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>T19 wizard sum</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:720px;margin:0 auto;padding:18px;}
+  .card{background:#1b222d;border:1px solid #2c3644;border-radius:8px;padding:18px;margin-bottom:14px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer;margin:4px;}
+  button:disabled{background:#3a4553;cursor:not-allowed;}
+  input[type=text]{background:#10151c;border:1px solid #384454;color:#e8edf5;border-radius:6px;padding:9px 12px;font-size:15px;width:200px;}
+  .num{font-size:26px;font-weight:700;color:#7fd0a0;margin:6px 0;}
+  .step{display:none;} .step.on{display:block;}
+  #status{font-size:15px;color:#9fb0c3;margin-top:8px;min-height:20px;}
+</style>
+</head>
+<body data-step="1" data-n1="0" data-n2="0" data-n3="0" data-n4="0" data-sum="0" data-submitted="0" data-answer="">
+<header>WIZARD SUM</header>
+<main>
+  <div class="card">
+    <div class="step on" id="s1">
+      <p>Step 1 — remember this number:</p>
+      <div class="num" id="n1">0</div>
+      <button id="next1">Next</button>
+    </div>
+    <div class="step" id="s2">
+      <p>Step 2 — remember this number:</p>
+      <div class="num" id="n2">0</div>
+      <button id="next2">Next</button>
+    </div>
+    <div class="step" id="s3">
+      <p>Step 3 — remember this number:</p>
+      <div class="num" id="n3">0</div>
+      <button id="next3">Next</button>
+    </div>
+    <div class="step" id="s4">
+      <p>Step 4 — remember this number:</p>
+      <div class="num" id="n4">0</div>
+      <button id="next4">Next</button>
+    </div>
+    <div class="step" id="s5">
+      <p>Enter the sum of all four numbers:</p>
+      <input type="text" id="ans">
+      <button id="subbtn">Submit</button>
+    </div>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var N=[ [3,5,2,4],[7,1,6,2],[9,4,1,3] ][V];
+document.getElementById("n1").textContent=N[0];
+document.getElementById("n2").textContent=N[1];
+document.getElementById("n3").textContent=N[2];
+document.getElementById("n4").textContent=N[3];
+var sum=N[0]+N[1]+N[2]+N[3];
+document.body.dataset.n1=N[0];document.body.dataset.n2=N[1];
+document.body.dataset.n3=N[2];document.body.dataset.n4=N[3];
+document.body.dataset.sum=sum;
+function goto(n){document.body.dataset.step=String(n);
+  for(var i=1;i<=5;i++)document.getElementById("s"+i).classList.toggle("on",i===n);
+  /* FIX (TASK-17 root-cause): status luon noi dang o dau + phai bam gi.
+     Trace v18: model BAM VAO SO (div khong co handler) 7 lan, man hinh khong doi
+     -> lap prose khong commit. Bay con so da nho + huong dan hanh dong. */
+  if(n<=4){statusEl.textContent="Step "+n+" of 4. Remember the number, then press Next.";}
+  else{statusEl.textContent="Step 5 of 5. Enter the sum of all four numbers.";}}
+/* so khong phai noi dung -> bao ro, de agent biet phai bam Next */
+["n1","n2","n3","n4"].forEach(function(id){
+  document.getElementById(id).addEventListener("click",function(){
+    statusEl.textContent="That is the number to remember. Press Next to go to the next step.";
+  });
+});
+document.getElementById("next1").addEventListener("click",function(){goto(2);});
+document.getElementById("next2").addEventListener("click",function(){goto(3);});
+document.getElementById("next3").addEventListener("click",function(){goto(4);});
+document.getElementById("next4").addEventListener("click",function(){goto(5);});
+var statusEl=document.getElementById("status");
+goto(1);
+document.getElementById("subbtn").addEventListener("click",function(){
+  var v=document.getElementById("ans").value.trim();
+  document.body.dataset.answer=v;
+  if(v===String(sum)){document.body.dataset.submitted="1";document.getElementById("status").textContent="Correct!";}
+  else{document.getElementById("status").textContent="Wrong sum - try again.";}
+});
+</script>
+</body>
+</html>

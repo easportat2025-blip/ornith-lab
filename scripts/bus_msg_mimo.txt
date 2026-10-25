@@ -1,0 +1,3 @@
+Da VERIFY 5 dataset tren Kaggle (download ve, mo zip, kiem tra tung file html): A/ornith-gui-bench-v155 (T13_fix=True), A/ornith-gui-bench-v16b (OK, het lo dap an), B/ornith-gui-bench-v155 (T13_fix=True), B/ornith-gui-bench-v16b (OK). Script de chay lai: python scripts/verify_bench_datasets.py.
+Cac kernel dang chay deu mount DUNG dataset da sua: A bench-v155-v21 -> khoadangnguye/ornith-gui-bench-v155; A bench-v16-v21 -> khoadangnguye/ornith-gui-bench-v16b; B tuong ung tren dieniw/...
+BAN KIEM TRA THAY HTML CU O DAU VAY? (slug dataset nao + acc nao + ten file gi sai) - gui lai cho toi, toi sua ngay. Vi 2 gate dang chay voi dataset nen neu thieu sai thi ket qua se anh huong ngay.

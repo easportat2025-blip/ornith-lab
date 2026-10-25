@@ -1,0 +1,20 @@
+{
+  "account": "dieniw",
+  "max_gpu_sessions": 1,
+  "targets": [
+    {
+      "ref": "dieniw/ornith-gui-sft-v25b",
+      "path": "phase13-gui/kernel_v25b",
+      "kind": "train",
+      "state": "active",
+      "note": "RTX + competition + mini wheels; 14 datasets under 20GB"
+    },
+    {
+      "ref": "dieniw/ornith-gui-bench-b17-v22",
+      "path": "phase13-gui/kernel_bench_b17",
+      "kind": "eval",
+      "state": "pending",
+      "note": "B17 baseline after v25b adapter exists"
+    }
+  ]
+}

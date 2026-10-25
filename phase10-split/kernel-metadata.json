@@ -1,0 +1,1 @@
+{"code_file": "split_upload.py", "competition_sources": [], "dataset_sources": [], "enable_gpu": false, "enable_internet": true, "enable_tpu": false, "id": "dieniw/ornbase-splitter", "is_private": true, "kernel_sources": [], "kernel_type": "script", "language": "python", "model_sources": [], "title": "ornbase-splitter"}

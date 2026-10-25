@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Transfer codes</title>
+<style>
+  html,body{margin:0;height:100%;font:16px system-ui,sans-serif;background:#14181f;color:#e8edf5;}
+  header{background:#1d2531;padding:12px 20px;font-weight:700;letter-spacing:.5px;}
+  main{max-width:900px;margin:0 auto;padding:18px;display:flex;gap:26px;}
+  .col{flex:1;}
+  .col h3{font-size:14px;letter-spacing:1px;color:#8fa1b5;text-transform:uppercase;}
+  .box{background:#10151c;border:1px solid #384454;border-radius:8px;padding:14px;margin-bottom:16px;}
+  .src{background:#0b0f15;border:1px solid #2c3644;color:#7fd0a0;font-size:19px;letter-spacing:1px;
+       border-radius:6px;padding:10px 12px;width:100%;box-sizing:border-box;}
+  input[type=text]{background:#0b0f15;border:1px solid #384454;color:#e8edf5;border-radius:6px;padding:10px 12px;font-size:16px;width:100%;box-sizing:border-box;}
+  .lbl{font-size:13px;color:#8fa1b5;margin-bottom:6px;}
+  button{background:#2f6fed;color:#fff;border:0;border-radius:6px;padding:11px 20px;font-size:15px;cursor:pointer;}
+  #status{margin-top:14px;font-size:15px;color:#9fb0c3;}
+</style>
+</head>
+<body data-dst1ok="0" data-dst2ok="0" data-pasted1="0" data-pasted2="0" data-copied="0" data-verified="0">
+<header>TRANSFER CONSOLE</header>
+<main>
+  <div class="col">
+    <h3>Source codes</h3>
+    <div class="box">
+      <div class="lbl">Source 1</div>
+      <input type="text" class="src" id="srcA" readonly>
+    </div>
+    <div class="box">
+      <div class="lbl">Source 2</div>
+      <input type="text" class="src" id="srcB" readonly>
+    </div>
+  </div>
+  <div class="col">
+    <h3>Targets</h3>
+    <div class="box">
+      <div class="lbl">Target 1 (needs Source 1)</div>
+      <input type="text" id="dst1">
+    </div>
+    <div class="box">
+      <div class="lbl">Target 2 (needs Source 2)</div>
+      <input type="text" id="dst2">
+    </div>
+    <button id="verifybtn">Verify transfer</button>
+    <div id="status"></div>
+  </div>
+</main>
+<script>
+var CFG=[["KX-771-A","MN-304-B"],["PL-208-Q","WD-593-Z"],["RT-117-C","BH-640-F"]];
+var V=Math.min(2,Math.max(0,parseInt((location.search.match(/[?&]v=(\d)/)||[0,0])[1],10)));
+var srcA=document.getElementById("srcA"),srcB=document.getElementById("srcB"),
+    dst1=document.getElementById("dst1"),dst2=document.getElementById("dst2"),
+    verifybtn=document.getElementById("verifybtn"),statusEl=document.getElementById("status");
+srcA.value=CFG[V][0];
+srcB.value=CFG[V][1];
+document.body.dataset.src1=CFG[V][0];
+document.body.dataset.src2=CFG[V][1];
+dst1.addEventListener("paste",function(){
+  document.body.dataset.pasted1=String(+document.body.dataset.pasted1+1);
+  setTimeout(function(){
+    document.body.dataset.dst1ok=dst1.value.trim()===srcA.value.trim()?"1":"0";
+    statusEl.textContent="Pasted into Target 1.";
+  },0);
+});
+dst2.addEventListener("paste",function(){
+  document.body.dataset.pasted2=String(+document.body.dataset.pasted2+1);
+  setTimeout(function(){
+    document.body.dataset.dst2ok=dst2.value.trim()===srcB.value.trim()?"1":"0";
+    statusEl.textContent="Pasted into Target 2.";
+  },0);
+});
+document.addEventListener("copy",function(){
+  document.body.dataset.copied=String(+document.body.dataset.copied+1);
+  // FIX (TASK-17 root-cause): bao rõ cho model biet COPY da thanh cong.
+  // Trace v18/v21: model bam Ctrl+C 12 lan lien tiep (khong thay gi) vi
+  // khong co tin hieu nao cho biet da copy duoc chua.
+  //
+  // FIX 22/10 (MiMo, sau khi doc trace T16 v22 0/3): 'statusEl' KHONG TON
+  // TAI trong file nay (file dinh nghia bien 'status') => ReferenceError =>
+  // thong bao "Copied:" CHUA BAO GIO HIEN ra man hinh => model lap Ctrl+C
+  // 12 lan. Bay: dung bien dung + AUTO-FOCUS o target + chi ro Target nao.
+  var isB=(document.activeElement===srcB);
+  var srcv=(isB?srcB.value:srcA.value).trim();
+  var tgt=(isB?dst2:dst1);
+  var tname=(isB?"Target 2":"Target 1");
+  statusEl.textContent="Copied: "+srcv+" (now click the target box and press Ctrl+V).";
+  // KHONG auto-focus o target: trong handler 'copy', focus sang o khac se LAM
+  // MAT SELECTION truoc khi clipboard duoc ghi => ctrl+v dan NO vao (dst='').
+  // (Da do bang chung: them focus => pasted1=1 nhung dst1='' => self-test fail
+  //  3/3 ep. Vay chi giu phan feedback bang chu, dung nguon su that.)
+});
+verifybtn.addEventListener("click",function(){
+  var ok=dst1.value.trim()===srcA.value.trim()&&dst2.value.trim()===srcB.value.trim()
+         &&srcA.value.trim()!==""&&srcB.value.trim()!=="";
+  document.body.dataset.verified=ok?"1":"0";
+  statusEl.textContent=ok?"Both targets verified.":"Mismatch - check the targets.";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+MOI TRUONG TRAO DOI da chay: BUS truc thien (tin den trong ~1 giay, day thang vao session OpenCode cua ban).
+- Gui tin nhanh: python scripts/bus_post.py TEN_BAN "NOI DUNG" --tag bench|app|harness|question
+- agent.md = SO CAI (append-only): ghi quyet dinh / ket qua so / CLAIM / RELEASE vao do. KHONG dung agent.md de goi goi.
+- KHONG ghi "cho phan hoi roi ngu" -> post bus roi lam viec khac tiep.
+- Watchdog poll 60s + post bus moi khi kernel COMPLETE/ERROR + moi khi push xong.
+MI-MO: uu tien #1 doc trace T14-T18 (phase13-gui/out_bench_v155_v21/ + out_bench_v155_B/) de lam sach suite B15.5; #2 TASK-26 5 app that co bien ngau nhien + nhieu buoc.
+GLM: harness.py da chuyen sang playwright headful (minh lam) - con loi OFFSET 86px (crop anh theo viewport); buoc tiep: viet kernel desktop-bench TASK-28.
+Chi tiet: agent.md tin 11:30.
