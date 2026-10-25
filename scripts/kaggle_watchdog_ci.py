@@ -108,13 +108,15 @@ def main():
             active.append(item)
         elif st in ("COMPLETE",):
             item["state"] = "done"
-        elif t.get("state") == "pending" and st in ("MISSING", "UNKNOWN"):
+        elif t.get("state") == "pending" and st == "MISSING":
+            # Only auto-create a kernel that does not exist yet. Never re-push
+            # an existing ERROR/COMPLETE kernel on every 10-minute tick.
             pending.append(item)
-        elif st in ("ERROR", "CANCELLED", "MISSING"):
+        elif st in ("ERROR", "CANCELLED"):
             item["state"] = "failed"
             item["log_tail"] = kernel_logs(ref, 40)
-        elif t.get("state") == "pending":
-            pending.append(item)
+        elif st == "MISSING":
+            item["state"] = "failed"
         results.append(item)
 
     pushed = None

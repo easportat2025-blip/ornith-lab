@@ -113,3 +113,7 @@ Thumbs.db
 desktop.ini
 .vscode/
 .idea/
+
+# local snapshot
+ornith-lab.zip
+
