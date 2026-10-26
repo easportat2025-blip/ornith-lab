@@ -12,7 +12,7 @@
 - **Adapter đã tải + publish**: `dieniw/ornith-gui-lora-v25b` (private,
   465.6 MB `adapter_model.safetensors`, kèm tokenizer/processor/README).
 - **B17 v3 đã push** `dieniw/ornith-gui-bench-b17-v22` lúc ~04:12 UTC, trạng thái
-  **QUEUED** (kiểm tra 04:45 UTC, chưa có log). Metadata: base4 +
+  **QUEUED** (kiểm tra 04:46 UTC, chưa có log). Metadata: base4 +
   `ornith-offline-browsers` + `ornith-gui-lora-v25b` + `ornith-gui-bench-b17`;
   RTX/competition/offline. Tổng input ~18.87 GB (< 20 GB).
 - **CPU probe Playwright** `dieniw/ornith-pw-probe` đã push (CPU, offline,
@@ -45,6 +45,29 @@
   Groq/Gemini. Có thể thử lại khi quota reset.
 - Cập nhật `configs/kaggle_queue.json`: v25b done, B17 active.
 
+## Việc đã làm trong phiên này (GitHub environment upgrade)
+- **Bật self-dispatch**: thêm `.github/workflows/ops-tick.yml`. Watchdog xong →
+  `ops-tick` nghỉ `delay_seconds` (mặc định 600s) → dispatch `kaggle-watchdog`
+  (`auto_push=true`) + best-effort `ops-heartbeat`. `schedule: */10` vẫn là
+  backup seed. Có retry 3 lần và concurrency guard.
+- **Nâng cấp CI**: `.github/workflows/ci.yml` chạy compileall, parse YAML/JSON,
+  secret scan, pytest, unittest `scripts/jobs`, headless smoke; pip cache.
+- **Môi trường dev**: `.devcontainer/devcontainer.json`, `requirements-ci.txt`,
+  `requirements-hf.txt`, `requirements-watchdog.txt`, `pyproject.toml`,
+  `.editorconfig`, `.gitattributes`, `.github/dependabot.yml`.
+- **Tài liệu/agent**: `AGENTS.md`, `docs/ENVIRONMENT.md`, `SECURITY.md`; cập nhật
+  `README.md`, `docs/SECRETS.md`, `docs/GITHUB_HF.md`.
+- **HF auto-sync**: `.github/workflows/hf-sync.yml` + `scripts/hf_code_sync.py`
+  (chỉ archive file tracked, secret scan trước, zip ≤60 MB, upload private
+  `kkouadn/ornith-lab-code`); chat sync docs sanitized lên `kkouadn/ornith-chat`.
+- **Watchdog upgrade**: `--download-results` tải result JSON/MD/TXT ≤2 MB cho
+  kernel COMPLETE vào `state/results/`, commit lên `ops-state`; issue có cột
+  outputs. Trigger thêm khi push queue/metadata/watchdog.
+- **Ops status**: `scripts/ops_status.py` in queue/state/secret presence, không
+  in giá trị secret. Thêm tests cho secret scan, watchdog, configs, ops status.
+- **B17 v3 vẫn QUEUED** lúc 04:46 UTC; chưa có run ID mới để verify self-dispatch.
+  Sau khi push sẽ seed `ops-tick` với `delay_seconds=0` và cập nhật run ID.
+
 ## Gate v25b (ngưỡng: parse ≥0.95, leak ≤5%, traj ≥0.85, real ≥0.85, train-sub ≥0.90)
 | Gate | Kết quả | Đạt |
 |---|---|---|
@@ -70,15 +93,18 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    dataset” là dataset riêng thì cần tên chính xác để gắn thêm.
 
 ## Việc tiếp theo
-1. Poll B17 v3: nếu RUNNING chờ; nếu ERROR đọc log (Playwright offline,
+1. **Verify self-dispatch**: push workflow mới, seed `ops-tick` với
+   `delay_seconds=0`, xác nhận watchdog run kế tiếp bắt đầu sau ~10 phút, issue
+   `[ops] kaggle watchdog` + `ops-state` được cập nhật. Ghi run ID vào đây.
+2. Poll B17 v3: nếu RUNNING chờ; nếu ERROR đọc log (Playwright offline,
    adapter load, tasks.json); nếu COMPLETE tải `bench_out`, chạy
-   `phase13-gui/gate_report.py`, tính W1 baseline.
-2. So sánh B17 với gate: B15 ≥35%, holdout ≥35%, v14 ≥2/3, B15.5 ≥ baseline.
-3. Từ failure của B17 + traj yếu → curate v26 (traj/selfplay/targeted + format
+   `phase13-gui/gate_report.py`, tính W1 baseline. Watchdog mới cũng tự tải
+   result nhỏ vào `state/results/`.
+3. So sánh B17 với gate: B15 ≥35%, holdout ≥35%, v14 ≥2/3, B15.5 ≥ baseline.
+4. Từ failure của B17 + traj yếu → curate v26 (traj/selfplay/targeted + format
    `THINK` ngắn + `ACTION` dòng cuối), tạo kernel slug mới để watchdog tự push.
-4. Cập nhật `docs/HANDOFF.md` + `configs/kaggle_queue.json` sau mỗi thay đổi.
-5. Sync HF chat + code snapshot sau commit.
-6. Kiểm tra scheduled watchdog run kế tiếp cập nhật issue #2/ops-state.
+5. Cập nhật `docs/HANDOFF.md` + `configs/kaggle_queue.json` sau mỗi thay đổi.
+6. Sync HF chat + code snapshot sau commit (workflow `hf-sync` hoặc chạy tay).
 7. Rotate PAT/API keys sau khi ổn định; giữ secrets chỉ trong GitHub/HF.
 
 ## Lệnh nhanh
@@ -94,12 +120,22 @@ python scripts\llm_fallback.py --prompt "Say OK"
 
 # secret check (không in giá trị)
 python scripts\check_secrets.py
+
+# ops status + self-dispatch seed (sau khi workflow có trên main)
+python scripts\ops_status.py
+# GitHub UI: Actions -> ops-tick -> Run workflow -> delay_seconds=0
+
+# sync HF code snapshot (sau khi fetch origin/main)
+python scripts\hf_code_sync.py --ref origin/main
 ```
 
 ## Lưu ý
 - Không chạy local watchdog 24/7; GitHub Actions là nơi chạy.
+- `ops-tick` ngủ 600s mỗi vòng; repo public dùng runner minutes miễn phí. Nếu
+  chuyển private, disable `ops-tick` hoặc giảm tần suất.
 - Không commit adapter/output lớn; `.gitignore` đã chặn
   `phase13-gui/kernel_*/output/` và `phase13-gui/lora_v25b_dataset/`.
 - Không ghi key vào file; chỉ env/GitHub Secrets/HF secrets.
 - Watchdog chỉ auto-push kernel `MISSING`; v26 phải dùng slug mới.
+- B17 là holdout; không train trên task B17.
 - PAT/API key đã gửi trong chat phải rotate sau khi ổn định.

@@ -65,21 +65,43 @@ CI chạy lại; fail nếu thấy pattern. Scanner chỉ in `file:line` + loạ
 
 ## 4. GitHub Actions
 
+Chi tiết đầy đủ (trigger, quyền, self-dispatch, troubleshooting) nằm ở
+[`docs/ENVIRONMENT.md`](ENVIRONMENT.md). Tóm tắt:
+
 ### `ci.yml`
-- Trigger: push/PR.
-- Python 3.12, không cài dependency nặng.
-- `python -m compileall -q scripts desktop_real`
-- `python scripts/secret_scan.py --tracked-only`
-- `python -m unittest discover -s scripts/jobs -p "test_*.py"` (nếu có)
-- `python -m py_compile` các file mới.
+- Trigger: push `main`, PR, `workflow_dispatch`.
+- Python 3.12 + `requirements-ci.txt` (pytest, PyYAML), pip cache.
+- Compileall `scripts`/`tests`, `py_compile` kernel chính.
+- Parse YAML/JSON (workflow, dependabot, configs, devcontainer).
+- `python scripts/secret_scan.py --tracked-only`.
+- `pytest`, unittest `scripts/jobs`, headless API smoke.
 - Permissions: `contents: read`.
+
+### `kaggle-watchdog.yml`
+- Trigger: `schedule: */10 * * * *`, push queue/metadata, `workflow_dispatch`.
+- Poll Kaggle, tải result nhỏ (`state/results/`), auto-push kernel `MISSING`,
+  cập nhật issue `[ops] kaggle watchdog` + `ops-state`.
+- Permissions: `contents: write`, `issues: write`.
+
+### `ops-tick.yml`
+- Trigger: `workflow_run` khi `kaggle-watchdog` xong + `workflow_dispatch`.
+- Nghỉ `delay_seconds` (mặc định 600) rồi dispatch watchdog + heartbeat.
+- Đây là vòng lặp tự dispatch; `schedule` chỉ là backup seed.
+- Permissions: `actions: write`, `contents: read`.
 
 ### `ops-heartbeat.yml`
 - Trigger: `schedule: */10 * * * *` + `workflow_dispatch`.
-- Không chạy GPU; chỉ cập nhật một issue `[ops] heartbeat`.
-- Nội dung: thời gian UTC, run URL, trạng thái `local` (đọc `state/current.json` trên `ops-state`), cảnh báo nếu local heartbeat >30 phút.
+- Không chạy GPU; chỉ cập nhật issue `[ops] heartbeat`.
+- Nội dung: UTC, run URL, trạng thái `local` (đọc `state/current.json` trên
+  `ops-state`), cảnh báo nếu state cũ >30 phút.
 - Permissions: `issues: write`, `contents: read`.
-- Đây là "ping" khi máy local tắt; agent mở issue là biết trạng thái cuối.
+
+### `hf-sync.yml`
+- Trigger: push `main`, `workflow_dispatch`.
+- Upload code snapshot (tracked files only) lên `kkouadn/ornith-lab-code`.
+- Upload docs sanitized lên `kkouadn/ornith-chat`.
+- Chạy secret scan trước khi upload; cần `HF_TOKEN`.
+- Permissions: `contents: read`.
 
 ## 5. Local → GitHub state
 

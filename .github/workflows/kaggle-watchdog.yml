@@ -9,6 +9,12 @@ on:
         description: "Push the next pending kernel when idle"
         type: boolean
         default: true
+  push:
+    branches: [main]
+    paths:
+      - "configs/kaggle_queue.json"
+      - "scripts/kaggle_watchdog_ci.py"
+      - "phase13-gui/**/kernel-metadata.json"
 
 permissions:
   contents: write
@@ -28,21 +34,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-watchdog.txt
 
       - name: Install Kaggle CLI
-        run: python -m pip install --quiet kaggle==2.2.4
+        run: python -m pip install --quiet -r requirements-watchdog.txt
 
-      - name: Poll Kaggle and optionally push next
+      - name: Poll Kaggle, download small results, optionally push next
         env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          ARGS=""
-          if [ "${{ github.event.inputs.auto_push }}" = "true" ] || [ "${{ github.event_name }}" = "schedule" ]; then
-            ARGS="--auto-push"
+          ARGS="--auto-push"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.auto_push }}" != "true" ]; then
+            ARGS=""
           fi
-          python scripts/kaggle_watchdog_ci.py $ARGS
+          python scripts/kaggle_watchdog_ci.py $ARGS --download-results
 
       - name: Publish state to ops-state
         if: always()
@@ -51,8 +58,28 @@ jobs:
         run: |
           git config user.name "ornith-bot"
           git config user.email "ornith-bot@users.noreply.github.com"
-          git checkout -B ops-state
+          if [ ! -f state/current.json ] && [ ! -d state/results ]; then
+            echo "no watchdog state produced; keeping the previous ops-state"
+            exit 0
+          fi
+          rm -rf /tmp/ops-new
+          mkdir -p /tmp/ops-new
+          if [ -f state/current.json ]; then cp state/current.json /tmp/ops-new/current.json; fi
+          if [ -d state/results ]; then cp -r state/results /tmp/ops-new/results; fi
+          rm -rf state/current.json state/results
+          if git fetch origin ops-state; then
+            git checkout -B ops-state origin/ops-state
+          else
+            git checkout -B ops-state
+          fi
+          mkdir -p state
+          if [ -f /tmp/ops-new/current.json ]; then cp /tmp/ops-new/current.json state/current.json; fi
+          if [ -d /tmp/ops-new/results ]; then
+            mkdir -p state/results
+            cp -r /tmp/ops-new/results/. state/results/
+          fi
           git add -f state/current.json
+          if [ -d state/results ]; then git add -f state/results; fi
           git commit -m "ops: $(date -u +%FT%TZ)" || true
           git push -f origin ops-state
 
@@ -64,19 +91,28 @@ jobs:
             const fs = require('fs');
             let state = {};
             try { state = JSON.parse(fs.readFileSync('state/current.json', 'utf8')); } catch (e) {}
-            const rows = (state.results || []).map(x => `| \`${x.ref}\` | ${x.status} | ${x.state} |`).join('\n');
+            const rows = (state.results || []).map(x => {
+              const outs = (x.outputs || []).length;
+              return `| \`${x.ref}\` | ${x.status} | ${x.state} | ${outs} |`;
+            }).join('\n');
+            const pushed = state.pushed
+              ? `\n- Pushed: \`${state.pushed.ref}\` (rc=${state.pushed.rc})`
+              : '';
             const body = [
               '## Kaggle watchdog',
               '',
               `- UTC: \`${new Date().toISOString()}\``,
               `- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
               `- Active: \`${(state.active || []).join(', ') || 'none'}\``,
+              `- Self-dispatch: [ops-tick](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/workflows/ops-tick.yml)`,
+              `- State: [\`ops-state/state/current.json\`](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/blob/ops-state/state/current.json)`,
+              pushed,
               '',
-              '| kernel | status | state |',
-              '|---|---|---|',
-              rows || '| _none_ | | |',
+              '| kernel | status | state | outputs |',
+              '|---|---|---|---|',
+              rows || '| _none_ | | | |',
               '',
-              '_Updated every 10 minutes from GitHub Actions. No local watchdog needed._'
+              '_Updated every ~10 minutes by the GitHub Actions self-dispatch loop._'
             ].join('\n');
             const title = '[ops] kaggle watchdog';
             const issues = await github.rest.issues.listForRepo({ owner: context.repo.owner, repo: context.repo.repo, state: 'all', per_page: 100 });

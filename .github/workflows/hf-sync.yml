@@ -1,0 +1,50 @@
+name: hf-sync
+
+# Keep the private HF mirrors fresh after every main-branch change.
+# - kkouadn/ornith-lab-code: zip snapshot of tracked files (no secrets).
+# - kkouadn/ornith-chat: sanitized ops docs (HANDOFF/CONTINUITY/README).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hf-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-hf.txt
+
+      - name: Install HF client
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-hf.txt
+
+      - name: Secret scan (tracked files only)
+        run: python scripts/secret_scan.py --tracked-only
+
+      - name: Upload source snapshot
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python scripts/hf_code_sync.py --ref HEAD --require-token
+
+      - name: Sync sanitized ops docs to HF chat
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python scripts/hf_chat_sync.py \
+            --files docs/HANDOFF.md docs/CONTINUITY.md README.md
