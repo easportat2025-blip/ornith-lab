@@ -1,0 +1,18 @@
+{
+  "code_file": "pw_probe.py",
+  "competition_sources": [],
+  "dataset_sources": [
+    "dieniw/ornith-offline-browsers"
+  ],
+  "enable_gpu": false,
+  "enable_internet": false,
+  "enable_tpu": false,
+  "id": "dieniw/ornith-pw-probe",
+  "is_private": true,
+  "kernel_sources": [],
+  "kernel_type": "script",
+  "language": "python",
+  "machine_shape": "",
+  "model_sources": [],
+  "title": "ornith-pw-probe"
+}

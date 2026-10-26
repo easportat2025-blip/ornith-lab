@@ -12,9 +12,14 @@
 - **Adapter đã tải + publish**: `dieniw/ornith-gui-lora-v25b` (private,
   465.6 MB `adapter_model.safetensors`, kèm tokenizer/processor/README).
 - **B17 v3 đã push** `dieniw/ornith-gui-bench-b17-v22` lúc ~04:12 UTC, trạng thái
-  **QUEUED**. Metadata: base4 + `ornith-offline-browsers` +
-  `ornith-gui-lora-v25b` + `ornith-gui-bench-b17`; RTX/competition/offline.
-  Tổng input ~18.87 GB (< 20 GB).
+  **QUEUED** (kiểm tra 04:45 UTC, chưa có log). Metadata: base4 +
+  `ornith-offline-browsers` + `ornith-gui-lora-v25b` + `ornith-gui-bench-b17`;
+  RTX/competition/offline. Tổng input ~18.87 GB (< 20 GB).
+- **CPU probe Playwright** `dieniw/ornith-pw-probe` đã push (CPU, offline,
+  attach `ornith-offline-browsers`) để verify V1-V6 trước khi B17 chạy.
+- **v26 đã chuẩn bị local** `phase13-gui/kernel_v26`: y hệt v25b nhưng eval
+  decode `EVAL_MAX=256` (sửa artifact traj 24 token). **Chưa queue** — chờ B17
+  để quyết định data mới trước khi push.
 - **GitHub repo** `easportat2025-blip/ornith-lab` (public) đã có code + workflows.
   Watchdog chạy theo schedule 10 phút; run gần nhất `40253573698` success.
   Issue #2 đang báo v25b COMPLETE, B17 ERROR (bản cũ trước v3).
@@ -36,6 +41,8 @@
   (`https://opencode.ai/zen/v1/chat/completions`, models free), giữ
   Groq/Gemini/Mistral/DeepSeek; User-Agent `ornith-fallback/1.0`.
 - Lưu `OPENCODE_API_KEY` vào GitHub Actions + HF Space secrets (không ghi file).
+  Free models hiện trả 429 `FreeUsageLimitError`; fallback tự bỏ qua và dùng
+  Groq/Gemini. Có thể thử lại khi quota reset.
 - Cập nhật `configs/kaggle_queue.json`: v25b done, B17 active.
 
 ## Gate v25b (ngưỡng: parse ≥0.95, leak ≤5%, traj ≥0.85, real ≥0.85, train-sub ≥0.90)
@@ -47,8 +54,11 @@
 | traj | 0.438 | ❌ |
 | leak | chưa đo trong log v25b | ? |
 
-**Kết luận**: v25b tốt trên synth/real/train-sub nhưng yếu traj (nhiều output
-prose, parse 0.75). Cần data traj + format repair cho v26.
+**Kết luận**: v25b tốt trên synth/real/train-sub. **Lưu ý quan trọng**: eval
+traj-sub trong kernel v25b dùng `max_new_tokens=24` (dòng 451), nên các output
+prose bị cắt giữa thinking trước khi ra action — 0.438 có thể là **artifact do
+decode ngắn**, không phải model hỏng. B17 dùng `REASON_MAX=512`, là thước đo
+thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi kết luận.
 
 ## Blocker
 1. **B17 v3 chưa có kết quả** — đang QUEUED; cần chờ GPU và đọc log.
