@@ -70,6 +70,8 @@ scripts/.watchdog_done.*
 scripts/dataset_audit/
 
 # ===== large artifacts / data / models =====
+phase13-gui/kernel_*/output/
+phase13-gui/lora_v25b_dataset/
 *.safetensors
 *.bin
 *.pt

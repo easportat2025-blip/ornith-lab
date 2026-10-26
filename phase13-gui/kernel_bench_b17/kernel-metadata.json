@@ -8,7 +8,8 @@
     "dieniw/ornbase-s2",
     "dieniw/ornbase-s3",
     "dieniw/ornbase-s4",
-    "dieniw/ornith-gui-lora-v22",
+    "dieniw/ornith-offline-browsers",
+    "dieniw/ornith-gui-lora-v25b",
     "dieniw/ornith-gui-bench-b17"
   ],
   "enable_gpu": true,

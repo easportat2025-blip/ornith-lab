@@ -6,15 +6,15 @@
       "ref": "dieniw/ornith-gui-sft-v25b",
       "path": "phase13-gui/kernel_v25b",
       "kind": "train",
-      "state": "active",
-      "note": "RTX + competition + mini wheels; 14 datasets under 20GB"
+      "state": "done",
+      "note": "COMPLETE on RTX: 8716 train, 2.85 epochs, loss 0.1231; synth 0.890, real 0.881, traj 0.438 (gate fail)"
     },
     {
       "ref": "dieniw/ornith-gui-bench-b17-v22",
       "path": "phase13-gui/kernel_bench_b17",
       "kind": "eval",
-      "state": "pending",
-      "note": "B17 baseline after v25b adapter exists"
+      "state": "active",
+      "note": "v3: base4 + offline-browsers + lora-v25b + bench-b17; RTX/competition/offline"
     }
   ]
 }
