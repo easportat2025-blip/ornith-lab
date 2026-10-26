@@ -58,7 +58,7 @@ jobs:
           sleep "$DELAY"
 
       - name: Dispatch ops workflows
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const ref = context.payload.repository.default_branch || 'main';
