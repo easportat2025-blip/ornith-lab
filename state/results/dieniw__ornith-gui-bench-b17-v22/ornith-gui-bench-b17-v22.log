@@ -1,0 +1,274 @@
+[{"stream_name":"stdout","time":0.526855031,"data":"[bench] BENCH v15-kernel: reasoning 256 + offline browsers + B15 suite\n"}
+,{"stream_name":"stdout","time":6.640011291,"data":"[bench] gpu: NVIDIA RTX PRO 6000 Blackwell Server Edition x1\n"}
+,{"stream_name":"stdout","time":8.045028399,"data":"[bench] base dirs: ['/kaggle/input/datasets/dieniw/ornbase-s1', '/kaggle/input/datasets/dieniw/ornbase-s2', '/kaggle/input/datasets/dieniw/ornbase-s3', '/kaggle/input/datasets/dieniw/ornbase-s4']\n"}
+,{"stream_name":"stdout","time":356.135384779,"data":"[bench] base: 10 files -\u003e /tmp/ornbase\n"}
+,{"stream_name":"stdout","time":356.152985559,"data":"[pw-offline] BUNDLE ROOT: /kaggle/input/datasets/dieniw/ornith-offline-browsers/bundle\n"}
+,{"stream_name":"stdout","time":356.155528589,"data":"[pw-offline] V1 python OK: 3.13.15 (trung manifest)\n"}
+,{"stream_name":"stdout","time":356.362799605,"data":"[pw-offline] V2 wheels dir: /kaggle/input/datasets/dieniw/ornith-offline-browsers/bundle/wheels\n"}
+,{"stream_name":"stdout","time":358.545253727,"data":"[pw-offline] V2 pip install OK (t=2s)\n"}
+,{"stream_name":"stdout","time":358.550535747,"data":"[pw-offline] V3 playwright OK: 1.64.0\n"}
+,{"stream_name":"stdout","time":372.294020056,"data":"[pw-offline] V4 copy cache -\u003e /tmp/pw-browsers (14s)\n"}
+,{"stream_name":"stdout","time":372.297673776,"data":"[pw-offline] V4 PLAYWRIGHT_BROWSERS_PATH: /tmp/pw-browsers\n"}
+,{"stream_name":"stdout","time":372.510325052,"data":"[pw-offline] install --dry-run rc=0: fmpeg v1013) |   Install location:    /tmp/pw-browsers/ffmpeg-1013 |   Download url:        https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip |   Download fallback 1: https://playwright.download.prss.microsoft.com/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip |   Download fallback 2: https://cdn.playwright.dev/builds/ffmpeg/1013/ffmpeg-linux.zip |  | \n"}
+,{"stream_name":"stdout","time":372.770471888,"data":"[pw-offline] V5 launch lan 1 fail: TargetClosedError: BrowserType.launch: Target page, context or browser has been closed\n"}
+,{"stream_name":"stdout","time":372.770491418,"data":"Browser logs:\n"}
+,{"stream_name":"stdout","time":372.770493388,"data":"\n"}
+,{"stream_name":"stdout","time":372.770494688,"data":"\u003claunching\u003e /tmp/pw-browsers/chromium_headless_shell-1248/chrome-headless-she\n"}
+,{"stream_name":"stdout","time":376.765145148,"data":"[pw-offline] V4b replay deps (dir: /kaggle/input/datasets/dieniw/ornith-offline-browsers/deps_out) -\u003e 142 file + ldconfig\n"}
+,{"stream_name":"stdout","time":377.23691308,"data":"[pw-offline] V5 browser OK: 156.0.8078.4 (trung manifest)\n"}
+,{"stream_name":"stdout","time":377.23693558,"data":"[pw-offline] V6 smoke OK: goto(file://) + click(#btn) -\u003e 'ok'\n"}
+,{"stream_name":"stdout","time":377.23693791,"data":"[pw-offline] ALL GATE PASS t=21s\n"}
+,{"stream_name":"stdout","time":377.23693923,"data":"[bench] playwright offline OK 1.64.0 / chromium 156.0.8078.4\n"}
+,{"stream_name":"stdout","time":385.135438051,"data":"[bench] transformers 5.16.1\n"}
+,{"stream_name":"stdout","time":392.147381323,"data":"[bench] peft 0.20.0\n"}
+,{"stream_name":"stdout","time":392.3131031,"data":"[bench] processor classes: ['Qwen3ASRProcessor', 'Qwen3OmniMoeProcessor', 'Qwen3VLProcessor', 'Qwen3VLVideoProcessor']\n"}
+,{"stream_name":"stdout","time":392.327693479,"data":"[bench] AutoProcessor loi: Can't load image processor for '/tmp/ornbase'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory wi\n"}
+,{"stream_name":"stdout","time":392.695233769,"data":"[bench] processor fallback OK: Qwen3VLProcessor\n"}
+,{"stream_name":"stdout","time":392.712130438,"data":"[bench] model class: Qwen3_5ForConditionalGeneration\n"}
+,{"stream_name":"stderr","time":394.199955709,"data":"\rLoading weights:   0%|          | 0/760 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/760 [00:00\u003c02:52,  4.40it/s]\rLoading weights:   8%|▊         | 62/760 [00:00\u003c00:02, 235.41it/s]\rLoading weights:  13%|█▎        | 101/760 [00:00\u003c00:02, 285.02it/s]\rLoading weights:  20%|██        | 152/760 [00:00\u003c00:01, 354.56it/s]\rLoading weights:  26%|██▋       | 200/760 [00:00\u003c00:01, 392.57it/s]\rLoading weights:  33%|███▎      | 253/760 [00:00\u003c00:01, 432.72it/s]\rLoading weights:  40%|████      | 307/760 [00:00\u003c00:00, 457.26it/s]\rLoading weights:  47%|████▋     | 355/760 [00:00\u003c00:00, 461.04it/s]\rLoading weights:  53%|█████▎    | 403/760 [00:01\u003c00:00, 456.67it/s]\rLoading weights:  89%|████████▊ | 673/760 [00:01\u003c00:00, 1116.64it/s]\rLoading weights: 100%|██████████| 760/760 [00:01\u003c00:00, 645.55it/s] \n"}
+,{"stream_name":"stdout","time":394.354200617,"data":"[bench] model load xong: Qwen3_5ForConditionalGeneration peft_auto=False\n"}
+,{"stream_name":"stdout","time":394.644418844,"data":"[bench] lora: /kaggle/input/ornith-gui-lora-v25b\n"}
+,{"stream_name":"stdout","time":399.374433317,"data":"[bench] probe BASE: ok=False out='The task is to click the blue square. I can see a blue squar'\n"}
+,{"stream_name":"stdout","time":413.73077223,"data":"[bench] concretize target_modules: 128 modules (vd model.language_model.layers.0.mlp.down_proj)\n"}
+,{"stream_name":"stdout","time":416.570747684,"data":"[bench] strategy PeftModel: khac base -\u003e NHAN (probe con prose) out='The user wants me to click the blue square in the center of '\n"}
+,{"stream_name":"stdout","time":416.570763454,"data":"[bench] ADAPTER STRATEGY DUNG: PeftModel (changed)\n"}
+,{"stream_name":"stdout","time":416.657810257,"data":"[bench] suite module: checker (B17)\n"}
+,{"stream_name":"stdout","time":416.665868866,"data":"[bench] B17 suite: 27 episodes (9 task)\n"}
+,{"stream_name":"stdout","time":416.665872276,"data":"[bench] suite=B17 episodes=27\n"}
+,{"stream_name":"stdout","time":426.833010246,"data":"[bench] [T30_note_order_v0] t0 CLICK 156 262 -\u003e clicked (200,189) ok=False mode=legacy prose=2 (9.5s)\n"}
+,{"stream_name":"stdout","time":434.465525856,"data":"[bench] [T30_note_order_v0] t1 TYPE Morgan -\u003e typed 'Morgan' ok=False mode=action prose=1 (7.5s)\n"}
+,{"stream_name":"stdout","time":444.668894881,"data":"[bench] [T30_note_order_v0] t2 CLICK 156 345 -\u003e clicked (200,248) ok=False mode=action prose=1 (10.0s)\n"}
+,{"stream_name":"stdout","time":452.313653839,"data":"[bench] [T30_note_order_v0] t3 TYPE P8-063 -\u003e typed 'P8-063' ok=False mode=action prose=1 (7.5s)\n"}
+,{"stream_name":"stdout","time":460.34116734,"data":"[bench] [T30_note_order_v0] t4 CLICK 312 452 -\u003e clicked (399,325) ok=True mode=action prose=2 (7.9s)\n"}
+,{"stream_name":"stdout","time":460.36523189,"data":"[bench] [T30_note_order_v0] =\u003e WIN (5 buoc)\n"}
+,{"stream_name":"stdout","time":479.640938476,"data":"[bench] [T30_note_order_v1] t0 CLICK 156 265 -\u003e clicked (200,191) ok=False mode=legacy prose=3 (18.8s)\n"}
+,{"stream_name":"stdout","time":487.28296718,"data":"[bench] [T30_note_order_v1] t1 TYPE Casey -\u003e typed 'Casey' ok=False mode=action prose=1 (7.5s)\n"}
+,{"stream_name":"stdout","time":497.505516848,"data":"[bench] [T30_note_order_v1] t2 CLICK 156 345 -\u003e clicked (200,248) ok=False mode=action prose=1 (10.0s)\n"}
+,{"stream_name":"stdout","time":505.14894121,"data":"[bench] [T30_note_order_v1] t3 TYPE R9-305 -\u003e typed 'R9-305' ok=False mode=action prose=1 (7.5s)\n"}
+,{"stream_name":"stdout","time":513.19487447,"data":"[bench] [T30_note_order_v1] t4 CLICK 312 452 -\u003e clicked (399,325) ok=True mode=action prose=2 (7.9s)\n"}
+,{"stream_name":"stdout","time":513.213159021,"data":"[bench] [T30_note_order_v1] =\u003e WIN (5 buoc)\n"}
+,{"stream_name":"stdout","time":531.276278312,"data":"[bench] [T30_note_order_v2] t0 CLICK 156 262 -\u003e clicked (200,189) ok=False mode=legacy prose=3 (17.6s)\n"}
+,{"stream_name":"stdout","time":538.915835232,"data":"[bench] [T30_note_order_v2] t1 TYPE Morgan -\u003e typed 'Morgan' ok=False mode=action prose=1 (7.5s)\n"}
+,{"stream_name":"stdout","time":549.141684997,"data":"[bench] [T30_note_order_v2] t2 CLICK 156 345 -\u003e clicked (200,248) ok=False mode=action prose=1 (10.0s)\n"}
+,{"stream_name":"stdout","time":556.780709949,"data":"[bench] [T30_note_order_v2] t3 TYPE T4-118 -\u003e typed 'T4-118' ok=False mode=action prose=1 (7.5s)\n"}
+,{"stream_name":"stdout","time":564.827279062,"data":"[bench] [T30_note_order_v2] t4 CLICK 312 452 -\u003e clicked (399,325) ok=True mode=action prose=2 (7.9s)\n"}
+,{"stream_name":"stdout","time":564.846541183,"data":"[bench] [T30_note_order_v2] =\u003e WIN (5 buoc)\n"}
+,{"stream_name":"stdout","time":577.116653075,"data":"[bench] [T31_scroll_code_v0] t0 SCROLL 8 -\u003e scroll 8 steps at [295, 188] ok=False mode=action prose=2 (11.8s)\n"}
+,{"stream_name":"stdout","time":603.834852313,"data":"[bench] [T31_scroll_code_v0] t1 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":630.551140639,"data":"[bench] [T31_scroll_code_v0] t2 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":657.262506465,"data":"[bench] [T31_scroll_code_v0] t3 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":683.981029401,"data":"[bench] [T31_scroll_code_v0] t4 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":710.697850688,"data":"[bench] [T31_scroll_code_v0] t5 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":737.410224641,"data":"[bench] [T31_scroll_code_v0] t6 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":764.128286439,"data":"[bench] [T31_scroll_code_v0] t7 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":790.844146444,"data":"[bench] [T31_scroll_code_v0] t8 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":817.556922158,"data":"[bench] [T31_scroll_code_v0] t9 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":844.275362291,"data":"[bench] [T31_scroll_code_v0] t10 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":870.991947035,"data":"[bench] [T31_scroll_code_v0] t11 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.5s)\n"}
+,{"stream_name":"stdout","time":870.995517535,"data":"[bench] [T31_scroll_code_v0] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":891.871170556,"data":"[bench] [T31_scroll_code_v1] t0 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=action prose=2 (20.4s)\n"}
+,{"stream_name":"stdout","time":918.986620983,"data":"[bench] [T31_scroll_code_v1] t1 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":946.122486172,"data":"[bench] [T31_scroll_code_v1] t2 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":973.233259485,"data":"[bench] [T31_scroll_code_v1] t3 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1000.351713616,"data":"[bench] [T31_scroll_code_v1] t4 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1027.468211307,"data":"[bench] [T31_scroll_code_v1] t5 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1054.5977359,"data":"[bench] [T31_scroll_code_v1] t6 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1081.731991682,"data":"[bench] [T31_scroll_code_v1] t7 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1108.865074644,"data":"[bench] [T31_scroll_code_v1] t8 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (27.0s)\n"}
+,{"stream_name":"stdout","time":1135.994223185,"data":"[bench] [T31_scroll_code_v1] t9 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1163.128025507,"data":"[bench] [T31_scroll_code_v1] t10 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1190.260934436,"data":"[bench] [T31_scroll_code_v1] t11 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (26.9s)\n"}
+,{"stream_name":"stdout","time":1190.263771406,"data":"[bench] [T31_scroll_code_v1] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":1202.940580791,"data":"[bench] [T31_scroll_code_v2] t0 SCROLL 8 -\u003e scroll 8 steps at [295, 188] ok=False mode=legacy prose=2 (12.2s)\n"}
+,{"stream_name":"stdout","time":1228.026862508,"data":"[bench] [T31_scroll_code_v2] t1 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1253.109531595,"data":"[bench] [T31_scroll_code_v2] t2 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1278.187976652,"data":"[bench] [T31_scroll_code_v2] t3 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1303.271965589,"data":"[bench] [T31_scroll_code_v2] t4 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1328.356675275,"data":"[bench] [T31_scroll_code_v2] t5 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1353.435354327,"data":"[bench] [T31_scroll_code_v2] t6 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1378.519054828,"data":"[bench] [T31_scroll_code_v2] t7 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1403.604207339,"data":"[bench] [T31_scroll_code_v2] t8 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1428.682388524,"data":"[bench] [T31_scroll_code_v2] t9 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1453.766053588,"data":"[bench] [T31_scroll_code_v2] t10 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1478.850990053,"data":"[bench] [T31_scroll_code_v2] t11 SCROLL 5 -\u003e scroll 5 steps at [295, 188] ok=False mode=legacy prose=3 (24.9s)\n"}
+,{"stream_name":"stdout","time":1478.854381513,"data":"[bench] [T31_scroll_code_v2] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":1524.365106499,"data":"[bench] [T32_drag_slider_v0] t0 DRAG 58 193 180 193 -\u003e dragged (74,139)-\u003e(230,139) ok=False mode=action prose=3 (44.9s)\n"}
+,{"stream_name":"stdout","time":1540.863703486,"data":"[bench] [T32_drag_slider_v0] t1 DRAG 178 193 256 193 -\u003e dragged (228,139)-\u003e(328,139) ok=False mode=action prose=2 (16.1s)\n"}
+,{"stream_name":"stdout","time":1561.943563094,"data":"[bench] [T32_drag_slider_v0] t2 DRAG 256 193 189 193 -\u003e dragged (328,139)-\u003e(242,139) ok=False mode=action prose=2 (20.7s)\n"}
+,{"stream_name":"stdout","time":1572.876551561,"data":"[bench] [T32_drag_slider_v0] t3 DRAG 186 193 256 193 -\u003e dragged (238,139)-\u003e(328,139) ok=False mode=action prose=1 (10.6s)\n"}
+,{"stream_name":"stdout","time":1593.945296262,"data":"[bench] [T32_drag_slider_v0] t4 DRAG 256 193 189 193 -\u003e dragged (328,139)-\u003e(242,139) ok=False mode=action prose=2 (20.7s)\n"}
+,{"stream_name":"stdout","time":1604.878682066,"data":"[bench] [T32_drag_slider_v0] t5 DRAG 186 193 256 193 -\u003e dragged (238,139)-\u003e(328,139) ok=False mode=action prose=1 (10.6s)\n"}
+,{"stream_name":"stdout","time":1625.957175647,"data":"[bench] [T32_drag_slider_v0] t6 DRAG 256 193 189 193 -\u003e dragged (328,139)-\u003e(242,139) ok=False mode=action prose=2 (20.7s)\n"}
+,{"stream_name":"stdout","time":1636.890674012,"data":"[bench] [T32_drag_slider_v0] t7 DRAG 186 193 256 193 -\u003e dragged (238,139)-\u003e(328,139) ok=False mode=action prose=1 (10.6s)\n"}
+,{"stream_name":"stdout","time":1657.975042581,"data":"[bench] [T32_drag_slider_v0] t8 DRAG 256 193 189 193 -\u003e dragged (328,139)-\u003e(242,139) ok=False mode=action prose=2 (20.7s)\n"}
+,{"stream_name":"stdout","time":1668.909091856,"data":"[bench] [T32_drag_slider_v0] t9 DRAG 186 193 256 193 -\u003e dragged (238,139)-\u003e(328,139) ok=False mode=action prose=1 (10.6s)\n"}
+,{"stream_name":"stdout","time":1689.987889468,"data":"[bench] [T32_drag_slider_v0] t10 DRAG 256 193 189 193 -\u003e dragged (328,139)-\u003e(242,139) ok=False mode=action prose=2 (20.7s)\n"}
+,{"stream_name":"stdout","time":1700.920807264,"data":"[bench] [T32_drag_slider_v0] t11 DRAG 186 193 256 193 -\u003e dragged (238,139)-\u003e(328,139) ok=False mode=action prose=1 (10.6s)\n"}
+,{"stream_name":"stdout","time":1700.923381744,"data":"[bench] [T32_drag_slider_v0] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":1716.687687417,"data":"[bench] [T32_drag_slider_v1] t0 DRAG 58 193 294 193 -\u003e dragged (74,139)-\u003e(376,139) ok=False mode=action prose=2 (15.1s)\n"}
+,{"stream_name":"stdout","time":1736.157304329,"data":"[bench] [T32_drag_slider_v1] t1 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1755.635849972,"data":"[bench] [T32_drag_slider_v1] t2 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1775.101705245,"data":"[bench] [T32_drag_slider_v1] t3 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1794.567882357,"data":"[bench] [T32_drag_slider_v1] t4 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1814.054271489,"data":"[bench] [T32_drag_slider_v1] t5 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1833.533121423,"data":"[bench] [T32_drag_slider_v1] t6 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1853.014532995,"data":"[bench] [T32_drag_slider_v1] t7 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1872.481256297,"data":"[bench] [T32_drag_slider_v1] t8 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1891.949898091,"data":"[bench] [T32_drag_slider_v1] t9 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1911.412547031,"data":"[bench] [T32_drag_slider_v1] t10 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1930.878561207,"data":"[bench] [T32_drag_slider_v1] t11 DRAG 294 193 294 193 -\u003e dragged (376,139)-\u003e(376,139) ok=False mode=action prose=2 (19.1s)\n"}
+,{"stream_name":"stdout","time":1930.882486938,"data":"[bench] [T32_drag_slider_v1] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":1955.283404078,"data":"[bench] [T32_drag_slider_v2] t0 DRAG 59 195 192 195 -\u003e dragged (76,140)-\u003e(246,140) ok=False mode=action prose=2 (23.8s)\n"}
+,{"stream_name":"stdout","time":1966.0455472,"data":"[bench] [T32_drag_slider_v2] t1 DRAG 198 193 257 193 -\u003e dragged (253,139)-\u003e(329,139) ok=False mode=action prose=1 (10.6s)\n"}
+,{"stream_name":"stdout","time":1991.81045697,"data":"[bench] [T32_drag_slider_v2] t2 DRAG 205 193 257 193 -\u003e dragged (262,139)-\u003e(329,139) ok=False mode=action prose=2 (25.6s)\n"}
+,{"stream_name":"stdout","time":2011.292921476,"data":"[bench] [T32_drag_slider_v2] t3 DRAG 205 193 326 193 -\u003e dragged (262,139)-\u003e(417,139) ok=False mode=action prose=2 (19.3s)\n"}
+,{"stream_name":"stdout","time":2030.379699623,"data":"[bench] [T32_drag_slider_v2] t4 DRAG 212 189 294 189 -\u003e dragged (271,136)-\u003e(376,136) ok=False mode=action prose=2 (18.9s)\n"}
+,{"stream_name":"stdout","time":2048.874932564,"data":"[bench] [T32_drag_slider_v2] t5 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2067.359006122,"data":"[bench] [T32_drag_slider_v2] t6 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2085.856817222,"data":"[bench] [T32_drag_slider_v2] t7 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2104.361216493,"data":"[bench] [T32_drag_slider_v2] t8 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2122.855524483,"data":"[bench] [T32_drag_slider_v2] t9 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2141.355344343,"data":"[bench] [T32_drag_slider_v2] t10 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2159.853866302,"data":"[bench] [T32_drag_slider_v2] t11 DRAG 212 193 294 193 -\u003e dragged (271,139)-\u003e(376,139) ok=False mode=action prose=2 (18.3s)\n"}
+,{"stream_name":"stdout","time":2159.856344493,"data":"[bench] [T32_drag_slider_v2] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":2170.345525599,"data":"[bench] [T33_error_retry_v0] t0 CLICK 152 222 -\u003e clicked (195,160) ok=False mode=legacy prose=2 (10.0s)\n"}
+,{"stream_name":"stdout","time":2180.541856476,"data":"[bench] [T33_error_retry_v0] t1 TYPE QR-2048 -\u003e typed 'QR-2048' ok=False mode=legacy prose=2 (10.0s)\n"}
+,{"stream_name":"stdout","time":2189.353509988,"data":"[bench] [T33_error_retry_v0] t2 CLICK 312 222 -\u003e clicked (399,160) ok=False mode=action prose=2 (8.6s)\n"}
+,{"stream_name":"stdout","time":2196.784562823,"data":"[bench] [T33_error_retry_v0] t3 CLICK 312 222 -\u003e clicked (399,160) ok=True mode=action prose=2 (7.3s)\n"}
+,{"stream_name":"stdout","time":2196.811554943,"data":"[bench] [T33_error_retry_v0] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":2207.288988635,"data":"[bench] [T33_error_retry_v1] t0 CLICK 152 222 -\u003e clicked (195,160) ok=False mode=legacy prose=2 (10.0s)\n"}
+,{"stream_name":"stdout","time":2217.487959768,"data":"[bench] [T33_error_retry_v1] t1 TYPE QR-2048 -\u003e typed 'QR-2048' ok=False mode=legacy prose=2 (10.0s)\n"}
+,{"stream_name":"stdout","time":2226.299262071,"data":"[bench] [T33_error_retry_v1] t2 CLICK 312 222 -\u003e clicked (399,160) ok=False mode=action prose=2 (8.6s)\n"}
+,{"stream_name":"stdout","time":2233.735647523,"data":"[bench] [T33_error_retry_v1] t3 CLICK 312 222 -\u003e clicked (399,160) ok=True mode=action prose=2 (7.3s)\n"}
+,{"stream_name":"stdout","time":2233.75971798,"data":"[bench] [T33_error_retry_v1] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":2244.234781144,"data":"[bench] [T33_error_retry_v2] t0 CLICK 152 222 -\u003e clicked (195,160) ok=False mode=legacy prose=2 (10.0s)\n"}
+,{"stream_name":"stdout","time":2254.436069435,"data":"[bench] [T33_error_retry_v2] t1 TYPE QR-2048 -\u003e typed 'QR-2048' ok=False mode=legacy prose=2 (10.0s)\n"}
+,{"stream_name":"stdout","time":2263.247621159,"data":"[bench] [T33_error_retry_v2] t2 CLICK 312 222 -\u003e clicked (399,160) ok=False mode=action prose=2 (8.6s)\n"}
+,{"stream_name":"stdout","time":2270.68044869,"data":"[bench] [T33_error_retry_v2] t3 CLICK 312 222 -\u003e clicked (399,160) ok=True mode=action prose=2 (7.3s)\n"}
+,{"stream_name":"stdout","time":2270.708638897,"data":"[bench] [T33_error_retry_v2] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":2299.946768699,"data":"[bench] [T34_tab_nav_v0] t0 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2328.910354785,"data":"[bench] [T34_tab_nav_v0] t1 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2357.873638411,"data":"[bench] [T34_tab_nav_v0] t2 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2386.839329254,"data":"[bench] [T34_tab_nav_v0] t3 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2415.800711587,"data":"[bench] [T34_tab_nav_v0] t4 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2444.750280497,"data":"[bench] [T34_tab_nav_v0] t5 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2473.699265533,"data":"[bench] [T34_tab_nav_v0] t6 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2502.646612696,"data":"[bench] [T34_tab_nav_v0] t7 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2531.60673023,"data":"[bench] [T34_tab_nav_v0] t8 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2560.573617822,"data":"[bench] [T34_tab_nav_v0] t9 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2589.536318606,"data":"[bench] [T34_tab_nav_v0] t10 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2618.503228549,"data":"[bench] [T34_tab_nav_v0] t11 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (28.8s)\n"}
+,{"stream_name":"stdout","time":2618.506726499,"data":"[bench] [T34_tab_nav_v0] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":2630.39470066,"data":"[bench] [T34_tab_nav_v1] t0 KEY tab -\u003e key Tab ok=False mode=action prose=2 (11.4s)\n"}
+,{"stream_name":"stdout","time":2636.050419095,"data":"[bench] [T34_tab_nav_v1] t1 TYPE Okafor -\u003e typed 'Okafor' ok=False mode=legacy prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2643.888796426,"data":"[bench] [T34_tab_nav_v1] t2 KEY tab -\u003e key Tab ok=False mode=action prose=2 (7.7s)\n"}
+,{"stream_name":"stdout","time":2649.15482138,"data":"[bench] [T34_tab_nav_v1] t3 TYPE Mila -\u003e typed 'Mila' ok=False mode=legacy prose=2 (5.1s)\n"}
+,{"stream_name":"stdout","time":2654.813134193,"data":"[bench] [T34_tab_nav_v1] t4 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2660.476908998,"data":"[bench] [T34_tab_nav_v1] t5 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2666.127577593,"data":"[bench] [T34_tab_nav_v1] t6 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2671.794138542,"data":"[bench] [T34_tab_nav_v1] t7 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2677.459844118,"data":"[bench] [T34_tab_nav_v1] t8 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2683.113581768,"data":"[bench] [T34_tab_nav_v1] t9 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2688.776075193,"data":"[bench] [T34_tab_nav_v1] t10 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2694.431353437,"data":"[bench] [T34_tab_nav_v1] t11 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (5.5s)\n"}
+,{"stream_name":"stdout","time":2694.434135357,"data":"[bench] [T34_tab_nav_v1] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":2709.278153682,"data":"[bench] [T34_tab_nav_v2] t0 KEY tab -\u003e key Tab ok=False mode=action prose=3 (14.4s)\n"}
+,{"stream_name":"stdout","time":2715.142026775,"data":"[bench] [T34_tab_nav_v2] t1 TYPE Lindqvist -\u003e typed 'Lindqvist' ok=False mode=legacy prose=2 (5.7s)\n"}
+,{"stream_name":"stdout","time":2724.749577672,"data":"[bench] [T34_tab_nav_v2] t2 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2734.366284855,"data":"[bench] [T34_tab_nav_v2] t3 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2743.980474528,"data":"[bench] [T34_tab_nav_v2] t4 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2753.599994734,"data":"[bench] [T34_tab_nav_v2] t5 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2763.219857999,"data":"[bench] [T34_tab_nav_v2] t6 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2772.832014333,"data":"[bench] [T34_tab_nav_v2] t7 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2782.448820807,"data":"[bench] [T34_tab_nav_v2] t8 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2792.063572421,"data":"[bench] [T34_tab_nav_v2] t9 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2801.679266487,"data":"[bench] [T34_tab_nav_v2] t10 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2811.295201821,"data":"[bench] [T34_tab_nav_v2] t11 None -\u003e WAIT (khong parse duoc) ok=False mode=none prose=2 (9.4s)\n"}
+,{"stream_name":"stdout","time":2811.299793201,"data":"[bench] [T34_tab_nav_v2] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":2819.970055737,"data":"[bench] [T35_hover_code_v0] t0 CLICK 152 326 -\u003e clicked (195,235) ok=False mode=legacy prose=2 (8.2s)\n"}
+,{"stream_name":"stdout","time":2829.147745653,"data":"[bench] [T35_hover_code_v0] t1 MOVE 145 201 -\u003e moved (186,145) ok=False mode=legacy prose=2 (9.0s)\n"}
+,{"stream_name":"stdout","time":2840.309047853,"data":"[bench] [T35_hover_code_v0] t2 TYPE D-1183 -\u003e typed 'D-1183' ok=False mode=legacy prose=2 (11.0s)\n"}
+,{"stream_name":"stdout","time":2847.914740043,"data":"[bench] [T35_hover_code_v0] t3 CLICK 310 326 -\u003e clicked (397,235) ok=True mode=action prose=2 (7.4s)\n"}
+,{"stream_name":"stdout","time":2847.935473033,"data":"[bench] [T35_hover_code_v0] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":2856.604112971,"data":"[bench] [T35_hover_code_v1] t0 CLICK 152 326 -\u003e clicked (195,235) ok=False mode=legacy prose=2 (8.2s)\n"}
+,{"stream_name":"stdout","time":2865.794048931,"data":"[bench] [T35_hover_code_v1] t1 MOVE 145 201 -\u003e moved (186,145) ok=False mode=legacy prose=2 (9.0s)\n"}
+,{"stream_name":"stdout","time":2876.957723555,"data":"[bench] [T35_hover_code_v1] t2 TYPE S-4471 -\u003e typed 'S-4471' ok=False mode=action prose=1 (11.0s)\n"}
+,{"stream_name":"stdout","time":2883.967870756,"data":"[bench] [T35_hover_code_v1] t3 CLICK 310 326 -\u003e clicked (397,235) ok=True mode=action prose=1 (6.8s)\n"}
+,{"stream_name":"stdout","time":2883.983125466,"data":"[bench] [T35_hover_code_v1] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":2892.657341473,"data":"[bench] [T35_hover_code_v2] t0 CLICK 152 326 -\u003e clicked (195,235) ok=False mode=legacy prose=2 (8.2s)\n"}
+,{"stream_name":"stdout","time":2901.845070469,"data":"[bench] [T35_hover_code_v2] t1 MOVE 145 201 -\u003e moved (186,145) ok=False mode=legacy prose=2 (9.0s)\n"}
+,{"stream_name":"stdout","time":2913.007038038,"data":"[bench] [T35_hover_code_v2] t2 TYPE D-1183 -\u003e typed 'D-1183' ok=False mode=legacy prose=2 (11.0s)\n"}
+,{"stream_name":"stdout","time":2920.610196536,"data":"[bench] [T35_hover_code_v2] t3 CLICK 310 326 -\u003e clicked (397,235) ok=True mode=action prose=2 (7.4s)\n"}
+,{"stream_name":"stdout","time":2920.632070677,"data":"[bench] [T35_hover_code_v2] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":2936.129369627,"data":"[bench] [T36_wizard_steps_v0] t0 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=action prose=2 (15.0s)\n"}
+,{"stream_name":"stdout","time":2951.162734577,"data":"[bench] [T36_wizard_steps_v0] t1 CLICK 60 321 -\u003e clicked (77,231) ok=False mode=action prose=2 (14.8s)\n"}
+,{"stream_name":"stdout","time":2966.387958126,"data":"[bench] [T36_wizard_steps_v0] t2 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=action prose=2 (15.0s)\n"}
+,{"stream_name":"stdout","time":2981.411046157,"data":"[bench] [T36_wizard_steps_v0] t3 CLICK 60 321 -\u003e clicked (77,231) ok=False mode=action prose=2 (14.8s)\n"}
+,{"stream_name":"stdout","time":2996.630686565,"data":"[bench] [T36_wizard_steps_v0] t4 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=action prose=2 (15.0s)\n"}
+,{"stream_name":"stdout","time":3011.660473125,"data":"[bench] [T36_wizard_steps_v0] t5 CLICK 60 321 -\u003e clicked (77,231) ok=False mode=action prose=2 (14.8s)\n"}
+,{"stream_name":"stdout","time":3026.883780564,"data":"[bench] [T36_wizard_steps_v0] t6 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=action prose=2 (15.0s)\n"}
+,{"stream_name":"stdout","time":3041.912023765,"data":"[bench] [T36_wizard_steps_v0] t7 CLICK 60 321 -\u003e clicked (77,231) ok=False mode=action prose=2 (14.9s)\n"}
+,{"stream_name":"stdout","time":3057.13739154,"data":"[bench] [T36_wizard_steps_v0] t8 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=action prose=2 (15.1s)\n"}
+,{"stream_name":"stdout","time":3072.163663403,"data":"[bench] [T36_wizard_steps_v0] t9 CLICK 60 321 -\u003e clicked (77,231) ok=False mode=action prose=2 (14.9s)\n"}
+,{"stream_name":"stdout","time":3087.394957093,"data":"[bench] [T36_wizard_steps_v0] t10 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=action prose=2 (15.0s)\n"}
+,{"stream_name":"stdout","time":3102.425154373,"data":"[bench] [T36_wizard_steps_v0] t11 CLICK 60 321 -\u003e clicked (77,231) ok=False mode=action prose=2 (14.9s)\n"}
+,{"stream_name":"stdout","time":3102.428324013,"data":"[bench] [T36_wizard_steps_v0] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":3130.143716789,"data":"[bench] [T36_wizard_steps_v1] t0 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=5 (27.3s)\n"}
+,{"stream_name":"stdout","time":3140.99593732,"data":"[bench] [T36_wizard_steps_v1] t1 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3168.428368407,"data":"[bench] [T36_wizard_steps_v1] t2 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=5 (27.3s)\n"}
+,{"stream_name":"stdout","time":3179.279813818,"data":"[bench] [T36_wizard_steps_v1] t3 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3206.713562385,"data":"[bench] [T36_wizard_steps_v1] t4 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=5 (27.3s)\n"}
+,{"stream_name":"stdout","time":3217.553513265,"data":"[bench] [T36_wizard_steps_v1] t5 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3244.971433701,"data":"[bench] [T36_wizard_steps_v1] t6 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=5 (27.2s)\n"}
+,{"stream_name":"stdout","time":3255.814691893,"data":"[bench] [T36_wizard_steps_v1] t7 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3283.222140582,"data":"[bench] [T36_wizard_steps_v1] t8 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=5 (27.2s)\n"}
+,{"stream_name":"stdout","time":3294.064374975,"data":"[bench] [T36_wizard_steps_v1] t9 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3321.488599654,"data":"[bench] [T36_wizard_steps_v1] t10 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=5 (27.2s)\n"}
+,{"stream_name":"stdout","time":3332.330084523,"data":"[bench] [T36_wizard_steps_v1] t11 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3332.333737043,"data":"[bench] [T36_wizard_steps_v1] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":3350.049630495,"data":"[bench] [T36_wizard_steps_v2] t0 CLICK 122 222 -\u003e clicked (156,160) ok=False mode=action prose=2 (17.3s)\n"}
+,{"stream_name":"stdout","time":3364.464429496,"data":"[bench] [T36_wizard_steps_v2] t1 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=2 (14.2s)\n"}
+,{"stream_name":"stdout","time":3375.31352224,"data":"[bench] [T36_wizard_steps_v2] t2 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3389.737243929,"data":"[bench] [T36_wizard_steps_v2] t3 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=2 (14.2s)\n"}
+,{"stream_name":"stdout","time":3400.57749209,"data":"[bench] [T36_wizard_steps_v2] t4 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3414.997943686,"data":"[bench] [T36_wizard_steps_v2] t5 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=2 (14.2s)\n"}
+,{"stream_name":"stdout","time":3425.846230363,"data":"[bench] [T36_wizard_steps_v2] t6 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3440.264827842,"data":"[bench] [T36_wizard_steps_v2] t7 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=2 (14.2s)\n"}
+,{"stream_name":"stdout","time":3451.11840425,"data":"[bench] [T36_wizard_steps_v2] t8 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3465.537264894,"data":"[bench] [T36_wizard_steps_v2] t9 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=2 (14.2s)\n"}
+,{"stream_name":"stdout","time":3476.380323425,"data":"[bench] [T36_wizard_steps_v2] t10 CLICK 60 288 -\u003e clicked (77,207) ok=False mode=action prose=2 (10.7s)\n"}
+,{"stream_name":"stdout","time":3490.798160807,"data":"[bench] [T36_wizard_steps_v2] t11 CLICK 60 222 -\u003e clicked (77,160) ok=False mode=legacy prose=2 (14.2s)\n"}
+,{"stream_name":"stdout","time":3490.801433607,"data":"[bench] [T36_wizard_steps_v2] =\u003e FAIL (12 buoc)\n"}
+,{"stream_name":"stdout","time":3502.546924183,"data":"[bench] [T38_recovery_v0] t0 CLICK 241 402 -\u003e clicked (308,289) ok=False mode=action prose=1 (11.3s)\n"}
+,{"stream_name":"stdout","time":3517.982974237,"data":"[bench] [T38_recovery_v0] t1 CLICK 333 402 -\u003e clicked (426,289) ok=True mode=action prose=1 (15.3s)\n"}
+,{"stream_name":"stdout","time":3517.999065987,"data":"[bench] [T38_recovery_v0] =\u003e WIN (2 buoc)\n"}
+,{"stream_name":"stdout","time":3532.901511003,"data":"[bench] [T38_recovery_v1] t0 CLICK 241 256 -\u003e clicked (308,184) ok=False mode=action prose=2 (14.5s)\n"}
+,{"stream_name":"stdout","time":3540.769541014,"data":"[bench] [T38_recovery_v1] t1 CLICK 333 255 -\u003e clicked (426,184) ok=True mode=action prose=1 (7.7s)\n"}
+,{"stream_name":"stdout","time":3540.785713515,"data":"[bench] [T38_recovery_v1] =\u003e WIN (2 buoc)\n"}
+,{"stream_name":"stdout","time":3555.290748654,"data":"[bench] [T38_recovery_v2] t0 CLICK 239 326 -\u003e clicked (306,235) ok=False mode=action prose=2 (14.1s)\n"}
+,{"stream_name":"stdout","time":3567.130581356,"data":"[bench] [T38_recovery_v2] t1 CLICK 333 326 -\u003e clicked (426,235) ok=True mode=action prose=1 (11.7s)\n"}
+,{"stream_name":"stdout","time":3567.146865207,"data":"[bench] [T38_recovery_v2] =\u003e WIN (2 buoc)\n"}
+,{"stream_name":"stdout","time":3575.676146438,"data":"[bench] [T37_terms_guard_v0] t0 CLICK 151 210 -\u003e clicked (193,151) ok=False mode=legacy prose=2 (8.1s)\n"}
+,{"stream_name":"stdout","time":3582.153700727,"data":"[bench] [T37_terms_guard_v0] t1 TYPE Field notes -\u003e typed 'Field notes' ok=False mode=legacy prose=2 (6.3s)\n"}
+,{"stream_name":"stdout","time":3592.176311044,"data":"[bench] [T37_terms_guard_v0] t2 CLICK 36 262 -\u003e clicked (46,189) ok=False mode=legacy prose=2 (9.9s)\n"}
+,{"stream_name":"stdout","time":3601.815404526,"data":"[bench] [T37_terms_guard_v0] t3 CLICK 56 318 -\u003e clicked (72,229) ok=True mode=action prose=2 (9.5s)\n"}
+,{"stream_name":"stdout","time":3601.839097854,"data":"[bench] [T37_terms_guard_v0] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":3610.55663695,"data":"[bench] [T37_terms_guard_v1] t0 CLICK 151 210 -\u003e clicked (193,151) ok=False mode=legacy prose=2 (8.3s)\n"}
+,{"stream_name":"stdout","time":3618.200672563,"data":"[bench] [T37_terms_guard_v1] t1 TYPE Q3 report -\u003e typed 'Q3 report' ok=False mode=legacy prose=2 (7.5s)\n"}
+,{"stream_name":"stdout","time":3626.63692292,"data":"[bench] [T37_terms_guard_v1] t2 CLICK 36 259 -\u003e clicked (46,186) ok=False mode=legacy prose=2 (8.3s)\n"}
+,{"stream_name":"stdout","time":3639.632788718,"data":"[bench] [T37_terms_guard_v1] t3 CLICK 56 318 -\u003e clicked (72,229) ok=True mode=action prose=2 (12.8s)\n"}
+,{"stream_name":"stdout","time":3639.653120048,"data":"[bench] [T37_terms_guard_v1] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":3649.962511193,"data":"[bench] [T37_terms_guard_v2] t0 CLICK 151 209 -\u003e clicked (193,150) ok=False mode=action prose=2 (9.9s)\n"}
+,{"stream_name":"stdout","time":3658.012580894,"data":"[bench] [T37_terms_guard_v2] t1 TYPE Budget 2026 -\u003e typed 'Budget 2026' ok=False mode=legacy prose=2 (7.9s)\n"}
+,{"stream_name":"stdout","time":3667.445510924,"data":"[bench] [T37_terms_guard_v2] t2 CLICK 36 262 -\u003e clicked (46,189) ok=False mode=action prose=2 (9.3s)\n"}
+,{"stream_name":"stdout","time":3681.049829509,"data":"[bench] [T37_terms_guard_v2] t3 CLICK 56 317 -\u003e clicked (72,228) ok=True mode=action prose=2 (13.4s)\n"}
+,{"stream_name":"stdout","time":3681.06788422,"data":"[bench] [T37_terms_guard_v2] =\u003e WIN (4 buoc)\n"}
+,{"stream_name":"stdout","time":3681.09327931,"data":"[bench] ghi /kaggle/working/b17_result.json\n"}
+,{"stream_name":"stdout","time":3681.09328394,"data":"[bench] BENCH XONG: 15/27 win=0.556 parse=0.851 prose_leak=1.000 mode=B17 t=3681s\n"}
+,{"stream_name":"stderr","time":3685.376169973,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3685.376188143,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3685.514876192,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3685.514892182,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3685.87860214,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3686.529460326,"data":"[NbConvertApp] Writing 526345 bytes to __results__.html\n"}
+]
