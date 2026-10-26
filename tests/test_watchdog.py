@@ -29,6 +29,15 @@ def test_load_json_reads_utf8(tmp_path):
     assert w.load_json(str(p), {})["a"] == "xin chào"
 
 
+def test_wants_download_defaults():
+    assert w.wants_download({"kind": "eval"}, {"kind": "eval"}) is True
+    assert w.wants_download({"kind": "train"}, {"kind": "train"}) is False
+    assert w.wants_download({"download_results": True},
+                            {"kind": "train"}) is True
+    assert w.wants_download({"download_results": False},
+                            {"kind": "eval"}) is False
+
+
 def test_download_results_uses_safe_dir(monkeypatch, tmp_path):
     monkeypatch.setattr(w, "RESULTS", str(tmp_path))
     calls = {}

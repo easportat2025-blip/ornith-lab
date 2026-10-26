@@ -101,7 +101,7 @@ state/               placeholder; state thật nằm trên nhánh ops-state
 | Workflow | Trigger | Việc làm |
 |---|---|---|
 | `ci.yml` | push main, PR, dispatch | compileall, YAML/JSON, secret scan, pytest, job-registry tests, headless smoke |
-| `kaggle-watchdog.yml` | schedule 10m, push queue/metadata, dispatch | poll Kaggle, tải result nhỏ, auto-push kernel `MISSING`, cập nhật issue + ops-state |
+| `kaggle-watchdog.yml` | schedule 10m, push queue/metadata, dispatch | poll Kaggle, tải result nhỏ (eval/bench), auto-push kernel `MISSING`, cập nhật issue + ops-state |
 | `ops-tick.yml` | `workflow_run` của watchdog, dispatch | nghỉ 600s rồi dispatch watchdog + heartbeat |
 | `ops-heartbeat.yml` | schedule 10m, dispatch | cập nhật issue `[ops] heartbeat`, đọc state từ ops-state |
 | `hf-sync.yml` | push main, dispatch | upload code snapshot + docs sanitized lên HF private |

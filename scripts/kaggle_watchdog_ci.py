@@ -87,6 +87,14 @@ def load_json(path, default):
         return default
 
 
+def wants_download(target, item):
+    """Per-target override; eval/bench download by default, train does not."""
+    value = target.get("download_results")
+    if value is None:
+        return item.get("kind") in ("eval", "bench")
+    return bool(value)
+
+
 def download_results(ref, pattern=DEFAULT_RESULT_PATTERN,
                      max_bytes=MAX_RESULT_BYTES):
     """Download only small JSON/MD/TXT result files for one kernel.
@@ -154,7 +162,7 @@ def main():
             active.append(item)
         elif st == "COMPLETE":
             item["state"] = "done"
-            if a.download_results:
+            if a.download_results and wants_download(t, item):
                 rc, blob, kept = download_results(
                     ref, a.result_pattern, a.results_max_bytes)
                 item["outputs"] = kept

@@ -62,11 +62,27 @@
   `kkouadn/ornith-lab-code`); chat sync docs sanitized lên `kkouadn/ornith-chat`.
 - **Watchdog upgrade**: `--download-results` tải result JSON/MD/TXT ≤2 MB cho
   kernel COMPLETE vào `state/results/`, commit lên `ops-state`; issue có cột
-  outputs. Trigger thêm khi push queue/metadata/watchdog.
+  outputs. Trigger thêm khi push queue/metadata/watchdog. Mặc định chỉ tải cho
+  `kind=eval|bench`; target có thể override bằng `download_results`. v25b train
+  đã tắt để tránh 429 từ endpoint output (adapter đã ở HF).
 - **Ops status**: `scripts/ops_status.py` in queue/state/secret presence, không
   in giá trị secret. Thêm tests cho secret scan, watchdog, configs, ops status.
 - **B17 v3 vẫn QUEUED** lúc 04:46 UTC; chưa có run ID mới để verify self-dispatch.
   Sau khi push sẽ seed `ops-tick` với `delay_seconds=0` và cập nhật run ID.
+
+### Verify self-dispatch (04:50 UTC)
+- Push `d755650` (self-dispatch + environment upgrade) đã trigger:
+  - `ci` run **40271000533** — success, tất cả step xanh.
+  - `hf-sync` run **40271000556** — success, code snapshot + chat docs lên HF.
+  - `kaggle-watchdog` run **40271000550** — success; issue #2 cập nhật
+    04:49:52Z; `ops-state/state/current.json` có v25b done, B17 QUEUED.
+- `ops-tick` run **40271070108** được trigger bởi `workflow_run` lúc 04:49:58Z,
+  đang sleep 600s. Dự kiến dispatch watchdog kế tiếp ~04:59:58Z.
+- Lần đầu `--download-results` gọi output cho cả v25b (train), bị Kaggle
+  **429 Too Many Requests**; đã sửa: mặc định chỉ tải cho `kind=eval|bench`,
+  v25b có `download_results: false`. B17 eval vẫn tải khi COMPLETE.
+- Dependabot mở nhiều PR actions riêng lẻ; đã đổi config sang group
+  `github-actions` + `python-deps` để giảm nhiễu.
 
 ## Gate v25b (ngưỡng: parse ≥0.95, leak ≤5%, traj ≥0.85, real ≥0.85, train-sub ≥0.90)
 | Gate | Kết quả | Đạt |

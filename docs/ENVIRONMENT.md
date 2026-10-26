@@ -118,7 +118,9 @@ Chỉ tên, không giá trị:
 | `exp/<run-id>` | thử nghiệm | agent, merge khi gate pass |
 
 `ops-state` là orphan branch; không chứa code. `state/results` chỉ nhận file
-JSON/MD/TXT ≤ 2 MB; file lớn bị xóa trước khi commit.
+JSON/MD/TXT ≤ 2 MB; file lớn bị xóa trước khi commit. Mặc định watchdog chỉ tải
+result cho `kind=eval|bench`; target có thể override bằng `download_results`
+(true/false) trong `configs/kaggle_queue.json`.
 
 ## 8. Troubleshooting
 
