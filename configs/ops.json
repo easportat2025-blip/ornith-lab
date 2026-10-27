@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "updated": "2026-10-27",
+  "loop": {
+    "enabled": true,
+    "delay_seconds": 600,
+    "upgrade_delay_seconds": 600,
+    "stale_after_minutes": 25,
+    "health_check_minutes": 30
+  },
+  "features": {
+    "auto_push": true,
+    "download_results": true,
+    "heartbeat": true,
+    "hf_sync": true
+  },
+  "upgrade": {
+    "mode": false,
+    "note": "Set mode=true to keep the Kaggle loop running while skipping best-effort heartbeat and HF sync. ops-tick reads this file every cycle; missing or invalid config falls back to safe defaults."
+  }
+}

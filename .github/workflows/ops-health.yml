@@ -1,0 +1,134 @@
+name: ops-health
+
+# Independent fallback for the self-dispatch loop.
+#
+# The primary loop is:
+#   kaggle-watchdog completed -> ops-tick (sleep) -> dispatch kaggle-watchdog
+#
+# This workflow is intentionally separate. It runs every 30 minutes, checks the
+# age of the latest ops-tick and kaggle-watchdog runs, and dispatches a fresh
+# watchdog (and, when needed, a fresh ops-tick timer) when the loop is stale.
+#
+# Upgrade safety:
+#   - It only dispatches; it never edits code, queue, or state.
+#   - It respects configs/ops.json (loop.enabled, stale_after_minutes).
+#   - It is additive: if this workflow is disabled, the old loop still works.
+#   - If the GitHub API is unavailable, it reports the error and exits 0.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report only, do not dispatch"
+        type: boolean
+        default: false
+      stale_minutes:
+        description: "Override stale threshold (0 = configs/ops.json)"
+        required: false
+        default: "0"
+
+permissions:
+  actions: write
+  contents: read
+  issues: write
+
+concurrency:
+  group: ops-health
+  cancel-in-progress: true
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check loop health and re-seed if stale
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ARGS="--redispatch"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          STALE="${{ github.event.inputs.stale_minutes || '0' }}"
+          case "$STALE" in
+            ''|*[!0-9]*) STALE=0 ;;
+          esac
+          python scripts/ops_health.py $ARGS --stale-minutes "$STALE"
+
+      - name: Update loop health issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let h = {};
+            try {
+              h = JSON.parse(fs.readFileSync('state/loop_health.json', 'utf8'));
+            } catch (e) {
+              core.warning(`loop health file missing: ${e.message}`);
+            }
+            const runRows = Object.entries(h.runs || {}).map(([name, r]) => {
+              const age = (r && r.age_minutes !== null && r.age_minutes !== undefined)
+                ? `${r.age_minutes}m` : '-';
+              const status = r && r.status ? r.status
+                : (r && r.error ? `error: ${r.error}` : '?');
+              const conclusion = r && r.conclusion ? r.conclusion : '-';
+              const link = r && r.html_url ? `[run](${r.html_url})` : '-';
+              return `| \`${name}\` | ${status} | ${conclusion} | ${age} | ${link} |`;
+            }).join('\n');
+            const actionRows = (h.actions || []).map(a =>
+              `- \`${a.workflow}\`: ${a.reason} (dispatched=${a.dispatched}, rc=${a.rc})`
+            ).join('\n') || '- none';
+            const errorRows = (h.errors || []).map(e => `- ${e}`).join('\n') || '- none';
+            const body = [
+              '## Ops loop health',
+              '',
+              `- UTC: \`${new Date().toISOString()}\``,
+              `- Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              `- Repo/ref: \`${h.repo || '?'}\` / \`${h.ref || '?'}\``,
+              `- Enabled: \`${h.enabled}\` · upgrade_mode: \`${h.upgrade_mode}\` · stale: \`${h.stale_minutes}m\``,
+              `- Dry run: \`${h.dry_run}\``,
+              '',
+              '| workflow | status | conclusion | age | link |',
+              '|---|---|---|---|---|',
+              runRows || '| _none_ | | | | |',
+              '',
+              '### Actions',
+              actionRows,
+              '',
+              '### Errors',
+              errorRows,
+              '',
+              '_Fallback for the self-dispatch loop; runs every 30 minutes. Re-seeds the watchdog and ops-tick timer when stale._'
+            ].join('\n');
+            const title = '[ops] loop health';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              per_page: 100,
+            });
+            const hit = issues.data.find(i => i.title === title);
+            if (hit) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: hit.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }

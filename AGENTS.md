@@ -8,9 +8,12 @@ This file is the public, sanitized operating protocol. The private `agent.md`
 1. `README.md` — architecture and quick start.
 2. `docs/HANDOFF.md` — latest state, blockers, next move.
 3. `docs/ENVIRONMENT.md` — workflows, self-dispatch, troubleshooting.
-4. `configs/kaggle_queue.json` — what is queued.
-5. GitHub issue `[ops] kaggle watchdog` — latest kernel status and outputs.
-6. `ops-state` branch → `state/current.json` — machine-readable ops state.
+4. `docs/UPGRADES.md` — upgrade-safe rules, feature flags, rollback.
+5. `configs/kaggle_queue.json` — what is queued.
+6. `configs/ops.json` — loop/feature flags.
+7. GitHub issues `[ops] kaggle watchdog` and `[ops] loop health` — latest
+   kernel status and loop freshness.
+8. `ops-state` branch → `state/current.json` — machine-readable ops state.
 
 If these disagree, trust the newest timestamp, then the GitHub issue/state over
 prose docs.
@@ -25,9 +28,13 @@ prose docs.
 - **New kernel → new slug.** The watchdog only auto-pushes targets whose state
   is `pending` and whose Kaggle status is `MISSING`. It never re-pushes an
   existing `ERROR`/`COMPLETE` kernel on every tick.
+- **Upgrade additively.** Keep existing workflow names and triggers, keep old
+  inputs/defaults, and put behavior changes behind `configs/ops.json` flags.
+  `ops-health` must be able to re-seed the loop during a partial upgrade. Read
+  `docs/UPGRADES.md` before editing workflows.
 - **Do not run a local watchdog 24/7.** GitHub Actions (`ops-tick` +
-  `kaggle-watchdog`) is the loop. Local scripts are for inspection and manual
-  runs.
+  `kaggle-watchdog`) is the loop. `ops-health` is the independent fallback.
+  Local scripts are for inspection and manual runs.
 - **Do not commit large artifacts.** Adapters, outputs, screenshots, zips, and
   datasets go to HF/Kaggle; commit only manifests and links.
 - **Do not delete unfamiliar work.** Inspect first; the user may have created it.
@@ -38,14 +45,18 @@ prose docs.
 
 ```
 kaggle-watchdog completes
-  -> ops-tick waits 600s
+  -> ops-tick reads configs/ops.json, waits 600s
   -> dispatches kaggle-watchdog (+ heartbeat)
   -> repeat
 ```
 
-The `*/10` schedule is a backup seed. To stop the loop, disable `ops-tick` in
-GitHub Actions. To seed it manually, dispatch `ops-tick` with
-`delay_seconds=0`, or dispatch `kaggle-watchdog` directly.
+The `*/10` schedule is a backup seed. `ops-health` runs every 30 minutes and
+dispatches a fresh watchdog when the loop is older than
+`loop.stale_after_minutes` (default 25); that watchdog run re-seeds `ops-tick`.
+To stop the loop, set `loop.enabled=false` in `configs/ops.json` (watchdog
+schedule still runs) or disable `ops-tick` in GitHub Actions. To seed it
+manually, dispatch `ops-tick` with `delay_seconds=0`, or dispatch
+`kaggle-watchdog` directly.
 
 The watchdog:
 - polls every queue target;
@@ -89,6 +100,7 @@ if you need to see the latest commit. It never stores the token.
 ```powershell
 python scripts\ops_status.py          # queue + state + secret presence
 python scripts\check_secrets.py       # set/missing only
+python scripts\ops_health.py --dry-run  # loop freshness, no dispatch
 python scripts\kaggle_watchdog_ci.py  # one watchdog poll (needs Kaggle env)
 python scripts\hf_code_sync.py --dry-run
 python scripts\hf_chat_sync.py --dry-run --files docs/HANDOFF.md README.md
@@ -102,4 +114,5 @@ python scripts\hf_chat_sync.py --dry-run --files docs/HANDOFF.md README.md
 - [ ] No secrets or large artifacts staged.
 - [ ] CI green; `hf-sync` green or explicitly skipped.
 - [ ] Watchdog issue shows the expected active kernel.
+- [ ] `[ops] loop health` shows fresh runs and no unexpected dispatch.
 - [ ] Next action is a single, concrete command or decision.

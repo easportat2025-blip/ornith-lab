@@ -13,6 +13,7 @@ on:
     branches: [main]
     paths:
       - "configs/kaggle_queue.json"
+      - "configs/ops.json"
       - "scripts/kaggle_watchdog_ci.py"
       - "phase13-gui/**/kernel-metadata.json"
 

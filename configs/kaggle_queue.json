@@ -14,9 +14,9 @@
       "ref": "dieniw/ornith-gui-bench-b17-v22",
       "path": "phase13-gui/kernel_bench_b17",
       "kind": "eval",
-      "state": "active",
+      "state": "done",
       "download_results": true,
-      "note": "v3: base4 + offline-browsers + lora-v25b + bench-b17; RTX/competition/offline. Holdout: never train on B17."
+      "note": "v3 COMPLETE 15/27 = 0.5556; parse 0.8507; prose_leak 1.0; 9 tasks x 3 variants (T30-T38). Holdout passes >=35%, but W1 fails (too easy: >20%). Never train on B17."
     }
   ]
 }

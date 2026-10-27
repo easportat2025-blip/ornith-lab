@@ -9,7 +9,9 @@ import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUEUE = os.path.join(ROOT, "configs", "kaggle_queue.json")
+OPS_CONFIG = os.path.join(ROOT, "configs", "ops.json")
 STATE = os.path.join(ROOT, "state", "current.json")
+LOOP_HEALTH = os.path.join(ROOT, "state", "loop_health.json")
 SECRETS = [
     "KAGGLE_USERNAME", "KAGGLE_KEY", "HF_TOKEN", "GH_TOKEN",
     "GEMINI_API_KEY", "MISTRAL_API_KEY", "DEEPSEEK_API_KEY",
@@ -53,6 +55,8 @@ def has_secret(name):
 def build_snapshot():
     queue = load_json(QUEUE, {"targets": []})
     state = load_json(STATE, None)
+    ops_cfg = load_json(OPS_CONFIG, {})
+    loop_health = load_json(LOOP_HEALTH, None)
     targets = []
     for t in queue.get("targets", []):
         targets.append({
@@ -75,6 +79,13 @@ def build_snapshot():
             "targets": targets,
         },
         "state": None,
+        "ops": {
+            "loop_enabled": bool((ops_cfg.get("loop") or {}).get("enabled", True)),
+            "delay_seconds": (ops_cfg.get("loop") or {}).get("delay_seconds", 600),
+            "upgrade_mode": bool((ops_cfg.get("upgrade") or {}).get("mode", False)),
+            "features": ops_cfg.get("features") or {},
+        },
+        "loop_health": loop_health,
         "secrets": {name: has_secret(name) for name in SECRETS},
     }
     if isinstance(state, dict):
@@ -98,6 +109,10 @@ def render(snap):
     for t in snap["queue"]["targets"]:
         lines.append("  %-44s %-8s %-8s %s" % (
             t["ref"], t["kind"], t["state"], t["path"]))
+    ops = snap.get("ops") or {}
+    lines.append("Ops:    loop=%s delay=%ss upgrade=%s" % (
+        "enabled" if ops.get("loop_enabled", True) else "disabled",
+        ops.get("delay_seconds", 600), ops.get("upgrade_mode", False)))
     if snap["state"]:
         st = snap["state"]
         lines.append("State:  %s active=%s" % (
@@ -113,6 +128,13 @@ def render(snap):
     else:
         lines.append("State:  state/current.json missing "
                      "(normal on main; see ops-state)")
+    health = snap.get("loop_health")
+    if health:
+        lines.append("Health: %s enabled=%s actions=%d" % (
+            health.get("ts", "n/a"), health.get("enabled"),
+            len(health.get("actions") or [])))
+    else:
+        lines.append("Health: state/loop_health.json missing (normal on main)")
     missing = [k for k, v in snap["secrets"].items() if not v]
     lines.append("Secrets: %d/%d set; missing=%s" % (
         len(snap["secrets"]) - len(missing), len(snap["secrets"]),

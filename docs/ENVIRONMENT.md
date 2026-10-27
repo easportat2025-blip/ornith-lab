@@ -11,6 +11,7 @@ gì, self-dispatch hoạt động ra sao, và cách xử lý khi một mắt xí
 | `ops-state` | state runtime: `state/current.json`, `state/results/*` |
 | Issue `[ops] kaggle watchdog` | trạng thái kernel, output, link run |
 | Issue `[ops] heartbeat` | ping 10 phút, freshness của state |
+| Issue `[ops] loop health` | tuổi run gần nhất, hành động re-seed của fallback |
 | Kaggle | GPU RTX, train/eval kernel |
 | HF `kkouadn/ornith-chat` | chat/state đã sanitize (private) |
 | HF `kkouadn/ornith-lab-code` | zip code snapshot (private) |
@@ -22,9 +23,10 @@ gì, self-dispatch hoạt động ra sao, và cách xử lý khi một mắt xí
 |---|---|---|---|
 | `ci.yml` | push `main`, PR, dispatch | `contents: read` | compileall, YAML/JSON, secret scan, pytest, job tests, headless smoke |
 | `kaggle-watchdog.yml` | schedule `*/10`, push queue/metadata, dispatch | `contents: write`, `issues: write` | poll Kaggle, tải result nhỏ, auto-push kernel `MISSING`, cập nhật issue + `ops-state` |
-| `ops-tick.yml` | `workflow_run` của watchdog, dispatch | `actions: write`, `contents: read` | nghỉ 600s rồi dispatch watchdog + heartbeat |
+| `ops-tick.yml` | `workflow_run` của watchdog, dispatch | `actions: write`, `contents: read` | đọc `configs/ops.json`, nghỉ `delay_seconds` rồi dispatch watchdog + heartbeat |
+| `ops-health.yml` | schedule `*/30`, dispatch | `actions: write`, `contents: read`, `issues: write` | kiểm tra tuổi run; dispatch watchdog nếu loop cũ; cập nhật issue `[ops] loop health` |
 | `ops-heartbeat.yml` | schedule `*/10`, dispatch | `contents: read`, `issues: write` | cập nhật issue heartbeat, đọc state từ `ops-state` |
-| `hf-sync.yml` | push `main`, dispatch | `contents: read` | upload code snapshot + docs sanitized lên HF |
+| `hf-sync.yml` | push `main`, dispatch | `contents: read` | upload code snapshot + docs sanitized lên HF (đọc flag `hf_sync`) |
 
 `kaggle-watchdog.yml` có thêm trigger `push` cho `configs/kaggle_queue.json`,
 `scripts/kaggle_watchdog_ci.py`, và `phase13-gui/**/kernel-metadata.json` để
@@ -33,26 +35,78 @@ queue mới được xử lý ngay, không phải chờ tick.
 ## 3. Self-dispatch
 
 ```
-kaggle-watchdog run kết thúc
+ops-tick (workflow_run hoặc self-dispatch)
+        │  sleep delay_seconds (mặc định 600)
+        ▼
+kiểm tra watchdog active?
+        │
+        ├─ có  → bỏ qua dispatch (tránh chồng run)
+        └─ không → dispatch kaggle-watchdog (auto_push=true)
         │
         ▼
-ops-tick (workflow_run, branches: main)
-        │  sleep 600s (delay_seconds, 0..3600)
-        ▼
-dispatch kaggle-watchdog (auto_push=true)
-dispatch ops-heartbeat (best-effort)
+dispatch ops-heartbeat (best-effort, trừ upgrade mode)
+dispatch ops-tick (self-dispatch, delay_seconds = config)
         │
         ▼
-kaggle-watchdog run kết thúc → lặp
+lặp lại
 ```
 
-- `concurrency: ops-tick` với `cancel-in-progress: true`: nếu có nhiều watchdog
-  run kết thúc gần nhau, chỉ tick mới nhất tiếp tục; không tạo hàng đợi.
+- **Self-dispatch là chính.** `workflow_run` có thể bị delay/drop (quan sát
+  27/10: loop đứng ~2 giờ dù workflow enabled; re-seed bằng `ops-health` thành
+  công). Vì vậy `ops-tick` tự dispatch chính nó với `delay_seconds` lấy từ
+  config, không phụ thuộc watchdog completion. `workflow_run` vẫn giữ để phản
+  ứng ngay khi watchdog xong.
+- **Active guard.** Trước khi dispatch watchdog, `ops-tick` gọi
+  `listWorkflowRuns`; nếu watchdog đang `queued`/`in_progress` thì bỏ qua, chỉ
+  self-dispatch để kiểm tra lại sau. Tránh chồng run khi GPU queue lâu.
+- `concurrency: ops-tick` với `cancel-in-progress: true`: nếu có nhiều tick
+  gần nhau, chỉ tick mới nhất tiếp tục; không tạo hàng đợi.
 - `ops-tick` dispatch có retry 3 lần cho watchdog; heartbeat là best-effort.
-- Nếu `ops-tick` fail, `schedule: */10` của watchdog vẫn là seed dự phòng.
+- Nếu `ops-tick` fail, `schedule: */10` của watchdog và `ops-health` vẫn là seed
+  dự phòng.
 - Muốn seed ngay: Actions → `ops-tick` → Run workflow → `delay_seconds=0`.
+  Tick kế tiếp vẫn dùng `delay_seconds` từ config (không bị 0 lặp).
 - Muốn dừng: Actions → `ops-tick` → **Disable workflow**. Watchdog vẫn chạy theo
   schedule (chậm hơn), hoặc disable luôn watchdog nếu cần.
+- Muốn tạm dừng mềm: đặt `loop.enabled=false` trong `configs/ops.json`.
+  `ops-tick` sẽ không dispatch/self-dispatch, nhưng watchdog schedule vẫn chạy.
+
+### Fallback `ops-health`
+
+`ops-health.yml` chạy độc lập mỗi 30 phút (và dispatch tay). Nó đọc tuổi run
+gần nhất của `ops-tick` và `kaggle-watchdog`:
+
+- Nếu một trong hai đang `queued`/`in_progress`: không làm gì (tránh trùng).
+- Nếu `kaggle-watchdog` cũ hơn `loop.stale_after_minutes` (mặc định 25): dispatch
+  watchdog với `auto_push=true`.
+- Nếu `ops-tick` cũ nhưng watchdog còn mới: dispatch watchdog để watchdog xong
+  trigger lại `ops-tick`.
+- Nếu `loop.enabled=false`: không dispatch, chỉ báo cáo.
+
+Một watchdog run mới là đủ để tái lập vòng lặp: watchdog xong → `ops-tick` →
+sleep → watchdog. `ops-health` không sửa code/queue/state.
+
+### Upgrade-safe config
+
+`configs/ops.json` cho phép đổi hành vi mà không sửa workflow:
+
+| Khóa | Mặc định | Tác dụng |
+|---|---|---|
+| `loop.enabled` | `true` | `false` = `ops-tick` không dispatch |
+| `loop.delay_seconds` | `600` | nhịp self-dispatch |
+| `loop.upgrade_delay_seconds` | `600` | nhịp khi `upgrade.mode=true` |
+| `loop.stale_after_minutes` | `25` | ngưỡng fallback |
+| `features.auto_push` | `true` | `false` = không tự push kernel `MISSING` |
+| `features.download_results` | `true` | `false` = không tải result |
+| `features.heartbeat` | `true` | `false` = không dispatch heartbeat |
+| `features.hf_sync` | `true` | `false` = không upload HF |
+| `upgrade.mode` | `false` | giữ loop, bỏ heartbeat + HF sync |
+
+`ops-tick` đọc config qua GitHub API trước khi sleep. Nếu file thiếu/hỏng, nó
+dùng default cũ (600s, enabled, heartbeat on). Watchdog đọc cùng file để áp
+`auto_push`/`download_results`; config hỏng không làm watchdog dừng.
+
+Quy trình nâng cấp đầy đủ: [`docs/UPGRADES.md`](UPGRADES.md).
 
 ### Chi phí runner
 
@@ -127,6 +181,10 @@ result cho `kind=eval|bench`; target có thể override bằng `download_results
 | Triệu chứng | Kiểm tra / xử lý |
 |---|---|
 | Watchdog không chạy đúng 10 phút | Xem `ops-tick` có enabled không; xem run gần nhất; seed lại bằng dispatch `delay_seconds=0` |
+| Loop im > 25 phút | Xem issue `[ops] loop health`; dispatch `ops-health` tay hoặc `ops-tick` với `delay_seconds=0` |
+| `ops-health` không re-seed | Kiểm tra `loop.enabled`, `actions: write`, và `GITHUB_TOKEN`; xem `state/loop_health.json` trong run |
+| Config mới không có tác dụng | JSON phải hợp lệ và nằm trên `main`; `ops-tick` đọc qua API mỗi vòng |
+| Muốn tạm dừng mềm | `configs/ops.json` → `loop.enabled=false`; watchdog schedule vẫn chạy |
 | `ops-tick` lỗi 403 khi dispatch | Token thiếu `actions: write`; workflow phải có `permissions: actions: write` |
 | `kaggle-watchdog` lỗi 401 | `KAGGLE_USERNAME`/`KAGGLE_KEY` sai hoặc hết hạn; cập nhật GitHub secret |
 | Kernel `QUEUED` lâu | Hết GPU quota, competition/internet sai, hoặc Kaggle đang bận; xem `kaggle kernels status` |
@@ -173,4 +231,11 @@ python scripts\github_push_files.py --repo easportat2025-blip/ornith-lab `
 # 6. Sync HF thủ công (nếu workflow không chạy)
 python scripts\hf_code_sync.py --ref origin/main
 python scripts\hf_chat_sync.py --files docs/HANDOFF.md docs/CONTINUITY.md README.md
+
+# 7. Health check loop (dry-run, không dispatch)
+python scripts\ops_health.py --dry-run
+
+# 8. Re-seed nếu loop cũ (token chỉ ở env, không ghi file)
+$env:GITHUB_TOKEN = $env:GH_TOKEN
+python scripts\ops_health.py --repo easportat2025-blip/ornith-lab --ref main --redispatch
 ```

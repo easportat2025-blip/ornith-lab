@@ -23,7 +23,11 @@ ornith-lab/
 ├─ state/                     # chỉ file mẫu; state thật ở nhánh ops-state
 ├─ .github/workflows/
 │  ├─ ci.yml
-│  └─ ops-heartbeat.yml
+│  ├─ kaggle-watchdog.yml
+│  ├─ ops-tick.yml
+│  ├─ ops-health.yml
+│  ├─ ops-heartbeat.yml
+│  └─ hf-sync.yml
 ├─ .gitignore
 └─ scripts/secret_scan.py
 ```
@@ -78,16 +82,28 @@ Chi tiết đầy đủ (trigger, quyền, self-dispatch, troubleshooting) nằm
 - Permissions: `contents: read`.
 
 ### `kaggle-watchdog.yml`
-- Trigger: `schedule: */10 * * * *`, push queue/metadata, `workflow_dispatch`.
+- Trigger: `schedule: */10 * * * *`, push queue/`configs/ops.json`/metadata,
+  `workflow_dispatch`.
 - Poll Kaggle, tải result nhỏ (`state/results/`), auto-push kernel `MISSING`,
   cập nhật issue `[ops] kaggle watchdog` + `ops-state`.
+- Đọc `features.auto_push` / `features.download_results` từ `configs/ops.json`.
 - Permissions: `contents: write`, `issues: write`.
 
 ### `ops-tick.yml`
 - Trigger: `workflow_run` khi `kaggle-watchdog` xong + `workflow_dispatch`.
-- Nghỉ `delay_seconds` (mặc định 600) rồi dispatch watchdog + heartbeat.
+- Đọc `configs/ops.json` qua GitHub API; nghỉ `delay_seconds` (mặc định 600)
+  rồi dispatch watchdog + heartbeat.
+- File config thiếu/hỏng → default cũ; input `delay_seconds` vẫn hoạt động.
 - Đây là vòng lặp tự dispatch; `schedule` chỉ là backup seed.
 - Permissions: `actions: write`, `contents: read`.
+
+### `ops-health.yml`
+- Trigger: `schedule: */30 * * * *` + `workflow_dispatch`.
+- Kiểm tra tuổi run gần nhất của `ops-tick`/`kaggle-watchdog`; nếu cũ hơn
+  `loop.stale_after_minutes` và không có run active, dispatch watchdog để
+  tái lập vòng lặp.
+- Cập nhật issue `[ops] loop health`; không sửa state/queue.
+- Permissions: `actions: write`, `contents: read`, `issues: write`.
 
 ### `ops-heartbeat.yml`
 - Trigger: `schedule: */10 * * * *` + `workflow_dispatch`.
@@ -101,6 +117,8 @@ Chi tiết đầy đủ (trigger, quyền, self-dispatch, troubleshooting) nằm
 - Upload code snapshot (tracked files only) lên `kkouadn/ornith-lab-code`.
 - Upload docs sanitized lên `kkouadn/ornith-chat`.
 - Chạy secret scan trước khi upload; cần `HF_TOKEN`.
+- Đọc `features.hf_sync` và `upgrade.mode`; nếu tắt thì skip upload (workflow
+  vẫn xanh).
 - Permissions: `contents: read`.
 
 ## 5. Local → GitHub state

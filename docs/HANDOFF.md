@@ -1,6 +1,21 @@
-# HANDOFF — 26/10/2026 (GitHub/HF ops)
+# HANDOFF — 27/10/2026 (GitHub/HF ops)
 
 ## Trạng thái hiện tại
+- **B17 v3 COMPLETE** trên Kaggle `dieniw/ornith-gui-bench-b17-v22` (RTX,
+  competition ARC, internet OFF).
+  - **15/27 = 0.5556** win; parse **0.8507**; prose leak **1.0**; 201 steps;
+    modes action 98 / legacy 73 / none 30; mean_new 80.7; reason_max 512.
+  - Per-task: T30_note_order 3/3 · T31_scroll_code 0/3 · T32_drag_slider 0/3 ·
+    T33_error_retry 3/3 · T34_tab_nav 0/3 · T35_hover_code 3/3 ·
+    T36_wizard_steps 0/3 · T37_terms_guard 3/3 · T38_recovery 3/3.
+  - B17 v3 có **9 task × 3 variant = 27 episode** (T30–T38). T39/T40 chỉ có
+    trong self-test/checker, không nằm trong `bench_b17/tasks/tasks.json`, nên
+    không phải task bị mất khi chạy.
+  - Holdout gate **PASS** (≥35%), nhưng **W1 FAIL**: 0.5556 > 20% và chưa đạt
+    độ khó "gấp ≥3 lần bộ cũ". B17 v3 là holdout hợp lệ nhưng **chưa đủ khó**.
+  - Result: `phase13-gui/kernel_bench_b17/output/b17_result.json`; log:
+    `logs/b17_v3.log`; bản trên `ops-state`:
+    `state/results/dieniw__ornith-gui-bench-b17-v22/`.
 - **v25b v9 COMPLETE** trên Kaggle `dieniw/ornith-gui-sft-v25b`, RTX PRO 6000
   Blackwell 95 GB, competition ARC + internet OFF.
   - Train: **8716 samples**, 2.846 epochs, loss **0.1231**.
@@ -11,18 +26,13 @@
   - Gate: parse/real/train-sub PASS; **traj FAIL (0.438 < 0.85)**.
 - **Adapter đã tải + publish**: `dieniw/ornith-gui-lora-v25b` (private,
   465.6 MB `adapter_model.safetensors`, kèm tokenizer/processor/README).
-- **B17 v3 đã push** `dieniw/ornith-gui-bench-b17-v22` lúc ~04:12 UTC, trạng thái
-  **QUEUED** (kiểm tra 04:46 UTC, chưa có log). Metadata: base4 +
-  `ornith-offline-browsers` + `ornith-gui-lora-v25b` + `ornith-gui-bench-b17`;
-  RTX/competition/offline. Tổng input ~18.87 GB (< 20 GB).
-- **CPU probe Playwright** `dieniw/ornith-pw-probe` đã push (CPU, offline,
-  attach `ornith-offline-browsers`) để verify V1-V6 trước khi B17 chạy.
 - **v26 đã chuẩn bị local** `phase13-gui/kernel_v26`: y hệt v25b nhưng eval
-  decode `EVAL_MAX=256` (sửa artifact traj 24 token). **Chưa queue** — chờ B17
-  để quyết định data mới trước khi push.
-- **GitHub repo** `easportat2025-blip/ornith-lab` (public) đã có code + workflows.
-  Watchdog chạy theo schedule 10 phút; run gần nhất `40253573698` success.
-  Issue #2 đang báo v25b COMPLETE, B17 ERROR (bản cũ trước v3).
+  decode `EVAL_MAX=256` (sửa artifact traj 24 token). **Chưa queue** — cần
+  curate từ B15/B16/capability-similar failures, **không dùng B17**.
+- **Self-dispatch verified** trên `easportat2025-blip/ornith-lab` (public):
+  watchdog `40437526534` lúc 02:17:00Z, `ops-tick` `40436536797` lúc 02:06:52Z,
+  heartbeat `40437528438` lúc 02:17:01Z; issue #2 cập nhật 02:17:20Z.
+  Nhịp quan sát ~10–11 phút.
 - **GitHub Actions secrets** đã set: `KAGGLE_USERNAME`, `KAGGLE_KEY`,
   `HF_TOKEN`, `GEMINI_API_KEY(_2)`, `MISTRAL_API_KEY(_2.._5)`,
   `DEEPSEEK_API_KEY`, `GROQ_API_KEY(_2.._6)`, `OPENCODE_API_KEY`.
@@ -43,7 +53,7 @@
 - Lưu `OPENCODE_API_KEY` vào GitHub Actions + HF Space secrets (không ghi file).
   Free models hiện trả 429 `FreeUsageLimitError`; fallback tự bỏ qua và dùng
   Groq/Gemini. Có thể thử lại khi quota reset.
-- Cập nhật `configs/kaggle_queue.json`: v25b done, B17 active.
+- Cập nhật `configs/kaggle_queue.json`: v25b done, B17 **done**.
 
 ## Việc đã làm trong phiên này (GitHub environment upgrade)
 - **Bật self-dispatch**: thêm `.github/workflows/ops-tick.yml`. Watchdog xong →
@@ -67,8 +77,9 @@
   đã tắt để tránh 429 từ endpoint output (adapter đã ở HF).
 - **Ops status**: `scripts/ops_status.py` in queue/state/secret presence, không
   in giá trị secret. Thêm tests cho secret scan, watchdog, configs, ops status.
-- **B17 v3 vẫn QUEUED** lúc 04:46 UTC; chưa có run ID mới để verify self-dispatch.
-  Sau khi push sẽ seed `ops-tick` với `delay_seconds=0` và cập nhật run ID.
+- **B17 v3 COMPLETE** (27/10); watchdog đã tải result + log vào
+  `state/results/dieniw__ornith-gui-bench-b17-v22/` và cập nhật issue #2.
+  `ops-tick` tự dispatch tiếp; không cần seed tay.
 
 ### Verify self-dispatch (04:50 UTC)
 - Push `d755650` (self-dispatch + environment upgrade) đã trigger:
@@ -84,6 +95,66 @@
 - Dependabot mở nhiều PR actions riêng lẻ; đã đổi config sang group
   `github-actions` + `python-deps` để giảm nhiễu.
 
+### Verify self-dispatch (05:00 UTC update)
+- Push `4922766` (eval-only result download + grouped Dependabot) trigger:
+  - `ci` run **40271291034** — success.
+  - `hf-sync` run **40271290897** — success; HF `ornith-lab-code` và
+    `ornith-chat` cập nhật lúc 04:53:28/04:53:30Z.
+  - `kaggle-watchdog` run **40271291078** — success; issue #2 cập nhật
+    04:52:53Z; v25b done **không** tải output (tránh 429), B17 QUEUED.
+- `ops-tick` run **40271321807** (head `4922766`) bắt đầu 04:52:59Z, đang sleep;
+  run cũ **40271070108** bị cancel bởi concurrency. Dự kiến dispatch watchdog
+  ~05:03:16Z.
+- Dependabot: PR group **#11** (actions) và **#12** (pip); các PR lẻ #8-#10
+  (kaggle/pytest/pyyaml) là bản trùng, có thể đóng sau khi #12 xanh.
+
+### B17 v3 kết quả (27/10)
+- `n=27`, `wins=15`, `win_rate=0.5556`, `parse_rate=0.8507`,
+  `prose_leak_rate=1.0`, `steps=201`, `modes={action:98, legacy:73, none:30}`,
+  `mean_new=80.7`, `reason_max=512`.
+- Per-task: T30 3/3 · T31 0/3 · T32 0/3 · T33 3/3 · T34 0/3 · T35 3/3 ·
+  T36 0/3 · T37 3/3 · T38 3/3.
+- B17 v3 = **9 task × 3 variant** (T30–T38). T39/T40 chỉ có trong
+  `scripts/b17_selftest.py` / `checker.py`, không có trong
+  `phase13-gui/bench_b17/tasks/tasks.json`; không phải task bị mất khi chạy.
+- **Holdout gate PASS** (0.5556 ≥ 0.35), nhưng **W1 FAIL**: bộ mới phải
+  ≤20% (mục tiêu ≤10%) và khó gấp ≥3 lần bộ cũ. B17 v3 hiện quá dễ; cần B17 v4
+  hoặc B18 với T39/T40 + cơ chế khó hơn, rồi đo lại W1.
+- **Capability gaps** (0/3): scroll ngoài viewport (T31), drag slider (T32),
+  keyboard tab navigation (T34), wizard nhiều bước (T36). Đây là target cho
+  v26, lấy từ B15/B16/capability-similar failures — **không train trên B17**.
+- **Format**: `prose_leak=1.0` + `legacy=73` + `none=30` cho thấy model vẫn
+  xen prose ngoài THINK và dùng bare action. v26 nên train format
+  `THINK:` ngắn + `ACTION:` dòng cuối, eval `EVAL_MAX=256`.
+- File: `phase13-gui/kernel_bench_b17/output/b17_result.json`,
+  `logs/b17_v3.log`; bản `ops-state`:
+  `state/results/dieniw__ornith-gui-bench-b17-v22/`.
+- `phase13-gui/gate_report.py` dùng schema B15 (không nhận B17 trực tiếp);
+  B17 được tính trực tiếp từ `episodes`/`by_task`/`agg`.
+
+### Nâng cấp upgrade-safe (27/10)
+- Thêm `configs/ops.json`: `loop.enabled`, `delay_seconds`,
+  `upgrade_delay_seconds`, `stale_after_minutes`, `features.*`,
+  `upgrade.mode`.
+- Thêm `scripts/ops_health.py` + `.github/workflows/ops-health.yml`: fallback
+  độc lập mỗi 30 phút; nếu `ops-tick`/`kaggle-watchdog` cũ hơn 25 phút và
+  không có run active thì dispatch watchdog. Watchdog xong trigger lại
+  `ops-tick`. Cập nhật issue `[ops] loop health`.
+- **Phát hiện 27/10**: loop đứng từ 02:17 → 04:12 UTC (không có `ops-tick`
+  hay watchdog run mới), dù hai workflow vẫn enabled. `ops_health.py` phát hiện
+  và dispatch lại thành công (`40448469730`); watchdog xong trigger `ops-tick`
+  `40448514382` bình thường. Nguyên nhân chưa chốt (GitHub drop event/throttle/
+  concurrency). Đã thêm self-dispatch + active guard để loop không phụ thuộc
+  hoàn toàn vào `workflow_run`; đây là lớp dự phòng, không thay thế trigger cũ.
+- `ops-tick` đọc config qua GitHub API trước khi sleep; file thiếu/hỏng →
+  default cũ (600s, enabled, heartbeat on). Vẫn giữ input `delay_seconds`.
+- Watchdog đọc `features.auto_push`/`features.download_results`; state có
+  `ops_config`. `hf-sync` đọc `features.hf_sync` + `upgrade.mode`.
+- Thêm `tests/test_workflow_contracts.py`, `tests/test_ops_health.py` và
+  `docs/UPGRADES.md`; không đổi tên workflow/trigger cũ.
+- Trong lúc push, loop cũ vẫn chạy; sau push cần verify `ci`, `hf-sync`,
+  `ops-health` run đầu, và `ops-tick` đọc config đúng.
+
 ## Gate v25b (ngưỡng: parse ≥0.95, leak ≤5%, traj ≥0.85, real ≥0.85, train-sub ≥0.90)
 | Gate | Kết quả | Đạt |
 |---|---|---|
@@ -93,6 +164,10 @@
 | traj | 0.438 | ❌ |
 | leak | chưa đo trong log v25b | ? |
 
+**B17 v3 (holdout, cùng adapter v25b)**: **15/27 = 0.5556**, parse 0.8507,
+prose leak 1.0. Holdout ≥35% **PASS**, nhưng **W1 FAIL** vì bộ quá dễ (>20%).
+B17 cũng cho thấy 4 lỗ hổng 0/3: scroll, drag, tab navigation, wizard steps.
+
 **Kết luận**: v25b tốt trên synth/real/train-sub. **Lưu ý quan trọng**: eval
 traj-sub trong kernel v25b dùng `max_new_tokens=24` (dòng 451), nên các output
 prose bị cắt giữa thinking trước khi ra action — 0.438 có thể là **artifact do
@@ -100,25 +175,35 @@ decode ngắn**, không phải model hỏng. B17 dùng `REASON_MAX=512`, là th�
 thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi kết luận.
 
 ## Blocker
-1. **B17 v3 chưa có kết quả** — đang QUEUED; cần chờ GPU và đọc log.
-2. **OpenCode free models 429** (`FreeUsageLimitError`) với cả key user và
+1. **B17 v3 quá dễ (W1 FAIL)** — 0.5556 > 20%; cần B17 v4/B18 khó hơn (T39/T40,
+   distractor, zero-retry, loop trap) trước khi dùng làm thước đo chính.
+2. **v26 chưa curate xong** — mới là v25b + `EVAL_MAX=256`; cần data cho
+   scroll/drag/tab/wizard + format `THINK`/`ACTION` sạch, lấy từ B15/B16 và
+   capability-similar failures, **không dùng B17**.
+3. **OpenCode free models 429** (`FreeUsageLimitError`) với cả key user và
    `public`; key đã lưu, có thể thử lại sau.
-3. **DeepSeek 402** (hết balance), **Mistral 429** (rate limit).
-4. **HF Space PAUSED**, **HF Jobs 402** — không dùng scheduled jobs/relay được.
-5. **Completion dataset**: hiện chỉ có competition ARC-AGI-3; nếu “completion
+4. **DeepSeek 402** (hết balance), **Mistral 429** (rate limit).
+5. **HF Space PAUSED**, **HF Jobs 402** — không dùng scheduled jobs/relay được.
+6. **Completion dataset**: hiện chỉ có competition ARC-AGI-3; nếu “completion
    dataset” là dataset riêng thì cần tên chính xác để gắn thêm.
+7. **Local repo lệch remote**: local `master` tại `a5df1da`, remote `main` mới
+   hơn; `git push` HTTPS treo. Dùng `scripts/github_push_files.py`.
+8. **Dependabot**: PR #12 (pip group) `unstable`; #8–#10 là bản trùng, đóng sau
+   khi #12 xanh.
 
 ## Việc tiếp theo
-1. **Verify self-dispatch**: push workflow mới, seed `ops-tick` với
-   `delay_seconds=0`, xác nhận watchdog run kế tiếp bắt đầu sau ~10 phút, issue
-   `[ops] kaggle watchdog` + `ops-state` được cập nhật. Ghi run ID vào đây.
-2. Poll B17 v3: nếu RUNNING chờ; nếu ERROR đọc log (Playwright offline,
-   adapter load, tasks.json); nếu COMPLETE tải `bench_out`, chạy
-   `phase13-gui/gate_report.py`, tính W1 baseline. Watchdog mới cũng tự tải
-   result nhỏ vào `state/results/`.
-3. So sánh B17 với gate: B15 ≥35%, holdout ≥35%, v14 ≥2/3, B15.5 ≥ baseline.
-4. Từ failure của B17 + traj yếu → curate v26 (traj/selfplay/targeted + format
-   `THINK` ngắn + `ACTION` dòng cuối), tạo kernel slug mới để watchdog tự push.
+1. **Verify upgrade-safe layer**: push `configs/ops.json`,
+   `scripts/ops_health.py`, `ops-health.yml`, `ops-tick` config-aware, tests,
+   docs; xác nhận `ci` xanh, `hf-sync` xanh/skip, `ops-health` run đầu cập nhật
+   issue `[ops] loop health`, và `ops-tick` vẫn dispatch watchdog.
+2. **Tạo B17 v4/B18 khó hơn**: thêm T39/T40 vào `tasks.json` (hiện chỉ có
+   checker/self-test), siết distractor/zero-retry/loop trap; đo lại W1 trên
+   v25b. Không train trên B17.
+3. **Curate v26**: từ B15/B16 + capability-similar failures, thêm scroll, drag,
+   tab navigation, wizard steps; format `THINK:` ngắn + `ACTION:` dòng cuối;
+   giữ `EVAL_MAX=256`; tạo slug mới, queue `pending`.
+4. **Gate v26**: holdout ≥35%, W1 ≤20% (mục tiêu ≤10%), parse ≥0.95, prose leak
+   ≤5%, traj ≥0.85; so per-task, không chỉ tổng.
 5. Cập nhật `docs/HANDOFF.md` + `configs/kaggle_queue.json` sau mỗi thay đổi.
 6. Sync HF chat + code snapshot sau commit (workflow `hf-sync` hoặc chạy tay).
 7. Rotate PAT/API keys sau khi ổn định; giữ secrets chỉ trong GitHub/HF.
@@ -139,7 +224,9 @@ python scripts\check_secrets.py
 
 # ops status + self-dispatch seed (sau khi workflow có trên main)
 python scripts\ops_status.py
+python scripts\ops_health.py --dry-run
 # GitHub UI: Actions -> ops-tick -> Run workflow -> delay_seconds=0
+# hoặc Actions -> ops-health -> Run workflow (dry_run=false) để re-seed
 
 # sync HF code snapshot (sau khi fetch origin/main)
 python scripts\hf_code_sync.py --ref origin/main
@@ -149,9 +236,12 @@ python scripts\hf_code_sync.py --ref origin/main
 - Không chạy local watchdog 24/7; GitHub Actions là nơi chạy.
 - `ops-tick` ngủ 600s mỗi vòng; repo public dùng runner minutes miễn phí. Nếu
   chuyển private, disable `ops-tick` hoặc giảm tần suất.
+- Hành vi loop đọc `configs/ops.json`; `ops-health` là fallback mỗi 30 phút.
+  File config thiếu/hỏng không làm loop dừng (fallback default).
 - Không commit adapter/output lớn; `.gitignore` đã chặn
   `phase13-gui/kernel_*/output/` và `phase13-gui/lora_v25b_dataset/`.
 - Không ghi key vào file; chỉ env/GitHub Secrets/HF secrets.
 - Watchdog chỉ auto-push kernel `MISSING`; v26 phải dùng slug mới.
-- B17 là holdout; không train trên task B17.
+- B17 là holdout; không train trên task B17. B17 v3 hiện quá dễ (W1 FAIL), cần
+  bộ khó hơn trước khi dùng làm thước đo chính.
 - PAT/API key đã gửi trong chat phải rotate sau khi ổn định.

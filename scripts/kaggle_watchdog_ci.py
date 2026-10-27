@@ -20,6 +20,7 @@ import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUEUE = os.path.join(ROOT, "configs", "kaggle_queue.json")
+OPS_CONFIG = os.path.join(ROOT, "configs", "ops.json")
 STATE = os.path.join(ROOT, "state", "current.json")
 RESULTS = os.path.join(ROOT, "state", "results")
 FLAGS = 0x08000000 if os.name == "nt" else 0
@@ -87,6 +88,21 @@ def load_json(path, default):
         return default
 
 
+def load_ops_config():
+    """Read configs/ops.json; return {} on missing/invalid file.
+
+    Feature flags are intentionally best-effort: a broken config must never
+    stop the watchdog. Missing flags keep the previous behavior (enabled).
+    """
+    cfg = load_json(OPS_CONFIG, {})
+    return cfg if isinstance(cfg, dict) else {}
+
+
+def feature_enabled(cfg, name, default=True):
+    features = cfg.get("features") or {}
+    return bool(features.get(name, default))
+
+
 def wants_download(target, item):
     """Per-target override; eval/bench download by default, train does not."""
     value = target.get("download_results")
@@ -140,7 +156,15 @@ def main():
     ap.add_argument("--results-max-bytes", type=int, default=MAX_RESULT_BYTES,
                     help="delete downloaded result files larger than this")
     ap.add_argument("--out", default="")
+    ap.add_argument("--ignore-config", action="store_true",
+                    help="ignore feature flags in configs/ops.json")
     a = ap.parse_args()
+
+    ops_cfg = {} if a.ignore_config else load_ops_config()
+    if not feature_enabled(ops_cfg, "auto_push", True):
+        a.auto_push = False
+    if not feature_enabled(ops_cfg, "download_results", True):
+        a.download_results = False
 
     if not os.environ.get("KAGGLE_USERNAME") or not os.environ.get("KAGGLE_KEY"):
         print("WARN: KAGGLE_USERNAME/KAGGLE_KEY missing; watchdog skipped.")
@@ -197,6 +221,11 @@ def main():
         "results": results,
         "pushed": pushed,
         "download_results": a.download_results,
+        "ops_config": {
+            "loop_enabled": bool((ops_cfg.get("loop") or {}).get("enabled", True)),
+            "upgrade_mode": bool((ops_cfg.get("upgrade") or {}).get("mode", False)),
+            "features": ops_cfg.get("features") or {},
+        },
     }
     state_path = a.out or STATE
     os.makedirs(os.path.dirname(state_path), exist_ok=True)

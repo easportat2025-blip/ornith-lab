@@ -23,6 +23,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Read ops config
+        id: cfg
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          try:
+              cfg = json.loads(Path("configs/ops.json").read_text(encoding="utf-8"))
+          except Exception:
+              cfg = {}
+          print("hf_sync=%s" % str((cfg.get("features") or {}).get("hf_sync", True)).lower())
+          print("upgrade_mode=%s" % str((cfg.get("upgrade") or {}).get("mode", False)).lower())
+          PY
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -38,11 +53,13 @@ jobs:
         run: python scripts/secret_scan.py --tracked-only
 
       - name: Upload source snapshot
+        if: steps.cfg.outputs.hf_sync == 'true' && steps.cfg.outputs.upgrade_mode != 'true'
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python scripts/hf_code_sync.py --ref HEAD --require-token
 
       - name: Sync sanitized ops docs to HF chat
+        if: steps.cfg.outputs.hf_sync == 'true' && steps.cfg.outputs.upgrade_mode != 'true'
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |

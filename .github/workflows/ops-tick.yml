@@ -3,19 +3,24 @@ name: ops-tick
 # Self-dispatch loop for the ops watchdog.
 #
 # Why: GitHub throttles `schedule: */10` to roughly every 1-2 hours on busy
-# repos. This workflow waits 10 minutes after a kaggle-watchdog run and then
-# dispatches the next one, keeping the ops cadence near 10 minutes without a
-# local watchdog.
+# repos. This workflow waits 10 minutes, then dispatches the next watchdog and
+# re-dispatches itself. The self-dispatch is deliberate: `workflow_run` can be
+# delayed or dropped, so the timer must not depend on the watchdog completing.
 #
 # Loop:
-#   kaggle-watchdog completed
-#     -> ops-tick (sleep 600)
-#     -> dispatch kaggle-watchdog (+ heartbeat)
-#     -> kaggle-watchdog completed
+#   ops-tick (sleep delay_seconds)
+#     -> dispatch kaggle-watchdog (unless one is already active)
+#     -> dispatch ops-heartbeat (unless disabled/upgrade mode)
+#     -> dispatch ops-tick with delay_seconds=loop.delay_seconds
 #     -> ...
 #
-# The */10 schedule in kaggle-watchdog.yml is the backup seed. If this workflow
-# is disabled or the token loses actions:write, the schedule resumes the loop.
+# The */10 schedule in kaggle-watchdog.yml and `ops-health.yml` are backup
+# seeds. If this workflow is disabled or the token loses actions:write, the
+# schedule/health fallback resumes the loop.
+#
+# Upgrade safety: this workflow reads configs/ops.json through the GitHub API
+# before sleeping. If the file is missing or invalid, it uses the old defaults
+# (600s, enabled, heartbeat on). The old `delay_seconds` input still works.
 #
 # Note: the sleep consumes runner minutes. This is free for public repos; for a
 # private repo, disable ops-tick or reduce the cadence.
@@ -45,25 +50,112 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - name: Read ops config
+        id: cfg
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const defaults = {
+              delay_seconds: 600,
+              enabled: true,
+              heartbeat: true,
+              upgrade_mode: false,
+              upgrade_delay_seconds: 600,
+            };
+            const num = (value, fallback) => {
+              const n = Number(value);
+              return Number.isFinite(n) ? n : fallback;
+            };
+            let cfg = defaults;
+            try {
+              const res = await github.rest.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: 'configs/ops.json',
+                ref: context.payload.repository.default_branch || 'main',
+              });
+              const text = Buffer.from(res.data.content, 'base64').toString('utf8');
+              const parsed = JSON.parse(text);
+              const loop = parsed.loop || {};
+              const features = parsed.features || {};
+              const upgrade = parsed.upgrade || {};
+              cfg = {
+                delay_seconds: num(loop.delay_seconds, defaults.delay_seconds),
+                enabled: loop.enabled !== false,
+                heartbeat: features.heartbeat !== false,
+                upgrade_mode: upgrade.mode === true,
+                upgrade_delay_seconds: num(
+                  loop.upgrade_delay_seconds,
+                  num(loop.delay_seconds, defaults.upgrade_delay_seconds)),
+              };
+              core.info(`ops config loaded: ${JSON.stringify(cfg)}`);
+            } catch (err) {
+              core.warning(`ops config unavailable, using safe defaults: ${err.message}`);
+            }
+            core.setOutput('delay_seconds', String(cfg.delay_seconds));
+            core.setOutput('enabled', String(cfg.enabled));
+            core.setOutput('heartbeat', String(cfg.heartbeat));
+            core.setOutput('upgrade_mode', String(cfg.upgrade_mode));
+            core.setOutput('upgrade_delay_seconds', String(cfg.upgrade_delay_seconds));
+
       - name: Cadence delay
+        id: delay
+        if: steps.cfg.outputs.enabled == 'true'
         shell: bash
         env:
-          DELAY: ${{ github.event.inputs.delay_seconds || '600' }}
+          INPUT_DELAY: ${{ github.event.inputs.delay_seconds || '' }}
+          CONFIG_DELAY: ${{ steps.cfg.outputs.delay_seconds }}
+          UPGRADE_DELAY: ${{ steps.cfg.outputs.upgrade_delay_seconds }}
+          UPGRADE_MODE: ${{ steps.cfg.outputs.upgrade_mode }}
         run: |
+          DELAY="$INPUT_DELAY"
+          if [ -z "$DELAY" ]; then
+            if [ "$UPGRADE_MODE" = "true" ]; then
+              DELAY="$UPGRADE_DELAY"
+            else
+              DELAY="$CONFIG_DELAY"
+            fi
+          fi
           case "$DELAY" in
             ''|*[!0-9]*) DELAY=600 ;;
           esac
           if [ "$DELAY" -gt 3600 ]; then DELAY=3600; fi
-          echo "Waiting ${DELAY}s before dispatching kaggle-watchdog"
+
+          # The next self-dispatched tick always uses the configured cadence,
+          # never a manual delay_seconds=0 seed.
+          NEXT_DELAY="$CONFIG_DELAY"
+          if [ "$UPGRADE_MODE" = "true" ]; then NEXT_DELAY="$UPGRADE_DELAY"; fi
+          case "$NEXT_DELAY" in
+            ''|*[!0-9]*) NEXT_DELAY=600 ;;
+          esac
+          if [ "$NEXT_DELAY" -lt 60 ]; then NEXT_DELAY=60; fi
+          if [ "$NEXT_DELAY" -gt 3600 ]; then NEXT_DELAY=3600; fi
+          echo "next_delay=$NEXT_DELAY" >> "$GITHUB_OUTPUT"
+          echo "Waiting ${DELAY}s before dispatching kaggle-watchdog (next self-dispatch ${NEXT_DELAY}s, upgrade_mode=$UPGRADE_MODE)"
           sleep "$DELAY"
 
+      - name: Loop disabled
+        if: steps.cfg.outputs.enabled != 'true'
+        shell: bash
+        run: |
+          echo "ops loop disabled via configs/ops.json (loop.enabled=false); no dispatch."
+          {
+            echo "### ops-tick"
+            echo ""
+            echo "Loop disabled by \`configs/ops.json\` (\`loop.enabled=false\`). No dispatch."
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Dispatch ops workflows
+        if: steps.cfg.outputs.enabled == 'true'
         uses: actions/github-script@v7
         with:
           script: |
             const ref = context.payload.repository.default_branch || 'main';
+            const heartbeat = '${{ steps.cfg.outputs.heartbeat }}' === 'true';
+            const upgrade = '${{ steps.cfg.outputs.upgrade_mode }}' === 'true';
+            const nextDelay = '${{ steps.delay.outputs.next_delay }}' || '600';
 
-            async function dispatch(workflow_id, required) {
+            async function dispatch(workflow_id, required, inputs) {
               let lastError;
               for (let attempt = 1; attempt <= 3; attempt++) {
                 try {
@@ -73,9 +165,7 @@ jobs:
                     workflow_id,
                     ref,
                   };
-                  if (workflow_id === 'kaggle-watchdog.yml') {
-                    payload.inputs = { auto_push: 'true' };
-                  }
+                  if (inputs) payload.inputs = inputs;
                   await github.rest.actions.createWorkflowDispatch(payload);
                   core.info(`dispatched ${workflow_id} on ${ref} (attempt ${attempt})`);
                   return true;
@@ -90,9 +180,55 @@ jobs:
               return false;
             }
 
-            await dispatch('kaggle-watchdog.yml', true);
-            await dispatch('ops-heartbeat.yml', false);
+            const activeStatuses = new Set([
+              'queued', 'in_progress', 'waiting', 'requested', 'pending',
+            ]);
+            async function watchdogActive() {
+              try {
+                const res = await github.rest.actions.listWorkflowRuns({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  workflow_id: 'kaggle-watchdog.yml',
+                  branch: ref,
+                  per_page: 1,
+                });
+                const run = (res.data.workflow_runs || [])[0];
+                return run && activeStatuses.has(run.status) ? run : null;
+              } catch (err) {
+                core.warning(`could not check watchdog state: ${err.message}`);
+                return null;
+              }
+            }
 
+            let watchdogError = null;
+            const active = await watchdogActive();
+            if (active) {
+              core.info(`watchdog ${active.id} is ${active.status}; skip dispatch`);
+            } else {
+              try {
+                await dispatch('kaggle-watchdog.yml', true, { auto_push: 'true' });
+              } catch (err) {
+                watchdogError = err;
+                core.error(`watchdog dispatch failed: ${err.message}`);
+              }
+            }
+
+            if (heartbeat && !upgrade) {
+              await dispatch('ops-heartbeat.yml', false);
+            } else {
+              core.info('heartbeat skipped (feature off or upgrade mode)');
+            }
+
+            // Keep the timer alive even if workflow_run is delayed or dropped.
+            await dispatch('ops-tick.yml', false, {
+              delay_seconds: String(nextDelay),
+            });
+
+            if (watchdogError) throw watchdogError;
+
+            const statusLine = active
+              ? `watchdog ${active.id} already ${active.status}; skipped dispatch`
+              : 'Dispatched `kaggle-watchdog.yml`';
             await core.summary
-              .addRaw(`### ops-tick\n\nDispatched \`kaggle-watchdog.yml\` on \`${ref}\` at ${new Date().toISOString()}\n`)
+              .addRaw(`### ops-tick\n\n${statusLine} on \`${ref}\` at ${new Date().toISOString()}\n`)
               .write();
