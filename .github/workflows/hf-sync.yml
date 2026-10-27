@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Read ops config
         id: cfg
@@ -38,7 +38,7 @@ jobs:
           print("upgrade_mode=%s" % str((cfg.get("upgrade") or {}).get("mode", False)).lower())
           PY
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
