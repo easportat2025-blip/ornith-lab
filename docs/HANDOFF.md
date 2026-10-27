@@ -155,6 +155,23 @@
 - Trong lúc push, loop cũ vẫn chạy; sau push cần verify `ci`, `hf-sync`,
   `ops-health` run đầu, và `ops-tick` đọc config đúng.
 
+### Verify upgrade-safe layer (27/10)
+- Push commit **`1b7eb3a`** lên `main` qua Git Data API.
+- `ci` **`40449109556` success**; `hf-sync` **`40449109522` success**.
+- `ops-health` dry-run **`40449138317` success**; tạo issue **#13**
+  `[ops] loop health`; thấy `ops-tick` active và **không dispatch trùng**.
+- `ops-tick` self-dispatch test **`40449202101`**: config load đúng
+  (`delay_seconds=600`, enabled, heartbeat on), seed 0s → next **600s**;
+  dispatch watchdog **`40449241603`**, heartbeat, rồi self-dispatch
+  **`40449245157`**. Đây là bằng chứng timer tự chạy.
+- Loop hiện sống: `ops-tick` **`40449497367`** đang sleep 600s; issue #2 cập nhật
+  **04:23:43Z** với v25b/B17 đều `COMPLETE` + `done`, active `none`.
+- Active guard đã có trong workflow; chưa quan sát trực tiếp vì watchdog run
+  hiện rất ngắn (~20–25s). Khi GPU kernel chạy lâu, `ops-tick` sẽ bỏ qua
+  dispatch trùng và chỉ self-dispatch.
+- Lưu ý: các run `ops-tick` bị `cancelled` trong lúc test là do self-dispatch
+  hoặc `workflow_run` mới hơn thay thế qua `concurrency`; timer vẫn tiếp tục.
+
 ## Gate v25b (ngưỡng: parse ≥0.95, leak ≤5%, traj ≥0.85, real ≥0.85, train-sub ≥0.90)
 | Gate | Kết quả | Đạt |
 |---|---|---|
