@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contacts - web env</title>
+<style>
+  body{margin:0;background:#1b1f27;font:15px system-ui,sans-serif;color:#e6e9ef}
+  .wrap{max-width:900px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#98a2b6;font-size:13px;margin-bottom:14px}
+  .brief{background:#2f3644;border:1px solid #46506a;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:15px}
+  .brief b{color:#8fd0ff;font-family:ui-monospace,Menlo,Consolas,monospace}
+  table{width:100%;border-collapse:collapse;background:#232833}
+  .panel{max-height:150px;overflow-y:auto;border:1px solid #39404e;border-radius:10px}
+  td{padding:9px 14px;border-bottom:1px solid #333a47}
+  tr:last-child td{border-bottom:0}
+  .name{font-family:ui-monospace,Menlo,Consolas,monospace}
+  button{background:#4a86e8;color:#fff;border:0;border-radius:6px;padding:6px 14px;font-size:14px;cursor:pointer}
+  #status{font-size:14px;color:#8fd0ff;min-height:20px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Contacts</h1>
+  <div class="sub">Scroll the contact list to the bottom, then select the row whose badge matches the note.</div>
+  <div class="brief">Support note: badge <b id="badge">?</b></div>
+  <div class="panel" id="panel"><table><tbody id="rows"></tbody></table></div>
+  <div id="status"></div>
+</div>
+<script>
+/* TASK-28 T28_distractor (GLM, 22/10)
+   Nang luc W2 #8 "distractor": nhieu dong GIONG NHAU, chi 1 dong khop ma
+   trong note => agent phai DOC ky, khong chon dong dau tien.
+   Bien NGAU NHIEN: ma + thu tu cac dong doi moi lan tai.
+   Checker DOC DOM: window.__state = {ok, picked, badge} */
+const R=function(a){return a[Math.floor(Math.random()*a.length)];};
+const BADGES=["KITE","KITE","KITE","KITE","KITE","KITE"];
+const ALL=["ALPHA","BRAVO","CIRRUS","DELTA","EMBER","FLINT","GAMMA","HALO","IONA","JADE"];
+const TARGET=R(ALL);
+const names=["Ari","Ben","Cleo","Dara","Enzo","Fay","Gus","Hana","Ivo","Jo","Kai","Lena","Mira","Noor"];
+const tb=document.getElementById("rows");
+const statusEl=document.getElementById("status");
+// tao 8 dong: giong nhau ve ten, khac badge; 1 dong co badge can tim
+const n=14;
+const shown=[];          // badge HIEN THI tren tung dong (dung de kiem tra)
+for(let i=0;i<n;i++) shown.push(R(BADGES));
+const tgt=9+Math.floor(Math.random()*5);   // row 10..14: below fold
+document.getElementById("badge").textContent=TARGET;
+window.__spec={vars:{BADGE:TARGET, TARGET_IDX:tgt}};
+let picked=-1, ok=0;
+const btns=[];
+for(let i=0;i<n;i++){
+  const tr=document.createElement("tr");
+  const td1=document.createElement("td");
+  td1.className="name";
+  td1.textContent=names[i]+" "+(i%3===0?"K.":"L.");
+  const td2=document.createElement("td");
+  td2.textContent=(i===tgt?TARGET:shown[i]);
+  const td3=document.createElement("td");
+  const btn=document.createElement("button");
+  btn.id="b"+i;
+  btn.textContent="Select";
+  td3.appendChild(btn);
+  tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+  tb.appendChild(tr);
+  btns.push(btn);
+  btn.addEventListener("click",function(){
+    picked=i;
+    // FIX (GLM): dung CHI SO DONG de kiem tra (dong dich HIEN THI TARGET,
+    // con shown[tgt] van la badge gia) => so sanh shown[i] sai => ok luon 0.
+    ok=(i===tgt)?1:0;
+    statusEl.textContent=ok?"Contact selected.":"Selected "+names[i]+" - wrong badge.";
+    snap();
+  });
+}
+function snap(){
+  window.__state={ok:ok, picked:picked, badge:TARGET, rows:n};
+  window.__targets=(function(){
+    function nrect(el){var r=el.getBoundingClientRect();
+      return [Math.round((r.left+r.width/2)/window.innerWidth*1000),
+              Math.round((r.top+r.height/2)/window.innerHeight*1000)];}
+    var o={};
+    for(var i=0;i<n;i++){
+      var el=document.getElementById("b"+i);
+      if(!el) continue;            /* DOM stub: phan tu tao dong khong co trong els */
+      o["b"+i]=nrect(el);
+    }
+    o.ok=o["b"+tgt];   /* TOA DO dong khop ma (success-policy dummy chon dung) */
+    return o;
+  })();
+}
+window.__btns=btns;   /* de self-test (test_apps.js) click tung dong */
+snap();
+</script>
+</body>
+</html>

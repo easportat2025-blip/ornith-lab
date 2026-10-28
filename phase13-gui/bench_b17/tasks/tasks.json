@@ -1,6 +1,6 @@
 {
  "suite": "B17",
- "version": 1,
+ "version": 2,
  "viewport": {
   "width": 1280,
   "height": 720
@@ -146,6 +146,35 @@
    ],
    "spec_vars": [
     "TITLE"
+   ]
+  },
+  {
+   "task_id": "T39_clipboard",
+   "app": "t39_clipboard.html",
+   "instruction": "Copy the Source text into the Target box using only the keyboard shortcuts Ctrl+A, Ctrl+C, then click Target and press Ctrl+V. Do not type the text.",
+   "capabilities": [
+    "keyboard_shortcut",
+    "clipboard",
+    "click_field",
+    "no_typing"
+   ],
+   "spec_vars": [
+    "TEXT"
+   ]
+  },
+  {
+   "task_id": "T40_distractor",
+   "app": "t40_distractor.html",
+   "instruction": "The contacts table has several similar rows. Read the support note badge, then click Select on the row whose badge matches the note.",
+   "capabilities": [
+    "read_note",
+    "distractor",
+    "click_row",
+    "careful_selection"
+   ],
+   "spec_vars": [
+    "BADGE",
+    "TARGET_IDX"
    ]
   }
  ]

@@ -1,0 +1,192 @@
+{
+ "suite": "B18",
+ "version": 1,
+ "viewport": {
+  "width": 1280,
+  "height": 720
+ },
+ "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE | SCROLL n | MOVE x y | DRAG x1 y1 x2 y2",
+ "tasks": [
+  {
+   "task_id": "T30_note_order",
+   "app": "t30_note_order.html",
+   "instruction": "Fill Field A and Field B with the values listed in the note box (the note lists them in the opposite order to the fields). Leave Field C empty, then press Submit.",
+   "capabilities": [
+    "read_note",
+    "type_text",
+    "click_button",
+    "no_decoy_fill",
+    "reordered_values"
+   ],
+   "spec_vars": [
+    "NAME_A",
+    "CODE_B"
+   ],
+   "variants": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "task_id": "T33_error_retry",
+   "app": "t33_error_retry.html",
+   "instruction": "Type the setup code from the note into the code box and press Submit. If the app reports an error, press Submit once more without changing the value.",
+   "capabilities": [
+    "read_note",
+    "type_text",
+    "error_recovery",
+    "no_value_change",
+    "click_button"
+   ],
+   "spec_vars": [
+    "CODE"
+   ],
+   "variants": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "task_id": "T31_scroll_code",
+   "app": "t31_scroll_code.html",
+   "instruction": "The archive list sits inside a scrollable panel. Scroll down to the bottom of the list, then click the row whose code matches the note, then press Confirm.",
+   "capabilities": [
+    "scroll",
+    "read_note",
+    "click_row",
+    "click_button",
+    "target_below_fold"
+   ],
+   "spec_vars": [
+    "CODE"
+   ],
+   "variants": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "task_id": "T32_drag_slider",
+   "app": "t32_drag_slider.html",
+   "instruction": "Set the sensitivity slider to the value shown in the note by dragging its handle, then press Apply.",
+   "capabilities": [
+    "drag",
+    "read_note",
+    "click_button",
+    "continuous_value"
+   ],
+   "spec_vars": [
+    "VALUE"
+   ],
+   "variants": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "task_id": "T34_tab_nav",
+   "app": "t34_tab_nav.html",
+   "instruction": "Fill the three fields with the values from the note using the Tab key to move between them, then press Enter to submit. Do not click the fields with the mouse.",
+   "capabilities": [
+    "keyboard_nav",
+    "read_note",
+    "type_text",
+    "key_enter_submit",
+    "no_mouse_click"
+   ],
+   "spec_vars": [
+    "FAM",
+    "GIV",
+    "CITY"
+   ],
+   "variants": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "task_id": "T36_wizard_steps",
+   "app": "t36_wizard_steps.html",
+   "instruction": "Complete the wizard in order: on step 1 pick the plan named in the note and press Next, on step 2 pick the add-on named in the note and press Next, then on step 3 press Finish.",
+   "capabilities": [
+    "multi_step",
+    "read_note",
+    "select_option",
+    "click_button",
+    "no_premature_submit"
+   ],
+   "spec_vars": [
+    "PLAN",
+    "ADDON"
+   ],
+   "variants": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "task_id": "T39_clipboard",
+   "app": "t39_clipboard.html",
+   "instruction": "Copy the Source text into the Target box using only the keyboard shortcuts Ctrl+A, Ctrl+C, then click Target and press Ctrl+V. Do not type the text.",
+   "capabilities": [
+    "keyboard_shortcut",
+    "clipboard",
+    "click_field",
+    "no_typing"
+   ],
+   "spec_vars": [
+    "TEXT"
+   ],
+   "variants": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "task_id": "T40_distractor",
+   "app": "t40_distractor.html",
+   "instruction": "Scroll the contact list to the bottom, then select the row whose badge matches the support note.",
+   "capabilities": [
+    "scroll",
+    "read_note",
+    "distractor",
+    "click_row",
+    "target_below_fold"
+   ],
+   "spec_vars": [
+    "BADGE",
+    "TARGET_IDX"
+   ],
+   "variants": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  }
+ ]
+}

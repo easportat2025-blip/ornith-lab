@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clipboard - web env</title>
+<style>
+  body{margin:0;background:#1b1f27;font:15px system-ui,sans-serif;color:#e6e9ef}
+  .wrap{max-width:900px;margin:0 auto;padding:22px}
+  h1{font-size:21px;margin:0 0 3px}
+  .sub{color:#98a2b6;font-size:13px;margin-bottom:14px}
+  .brief{background:#2f3644;border:1px solid #46506a;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:15px}
+  .brief b{color:#8fd0ff}
+  .row{display:flex;gap:16px}
+  .col{flex:1}
+  label{display:block;font-size:13px;color:#98a2b6;margin-bottom:6px}
+  textarea{width:100%;height:130px;background:#232833;color:#e6e9ef;border:1px solid #46506a;
+           border-radius:8px;padding:10px;font:14px ui-monospace,Menlo,Consolas,monospace;resize:none}
+  textarea:focus{outline:2px solid #4a86e8}
+  #status{font-size:14px;color:#8fd0ff;min-height:20px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Clipboard Desk</h1>
+  <div class="sub">Copy the Source text into the Target box with keyboard shortcuts only.</div>
+  <div class="brief">Shortcut recipe: <b>click Source &rarr; Ctrl+A &rarr; Ctrl+C &rarr; click Target &rarr; Ctrl+V</b>. Do not type the text.</div>
+  <div class="row">
+    <div class="col"><label>Source</label><textarea id="src" spellcheck="false"></textarea></div>
+    <div class="col"><label>Target</label><textarea id="dst" spellcheck="false"></textarea></div>
+  </div>
+  <div id="status"></div>
+</div>
+<script>
+/* TASK-26 T26_clipboard (GLM, 22/10)
+   Muc tieu: day CHU KY B (duoc do tren bench-v22 B15.5/B16-A):
+   model lap 'KEY Control+c' x12 roi khong lam not chuoi (click dich + ctrl+v).
+   App nay: chi 1 "clipboard" trong app (headless clipboard that rong) =>
+   ctrl+c o Source luu noi dung vao window.__clip, ctrl+v o Target dan vao.
+   => model hoc DUOI CHUOI 5 BUOC: click -> ctrl+a -> ctrl+c -> click -> ctrl+v.
+   Bien NGAU NHIEN: noi dung Source doi moi lan tai.
+   Checker DOC DOM: window.__clip = {copied, pasted, ok} */
+const R=function(a){return a[Math.floor(Math.random()*a.length)];};
+const W1=R(["ALPHA","BRAVO","CIRRUS","DELTA","EMBER","FLINT","GAMMA","HALO"]);
+const W2=R(["login","payment","search","export","upload","import"]);
+const W3=R(["faster","stable","safer","quieter","smaller"]);
+const TEXT=W1+" "+W2+" is "+W3+" now.";
+window.__spec={vars:{TEXT:TEXT}};   /* de policy/checker doc GT */
+const src=document.getElementById("src");
+const dst=document.getElementById("dst");
+const statusEl=document.getElementById("status");
+src.value=TEXT;
+let clip="";
+function snap(){
+  window.__clip={copied:!!clip, pasted:(dst.value===TEXT&&!!clip), ok:(dst.value===TEXT)};
+  window.__state={src:src.value,dst:dst.value,status:statusEl.textContent,
+                  ok:(dst.value===TEXT)};
+}
+// Handler gan TREN TUNG TEXTAREA (khong phai document) => event khong can
+// bubble, va app hoat dong trong DOM stub cua test_apps.js.
+function onKey(e){
+  const k=(e.key||"").toLowerCase();
+  if(e.ctrlKey&&k==="c"&&e.target===src){
+    // preventDefault: chan 'copy' native cua trinh duyet (voi clipboard that
+    // rong se ghi de noi dung o dang chon) => dung clipboard emulate cua app
+    if(e.preventDefault) e.preventDefault();
+    clip=src.value; statusEl.textContent="Copied."; snap();
+  } else if(e.ctrlKey&&k==="v"&&e.target===dst){
+    // chan 'paste' native: no ghi de dst.value bang clipboard rong cua OS
+    if(e.preventDefault) e.preventDefault();
+    dst.value=clip; statusEl.textContent="Pasted."; snap();
+  }
+}
+src.addEventListener("keydown",onKey);
+dst.addEventListener("keydown",onKey);
+dst.addEventListener("input",snap);
+src.addEventListener("input",snap);
+snap();
+window.__targets=(function(){
+  function nrect(el){var r=el.getBoundingClientRect();
+    return [Math.round((r.left+r.width/2)/window.innerWidth*1000),
+            Math.round((r.top+r.height/2)/window.innerHeight*1000)];}
+  return {source:nrect(src), target:nrect(dst)};
+})();
+</script>
+</body>
+</html>

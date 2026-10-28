@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-build_b17_apps.py - BUILD 8 APP WEB KHÓ cho suite B17 (GĐ-A, @GLM giao).
+build_b17_apps.py - BUILD 10 APP WEB KHÓ cho suite B17 (GĐ-A, @GLM giao).
 
 MỤC TIÊU (theo số liệu đã đo, không đoán):
   * B15.5/B16-A đã "tất định" còn task khó (C3_misread_text, C4_no_submit,
@@ -426,6 +426,28 @@ upd();window.__targets=targets();"""),
      "spec_vars": ["TITLE"]}))
 
 
+# ---------------------------------------------------------------- B17-9/10
+# T39/T40 are hand-written apps kept as separate files (they predate this
+# generator).  They are listed here so `tasks.json` stays the single source of
+# truth for the suite; the generator does not rewrite their HTML.
+EXTRA_TASKS = [
+    {"task_id": "T39_clipboard", "app": "t39_clipboard.html",
+     "instruction": ("Copy the Source text into the Target box using only the "
+                     "keyboard shortcuts Ctrl+A, Ctrl+C, then click Target "
+                     "and press Ctrl+V. Do not type the text."),
+     "capabilities": ["keyboard_shortcut", "clipboard", "click_field",
+                      "no_typing"],
+     "spec_vars": ["TEXT"]},
+    {"task_id": "T40_distractor", "app": "t40_distractor.html",
+     "instruction": ("The contacts table has several similar rows. Read the "
+                     "support note badge, then click Select on the row whose "
+                     "badge matches the note."),
+     "capabilities": ["read_note", "distractor", "click_row",
+                      "careful_selection"],
+     "spec_vars": ["BADGE", "TARGET_IDX"]},
+]
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     tasks = []
@@ -435,7 +457,14 @@ def main():
             fh.write(html)
         tasks.append(meta)
         print("   viet %-26s (%d byte)" % (name + ".html", len(html)))
-    tj = {"suite": "B17", "version": 1,
+    for meta in EXTRA_TASKS:
+        p = os.path.join(OUT, meta["app"])
+        if not os.path.exists(p):
+            raise SystemExit("thieu file %s (T39/T40 phai co san)" % p)
+        tasks.append(meta)
+        print("   giu  %-26s (%d byte)" % (meta["app"],
+                                            os.path.getsize(p)))
+    tj = {"suite": "B17", "version": 2,
           "viewport": {"width": 1280, "height": 720},
           "action_space": ("CLICK x y (0..1000 normalized) | TYPE text | "
                            "KEY name | DONE | SCROLL n | MOVE x y | "

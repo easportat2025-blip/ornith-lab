@@ -1,4 +1,4 @@
-# HANDOFF — 27/10/2026 (GitHub/HF ops)
+# HANDOFF — 27–28/10/2026 (GitHub/HF ops)
 
 ## Trạng thái hiện tại
 - **B17 v3 COMPLETE** trên Kaggle `dieniw/ornith-gui-bench-b17-v22` (RTX,
@@ -29,10 +29,26 @@
 - **v26 đã chuẩn bị local** `phase13-gui/kernel_v26`: y hệt v25b nhưng eval
   decode `EVAL_MAX=256` (sửa artifact traj 24 token). **Chưa queue** — cần
   curate từ B15/B16/capability-similar failures, **không dùng B17**.
+- **B18 hard holdout (28/10)**: dataset `dieniw/ornith-gui-bench-b18`
+  **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **QUEUED**.
+  - 8 task / **42 episode**: 2 easy (T30 note-order, T33 error-retry) ×3 +
+    6 hard (T31 scroll, T32 drag, T34 Tab, T36 wizard, T39 clipboard,
+    T40 scroll+distractor) ×6.
+  - Nếu v25b chỉ thắng 2 task dễ: **6/42 = 14.3%**, đạt W1 ≤20% với biên.
+    Nếu thắng thêm bất kỳ hard variant nào, W1 có thể vượt; sẽ đo thực tế.
+  - Checker + GT self-test **8/8 PASS**, static lint **0 lỗi**.
+  - B17 v4 local: `bench_b17/tasks/tasks.json` giờ có **11 task** (T30–T40),
+    self-test **11/11 PASS**; T39 đã thêm `__state.ok`, T40 giữ nguyên.
+  - Không train trên B18; B18 là holdout mới.
 - **Self-dispatch verified** trên `easportat2025-blip/ornith-lab` (public):
   watchdog `40437526534` lúc 02:17:00Z, `ops-tick` `40436536797` lúc 02:06:52Z,
   heartbeat `40437528438` lúc 02:17:01Z; issue #2 cập nhật 02:17:20Z.
   Nhịp quan sát ~10–11 phút.
+- **Self-dispatch end-to-end (28/10)**: `ops-tick` `40449497367` ngủ 600s,
+  thức **04:33:48Z**, dispatch watchdog **`40450458765`**, rồi self-dispatch
+  **`40450462556`**. Loop tiếp tục ~10 phút/lần; mới nhất lúc 03:49Z:
+  `ops-tick` `40628876090` + watchdog `40628872862`. `ops-health` issue #13
+  vẫn là fallback 30 phút.
 - **GitHub Actions secrets** đã set: `KAGGLE_USERNAME`, `KAGGLE_KEY`,
   `HF_TOKEN`, `GEMINI_API_KEY(_2)`, `MISTRAL_API_KEY(_2.._5)`,
   `DEEPSEEK_API_KEY`, `GROQ_API_KEY(_2.._6)`, `OPENCODE_API_KEY`.
@@ -192,8 +208,9 @@ decode ngắn**, không phải model hỏng. B17 dùng `REASON_MAX=512`, là th�
 thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi kết luận.
 
 ## Blocker
-1. **B17 v3 quá dễ (W1 FAIL)** — 0.5556 > 20%; cần B17 v4/B18 khó hơn (T39/T40,
-   distractor, zero-retry, loop trap) trước khi dùng làm thước đo chính.
+1. **B17 v3 quá dễ (W1 FAIL)** — 0.5556 > 20%; B18 hard holdout đã queue để
+   thay thế. B17 v4 local đã có 11 task và self-test 11/11, nhưng chưa chạy lại.
+   Nếu B18 vẫn >20%, thêm hard task/mechanism, **không** hạ variant của task dễ.
 2. **v26 chưa curate xong** — mới là v25b + `EVAL_MAX=256`; cần data cho
    scroll/drag/tab/wizard + format `THINK`/`ACTION` sạch, lấy từ B15/B16 và
    capability-similar failures, **không dùng B17**.
@@ -209,13 +226,11 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    khi #12 xanh.
 
 ## Việc tiếp theo
-1. **Verify upgrade-safe layer**: push `configs/ops.json`,
-   `scripts/ops_health.py`, `ops-health.yml`, `ops-tick` config-aware, tests,
-   docs; xác nhận `ci` xanh, `hf-sync` xanh/skip, `ops-health` run đầu cập nhật
-   issue `[ops] loop health`, và `ops-tick` vẫn dispatch watchdog.
-2. **Tạo B17 v4/B18 khó hơn**: thêm T39/T40 vào `tasks.json` (hiện chỉ có
-   checker/self-test), siết distractor/zero-retry/loop trap; đo lại W1 trên
-   v25b. Không train trên B17.
+1. **Theo dõi B18**: chờ `dieniw/ornith-gui-bench-b18-v1` COMPLETE; watchdog
+   tải `b18_result.json`; tính win rate, per-task, parse, prose leak. Nếu W1
+   >20%, thêm hard task/mechanism (không train trên B18).
+2. **B17 v4**: local 11 task đã self-test 11/11; nếu cần so sánh, tạo
+   dataset/kernel slug mới và chạy (không tái dùng slug v22).
 3. **Curate v26**: từ B15/B16 + capability-similar failures, thêm scroll, drag,
    tab navigation, wizard steps; format `THINK:` ngắn + `ACTION:` dòng cuối;
    giữ `EVAL_MAX=256`; tạo slug mới, queue `pending`.
@@ -259,6 +274,6 @@ python scripts\hf_code_sync.py --ref origin/main
   `phase13-gui/kernel_*/output/` và `phase13-gui/lora_v25b_dataset/`.
 - Không ghi key vào file; chỉ env/GitHub Secrets/HF secrets.
 - Watchdog chỉ auto-push kernel `MISSING`; v26 phải dùng slug mới.
-- B17 là holdout; không train trên task B17. B17 v3 hiện quá dễ (W1 FAIL), cần
-  bộ khó hơn trước khi dùng làm thước đo chính.
+- B17/B18 là holdout; không train trên task B17/B18. B17 v3 hiện quá dễ;
+  B18 hard đã queue, dùng B18 làm thước đo chính sau khi COMPLETE.
 - PAT/API key đã gửi trong chat phải rotate sau khi ổn định.

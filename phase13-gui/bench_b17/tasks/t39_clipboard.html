@@ -52,7 +52,8 @@ src.value=TEXT;
 let clip="";
 function snap(){
   window.__clip={copied:!!clip, pasted:(dst.value===TEXT&&!!clip), ok:(dst.value===TEXT)};
-  window.__state={src:src.value,dst:dst.value,status:statusEl.textContent};
+  window.__state={src:src.value,dst:dst.value,status:statusEl.textContent,
+                  ok:(dst.value===TEXT)};
 }
 // Handler gan TREN TUNG TEXTAREA (khong phai document) => event khong can
 // bubble, va app hoat dong trong DOM stub cua test_apps.js.

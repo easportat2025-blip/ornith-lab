@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Account Setup</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;margin-bottom:12px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:8px 0 3px;font-weight:600}
+input[type=text]{width:320px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:8px}
+button:disabled{background:#aab3c6;cursor:not-allowed}
+.panel{max-height:150px;overflow-y:auto;border:1px solid #b9c1d1;
+border-radius:6px;width:520px}
+table{border-collapse:collapse;width:100%}
+td{border-bottom:1px solid #eef0f4;padding:5px 8px;font-size:14px}
+#msg{margin-top:8px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Account Setup</h2>
+<div class="note">Values (listed in the opposite order to the fields):<br>
+<b>B = <span id="vCODE_B"></span></b><br><b>A = <span id="vNAME_A"></span></b></div>
+<label>Field A</label><input type="text" id="fa">
+<label>Field B</label><input type="text" id="fb">
+<label>Field C (leave empty)</label><input type="text" id="fc">
+<button id="sub">Submit</button>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+function norm(el){const r=el.getBoundingClientRect();
+return [Math.round((r.left+r.width/2)/innerWidth*1000),
+Math.round((r.top+r.height/2)/innerHeight*1000)]}
+function targets(){const o={};document.querySelectorAll('[id]').forEach(e=>{
+if(['__spec','__state','__targets'].includes(e.id))return;
+o[e.id]=norm(e)});return o}
+
+const NAME_A=R(["Alex","Robin","Casey","Morgan","Quinn","Riley","Avery"]);
+const CODE_B=R(["K7-221","R9-305","T4-118","M2-774","P8-063"]);
+window.__spec={vars:{NAME_A:NAME_A,CODE_B:CODE_B},order:["CODE_B","NAME_A"]};
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+Object.keys(window.__spec.vars).forEach(function(k){var e=document.getElementById('v'+k); if(e) e.textContent=window.__spec.vars[k];});
+function snap(){window.__state={fa:fa.value,fb:fb.value,fc:fc.value,
+submitted:false};}
+fa.addEventListener('input',snap);fb.addEventListener('input',snap);
+fc.addEventListener('input',snap);
+sub.addEventListener('click',()=>{snap();window.__state.submitted=true;
+const ok=fa.value.trim()===NAME_A&&fb.value.trim()===CODE_B&&fc.value.trim()==="";
+msg.textContent=ok?"Account created":"Some fields are wrong";
+msg.className=ok?"":"bad";window.__state.ok=ok;});
+snap();window.__targets=targets();</script>
+</body>
+</html>
