@@ -844,7 +844,10 @@ ASCII-only source (bai hoc cp1252).
 """
 import os
 import random
-from PIL import Image, ImageDraw
+try:
+    from PIL import Image, ImageDraw
+except ImportError:  # CI imports this module for recipe tests; Kaggle has Pillow.
+    Image = ImageDraw = None
 
 CW, CH = 768, 512
 DEFAULT_DONE_RATE = 0.0
