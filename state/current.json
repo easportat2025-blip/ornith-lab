@@ -1,6 +1,6 @@
 {
- "ts": 1793167875.295142,
- "iso": "2026-10-28T06:11:15",
+ "ts": 1793168387.8016493,
+ "iso": "2026-10-28T06:19:47",
  "host": "github-actions",
  "account": "dieniw",
  "active": [
@@ -39,6 +39,13 @@
    "kind": "eval",
    "state": "active",
    "status": "RUNNING"
+  },
+  {
+   "ref": "dieniw/ornith-gui-sft-v26",
+   "path": "phase13-gui/kernel_v26",
+   "kind": "train",
+   "state": "pending",
+   "status": "MISSING"
   }
  ],
  "pushed": null,
