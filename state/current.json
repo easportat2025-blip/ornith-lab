@@ -1,6 +1,6 @@
 {
- "ts": 1793168909.1010382,
- "iso": "2026-10-28T06:28:29",
+ "ts": 1793169338.4890082,
+ "iso": "2026-10-28T06:35:38",
  "host": "github-actions",
  "account": "dieniw",
  "active": [
@@ -12,7 +12,9 @@
    "path": "phase13-gui/kernel_v25b",
    "kind": "train",
    "state": "done",
-   "status": "COMPLETE"
+   "status": "COMPLETE",
+   "after": "",
+   "requires": ""
   },
   {
    "ref": "dieniw/ornith-gui-bench-b17-v22",
@@ -20,6 +22,8 @@
    "kind": "eval",
    "state": "done",
    "status": "COMPLETE",
+   "after": "",
+   "requires": "",
    "outputs": [
     {
      "path": "state/results/dieniw__ornith-gui-bench-b17-v22/b17_result.json",
@@ -38,14 +42,38 @@
    "path": "phase13-gui/kernel_bench_b18",
    "kind": "eval",
    "state": "active",
-   "status": "RUNNING"
+   "status": "RUNNING",
+   "after": "",
+   "requires": ""
   },
   {
    "ref": "dieniw/ornith-gui-sft-v26",
    "path": "phase13-gui/kernel_v26",
    "kind": "train",
    "state": "pending",
-   "status": "MISSING"
+   "status": "MISSING",
+   "after": "",
+   "requires": ""
+  },
+  {
+   "ref": "dieniw/ornith-gui-bench-b17-v26",
+   "path": "phase13-gui/kernel_bench_b17_v26",
+   "kind": "eval",
+   "state": "blocked",
+   "status": "MISSING",
+   "after": "dieniw/ornith-gui-sft-v26",
+   "requires": "dieniw/ornith-gui-lora-v26",
+   "blocked_by": "after:dieniw/ornith-gui-sft-v26"
+  },
+  {
+   "ref": "dieniw/ornith-gui-bench-b18-v26",
+   "path": "phase13-gui/kernel_bench_b18_v26",
+   "kind": "eval",
+   "state": "blocked",
+   "status": "MISSING",
+   "after": "dieniw/ornith-gui-sft-v26",
+   "requires": "dieniw/ornith-gui-lora-v26",
+   "blocked_by": "after:dieniw/ornith-gui-sft-v26"
   }
  ],
  "pushed": null,
