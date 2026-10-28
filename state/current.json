@@ -1,9 +1,11 @@
 {
- "ts": 1793159394.8192444,
- "iso": "2026-10-28T03:49:54",
+ "ts": 1793159879.359089,
+ "iso": "2026-10-28T03:57:59",
  "host": "github-actions",
  "account": "dieniw",
- "active": [],
+ "active": [
+  "dieniw/ornith-gui-bench-b18-v1"
+ ],
  "results": [
   {
    "ref": "dieniw/ornith-gui-sft-v25b",
@@ -30,6 +32,13 @@
    ],
    "output_rc": 0,
    "output_tail": "Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)"
+  },
+  {
+   "ref": "dieniw/ornith-gui-bench-b18-v1",
+   "path": "phase13-gui/kernel_bench_b18",
+   "kind": "eval",
+   "state": "active",
+   "status": "QUEUED"
   }
  ],
  "pushed": null,
