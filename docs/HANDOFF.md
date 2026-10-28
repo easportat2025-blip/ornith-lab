@@ -43,6 +43,9 @@
   - Watchdog fix: Kaggle trả "Cannot access kernel / Permission denied" cho
     kernel private chưa tồn tại; nay coi là `MISSING` để auto-push hoạt động.
     Test `tests/test_watchdog.py` PASS.
+  - Watchdog hỗ trợ optional `after` + `requires`: eval v26 đã nằm trong queue
+    nhưng bị `blocked` đến khi kernel v26 COMPLETE và dataset adapter
+    `dieniw/ornith-gui-lora-v26` READY. Không đẩy eval trước khi có adapter.
 - **B18 hard holdout (28/10)**: dataset `dieniw/ornith-gui-bench-b18`
   **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **RUNNING**.
   - 8 task / **42 episode**: 2 easy (T30 note-order, T33 error-retry) ×3 +

@@ -64,6 +64,35 @@ def kernel_status(ref):
     return "UNKNOWN"
 
 
+def dataset_ready(ref):
+    """True only when the dataset exists and lists adapter files.
+
+    Kaggle returns 403/404 while a private dataset is still processing; those
+    cases stay blocked and are retried on the next watchdog tick.
+    """
+    rc, out, err = run(["datasets", "files", ref], timeout=90)
+    if rc != 0:
+        return False
+    blob = (out + err).lower()
+    return "adapter_config.json" in blob or "adapter_model" in blob
+
+
+def target_block(item, by_ref):
+    """Return a blocker string, or '' when an optional dependency is ready."""
+    after = item.get("after")
+    if after:
+        dep = by_ref.get(after)
+        if not dep or dep.get("status") != "COMPLETE":
+            return "after:%s" % after
+    requires = item.get("requires")
+    if isinstance(requires, str):
+        requires = [requires]
+    for ref in requires or []:
+        if ref and not dataset_ready(ref):
+            return "requires:%s" % ref
+    return ""
+
+
 def kernel_logs(ref, tail=80):
     rc, out, err = run(["kernels", "logs", ref], timeout=180)
     blob = (out + err).strip()
@@ -189,7 +218,8 @@ def main():
         ref = t["ref"]
         st = kernel_status(ref)
         item = {"ref": ref, "path": t.get("path", ""), "kind": t.get("kind", ""),
-                "state": t.get("state", ""), "status": st}
+                "state": t.get("state", ""), "status": st,
+                "after": t.get("after", ""), "requires": t.get("requires", "")}
         if st in ACTIVE:
             active.append(item)
         elif st == "COMPLETE":
@@ -211,6 +241,17 @@ def main():
         elif st == "MISSING":
             item["state"] = "failed"
         results.append(item)
+
+    by_ref = {x["ref"]: x for x in results}
+    ready_pending = []
+    for item in pending:
+        blocker = target_block(item, by_ref)
+        if blocker:
+            item["state"] = "blocked"
+            item["blocked_by"] = blocker
+        else:
+            ready_pending.append(item)
+    pending = ready_pending
 
     pushed = None
     if a.auto_push and not active and pending:

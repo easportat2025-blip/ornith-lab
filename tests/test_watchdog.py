@@ -46,6 +46,38 @@ def test_wants_download_defaults():
                             {"kind": "eval"}) is False
 
 
+def test_dataset_ready_requires_adapter_file(monkeypatch):
+    monkeypatch.setattr(
+        w, "run", lambda *a, **k: (
+            0, "name size\nadapter_config.json 123\nadapter_model.safetensors 456",
+            ""))
+    assert w.dataset_ready("dieniw/ornith-gui-lora-v26") is True
+
+
+def test_dataset_ready_false_while_processing(monkeypatch):
+    monkeypatch.setattr(
+        w, "run", lambda *a, **k: (1, "", "404 Not Found"))
+    assert w.dataset_ready("dieniw/ornith-gui-lora-v26") is False
+
+
+def test_target_block_waits_for_after_kernel():
+    by_ref = {"dieniw/ornith-gui-sft-v26": {"status": "RUNNING"}}
+    item = {"after": "dieniw/ornith-gui-sft-v26"}
+    assert w.target_block(item, by_ref).startswith("after:")
+    by_ref["dieniw/ornith-gui-sft-v26"]["status"] = "COMPLETE"
+    assert w.target_block(item, by_ref) == ""
+
+
+def test_target_block_waits_for_adapter(monkeypatch):
+    monkeypatch.setattr(w, "dataset_ready", lambda ref: False)
+    item = {"after": "dieniw/ornith-gui-sft-v26",
+            "requires": "dieniw/ornith-gui-lora-v26"}
+    by_ref = {"dieniw/ornith-gui-sft-v26": {"status": "COMPLETE"}}
+    assert w.target_block(item, by_ref) == "requires:dieniw/ornith-gui-lora-v26"
+    monkeypatch.setattr(w, "dataset_ready", lambda ref: True)
+    assert w.target_block(item, by_ref) == ""
+
+
 def test_download_results_uses_safe_dir(monkeypatch, tmp_path):
     monkeypatch.setattr(w, "RESULTS", str(tmp_path))
     calls = {}

@@ -33,6 +33,26 @@
       "state": "pending",
       "download_results": true,
       "note": "v26: v25b + eval decode 256 + clean THINK/ACTION + curated B15/B15.5/B16 hard pack (13 tasks x3, +498 rows: scroll/drag/tab/wizard/clipboard/keyboard). Never train on B17/B18. Auto-push after B18 completes; publish adapter to HF."
+    },
+    {
+      "ref": "dieniw/ornith-gui-bench-b17-v26",
+      "path": "phase13-gui/kernel_bench_b17_v26",
+      "kind": "eval",
+      "state": "pending",
+      "download_results": true,
+      "after": "dieniw/ornith-gui-sft-v26",
+      "requires": "dieniw/ornith-gui-lora-v26",
+      "note": "v26 eval on B17 v3 holdout; blocked until the v26 adapter dataset is published. Never train on B17."
+    },
+    {
+      "ref": "dieniw/ornith-gui-bench-b18-v26",
+      "path": "phase13-gui/kernel_bench_b18_v26",
+      "kind": "eval",
+      "state": "pending",
+      "download_results": true,
+      "after": "dieniw/ornith-gui-sft-v26",
+      "requires": "dieniw/ornith-gui-lora-v26",
+      "note": "v26 eval on B18 hard holdout; blocked until the v26 adapter dataset is published. Never train on B18."
     }
   ]
 }
