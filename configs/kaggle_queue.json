@@ -24,7 +24,15 @@
       "kind": "eval",
       "state": "active",
       "download_results": true,
-      "note": "B18 hard-weighted holdout: 8 tasks / 42 episodes (2 easy x3, 6 hard x6); expected 6/42 = 14.3% if v25b wins only the easy tasks. Kernel QUEUED 2026-10-28. Never train on B18."
+      "note": "B18 hard-weighted holdout: 8 tasks / 42 episodes (2 easy x3, 6 hard x6); expected 6/42 = 14.3% if v25b wins only the easy tasks. Kernel RUNNING 2026-10-28. Never train on B18."
+    },
+    {
+      "ref": "dieniw/ornith-gui-sft-v26",
+      "path": "phase13-gui/kernel_v26",
+      "kind": "train",
+      "state": "pending",
+      "download_results": true,
+      "note": "v26: v25b + eval decode 256 + clean THINK/ACTION + curated B15/B15.5/B16 hard pack (13 tasks x3, +498 rows: scroll/drag/tab/wizard/clipboard/keyboard). Never train on B17/B18. Auto-push after B18 completes; publish adapter to HF."
     }
   ]
 }

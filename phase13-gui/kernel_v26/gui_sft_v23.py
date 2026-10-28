@@ -182,18 +182,33 @@ def build_data(n, seed, start_idx=0):
 
 
 SYS = ("You are a GUI agent. Look at the screenshot and the task, then "
-       "output ONE action line only.\n"
-       "Actions: CLICK x y (x,y integers 0..1000 normalized to image "
-       "width/height) | TYPE text (type into the focused field) | "
-       "KEY name (press a key, e.g. enter) | SCROLL n (n mouse-wheel steps, "
-       "positive=down, negative=up) | MOVE x y (hover without clicking) | "
-       "DRAG x1 y1 x2 y2 (press at x1,y1, move, release at x2,y2) | "
-       "DONE (task is complete). No explanation.")
+       "decide the next action.\n"
+       "You MAY reason briefly first. Reply format:\n"
+       "THINK: <one or two short sentences about what you see and what to do>\n"
+       "ACTION: <CLICK x y | TYPE text | KEY name | DONE | SCROLL n | "
+       "MOVE x y | DRAG x1 y1 x2 y2>\n"
+       "Rules: the LAST line MUST start with 'ACTION:'; x,y are integers "
+       "0..1000 normalized to image width/height; SCROLL n scrolls n "
+       "mouse-wheel steps inside the scrollable panel (positive=down, "
+       "negative=up; use 3-8 steps, same convention as training); MOVE hovers "
+       "without clicking; DRAG presses at x1 y1 and releases at x2 y2 (use it "
+       "for sliders); never write anything after the ACTION line; if the task "
+       "is already complete, output ACTION: DONE.")
 
 # --- cong tac cho vong sau (v8 chan doan se quyet dinh) ---
 RESPOND_ONLY = True    # True: chi train tren token assistant
 LR = 2e-4              # thu 2e-4 neu can "lat" hanh vi
 STEPS = 500            # v13: +200 (data 1200 -> 2808 rows: synth+real-ui+traj)
+# v26: curate hard capability rows from B15/B15.5/B16 policy-replay
+# (scroll, drag, tab, wizard, clipboard, keyboard, distractor). B17/B18 are
+# holdouts and are never used here.
+V26_HARD_TASKS = {
+    "T04_slider", "T06_tabcode", "T07_scroll",
+    "T13_wizard", "T16_clipboard2",
+    "T19_wizardsum", "T20_distractor", "T21_hiddenval", "T22_keynav",
+    "T23_undoredo", "T24_multifilter", "T25_compute", "T26_distractorlist",
+}
+V26_HARD_MULT = 3
 INSTR_PART = "<|im_start|>user\n"
 RESP_PART = "<|im_start|>assistant\n"
 
@@ -275,6 +290,33 @@ def fix_processor():
     raise SystemExit("khong tao duoc processor co image_processor")
 
 
+def _think_for(act):
+    """Short, deterministic THINK prefix for action-only replay rows.
+
+    v25b trained action-only while the B17/B18 eval prompt allowed THINK.
+    That mismatch produced raw reasoning without the THINK marker
+    (prose_leak=1.0).  v26 trains the exact format the eval parses:
+    one THINK line followed by one ACTION line.
+    """
+    verb = (act or "").strip().split()[0].upper()
+    return {
+        "CLICK": "I will click the target element.",
+        "TYPE": "I will type the required text into the focused field.",
+        "KEY": "I will press the required key.",
+        "SCROLL": "I will scroll the panel to reveal more content.",
+        "MOVE": "I will move the pointer to the target to reveal it.",
+        "DRAG": "I will drag from the start point to the end point.",
+        "DONE": "The task is complete.",
+    }.get(verb, "I will take the next action.")
+
+
+def _train_target(act):
+    act = (act or "").strip()
+    if act.upper().startswith("THINK:"):
+        return act
+    return "THINK: %s\nACTION: %s" % (_think_for(act), act)
+
+
 def to_msgs(rows):
     out = []
     for r in rows:
@@ -288,7 +330,7 @@ def to_msgs(rows):
                 {"type": "image", "image": r["image"]},
                 {"type": "text", "text": f"Task: {r['instruction']}"}]},
             {"role": "assistant", "content": [
-                {"type": "text", "text": act}]},
+                {"type": "text", "text": _train_target(act)}]},
         ]})
     return out
 
@@ -313,6 +355,10 @@ def parse_click(text):
 def parse_action(text):
     import re
     t = (text or "").strip()
+    # Prefer the final ACTION: line; fall back to a bare legacy action.
+    m = re.search(r"^\s*ACTION\s*:\s*(.+)$", t, re.I | re.M)
+    if m:
+        t = m.group(1).strip()
     m = re.search(r"CLICK\s*[\(\[]?\s*(\d{1,4})\s*[,;\s]\s*(\d{1,4})",
                   t, re.I)
     if m:
@@ -323,6 +369,16 @@ def parse_action(text):
     m = re.search(r"KEY\s+(\w+)", t, re.I)
     if m:
         return "KEY " + m.group(1).lower()
+    m = re.search(r"SCROLL\s+(-?\d+)", t, re.I)
+    if m:
+        return "SCROLL " + m.group(1)
+    m = re.search(r"MOVE\s+(\d{1,4})\s*[,;\s]\s*(\d{1,4})", t, re.I)
+    if m:
+        return f"MOVE {int(m.group(1))} {int(m.group(2))}"
+    m = re.search(r"DRAG\s+(\d{1,4})\s*[,;\s]\s*(\d{1,4})"
+                  r"\s*[,;\s]\s*(\d{1,4})\s*[,;\s]\s*(\d{1,4})", t, re.I)
+    if m:
+        return "DRAG " + " ".join(str(int(x)) for x in m.groups())
     if re.search(r"\bDONE\b", t, re.I):
         return "DONE"
     return None
@@ -442,8 +498,13 @@ def evaluate(model, processor, rows, tag, n=120, samples=0,
                     {"type": "image"},
                     {"type": "text",
                      "text": f"Task: {r['instruction']}"}]}]
-        text = processor.apply_chat_template(msgs, tokenize=False,
-                                             add_generation_prompt=True)
+        try:
+            text = processor.apply_chat_template(
+                msgs, tokenize=False, add_generation_prompt=True,
+                enable_thinking=True)
+        except TypeError:
+            text = processor.apply_chat_template(
+                msgs, tokenize=False, add_generation_prompt=True)
         inputs = processor(text=[text], images=[img],
                            return_tensors="pt").to(model.device)
         if j == 0:
@@ -557,10 +618,16 @@ def main():
     t3d_rows = load_ds_rows("ornith-gui-train3d", "traj.jsonl", required=True)
     t3d_rows = t3d_rows[:N_3D]
     # TASK-25: du lieu "task THAT" (policy-replay) - day model hoc task 0/3
-    pr_rows = load_ds_rows("ornith-policy-replay-data", "traj.jsonl",
+    pr_base = load_ds_rows("ornith-policy-replay-data", "traj.jsonl",
                            required=True)
-    pr_rows = pr_rows * 2  # v23: nhan ×2 (task THAT la nut thot)
-    log(f"policy-replay: {len(pr_rows)} row (x2)")
+    # v26: curate the hard capabilities that v25b failed on B17 (scroll,
+    # drag, tab, wizard) plus clipboard/keyboard/distractor from B15/B16.
+    hard_rows = [r for r in pr_base
+                 if r.get("task_id") in V26_HARD_TASKS]
+    hard_rows = hard_rows * V26_HARD_MULT
+    pr_rows = pr_base * 2  # v23: nhan ×2 (task THAT la nut thot)
+    log(f"policy-replay: {len(pr_rows)} row (x2) + hard "
+        f"{len(hard_rows)} row (x{V26_HARD_MULT})")
     t3dh_rows = load_ds_rows("ornith-gui-train3d-hard", "traj.jsonl",
                               required=True)
     t3dh_rows = t3dh_rows[:N_3D]
@@ -573,14 +640,14 @@ def main():
     log(f"synth targeted: {len(tgt_rows)} row (S1-S8+S9/S10, dr0.75)")
     base_n = (len(synth_rows) + len(real_train) + len(traj_rows)
               + len(tgt_rows) + len(t3d_rows) + len(t3dh_rows)
-              + len(pr_rows) + len(rec_rows) + len(dr_rows)
-              + len(s11_rows))
+              + len(pr_rows) + len(hard_rows) + len(rec_rows)
+              + len(dr_rows) + len(s11_rows))
     cap_sp = int(0.30 * base_n / 0.70)
     if len(sp_rows) > cap_sp:
         log(f"selfplay {len(sp_rows)} -> cap {cap_sp} (30%)")
         sp_rows = sp_rows[:cap_sp]
     train_rows = (synth_rows + real_train + traj_rows + tgt_rows
-                  + t3d_rows + t3dh_rows + pr_rows + rec_rows
+                  + t3d_rows + t3dh_rows + pr_rows + hard_rows + rec_rows
                   + dr_rows + s11_rows + sp_rows)
     STEPS_V22 = max(200, int(STEPS * len(train_rows) / 2808))
     log(f"STEPS_V22 = max(200, {STEPS} * {len(train_rows)} / 2808) = {STEPS_V22}")
@@ -602,7 +669,7 @@ def main():
         f" + synth-s11 {len(s11_rows)}"
         f" + train3d {len(t3d_rows)}"
         f"(+hard {len(t3dh_rows)}) + policy-replay {len(pr_rows)}"
-        f"(+hard {len(t3dh_rows)})"
+        f"(+curated hard {len(hard_rows)})"
         f" + selfplay {len(sp_rows)}) "
         f"eval={len(eval_rows)} t={time.time() - t0:.0f}s")
     with open(os.path.join(WORK, "gui_data_preview.json"), "w") as f:
@@ -745,10 +812,11 @@ def main():
         "n_targeted": len(tgt_rows),
         "n_train3d": len(t3d_rows) + len(t3dh_rows),
         "n_policy_replay": len(pr_rows),
+        "n_curated_hard": len(hard_rows),
         "seed": SEED, "eval_max": EVAL_MAX,
         "acc_targeted_sub": accTgt, "acc_selfplay_sub": accSp,
         "acc_train3d_sub": acc3d,
-        "recipe": "v26: v25b recipe + eval decode 256 (traj gate fix); same data",
+        "recipe": "v26: v25b + eval decode 256 + THINK/ACTION format + curated B15/B16 hard pack",
                    "t_sec": time.time() - t0}, f)
     log(f"ALL DONE before={acc0:.3f} after={acc1:.3f} "
         f"train_sub={accT:.3f} traj_sub={accTj:.3f} "

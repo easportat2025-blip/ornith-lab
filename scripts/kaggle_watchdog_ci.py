@@ -51,7 +51,15 @@ def kernel_status(ref):
     m = re.search(r"KernelWorkerStatus\.([A-Z_]+)", blob)
     if m:
         return m.group(1)
-    if "404" in blob or "not found" in blob.lower():
+    low = blob.lower()
+    if "404" in blob or "not found" in low:
+        return "MISSING"
+    # Kaggle returns a permission error (not 404) for a private kernel that
+    # does not exist yet.  Treat it as MISSING so a pending target can be
+    # auto-pushed; an existing kernel owned by this account still returns a
+    # real status.
+    if ("cannot access kernel" in low
+            or "permission 'kernels.get' was denied" in low):
         return "MISSING"
     return "UNKNOWN"
 

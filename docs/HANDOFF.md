@@ -26,11 +26,21 @@
   - Gate: parse/real/train-sub PASS; **traj FAIL (0.438 < 0.85)**.
 - **Adapter đã tải + publish**: `dieniw/ornith-gui-lora-v25b` (private,
   465.6 MB `adapter_model.safetensors`, kèm tokenizer/processor/README).
-- **v26 đã chuẩn bị local** `phase13-gui/kernel_v26`: y hệt v25b nhưng eval
-  decode `EVAL_MAX=256` (sửa artifact traj 24 token). **Chưa queue** — cần
-  curate từ B15/B16/capability-similar failures, **không dùng B17**.
+- **v26 đã curate + queue pending (28/10)** `phase13-gui/kernel_v26`:
+  - Nền v25b + eval decode `EVAL_MAX=256` (sửa artifact traj 24 token).
+  - Sửa lệch format: train `THINK: ...` + `ACTION: ...` khớp prompt eval
+    B17/B18. v25b train action-only nên eval thinking ON sinh prose
+    (`prose_leak=1.0`); v26 train đúng format parser.
+  - Curated hard pack từ `ornith-policy-replay-data` (B15/B15.5/B16):
+    13 task ×3 = **+498 row** — slider/drag, tab, scroll, wizard, clipboard,
+    keyboard, distractor, undo/redo, filter, compute. **Không dùng B17/B18**.
+  - Queue `state=pending`, slug `dieniw/ornith-gui-sft-v26`; watchdog sẽ
+    auto-push sau khi B18 xong (chỉ 1 GPU session).
+  - Watchdog fix: Kaggle trả "Cannot access kernel / Permission denied" cho
+    kernel private chưa tồn tại; nay coi là `MISSING` để auto-push hoạt động.
+    Test `tests/test_watchdog.py` PASS.
 - **B18 hard holdout (28/10)**: dataset `dieniw/ornith-gui-bench-b18`
-  **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **QUEUED**.
+  **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **RUNNING**.
   - 8 task / **42 episode**: 2 easy (T30 note-order, T33 error-retry) ×3 +
     6 hard (T31 scroll, T32 drag, T34 Tab, T36 wizard, T39 clipboard,
     T40 scroll+distractor) ×6.
@@ -211,9 +221,9 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
 1. **B17 v3 quá dễ (W1 FAIL)** — 0.5556 > 20%; B18 hard holdout đã queue để
    thay thế. B17 v4 local đã có 11 task và self-test 11/11, nhưng chưa chạy lại.
    Nếu B18 vẫn >20%, thêm hard task/mechanism, **không** hạ variant của task dễ.
-2. **v26 chưa curate xong** — mới là v25b + `EVAL_MAX=256`; cần data cho
-   scroll/drag/tab/wizard + format `THINK`/`ACTION` sạch, lấy từ B15/B16 và
-   capability-similar failures, **không dùng B17**.
+2. **v26 đã curate, đang chờ B18** — queue `pending`; watchdog sẽ auto-push
+   `dieniw/ornith-gui-sft-v26` sau khi B18 xong. Cần xác nhận kernel được push,
+   train xong, và adapter publish lên HF.
 3. **OpenCode free models 429** (`FreeUsageLimitError`) với cả key user và
    `public`; key đã lưu, có thể thử lại sau.
 4. **DeepSeek 402** (hết balance), **Mistral 429** (rate limit).
@@ -231,9 +241,10 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    >20%, thêm hard task/mechanism (không train trên B18).
 2. **B17 v4**: local 11 task đã self-test 11/11; nếu cần so sánh, tạo
    dataset/kernel slug mới và chạy (không tái dùng slug v22).
-3. **Curate v26**: từ B15/B16 + capability-similar failures, thêm scroll, drag,
-   tab navigation, wizard steps; format `THINK:` ngắn + `ACTION:` dòng cuối;
-   giữ `EVAL_MAX=256`; tạo slug mới, queue `pending`.
+3. **v26**: đã queue `pending` (hard pack + THINK/ACTION). Khi B18 xong,
+   watchdog auto-push `dieniw/ornith-gui-sft-v26`; theo dõi, tải
+   `gui_result.json`, rồi eval trên B17/B18. Nếu gate fail, dùng per-task để
+   quyết định data tiếp.
 4. **Gate v26**: holdout ≥35%, W1 ≤20% (mục tiêu ≤10%), parse ≥0.95, prose leak
    ≤5%, traj ≥0.85; so per-task, không chỉ tổng.
 5. Cập nhật `docs/HANDOFF.md` + `configs/kaggle_queue.json` sau mỗi thay đổi.

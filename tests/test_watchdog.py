@@ -19,6 +19,14 @@ def test_kernel_status_unknown(monkeypatch):
     assert w.kernel_status("x/y") == "UNKNOWN"
 
 
+def test_kernel_status_private_missing(monkeypatch):
+    monkeypatch.setattr(
+        w, "run", lambda *a, **k: (
+            1, "", "Cannot access kernel 'dieniw/x' "
+                   "(Permission 'kernels.get' was denied)."))
+    assert w.kernel_status("dieniw/x") == "MISSING"
+
+
 def test_load_json_default(tmp_path):
     assert w.load_json(str(tmp_path / "missing.json"), {"a": 1}) == {"a": 1}
 
