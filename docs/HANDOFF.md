@@ -36,10 +36,11 @@
     keyboard, distractor, undo/redo, filter, compute. **Không dùng B17/B18**.
   - Queue `state=pending`, slug `dieniw/ornith-gui-sft-v26`; watchdog sẽ
     auto-push sau khi B18 xong (chỉ 1 GPU session).
-  - Eval kernels đã chuẩn bị local (chưa queue vì adapter v26 chưa tồn tại):
+  - Eval kernels đã chuẩn bị và đã vào queue (state `blocked`):
     `phase13-gui/kernel_bench_b17_v26` → `dieniw/ornith-gui-bench-b17-v26`;
     `phase13-gui/kernel_bench_b18_v26` → `dieniw/ornith-gui-bench-b18-v26`.
-    Sau khi publish adapter mới thêm 2 target này vào queue.
+    Watchdog tự push sau khi v26 COMPLETE + adapter `dieniw/ornith-gui-lora-v26`
+    READY. Post-train: `scripts/post_v26_adapter.ps1` (download/publish/fingerprint).
   - Watchdog fix: Kaggle trả "Cannot access kernel / Permission denied" cho
     kernel private chưa tồn tại; nay coi là `MISSING` để auto-push hoạt động.
     Test `tests/test_watchdog.py` PASS.
