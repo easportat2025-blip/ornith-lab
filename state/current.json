@@ -1,6 +1,6 @@
 {
- "ts": 1793178953.2654457,
- "iso": "2026-10-28T09:15:53",
+ "ts": 1793179564.1479452,
+ "iso": "2026-10-28T09:26:04",
  "host": "github-actions",
  "account": "dieniw",
  "active": [
@@ -63,7 +63,7 @@
    "path": "phase13-gui/kernel_v26",
    "kind": "train",
    "state": "active",
-   "status": "QUEUED",
+   "status": "RUNNING",
    "after": "",
    "requires": ""
   },
