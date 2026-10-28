@@ -1,11 +1,9 @@
 {
- "ts": 1793171349.6170487,
- "iso": "2026-10-28T07:09:09",
+ "ts": 1793171446.4374146,
+ "iso": "2026-10-28T07:10:46",
  "host": "github-actions",
  "account": "dieniw",
- "active": [
-  "dieniw/ornith-gui-bench-b18-v1"
- ],
+ "active": [],
  "results": [
   {
    "ref": "dieniw/ornith-gui-sft-v25b",
@@ -41,17 +39,29 @@
    "ref": "dieniw/ornith-gui-bench-b18-v1",
    "path": "phase13-gui/kernel_bench_b18",
    "kind": "eval",
-   "state": "active",
-   "status": "RUNNING",
+   "state": "done",
+   "status": "COMPLETE",
    "after": "",
-   "requires": ""
+   "requires": "",
+   "outputs": [
+    {
+     "path": "state/results/dieniw__ornith-gui-bench-b18-v1/b18_result.json",
+     "bytes": 270921
+    },
+    {
+     "path": "state/results/dieniw__ornith-gui-bench-b18-v1/ornith-gui-bench-b18-v1.log",
+     "bytes": 76677
+    }
+   ],
+   "output_rc": 0,
+   "output_tail": "Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)"
   },
   {
    "ref": "dieniw/ornith-gui-sft-v26",
    "path": "phase13-gui/kernel_v26",
    "kind": "train",
    "state": "pending",
-   "status": "MISSING",
+   "status": "PUSHED",
    "after": "",
    "requires": ""
   },
@@ -76,7 +86,11 @@
    "blocked_by": "after:dieniw/ornith-gui-sft-v26"
   }
  ],
- "pushed": null,
+ "pushed": {
+  "ref": "dieniw/ornith-gui-sft-v26",
+  "rc": 0,
+  "output": "Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)\nKernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/dieniw/ornith-gui-sft-v26"
+ },
  "download_results": true,
  "ops_config": {
   "loop_enabled": true,
