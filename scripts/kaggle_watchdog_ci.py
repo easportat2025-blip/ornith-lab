@@ -31,6 +31,7 @@ DEFAULT_RESULT_PATTERN = (
     r".*\.(json|md|txt)$"
 )
 MAX_RESULT_BYTES = 2 * 1024 * 1024
+_DATASET_READY_CACHE = {}
 
 
 def run(args, timeout=180):
@@ -68,13 +69,31 @@ def dataset_ready(ref):
     """True only when the dataset exists and lists adapter files.
 
     Kaggle returns 403/404 while a private dataset is still processing; those
-    cases stay blocked and are retried on the next watchdog tick.
+    cases stay blocked and are retried on the next watchdog tick.  A 429 is
+    transient: retry with backoff and cache the result so three gated targets
+    sharing one adapter do not hammer the API.
     """
-    rc, out, err = run(["datasets", "files", ref], timeout=90)
-    if rc != 0:
-        return False
-    blob = (out + err).lower()
-    return "adapter_config.json" in blob or "adapter_model" in blob
+    if ref in _DATASET_READY_CACHE:
+        return _DATASET_READY_CACHE[ref]
+    last = ""
+    for attempt in range(3):
+        rc, out, err = run(["datasets", "files", ref], timeout=90)
+        blob = out + err
+        if rc == 0:
+            ok = ("adapter_config.json" in blob.lower()
+                  or "adapter_model" in blob.lower())
+            _DATASET_READY_CACHE[ref] = ok
+            return ok
+        last = blob.strip()[-300:]
+        low = blob.lower()
+        if ("429" in blob or "too many requests" in low) and attempt < 2:
+            time.sleep(15 * (attempt + 1))
+            continue
+        break
+    print("WARN: dataset_ready(%s) failed: %s" % (
+        ref, last.replace("\n", " ")[:300]))
+    _DATASET_READY_CACHE[ref] = False
+    return False
 
 
 def target_block(item, by_ref):
@@ -158,8 +177,16 @@ def download_results(ref, pattern=DEFAULT_RESULT_PATTERN,
     safe = re.sub(r"[^A-Za-z0-9_.-]+", "__", ref).strip("_") or "kernel"
     outdir = os.path.join(RESULTS, safe)
     os.makedirs(outdir, exist_ok=True)
-    rc, out, err = run(["kernels", "output", ref, "-p", outdir,
-                        "--file-pattern", pattern, "-q"], timeout=300)
+    rc, out, err = 1, "", ""
+    for attempt in range(3):
+        rc, out, err = run(["kernels", "output", ref, "-p", outdir,
+                            "--file-pattern", pattern, "--force", "-q"],
+                           timeout=300)
+        blob = out + err
+        if rc == 0 or not ("429" in blob or "too many requests" in blob.lower()):
+            break
+        if attempt < 2:
+            time.sleep(15 * (attempt + 1))
     kept = []
     for base, _dirs, files in os.walk(outdir):
         for name in files:

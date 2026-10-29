@@ -1,4 +1,11 @@
+import pytest
+
 import kaggle_watchdog_ci as w
+
+
+@pytest.fixture(autouse=True)
+def _clear_dataset_cache():
+    w._DATASET_READY_CACHE.clear()
 
 
 def test_kernel_status_running(monkeypatch):
@@ -67,6 +74,36 @@ def test_dataset_ready_false_while_processing(monkeypatch):
     monkeypatch.setattr(
         w, "run", lambda *a, **k: (1, "", "404 Not Found"))
     assert w.dataset_ready("dieniw/ornith-gui-lora-v26") is False
+
+
+def test_dataset_ready_retries_429(monkeypatch):
+    calls = {"n": 0}
+    sleeps = []
+
+    def fake_run(args, timeout=180):
+        calls["n"] += 1
+        if calls["n"] < 3:
+            return 1, "", "429 Too Many Requests"
+        return 0, "adapter_model.safetensors 1", ""
+
+    monkeypatch.setattr(w, "run", fake_run)
+    monkeypatch.setattr(w.time, "sleep", lambda s: sleeps.append(s))
+    assert w.dataset_ready("dieniw/ornith-gui-lora-v26") is True
+    assert calls["n"] == 3
+    assert sleeps == [15, 30]
+
+
+def test_dataset_ready_caches_success(monkeypatch):
+    calls = {"n": 0}
+
+    def fake_run(args, timeout=180):
+        calls["n"] += 1
+        return 0, "adapter_config.json 1", ""
+
+    monkeypatch.setattr(w, "run", fake_run)
+    assert w.dataset_ready("dieniw/ornith-gui-lora-v26") is True
+    assert w.dataset_ready("dieniw/ornith-gui-lora-v26") is True
+    assert calls["n"] == 1
 
 
 def test_target_block_waits_for_after_kernel():
