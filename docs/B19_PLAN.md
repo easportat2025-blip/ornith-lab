@@ -47,9 +47,12 @@ vòng sau. **Không dùng B18 task/HTML làm train; B19 chỉ để đo.**
 
 - Dataset `dieniw/ornith-gui-bench-b19` **READY** (flat 10 file: `tasks.json`,
   `checker.py`, 8 HTML); kernel `dieniw/ornith-gui-bench-b19-v26` có metadata,
-  chưa push (chờ adapter v26).
-- Checker + GT self-test **8/8 PASS**; static lint 0 lỗi.
+  chưa push (chờ B17/B18 xong).
+- Checker + GT self-test **8/8 PASS**; static lint 0 lỗi; flat suite load
+  48 episode đã test.
 - Queue target đã thêm `after` v26 + `requires` adapter; sẽ push sau B17/B18.
+- B19 eval mặc định `ORNI_THINK=0` để đo format `THINK:`/`ACTION:` sạch;
+  B17/B18 đang thinking ON để so baseline.
 - Chưa có kết quả model trên B19; không dùng B19 làm train.
 
 ## Acceptance

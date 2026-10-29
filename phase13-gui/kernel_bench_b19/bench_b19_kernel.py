@@ -20,8 +20,10 @@ import os
 
 # --- ENABLE_THINKING: prompt co render think rong (enable_thinking=False) thi
 # model (train action-only) emit thang action, het prose leak (failure C1).
-# Mac dinh True de so sanh duoc voi baseline B15 27.8% (do voi thinking ON).
-ENABLE_THINKING = os.environ.get("ORNI_THINK", "1") != "0"
+# B19 eval: default OFF so the trained `THINK:`/`ACTION:` format is visible;
+# with the base Qwen thinking block ON, its content is counted as prose.
+# Set ORNI_THINK=1 only for an apples-to-apples thinking-ON comparison.
+ENABLE_THINKING = os.environ.get("ORNI_THINK", "0") != "0"
 
 import re
 import subprocess
