@@ -38,11 +38,11 @@
       "ref": "dieniw/ornith-gui-bench-b17-v26",
       "path": "phase13-gui/kernel_bench_b17_v26",
       "kind": "eval",
-      "state": "pending",
+      "state": "active",
       "download_results": true,
       "after": "dieniw/ornith-gui-sft-v26",
       "requires": "dieniw/ornith-gui-lora-v26",
-      "note": "v26 eval on B17 v3 holdout; blocked until the v26 adapter dataset is published. Never train on B17."
+      "note": "RUNNING since 2026-10-29T04:10Z (manual push; watchdog auto-push was blocked by Kaggle 429 on dataset files). Uses adapter dieniw/ornith-gui-lora-v26; never train on B17."
     },
     {
       "ref": "dieniw/ornith-gui-bench-b18-v26",

@@ -243,10 +243,12 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    drag, wizard validation, keyboard-only, clipboard verify, dynamic filter).
    B19 đã build + self-test 8/8; chờ eval v26. Không train trên B18/B19.
 2. **v26 đã COMPLETE, adapter READY** — `dieniw/ornith-gui-lora-v26` (465.6 MB)
-   đã publish. Eval B17/B18/B19-v26 đang chờ watchdog push (remote queue phải
-   có commit B19 mới). `gui_result.json` tải tay vì watchdog outputs 0/429.
-3. **Kaggle 429** khi list/download output; dùng Python API `page_size=100` +
-   retry, tránh gọi CLI liên tục. Watchdog có thể bỏ lỡ download một vòng.
+   đã publish. **B17-v26 đang RUNNING** từ 04:10Z (push tay vì watchdog bị
+   Kaggle 429 ở `datasets files`); B18-v26/B19-v26 pending, watchdog sẽ tự
+   push sau khi B17 xong. `gui_result.json` tải tay vì watchdog outputs 0/429.
+3. **Kaggle 429** khi list/download output; watchdog đã thêm retry/cache cho
+   `dataset_ready` và `download_results` (commit `44f5189`). Vẫn dùng Python
+   API `page_size=100` cho file lớn; tránh gọi CLI liên tục.
 4. **OpenCode free models 429** (`FreeUsageLimitError`) với cả key user và
    `public`; key đã lưu, có thể thử lại sau.
 5. **DeepSeek 402** (hết balance), **Mistral 429** (rate limit).
@@ -259,11 +261,12 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    defer đến sau v26 vì chạm ops workflow/HF stack. #8–#10 là bản trùng.
 
 ## Việc tiếp theo
-1. **Push B19 + queue**: commit B19 tasks/checker/kernel/self-test và queue
-   target `dieniw/ornith-gui-bench-b19-v26`; sau đó watchdog mới thấy B19.
-2. **Eval v26**: watchdog tự push B17-v26 → B18-v26 → B19-v26 (`after` +
-   `requires`). Tải `b17_result.json`, `b18_result.json`, `b19_result.json`;
-   so per-task với v25b. B18/B19 W1 mục tiêu ≤10%.
+1. **Theo dõi B17-v26** (`RUNNING`): tải `b17_result.json` khi COMPLETE; kiểm
+   tra parse/prose/traj/per-task. B18/B19 đã có trong queue + dataset READY;
+   watchdog tự push sau B17. B19 kernel flat-dataset đã sẵn sàng.
+2. **Eval v26**: B17-v26 → B18-v26 → B19-v26 (`after` + `requires`). Tải
+   `b17_result.json`, `b18_result.json`, `b19_result.json`; so per-task với
+   v25b. B18/B19 W1 mục tiêu ≤10%.
 3. **Gate v26**: holdout ≥35%, W1 ≤20% (mục tiêu ≤10%), parse ≥0.95, prose leak
    ≤5%, traj ≥0.85; so per-task, không chỉ tổng. Nếu B19 vẫn >20%, tăng
    mechanism khó, không train trên B19.
