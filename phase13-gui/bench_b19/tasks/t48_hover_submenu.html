@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Menu</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+.menubar{display:flex;gap:4px;margin-top:14px;position:relative}
+.menu{position:relative;padding:8px 14px;border:1px solid #c6cedd;
+border-radius:6px;background:#f7f9fc;cursor:default;font-weight:600}
+.menu:hover{background:#e8f0ff}
+.sub{display:none;position:absolute;left:0;top:38px;min-width:180px;
+background:#fff;border:1px solid #b9c1d1;border-radius:6px;
+box-shadow:0 6px 18px rgba(20,30,50,.14);z-index:5;padding:4px 0}
+.menu.open .sub{display:block}
+.sub div{padding:8px 14px;font-weight:400;cursor:pointer;font-size:14px}
+.sub div:hover{background:#eef4ff}
+#msg{margin-top:120px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Menu</h2>
+<div class="note">Hover over the <b><span id="vMENU"></span></b> menu until its
+submenu appears, then click <b><span id="vITEM"></span></b>. Do not click the
+top-level menu item.</div>
+<div class="menubar" id="bar"></div>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const MENUS={
+  File:['New file','Open recent','Save as','Close tab'],
+  Edit:['Undo','Redo','Find next','Replace'],
+  View:['Zoom in','Zoom out','Reset zoom','Full screen']
+};
+const MENU=R(Object.keys(MENUS));
+const ITEM=R(MENUS[MENU]);
+window.__spec={vars:{MENU:MENU,ITEM:ITEM}};
+document.getElementById('vMENU').textContent=MENU;
+document.getElementById('vITEM').textContent=ITEM;
+const bar=document.getElementById('bar'),msg=document.getElementById('msg');
+window.__state={hovered:'',clicked:'',submitted:false};
+for(const name of Object.keys(MENUS)){
+  const m=document.createElement('div');
+  m.className='menu';m.dataset.menu=name;m.textContent=name;
+  const sub=document.createElement('div');sub.className='sub';
+  for(const it of MENUS[name]){
+    const d=document.createElement('div');
+    d.textContent=it;d.dataset.item=it;
+    d.addEventListener('click',e=>{
+      e.stopPropagation();
+      window.__state.clicked=it;
+      window.__state.submitted=true;
+      const ok=(name===MENU&&it===ITEM);
+      msg.textContent=ok?'Applied':'Wrong item';
+      msg.className=ok?'':'bad';
+      window.__state.ok=ok;
+    });
+    sub.appendChild(d);
+  }
+  m.appendChild(sub);
+  m.addEventListener('mouseenter',()=>{
+    document.querySelectorAll('.menu').forEach(x=>x.classList.remove('open'));
+    m.classList.add('open');
+    window.__state.hovered=name;
+  });
+  m.addEventListener('mouseleave',()=>{
+    // Keep the submenu open briefly enough for a click; hide on leaving
+    // the whole menu container.
+    setTimeout(()=>{if(!m.matches(':hover'))m.classList.remove('open');},350);
+  });
+  m.addEventListener('click',()=>{
+    window.__state.clicked='top:'+name;
+    window.__state.submitted=true;
+    msg.textContent='Pick a submenu item';msg.className='bad';
+    window.__state.ok=false;
+  });
+  bar.appendChild(m);
+}
+</script>
+</body>
+</html>

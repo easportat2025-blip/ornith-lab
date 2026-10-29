@@ -30,9 +30,9 @@
       "ref": "dieniw/ornith-gui-sft-v26",
       "path": "phase13-gui/kernel_v26",
       "kind": "train",
-      "state": "active",
+      "state": "done",
       "download_results": true,
-      "note": "v26: v25b + eval decode 256 + clean THINK/ACTION + curated B15/B15.5/B16 hard pack (13 tasks x3, +498 rows). Pushed by watchdog 2026-10-28T07:10Z; QUEUED. Never train on B17/B18."
+      "note": "v26 COMPLETE 2026-10-28T09:19Z: acc_before 0.640 -> acc_after 0.900; train_sub 1.000; traj_sub 1.000; real_after 1.000; n_train 9248; steps 1646; curated_hard 498; eval_max 256; t=7949s. Adapter dieniw/ornith-gui-lora-v26 READY (465.6 MB). Never train on B17/B18/B19."
     },
     {
       "ref": "dieniw/ornith-gui-bench-b17-v26",
@@ -53,6 +53,16 @@
       "after": "dieniw/ornith-gui-sft-v26",
       "requires": "dieniw/ornith-gui-lora-v26",
       "note": "v26 eval on B18 hard holdout; blocked until the v26 adapter dataset is published. Never train on B18."
+    },
+    {
+      "ref": "dieniw/ornith-gui-bench-b19-v26",
+      "path": "phase13-gui/kernel_bench_b19",
+      "kind": "eval",
+      "state": "pending",
+      "download_results": true,
+      "after": "dieniw/ornith-gui-sft-v26",
+      "requires": "dieniw/ornith-gui-lora-v26",
+      "note": "B19 hard holdout v26: 8 task x6 = 48 episode; nested scroll, precision drag, wizard validation, keyboard-only, clipboard verify, dynamic filter, drag reorder, hover submenu. Blocked until v26 adapter READY. Never train on B19."
     }
   ]
 }

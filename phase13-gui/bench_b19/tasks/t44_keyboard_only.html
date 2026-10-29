@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Registration</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:10px 0 3px;font-weight:600}
+input[type=text],select{width:340px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:10px}
+#msg{margin-top:10px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Registration</h2>
+<div class="note">Name: <b><span id="vNAME"></span></b> &middot;
+Email: <b><span id="vEMAIL"></span></b> &middot;
+Plan: <b><span id="vPLAN"></span></b></div>
+<form id="f">
+<label>Name</label><input id="name" type="text" autocomplete="off" autofocus>
+<label>Email</label><input id="email" type="text" autocomplete="off">
+<label>Plan</label><select id="plan"><option value="">(choose)</option>
+<option>Basic</option><option>Pro</option><option>Ultra</option></select>
+<button id="sub" type="submit">Register</button>
+</form>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const NAME=R(['Mira','Owen','Priya','Tomas']);
+const EMAIL=R(['mira@example.test','owen@example.test',
+  'priya@example.test','tomas@example.test']);
+const PLAN=R(['Basic','Pro','Ultra']);
+window.__spec={vars:{NAME:NAME,EMAIL:EMAIL,PLAN:PLAN}};
+document.getElementById('vNAME').textContent=NAME;
+document.getElementById('vEMAIL').textContent=EMAIL;
+document.getElementById('vPLAN').textContent=PLAN;
+const name=document.getElementById('name'),email=document.getElementById('email'),
+plan=document.getElementById('plan'),msg=document.getElementById('msg');
+window.__state={name:'',email:'',plan:'',mouse_clicks:0,submitted:false};
+document.addEventListener('mousedown',()=>{window.__state.mouse_clicks++;});
+function snap(){
+  window.__state.name=name.value;window.__state.email=email.value;
+  window.__state.plan=plan.value;
+}
+name.addEventListener('input',snap);email.addEventListener('input',snap);
+plan.addEventListener('change',snap);
+document.getElementById('f').addEventListener('submit',e=>{
+  e.preventDefault();snap();
+  window.__state.submitted=true;
+  const ok=(name.value===NAME&&email.value===EMAIL&&plan.value===PLAN
+    &&window.__state.mouse_clicks===0);
+  msg.textContent=ok?'Registered':'Check the fields and use the keyboard only';
+  msg.className=ok?'':'bad';window.__state.ok=ok;
+});
+window.addEventListener('load',()=>{name.focus();snap();});
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Directory</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:10px 0 3px;font-weight:600}
+input[type=text]{width:340px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px}
+.list{max-height:160px;overflow-y:auto;border:1px solid #b9c1d1;
+border-radius:6px;width:520px;margin-top:8px}
+.row{padding:7px 10px;border-bottom:1px solid #eef0f4;cursor:pointer;
+font-size:14px}
+.row:hover{background:#eef4ff}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:10px}
+#msg{margin-top:10px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Directory</h2>
+<div class="note">Find the person named <b><span id="vNAME"></span></b>.
+Type the name in the search box to filter the list, then click the matching
+row and press Select.</div>
+<label>Search</label><input id="q" type="text" autocomplete="off">
+<div class="list" id="list"></div>
+<button id="sub">Select</button>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const POOL=['Mira','Owen','Priya','Tomas','Novak','Ibarra','Lindqvist',
+  'Idris','Accra','Lima','Riga','Takahashi','Robin'];
+const NAME=R(POOL);
+window.__spec={vars:{NAME:NAME}};
+document.getElementById('vNAME').textContent=NAME;
+const list=document.getElementById('list'),q=document.getElementById('q'),
+msg=document.getElementById('msg');
+const names=POOL.filter(n=>n!==NAME).sort(()=>Math.random()-0.5).slice(0,9);
+names.splice(4+Math.floor(Math.random()*4),0,NAME);
+const rows=[];
+for(const n of names){
+  const d=document.createElement('div');
+  d.className='row';d.textContent=n;d.dataset.name=n;
+  d.style.display='none';
+  d.addEventListener('click',()=>{window.__state.picked=n;});
+  list.appendChild(d);rows.push(d);
+}
+window.__state={picked:null,submitted:false};
+q.addEventListener('input',()=>{
+  const v=q.value.trim().toLowerCase();
+  for(const d of rows){
+    d.style.display=(v&&d.dataset.name.toLowerCase().includes(v))?'block':'none';
+  }
+});
+document.getElementById('sub').addEventListener('click',()=>{
+  window.__state.submitted=true;
+  const ok=window.__state.picked===NAME;
+  msg.textContent=ok?'Selected':'Wrong person';
+  msg.className=ok?'':'bad';window.__state.ok=ok;
+});
+</script>
+</body>
+</html>

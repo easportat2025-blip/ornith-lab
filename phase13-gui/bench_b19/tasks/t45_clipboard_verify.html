@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clipboard</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:10px 0 3px;font-weight:600}
+textarea,input[type=text]{width:520px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px;font-family:ui-monospace,monospace}
+textarea{height:64px;resize:none;background:#f7f9fc}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:10px}
+#msg{margin-top:10px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Clipboard</h2>
+<div class="note">Copy the Source text into the Target box using
+Ctrl+A, Ctrl+C, then click Target and press Ctrl+V. Do not type the text.
+Then press Verify.</div>
+<label>Source (read only)</label>
+<textarea id="src" readonly></textarea>
+<label>Target</label>
+<input id="dst" type="text" autocomplete="off">
+<button id="verify">Verify</button>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const TEXT=R(['R9-305 / Robin','Q4-118 / Novak','M7-642 / Ibarra',
+  'H2-877 / Lindqvist']);
+window.__spec={vars:{TEXT:TEXT}};
+const src=document.getElementById('src'),dst=document.getElementById('dst'),
+msg=document.getElementById('msg');
+src.value=TEXT;
+window.__state={verify_clicked:false,submitted:false};
+document.getElementById('verify').addEventListener('click',()=>{
+  window.__state.verify_clicked=true;window.__state.submitted=true;
+  const ok=(dst.value===src.value&&src.value===TEXT);
+  msg.textContent=ok?'Copied':'Target does not match source';
+  msg.className=ok?'':'bad';window.__state.ok=ok;
+});
+</script>
+</body>
+</html>

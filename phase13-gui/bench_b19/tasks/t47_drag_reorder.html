@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reorder</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+.list{width:420px;border:1px solid #b9c1d1;border-radius:6px;margin-top:10px;
+background:#f7f9fc}
+.item{padding:10px 12px;border-bottom:1px solid #e4e8f0;cursor:grab;
+font-size:14px;user-select:none;background:#fff}
+.item:last-child{border-bottom:0}
+.item.dragging{opacity:.55;background:#e8f0ff}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:10px}
+#msg{margin-top:10px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Reorder</h2>
+<div class="note">Drag the item named <b><span id="vITEM"></span></b>
+to the top of the list, then press Save.</div>
+<div class="list" id="list"></div>
+<button id="sub">Save</button>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const ITEM=R(['Router','Switch','Firewall','Gateway','Bridge','Repeater']);
+window.__spec={vars:{ITEM:ITEM}};
+document.getElementById('vITEM').textContent=ITEM;
+const list=document.getElementById('list'),msg=document.getElementById('msg');
+const names=['Router','Switch','Firewall','Gateway','Bridge','Repeater']
+  .filter(n=>n!==ITEM).sort(()=>Math.random()-0.5);
+names.splice(1+Math.floor(Math.random()*4),0,ITEM);
+for(const n of names){
+  const d=document.createElement('div');
+  d.className='item';d.textContent=n;d.dataset.name=n;
+  list.appendChild(d);
+}
+window.__state={order:[...list.children].map(x=>x.dataset.name),
+  saved:false};
+let dragEl=null;
+list.addEventListener('mousedown',e=>{
+  const it=e.target.closest('.item');
+  if(!it)return;
+  dragEl=it;it.classList.add('dragging');e.preventDefault();
+});
+document.addEventListener('mousemove',e=>{
+  if(!dragEl)return;
+  const el=document.elementFromPoint(e.clientX,e.clientY);
+  const over=el&&el.closest?el.closest('.item'):null;
+  if(over&&over!==dragEl){
+    list.insertBefore(dragEl,over);
+  }
+});
+document.addEventListener('mouseup',()=>{
+  if(!dragEl)return;
+  dragEl.classList.remove('dragging');dragEl=null;
+  window.__state.order=[...list.children].map(x=>x.dataset.name);
+});
+document.getElementById('sub').addEventListener('click',()=>{
+  window.__state.saved=true;
+  const first=list.children[0]?list.children[0].dataset.name:'';
+  const ok=first===ITEM;
+  msg.textContent=ok?'Saved':'Wrong order';
+  msg.className=ok?'':'bad';window.__state.ok=ok;
+});
+</script>
+</body>
+</html>

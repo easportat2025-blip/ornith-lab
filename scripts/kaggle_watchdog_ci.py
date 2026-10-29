@@ -27,7 +27,7 @@ FLAGS = 0x08000000 if os.name == "nt" else 0
 
 ACTIVE = {"RUNNING", "QUEUED", "STARTING", "PENDING"}
 DEFAULT_RESULT_PATTERN = (
-    r"(?i)(result|summary|gate|manifest|metrics|report|eval|bench|b17|b18)"
+    r"(?i)(result|summary|gate|manifest|metrics|report|eval|bench|b17|b18|b19)"
     r".*\.(json|md|txt)$"
 )
 MAX_RESULT_BYTES = 2 * 1024 * 1024

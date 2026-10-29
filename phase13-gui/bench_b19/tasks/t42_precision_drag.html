@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Threshold</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:8px}
+#msg{margin-top:8px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Threshold</h2>
+<div class="note">Set the threshold to <b><span id="vVALUE"></span></b></div>
+<div id="wrap" style="width:420px;height:34px;background:#dde2ec;
+border-radius:17px;position:relative;margin:14px 0">
+<div id="fill" style="position:absolute;left:0;top:0;height:34px;width:0%;
+background:#3b6fd4;border-radius:17px"></div>
+<div id="knob" style="position:absolute;left:-11px;top:0;
+width:22px;height:34px;background:#1f4fa8;border-radius:11px"></div></div>
+<div style="width:420px;display:flex;justify-content:space-between;
+font:13px ui-monospace,monospace;color:#46536b">
+<span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+</div>
+<button id="sub">Apply</button><div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const VALUE=R([37,58,73,84]);
+window.__spec={vars:{VALUE:VALUE}};
+document.getElementById('vVALUE').textContent=VALUE;
+let val=0;
+const wrap=document.getElementById('wrap'),knob=document.getElementById('knob'),
+fill=document.getElementById('fill');
+function setv(v){val=Math.max(0,Math.min(100,Math.round(v)));
+knob.style.left='calc('+val+'% - 11px)';fill.style.width=val+'%';}
+function fromX(cx){const r=wrap.getBoundingClientRect();
+setv((cx-r.left)/r.width*100);}
+wrap.addEventListener('mousedown',e=>{fromX(e.clientX);
+const mv=ev=>fromX(ev.clientX);
+const up=()=>{document.removeEventListener('mousemove',mv);
+document.removeEventListener('mouseup',up);};
+document.addEventListener('mousemove',mv);
+document.addEventListener('mouseup',up);});
+window.__state={value:val,submitted:false};
+document.getElementById('sub').addEventListener('click',()=>{
+window.__state.value=val;window.__state.submitted=true;
+const ok=Math.abs(val-VALUE)<=1;
+const m=document.getElementById('msg');
+m.textContent=ok?'Applied':'Wrong level';m.className=ok?'':'bad';
+window.__state.ok=ok;});
+</script>
+</body>
+</html>

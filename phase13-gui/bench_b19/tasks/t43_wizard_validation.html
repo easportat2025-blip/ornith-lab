@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Provisioning wizard</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+label{display:block;margin:10px 0 3px;font-weight:600}
+input[type=text],select{width:340px;padding:8px;border:1px solid #b9c1d1;
+border-radius:6px;font-size:15px}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:10px}
+button:disabled{background:#aab3c6;cursor:not-allowed}
+#msg{margin-top:10px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Provisioning wizard</h2>
+<div class="note">Project: <b><span id="vPROJECT"></span></b> &middot;
+Region: <b><span id="vREGION"></span></b> &middot;
+Tier: <b><span id="vTIER"></span></b></div>
+<div id="s1">
+<label>Project name</label><input id="project" type="text" autocomplete="off">
+<button id="b1" disabled>Next</button></div>
+<div id="s2" class="hidden">
+<label>Region</label><select id="region"><option value="">(pick one)</option>
+<option>us-east</option><option>eu-west</option><option>ap-south</option></select>
+<label>Tier</label><select id="tier"><option value="">(pick one)</option>
+<option>Standard</option><option>Premium</option><option>Enterprise</option></select>
+<button id="b2" disabled>Next</button></div>
+<div id="s3" class="hidden">
+<label><input id="confirm" type="checkbox"> I confirm the settings</label>
+<button id="b3" disabled>Finish</button></div>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const PROJECT=R(['atlas','beacon','cobalt','delta']);
+const REGION=R(['us-east','eu-west','ap-south']);
+const TIER=R(['Standard','Premium','Enterprise']);
+window.__spec={vars:{PROJECT:PROJECT,REGION:REGION,TIER:TIER}};
+document.getElementById('vPROJECT').textContent=PROJECT;
+document.getElementById('vREGION').textContent=REGION;
+document.getElementById('vTIER').textContent=TIER;
+let step=1;
+const project=document.getElementById('project'),
+region=document.getElementById('region'),tier=document.getElementById('tier'),
+confirm=document.getElementById('confirm'),
+b1=document.getElementById('b1'),b2=document.getElementById('b2'),
+b3=document.getElementById('b3'),
+s1=document.getElementById('s1'),s2=document.getElementById('s2'),
+s3=document.getElementById('s3'),msg=document.getElementById('msg');
+function snap(){
+  window.__state={step:step,project:project.value,region:region.value,
+    tier:tier.value,confirm:!!confirm.checked,submitted:false};
+}
+function sync(){
+  b1.disabled=!project.value.trim();
+  b2.disabled=!(region.value&&tier.value);
+  b3.disabled=!confirm.checked;
+  snap();
+}
+project.addEventListener('input',sync);
+region.addEventListener('change',sync);
+tier.addEventListener('change',sync);
+confirm.addEventListener('change',sync);
+b1.addEventListener('click',()=>{
+  if(project.value!==PROJECT){
+    msg.textContent='Project name does not match';msg.className='bad';return;
+  }
+  msg.textContent='';msg.className='';step=2;s1.classList.add('hidden');
+  s2.classList.remove('hidden');sync();
+});
+b2.addEventListener('click',()=>{
+  if(region.value!==REGION||tier.value!==TIER){
+    msg.textContent='Region or tier does not match';msg.className='bad';return;
+  }
+  msg.textContent='';msg.className='';step=3;s2.classList.add('hidden');
+  s3.classList.remove('hidden');sync();
+});
+b3.addEventListener('click',()=>{
+  if(!confirm.checked){
+    msg.textContent='Please confirm';msg.className='bad';return;
+  }
+  window.__state.submitted=true;
+  const ok=(project.value===PROJECT&&region.value===REGION
+    &&tier.value===TIER&&confirm.checked);
+  msg.textContent=ok?'Provisioned':'Failed';msg.className=ok?'':'bad';
+  window.__state.ok=ok;window.__state.step=step;
+});
+sync();
+</script>
+</body>
+</html>

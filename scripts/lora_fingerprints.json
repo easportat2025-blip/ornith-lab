@@ -19,6 +19,11 @@
   "n_tensor": 256,
   "note": "v24 adapter used by bench v24 (B)"
  },
+ "dieniw/ornith-gui-lora-v26": {
+  "fp": "4e2c1a73cfb97c82d79af559895d59962ae65309806222e6b2a15dcef5e113f8",
+  "n_tensor": 256,
+  "note": "v26: v25b + THINK/ACTION + curated B15/B16 hard pack (29/10)"
+ },
  "khoadangnguye/ornith-gui-lora-v21": {
   "fp": "a4701de6b6ee62625ef16bdd9dfccc4e3bc335df32db9f612ef25573fb7b5172",
   "n_tensor": 256,

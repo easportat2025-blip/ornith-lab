@@ -26,7 +26,7 @@
   - Gate: parse/real/train-sub PASS; **traj FAIL (0.438 < 0.85)**.
 - **Adapter đã tải + publish**: `dieniw/ornith-gui-lora-v25b` (private,
   465.6 MB `adapter_model.safetensors`, kèm tokenizer/processor/README).
-- **v26 đã push + QUEUED (28/10 07:10Z)** `phase13-gui/kernel_v26`:
+- **v26 COMPLETE (28/10 09:19Z)** `phase13-gui/kernel_v26`:
   - Nền v25b + eval decode `EVAL_MAX=256` (sửa artifact traj 24 token).
   - Sửa lệch format: train `THINK: ...` + `ACTION: ...` khớp prompt eval
     B17/B18. v25b train action-only nên eval thinking ON sinh prose
@@ -34,19 +34,21 @@
   - Curated hard pack từ `ornith-policy-replay-data` (B15/B15.5/B16):
     13 task ×3 = **+498 row** — slider/drag, tab, scroll, wizard, clipboard,
     keyboard, distractor, undo/redo, filter, compute. **Không dùng B17/B18**.
-  - Watchdog đã push `dieniw/ornith-gui-sft-v26` lúc **07:10Z**; Kaggle báo
-    **QUEUED** (chờ GPU RTX). Chỉ 1 GPU session; B18 đã COMPLETE.
-  - Eval kernels đã chuẩn bị và đã vào queue (state `blocked`):
-    `phase13-gui/kernel_bench_b17_v26` → `dieniw/ornith-gui-bench-b17-v26`;
-    `phase13-gui/kernel_bench_b18_v26` → `dieniw/ornith-gui-bench-b18-v26`.
-    Watchdog tự push sau khi v26 COMPLETE + adapter `dieniw/ornith-gui-lora-v26`
-    READY. Post-train: `scripts/post_v26_adapter.ps1` (download/publish/fingerprint).
+  - Kết quả: `acc_before 0.640 -> acc_after 0.900`; train_sub **1.000**;
+    traj_sub **1.000**; real_before 0.952 -> real_after **1.000**;
+    n_train 9248; steps 1646; curated_hard 498; eval_max 256; t=7949s.
+  - Adapter đã publish: `dieniw/ornith-gui-lora-v26` (465.6 MB, fingerprint
+    `4e2c1a73...`); dataset READY. `gui_result.json` tải tay (watchdog outputs
+    0 do Kaggle 429 lúc auto-download).
+  - Eval kernels đã vào queue (state `blocked`): B17-v26, B18-v26, B19-v26;
+    watchdog tự push khi `after` v26 COMPLETE + `requires` adapter READY.
+    Post-train: `scripts/post_v26_adapter.ps1` (download/publish/fingerprint).
   - Watchdog fix: Kaggle trả "Cannot access kernel / Permission denied" cho
     kernel private chưa tồn tại; nay coi là `MISSING` để auto-push hoạt động.
     Test `tests/test_watchdog.py` PASS.
-  - Watchdog hỗ trợ optional `after` + `requires`: eval v26 đã nằm trong queue
-    nhưng bị `blocked` đến khi kernel v26 COMPLETE và dataset adapter
-    `dieniw/ornith-gui-lora-v26` READY. Không đẩy eval trước khi có adapter.
+  - Watchdog hỗ trợ optional `after` + `requires`: eval v26 bị `blocked` đến
+    khi kernel v26 COMPLETE và dataset adapter `dieniw/ornith-gui-lora-v26`
+    READY. Không đẩy eval trước khi có adapter.
 - **B18 hard holdout (28/10)**: dataset `dieniw/ornith-gui-bench-b18`
   **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **COMPLETE**.
   - 8 task / **42 episode**: 2 easy (T30 note-order, T33 error-retry) ×3 +
@@ -61,6 +63,13 @@
   - B17 v4 local: `bench_b17/tasks/tasks.json` giờ có **11 task** (T30–T40),
     self-test **11/11 PASS**; T39 đã thêm `__state.ok`, T40 giữ nguyên.
   - Không train trên B18; B18 là holdout mới.
+- **B19 hard holdout (29/10)** dataset `dieniw/ornith-gui-bench-b19` **READY**
+  (flat 10 file: `tasks.json`, `checker.py`, 8 HTML); **8 task ×6 = 48 episode**.
+  - Mechanism mới: nested scroll, precision drag, wizard validation,
+    keyboard-only, clipboard verify, dynamic filter, drag reorder, hover submenu.
+  - Checker + GT self-test **8/8 PASS**; static lint 0 lỗi; `pytest` có test B19.
+  - Kernel `dieniw/ornith-gui-bench-b19-v26` (RTX, offline) đã có metadata;
+    queue target `after` v26 + `requires` adapter v26; **không train trên B19**.
 - **Self-dispatch verified** trên `easportat2025-blip/ornith-lab` (public):
   watchdog `40437526534` lúc 02:17:00Z, `ops-tick` `40436536797` lúc 02:06:52Z,
   heartbeat `40437528438` lúc 02:17:01Z; issue #2 cập nhật 02:17:20Z.
@@ -232,36 +241,37 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
 1. **B18 quá dễ (W1 FAIL)** — v25b **14/42 = 0.3333 > 20%**. B18 vẫn là holdout
    cho v26, nhưng cần **B19** với mechanism khó hơn (nested scroll, precision
    drag, wizard validation, keyboard-only, clipboard verify, dynamic filter).
-   Không train trên B18; không chỉ hạ variant của task dễ.
-2. **v26 đang QUEUED** — watchdog đã push `dieniw/ornith-gui-sft-v26` lúc
-   07:10Z; chờ GPU RTX. Cần theo dõi train, tải `gui_result.json`, publish
-   adapter bằng `scripts/post_v26_adapter.ps1`, rồi để watchdog auto-push eval.
-3. **OpenCode free models 429** (`FreeUsageLimitError`) với cả key user và
+   B19 đã build + self-test 8/8; chờ eval v26. Không train trên B18/B19.
+2. **v26 đã COMPLETE, adapter READY** — `dieniw/ornith-gui-lora-v26` (465.6 MB)
+   đã publish. Eval B17/B18/B19-v26 đang chờ watchdog push (remote queue phải
+   có commit B19 mới). `gui_result.json` tải tay vì watchdog outputs 0/429.
+3. **Kaggle 429** khi list/download output; dùng Python API `page_size=100` +
+   retry, tránh gọi CLI liên tục. Watchdog có thể bỏ lỡ download một vòng.
+4. **OpenCode free models 429** (`FreeUsageLimitError`) với cả key user và
    `public`; key đã lưu, có thể thử lại sau.
-4. **DeepSeek 402** (hết balance), **Mistral 429** (rate limit).
-5. **HF Space PAUSED**, **HF Jobs 402** — không dùng scheduled jobs/relay được.
-6. **Completion dataset**: hiện chỉ có competition ARC-AGI-3; nếu “completion
+5. **DeepSeek 402** (hết balance), **Mistral 429** (rate limit).
+6. **HF Space PAUSED**, **HF Jobs 402** — không dùng scheduled jobs/relay được.
+7. **Completion dataset**: hiện chỉ có competition ARC-AGI-3; nếu “completion
    dataset” là dataset riêng thì cần tên chính xác để gắn thêm.
-7. **Local repo lệch remote**: local `master` tại `a5df1da`, remote `main` mới
+8. **Local repo lệch remote**: local `master` tại `a5df1da`, remote `main` mới
    hơn; `git push` HTTPS treo. Dùng `scripts/github_push_files.py`.
-8. **Dependabot**: #11 (actions) và #12 (pip/HF major) đều CI-green; đã comment
+9. **Dependabot**: #11 (actions) và #12 (pip/HF major) đều CI-green; đã comment
    defer đến sau v26 vì chạm ops workflow/HF stack. #8–#10 là bản trùng.
 
 ## Việc tiếp theo
-1. **Theo dõi v26**: `dieniw/ornith-gui-sft-v26` QUEUED → RUNNING → COMPLETE;
-   tải `gui_result.json`; kiểm tra format/parse/prose; publish adapter bằng
-   `scripts/post_v26_adapter.ps1`.
-2. **Eval v26**: sau adapter READY, watchdog tự push B17-v26 rồi B18-v26
-   (`after` + `requires`). So per-task với v25b; B18 W1 mục tiêu ≤10%.
-3. **Build B19**: thiết kế 8 task/48 episode với mechanism khó hơn B18; checker
-   self-test; dataset riêng; **không** dùng B18 task làm train.
+1. **Push B19 + queue**: commit B19 tasks/checker/kernel/self-test và queue
+   target `dieniw/ornith-gui-bench-b19-v26`; sau đó watchdog mới thấy B19.
+2. **Eval v26**: watchdog tự push B17-v26 → B18-v26 → B19-v26 (`after` +
+   `requires`). Tải `b17_result.json`, `b18_result.json`, `b19_result.json`;
+   so per-task với v25b. B18/B19 W1 mục tiêu ≤10%.
+3. **Gate v26**: holdout ≥35%, W1 ≤20% (mục tiêu ≤10%), parse ≥0.95, prose leak
+   ≤5%, traj ≥0.85; so per-task, không chỉ tổng. Nếu B19 vẫn >20%, tăng
+   mechanism khó, không train trên B19.
 4. **B17 v4**: local 11 task đã self-test 11/11; nếu cần so sánh, tạo
    dataset/kernel slug mới và chạy (không tái dùng slug v22).
-5. **Gate v26**: holdout ≥35%, W1 ≤20% (mục tiêu ≤10%), parse ≥0.95, prose leak
-   ≤5%, traj ≥0.85; so per-task, không chỉ tổng.
-6. Cập nhật `docs/HANDOFF.md` + `configs/kaggle_queue.json` sau mỗi thay đổi.
-7. Sync HF chat + code snapshot sau commit (workflow `hf-sync` hoặc chạy tay).
-8. Rotate PAT/API keys sau khi ổn định; giữ secrets chỉ trong GitHub/HF.
+5. Cập nhật `docs/HANDOFF.md` + `configs/kaggle_queue.json` sau mỗi thay đổi.
+6. Sync HF chat + code snapshot sau commit (workflow `hf-sync` hoặc chạy tay).
+7. Rotate PAT/API keys sau khi ổn định; giữ secrets chỉ trong GitHub/HF.
 
 ## Lệnh nhanh
 ```powershell

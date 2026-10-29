@@ -46,9 +46,10 @@ def test_wants_download_defaults():
                             {"kind": "eval"}) is False
 
 
-def test_default_result_pattern_covers_b18():
+def test_default_result_pattern_covers_b18_b19():
     import re
     assert re.search(w.DEFAULT_RESULT_PATTERN, "b18_result.json", re.I)
+    assert re.search(w.DEFAULT_RESULT_PATTERN, "b19_result.json", re.I)
     assert re.search(w.DEFAULT_RESULT_PATTERN, "b17_result.json", re.I)
     assert not re.search(w.DEFAULT_RESULT_PATTERN,
                          "adapter_model.safetensors", re.I)

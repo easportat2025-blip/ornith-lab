@@ -1,0 +1,75 @@
+{
+  "suite": "B19",
+  "version": 1,
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "action_space": "CLICK x y (0..1000 normalized) | TYPE text | KEY name | DONE | SCROLL n | MOVE x y | DRAG x1 y1 x2 y2",
+  "tasks": [
+    {
+      "task_id": "T41_nested_scroll",
+      "app": "t41_nested_scroll.html",
+      "instruction": "The archive has an outer category panel and an inner row panel. Scroll the outer panel to find the 'Hardware' category, then scroll the inner panel to the bottom and click the row whose code matches the note. Finally press Confirm.",
+      "capabilities": ["nested_scroll", "read_note", "click_row", "click_button", "target_below_fold"],
+      "spec_vars": ["CODE"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T42_precision_drag",
+      "app": "t42_precision_drag.html",
+      "instruction": "Set the threshold slider to the value shown in the note by dragging its handle. The scale marks are 0, 25, 50, 75 and 100. Then press Apply.",
+      "capabilities": ["drag", "read_note", "continuous_value", "click_button"],
+      "spec_vars": ["VALUE"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T43_wizard_validation",
+      "app": "t43_wizard_validation.html",
+      "instruction": "Complete the provisioning wizard in order. Type the project name from the note, choose the region and tier from the note, tick the confirmation box, then press Finish. Next stays disabled until each step is valid.",
+      "capabilities": ["multi_step", "form_validation", "type_text", "select_option", "checkbox", "click_button"],
+      "spec_vars": ["PROJECT", "REGION", "TIER"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T44_keyboard_only",
+      "app": "t44_keyboard_only.html",
+      "instruction": "Fill the form using only the keyboard: use Tab and Shift+Tab to move, type the name and email from the note, use the Arrow keys to choose the plan from the note, then press Enter to submit. Do not click with the mouse.",
+      "capabilities": ["keyboard_nav", "keyboard_select", "read_note", "type_text", "no_mouse_click"],
+      "spec_vars": ["NAME", "EMAIL", "PLAN"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T45_clipboard_verify",
+      "app": "t45_clipboard_verify.html",
+      "instruction": "Copy the Source text into the Target box using Ctrl+A, Ctrl+C, click Target and press Ctrl+V. Do not type the text. Then press Verify.",
+      "capabilities": ["clipboard", "keyboard_shortcut", "click_field", "click_button", "no_typing"],
+      "spec_vars": ["TEXT"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T46_dynamic_filter",
+      "app": "t46_dynamic_filter.html",
+      "instruction": "Type the person's name from the note into the search box to filter the list. Then click the matching row and press Select.",
+      "capabilities": ["type_text", "dynamic_filter", "read_note", "click_row", "click_button"],
+      "spec_vars": ["NAME"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T47_drag_reorder",
+      "app": "t47_drag_reorder.html",
+      "instruction": "Drag the item named in the note to the top of the list, then press Save.",
+      "capabilities": ["drag", "reorder", "read_note", "click_button"],
+      "spec_vars": ["ITEM"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "task_id": "T48_hover_submenu",
+      "app": "t48_hover_submenu.html",
+      "instruction": "Hover over the menu named in the note until its submenu appears, then click the requested submenu item. Do not click the top-level menu item.",
+      "capabilities": ["hover", "submenu", "read_note", "click_item"],
+      "spec_vars": ["MENU", "ITEM"],
+      "variants": [0, 1, 2, 3, 4, 5]
+    }
+  ]
+}

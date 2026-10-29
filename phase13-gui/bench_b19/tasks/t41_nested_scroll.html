@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Archive</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,sans-serif;
+background:#eef1f6;color:#1d2330;padding:18px}
+.card{background:#fff;border:1px solid #d6dbe6;border-radius:10px;
+padding:16px;max-width:760px}
+h2{font-size:18px;margin:0 0 8px}
+.note{background:#fff8e1;border:1px solid #e4cf88;border-radius:8px;
+padding:10px;margin:8px 0;font-family:ui-monospace,monospace}
+.note b{color:#8a6d1f}
+.outer{max-height:250px;overflow-y:auto;border:1px solid #b9c1d1;
+border-radius:6px;width:560px;margin-top:8px}
+.cat{padding:10px 12px;border-bottom:1px solid #eef0f4}
+.cat h3{font-size:15px;margin:0 0 6px;color:#33415c}
+.inner{max-height:110px;overflow-y:auto;border:1px solid #ccd3e0;
+border-radius:5px;margin-top:6px;width:500px}
+table{border-collapse:collapse;width:100%}
+td{border-bottom:1px solid #eef0f4;padding:5px 8px;font-size:14px}
+tr{cursor:pointer}tr:hover{background:#eef4ff}
+button{background:#3b6fd4;color:#fff;border:0;border-radius:6px;
+padding:9px 18px;font-size:15px;cursor:pointer;margin-top:8px}
+#msg{margin-top:8px;min-height:20px;color:#3b6fd4}
+#msg.bad{color:#b3261e}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Archive</h2>
+<div class="note">Target code: <b><span id="vCODE"></span></b></div>
+<div class="outer" id="outer">
+  <div class="cat"><h3>Network</h3><div>Router, switch and firewall snapshots.</div></div>
+  <div class="cat"><h3>Storage</h3><div>Volume, snapshot and backup records.</div></div>
+  <div class="cat"><h3>Security</h3><div>Audit and access review records.</div></div>
+  <div class="cat"><h3>Hardware</h3>
+    <div class="inner" id="inner"><table id="tb"></table></div>
+  </div>
+  <div class="cat"><h3>Firmware</h3><div>Signed firmware bundles.</div></div>
+  <div class="cat"><h3>Logs</h3><div>Archived system logs.</div></div>
+  <div class="cat"><h3>Retention</h3><div>Retention policy notes.</div></div>
+  <div class="cat"><h3>Legal hold</h3><div>Legal hold records.</div></div>
+</div>
+<button id="sub" style="position:fixed;right:20px;bottom:20px">Confirm</button>
+<div id="msg"></div>
+</div>
+<script>
+function R(a){return a[Math.floor(Math.random()*a.length)]}
+const ROWS=12;
+const idx=8+Math.floor(Math.random()*(ROWS-7));
+const codes=[];for(let i=1;i<=ROWS;i++)codes.push(
+  R(['Z','Q','H','M','B','K'])+'-'+(2000+i*11+Math.floor(Math.random()*7)));
+const CODE=codes[idx-1];
+window.__spec={vars:{CODE:CODE}};
+document.getElementById('vCODE').textContent=CODE;
+const tb=document.getElementById('tb');
+for(let i=1;i<=ROWS;i++){
+  const tr=document.createElement('tr');
+  const code=codes[i-1];
+  tr.innerHTML='<td>Row '+i+'</td><td>'+code+'</td><td>slot '+(i+2)+'</td>';
+  tr.addEventListener('click',()=>{
+    window.__state.clicked=tr.cells[1].textContent;
+  });
+  tb.appendChild(tr);
+}
+window.__state={clicked:'',submitted:false,outer_scroll:0,inner_scroll:0};
+const outer=document.getElementById('outer');
+const inner=document.getElementById('inner');
+outer.addEventListener('scroll',()=>{
+  window.__state.outer_scroll=Math.max(window.__state.outer_scroll,outer.scrollTop);
+});
+inner.addEventListener('scroll',()=>{
+  window.__state.inner_scroll=Math.max(window.__state.inner_scroll,inner.scrollTop);
+});
+document.getElementById('sub').addEventListener('click',()=>{
+  window.__state.submitted=true;
+  const ok=window.__state.clicked===CODE;
+  const m=document.getElementById('msg');
+  m.textContent=ok?'Confirmed':'Wrong row';
+  m.className=ok?'':'bad';
+  window.__state.ok=ok;
+});
+</script>
+</body>
+</html>
