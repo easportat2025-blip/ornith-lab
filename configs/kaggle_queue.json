@@ -38,21 +38,21 @@
       "ref": "dieniw/ornith-gui-bench-b17-v26",
       "path": "phase13-gui/kernel_bench_b17_v26",
       "kind": "eval",
-      "state": "active",
+      "state": "done",
       "download_results": true,
       "after": "dieniw/ornith-gui-sft-v26",
       "requires": "dieniw/ornith-gui-lora-v26",
-      "note": "RUNNING since 2026-10-29T04:10Z (manual push; watchdog auto-push was blocked by Kaggle 429 on dataset files). Uses adapter dieniw/ornith-gui-lora-v26; never train on B17."
+      "note": "B17-v26 COMPLETE 2026-10-29T~04:45Z: 16/27 = 0.5926; parse 1.000; prose_leak 1.0 (thinking-ON artifact); mean_new 34.5; t=1878s. T34 tab 3/3 improved; T38 1/3 regressed; T31/T32/T36 still 0/3. Adapter v26. Never train on B17."
     },
     {
       "ref": "dieniw/ornith-gui-bench-b18-v26",
       "path": "phase13-gui/kernel_bench_b18_v26",
       "kind": "eval",
-      "state": "pending",
+      "state": "active",
       "download_results": true,
       "after": "dieniw/ornith-gui-sft-v26",
       "requires": "dieniw/ornith-gui-lora-v26",
-      "note": "v26 eval on B18 hard holdout; blocked until the v26 adapter dataset is published. Never train on B18."
+      "note": "Pushed by watchdog 2026-10-29T04:45Z; QUEUED. Uses adapter v26. B18 is too easy; measure W1, never train."
     },
     {
       "ref": "dieniw/ornith-gui-bench-b19-v26",

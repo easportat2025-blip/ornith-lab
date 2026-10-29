@@ -49,11 +49,14 @@
   - Watchdog hỗ trợ optional `after` + `requires`: eval v26 bị `blocked` đến
     khi kernel v26 COMPLETE và dataset adapter `dieniw/ornith-gui-lora-v26`
     READY. Không đẩy eval trước khi có adapter.
-- **B17-v26 RUNNING (29/10 04:10Z)**: adapter v26 load OK
-  (`/kaggle/input/datasets/dieniw/ornith-gui-lora-v26`); B17 suite 27 episode;
-  watchdog active. `b17_result.json` chưa có. Lưu ý: khi `ORNI_THINK=1`,
-  `prose_leak` đang đếm phần think-block là prose (raw có `</think>`, không có
-  marker `THINK:`); muốn đo prose thật phải eval `ORNI_THINK=0` hoặc sửa metric.
+- **B17-v26 COMPLETE (29/10 ~04:45Z)**: adapter v26 load OK; B17 suite 27
+  episode. Kết quả **16/27 = 0.5926** (v25b 15/27 = 0.5556); parse **1.000**
+  (v25b 0.851); prose_leak **1.0** (thinking-ON, xem lưu ý); mean_new 34.5;
+  t=1878s. T34 tab **3/3** (v25b 0/3, cải thiện); T38 recovery **1/3** (v25b
+  3/3, regression); T31 scroll/T32 drag/T36 wizard vẫn **0/3**. `b17_result.json`
+  đã tải. Lưu ý: khi `ORNI_THINK=1`, `prose_leak` đang đếm phần think-block là
+  prose (raw có `</think>`, không có marker `THINK:`); B19 dùng `ORNI_THINK=0`
+  để đo prose thật.
 - **B18 hard holdout (28/10)**: dataset `dieniw/ornith-gui-bench-b18`
   **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **COMPLETE**.
   - 8 task / **42 episode**: 2 easy (T30 note-order, T33 error-retry) ×3 +
@@ -247,10 +250,11 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    cho v26, nhưng cần **B19** với mechanism khó hơn (nested scroll, precision
    drag, wizard validation, keyboard-only, clipboard verify, dynamic filter).
    B19 đã build + self-test 8/8; chờ eval v26. Không train trên B18/B19.
-2. **v26 đã COMPLETE, adapter READY** — `dieniw/ornith-gui-lora-v26` (465.6 MB)
-   đã publish. **B17-v26 đang RUNNING** từ 04:10Z (push tay vì watchdog bị
-   Kaggle 429 ở `datasets files`); B18-v26/B19-v26 pending, watchdog sẽ tự
-   push sau khi B17 xong. `gui_result.json` tải tay vì watchdog outputs 0/429.
+2. **v26 adapter READY; B17-v26 COMPLETE** — `dieniw/ornith-gui-lora-v26`
+   (465.6 MB) published; **B17-v26 16/27 = 0.5926**, parse 1.0. **B18-v26
+   QUEUED** (watchdog pushed 04:45Z); **B19-v26 pending** (watchdog pushes
+   after B18; B19 eval defaults `ORNI_THINK=0`). `gui_result.json` tải tay
+   vì watchdog outputs 0/429.
 3. **Kaggle 429** khi list/download output; watchdog đã thêm retry/cache cho
    `dataset_ready` và `download_results` (commit `44f5189`). Vẫn dùng Python
    API `page_size=100` cho file lớn; tránh gọi CLI liên tục.
@@ -266,12 +270,12 @@ thật. v26 nên nâng eval lên 256–512 token và đo lại traj trước khi
    defer đến sau v26 vì chạm ops workflow/HF stack. #8–#10 là bản trùng.
 
 ## Việc tiếp theo
-1. **Theo dõi B17-v26** (`RUNNING`): tải `b17_result.json` khi COMPLETE; kiểm
-   tra parse/prose/traj/per-task. B18/B19 đã có trong queue + dataset READY;
-   watchdog tự push sau B17. B19 kernel flat-dataset đã sẵn sàng.
-2. **Eval v26**: B17-v26 → B18-v26 → B19-v26 (`after` + `requires`). Tải
-   `b17_result.json`, `b18_result.json`, `b19_result.json`; so per-task với
-   v25b. B18/B19 W1 mục tiêu ≤10%.
+1. **Theo dõi B18-v26** (`QUEUED`): tải `b18_result.json` khi COMPLETE; kiểm
+   tra W1/per-task. Sau đó watchdog push **B19-v26** (flat dataset, 48 episode,
+   `ORNI_THINK=0`); tải `b19_result.json`.
+2. **Eval v26**: B17-v26 (16/27) → B18-v26 → B19-v26 (`after` + `requires`).
+   So per-task với v25b. B18/B19 W1 mục tiêu ≤10%; B17 đã pass holdout ≥35%,
+   parse 1.0, nhưng prose metric thinking-ON còn 1.0.
 3. **Gate v26**: holdout ≥35%, W1 ≤20% (mục tiêu ≤10%), parse ≥0.95, prose leak
    ≤5%, traj ≥0.85; so per-task, không chỉ tổng. Nếu B19 vẫn >20%, tăng
    mechanism khó, không train trên B19.
