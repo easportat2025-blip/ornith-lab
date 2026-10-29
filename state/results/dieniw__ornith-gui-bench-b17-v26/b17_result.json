@@ -1,0 +1,4272 @@
+{
+ "suite": "B17",
+ "runner": "internal",
+ "n": 27,
+ "wins": 16,
+ "win_rate": 0.5925925925925926,
+ "by_task": {
+  "T30_note_order": {
+   "win": 3,
+   "n": 3
+  },
+  "T31_scroll_code": {
+   "win": 0,
+   "n": 3
+  },
+  "T32_drag_slider": {
+   "win": 0,
+   "n": 3
+  },
+  "T33_error_retry": {
+   "win": 3,
+   "n": 3
+  },
+  "T34_tab_nav": {
+   "win": 3,
+   "n": 3
+  },
+  "T35_hover_code": {
+   "win": 3,
+   "n": 3
+  },
+  "T36_wizard_steps": {
+   "win": 0,
+   "n": 3
+  },
+  "T38_recovery": {
+   "win": 1,
+   "n": 3
+  },
+  "T37_terms_guard": {
+   "win": 3,
+   "n": 3
+  }
+ },
+ "agg": {
+  "steps": 211,
+  "modes": {
+   "action": 211,
+   "legacy": 0,
+   "none": 0
+  },
+  "parse_rate": 1.0,
+  "prose_leak_rate": 1.0,
+  "mean_new": 34.5
+ },
+ "adapter": "/kaggle/input/datasets/dieniw/ornith-gui-lora-v26",
+ "adapter_strategy": "PeftModel (changed)",
+ "reason_max": 512,
+ "episodes": [
+  {
+   "win": true,
+   "steps": 6,
+   "instr": "Fill Field A and Field B with the values listed in the note box (the note lists them in the opposite order to the fields). Leave Field C empty, then press Submit.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 260",
+     "act": [
+      "click",
+      [
+       151,
+       260
+      ]
+     ],
+     "res": "clicked (193,187)",
+     "success": false,
+     "reason": "field A = gia tri trong note; field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.15
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Casey",
+     "act": [
+      "type",
+      "Casey"
+     ],
+     "res": "typed 'Casey'",
+     "success": false,
+     "reason": "field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 33,
+     "dt": 6.48
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 347",
+     "act": [
+      "click",
+      [
+       151,
+       347
+      ]
+     ],
+     "res": "clicked (193,250)",
+     "success": false,
+     "reason": "field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 3,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE K7-221",
+     "act": [
+      "type",
+      "K7-221"
+     ],
+     "res": "typed 'K7-221'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 37,
+     "dt": 7.27
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 450",
+     "act": [
+      "click",
+      [
+       151,
+       450
+      ]
+     ],
+     "res": "clicked (193,324)",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 448",
+     "act": [
+      "click",
+      [
+       312,
+       448
+      ]
+     ],
+     "res": "clicked (399,323)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    }
+   ],
+   "task_id": "T30_note_order",
+   "variant": 0
+  },
+  {
+   "win": true,
+   "steps": 6,
+   "instr": "Fill Field A and Field B with the values listed in the note box (the note lists them in the opposite order to the fields). Leave Field C empty, then press Submit.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 260",
+     "act": [
+      "click",
+      [
+       151,
+       260
+      ]
+     ],
+     "res": "clicked (193,187)",
+     "success": false,
+     "reason": "field A = gia tri trong note; field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Robin",
+     "act": [
+      "type",
+      "Robin"
+     ],
+     "res": "typed 'Robin'",
+     "success": false,
+     "reason": "field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 33,
+     "dt": 6.48
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 345",
+     "act": [
+      "click",
+      [
+       151,
+       345
+      ]
+     ],
+     "res": "clicked (193,248)",
+     "success": false,
+     "reason": "field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 3,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE K7-221",
+     "act": [
+      "type",
+      "K7-221"
+     ],
+     "res": "typed 'K7-221'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 37,
+     "dt": 7.27
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 449",
+     "act": [
+      "click",
+      [
+       152,
+       449
+      ]
+     ],
+     "res": "clicked (195,323)",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 448",
+     "act": [
+      "click",
+      [
+       312,
+       448
+      ]
+     ],
+     "res": "clicked (399,323)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    }
+   ],
+   "task_id": "T30_note_order",
+   "variant": 1
+  },
+  {
+   "win": true,
+   "steps": 6,
+   "instr": "Fill Field A and Field B with the values listed in the note box (the note lists them in the opposite order to the fields). Leave Field C empty, then press Submit.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 260",
+     "act": [
+      "click",
+      [
+       151,
+       260
+      ]
+     ],
+     "res": "clicked (193,187)",
+     "success": false,
+     "reason": "field A = gia tri trong note; field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Morgan",
+     "act": [
+      "type",
+      "Morgan"
+     ],
+     "res": "typed 'Morgan'",
+     "success": false,
+     "reason": "field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 33,
+     "dt": 6.49
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 348",
+     "act": [
+      "click",
+      [
+       151,
+       348
+      ]
+     ],
+     "res": "clicked (193,251)",
+     "success": false,
+     "reason": "field B = gia tri trong note; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 3,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE P8-063",
+     "act": [
+      "type",
+      "P8-063"
+     ],
+     "res": "typed 'P8-063'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 23,
+     "dt": 4.51
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 450",
+     "act": [
+      "click",
+      [
+       151,
+       450
+      ]
+     ],
+     "res": "clicked (193,324)",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 449",
+     "act": [
+      "click",
+      [
+       312,
+       449
+      ]
+     ],
+     "res": "clicked (399,323)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    }
+   ],
+   "task_id": "T30_note_order",
+   "variant": 2
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "The archive list sits inside a scrollable panel. Scroll down to the bottom of the list, then click the row whose code matches the note, then press Confirm.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.09
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 500 393",
+     "act": [
+      "click",
+      [
+       500,
+       393
+      ]
+     ],
+     "res": "clicked (640,283)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    }
+   ],
+   "task_id": "T31_scroll_code",
+   "variant": 0
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "The archive list sits inside a scrollable panel. Scroll down to the bottom of the list, then click the row whose code matches the note, then press Confirm.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 254",
+     "act": [
+      "click",
+      [
+       330,
+       254
+      ]
+     ],
+     "res": "clicked (422,183)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    }
+   ],
+   "task_id": "T31_scroll_code",
+   "variant": 1
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "The archive list sits inside a scrollable panel. Scroll down to the bottom of the list, then click the row whose code matches the note, then press Confirm.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 330 331",
+     "act": [
+      "click",
+      [
+       330,
+       331
+      ]
+     ],
+     "res": "clicked (422,238)",
+     "success": false,
+     "reason": "click dung dong co code; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.08
+    }
+   ],
+   "task_id": "T31_scroll_code",
+   "variant": 2
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Set the sensitivity slider to the value shown in the note by dragging its handle, then press Apply.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 49 190 302 190",
+     "act": [
+      "drag",
+      [
+       49,
+       190,
+       302,
+       190
+      ]
+     ],
+     "res": "dragged (63,137)->(387,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 1,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 304 189 326 189",
+     "act": [
+      "drag",
+      [
+       304,
+       189,
+       326,
+       189
+      ]
+     ],
+     "res": "dragged (389,136)->(417,136)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 2,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 189 332 189",
+     "act": [
+      "drag",
+      [
+       305,
+       189,
+       332,
+       189
+      ]
+     ],
+     "res": "dragged (390,136)->(425,136)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 3,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 4,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 5,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 6,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 7,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 8,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 9,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 10,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 11,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 305 190 330 190",
+     "act": [
+      "drag",
+      [
+       305,
+       190,
+       330,
+       190
+      ]
+     ],
+     "res": "dragged (390,137)->(422,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    }
+   ],
+   "task_id": "T32_drag_slider",
+   "variant": 0
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Set the sensitivity slider to the value shown in the note by dragging its handle, then press Apply.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 49 190 189 190",
+     "act": [
+      "drag",
+      [
+       49,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (63,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 1,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 107 189 189 189",
+     "act": [
+      "drag",
+      [
+       107,
+       189,
+       189,
+       189
+      ]
+     ],
+     "res": "dragged (137,136)->(242,136)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 2,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 73 190 189 190",
+     "act": [
+      "drag",
+      [
+       73,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (93,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 3,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 85 190 189 190",
+     "act": [
+      "drag",
+      [
+       85,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (109,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 4,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 65 190 124 190",
+     "act": [
+      "drag",
+      [
+       65,
+       190,
+       124,
+       190
+      ]
+     ],
+     "res": "dragged (83,137)->(159,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 5,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 6,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 7,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 8,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 9,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 10,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 11,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    }
+   ],
+   "task_id": "T32_drag_slider",
+   "variant": 1
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Set the sensitivity slider to the value shown in the note by dragging its handle, then press Apply.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 49 190 189 190",
+     "act": [
+      "drag",
+      [
+       49,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (63,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 1,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 107 189 189 189",
+     "act": [
+      "drag",
+      [
+       107,
+       189,
+       189,
+       189
+      ]
+     ],
+     "res": "dragged (137,136)->(242,136)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 52,
+     "dt": 10.19
+    },
+    {
+     "t": 2,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 73 190 189 190",
+     "act": [
+      "drag",
+      [
+       73,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (93,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 3,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 85 190 189 190",
+     "act": [
+      "drag",
+      [
+       85,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (109,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 4,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 65 190 124 190",
+     "act": [
+      "drag",
+      [
+       65,
+       190,
+       124,
+       190
+      ]
+     ],
+     "res": "dragged (83,137)->(159,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 5,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 6,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 7,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 8,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 9,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 10,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    },
+    {
+     "t": 11,
+     "raw": "I will drag from the start point to the end point.\n</think>\n\nTHINK: I will drag from the start point to the end point.\nACTION: DRAG 63 190 189 190",
+     "act": [
+      "drag",
+      [
+       63,
+       190,
+       189,
+       190
+      ]
+     ],
+     "res": "dragged (81,137)->(242,137)",
+     "success": false,
+     "reason": "gia tri slider = gia tri trong note; vi tri knob khop gia tri (doc lai); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 57,
+     "n_new": 51,
+     "dt": 9.99
+    }
+   ],
+   "task_id": "T32_drag_slider",
+   "variant": 2
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Type the setup code from the note into the code box and press Submit. If the app reports an error, press Submit once more without changing the value.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 222",
+     "act": [
+      "click",
+      [
+       152,
+       222
+      ]
+     ],
+     "res": "clicked (195,160)",
+     "success": false,
+     "reason": "gia tri khoi tao khong doi; da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE BK-3384",
+     "act": [
+      "type",
+      "BK-3384"
+     ],
+     "res": "typed 'BK-3384'",
+     "success": false,
+     "reason": "da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 38,
+     "dt": 7.46
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 222",
+     "act": [
+      "click",
+      [
+       312,
+       222
+      ]
+     ],
+     "res": "clicked (399,160)",
+     "success": false,
+     "reason": "da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 222",
+     "act": [
+      "click",
+      [
+       312,
+       222
+      ]
+     ],
+     "res": "clicked (399,160)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    }
+   ],
+   "task_id": "T33_error_retry",
+   "variant": 0
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Type the setup code from the note into the code box and press Submit. If the app reports an error, press Submit once more without changing the value.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 222",
+     "act": [
+      "click",
+      [
+       152,
+       222
+      ]
+     ],
+     "res": "clicked (195,160)",
+     "success": false,
+     "reason": "gia tri khoi tao khong doi; da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE BK-3384",
+     "act": [
+      "type",
+      "BK-3384"
+     ],
+     "res": "typed 'BK-3384'",
+     "success": false,
+     "reason": "da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 38,
+     "dt": 7.45
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 222",
+     "act": [
+      "click",
+      [
+       312,
+       222
+      ]
+     ],
+     "res": "clicked (399,160)",
+     "success": false,
+     "reason": "da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 222",
+     "act": [
+      "click",
+      [
+       312,
+       222
+      ]
+     ],
+     "res": "clicked (399,160)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    }
+   ],
+   "task_id": "T33_error_retry",
+   "variant": 1
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Type the setup code from the note into the code box and press Submit. If the app reports an error, press Submit once more without changing the value.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 222",
+     "act": [
+      "click",
+      [
+       152,
+       222
+      ]
+     ],
+     "res": "clicked (195,160)",
+     "success": false,
+     "reason": "gia tri khoi tao khong doi; da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE BK-3384",
+     "act": [
+      "type",
+      "BK-3384"
+     ],
+     "res": "typed 'BK-3384'",
+     "success": false,
+     "reason": "da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 60,
+     "n_new": 38,
+     "dt": 7.45
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 222",
+     "act": [
+      "click",
+      [
+       312,
+       222
+      ]
+     ],
+     "res": "clicked (399,160)",
+     "success": false,
+     "reason": "da submit >= 2 lan (thu lai); lan cuoi bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 312 222",
+     "act": [
+      "click",
+      [
+       312,
+       222
+      ]
+     ],
+     "res": "clicked (399,160)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.07
+    }
+   ],
+   "task_id": "T33_error_retry",
+   "variant": 2
+  },
+  {
+   "win": true,
+   "steps": 8,
+   "instr": "Fill the three fields with the values from the note using the Tab key to move between them, then press Enter to submit. Do not click the fields with the mouse.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 1 dung gia tri; field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Lindqvist\nTHINK: I will press the required key.\nACTION: KEY Tab\nTHINK: I will press the required key.\nACTION: KEY Tab\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Rei\nTHINK: I will press the required key.\nACTION: KEY Tab\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Lima\nTHINK: I will press the required key.\nACTION: KEY Enter",
+     "act": [
+      "key",
+      "enter"
+     ],
+     "res": "key Enter",
+     "success": false,
+     "reason": "field 1 dung gia tri; field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 328,
+     "n_new": 138,
+     "dt": 27.61
+    },
+    {
+     "t": 2,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Lindqvist\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Lindqvist",
+     "act": [
+      "type",
+      "Lindqvist"
+     ],
+     "res": "typed 'Lindqvist'",
+     "success": false,
+     "reason": "field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 43,
+     "dt": 8.46
+    },
+    {
+     "t": 3,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 4,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Rei\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Rei",
+     "act": [
+      "type",
+      "Rei"
+     ],
+     "res": "typed 'Rei'",
+     "success": false,
+     "reason": "field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 39,
+     "dt": 7.67
+    },
+    {
+     "t": 5,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 6,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Lima\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Lima",
+     "act": [
+      "type",
+      "Lima"
+     ],
+     "res": "typed 'Lima'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 39,
+     "dt": 7.67
+    },
+    {
+     "t": 7,
+     "raw": "I will press the required key.\nACTION: KEY Enter",
+     "act": [
+      "key",
+      "enter"
+     ],
+     "res": "key Enter",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    }
+   ],
+   "task_id": "T34_tab_nav",
+   "variant": 0
+  },
+  {
+   "win": true,
+   "steps": 8,
+   "instr": "Fill the three fields with the values from the note using the Tab key to move between them, then press Enter to submit. Do not click the fields with the mouse.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 1 dung gia tri; field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Okafor\nTHINK: I will press the required key.\nACTION: KEY Tab\nTHINK: I will press the required key.\nACTION: KEY Tab\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Idris\nTHINK: I will press the required key.\nACTION: KEY Tab\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Lima\nTHINK: I will press the required key.\nACTION: KEY Enter",
+     "act": [
+      "key",
+      "enter"
+     ],
+     "res": "key Enter",
+     "success": false,
+     "reason": "field 1 dung gia tri; field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 328,
+     "n_new": 140,
+     "dt": 28.02
+    },
+    {
+     "t": 2,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Okafor\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Okafor",
+     "act": [
+      "type",
+      "Okafor"
+     ],
+     "res": "typed 'Okafor'",
+     "success": false,
+     "reason": "field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 43,
+     "dt": 8.46
+    },
+    {
+     "t": 3,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 4,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Idris\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Idris",
+     "act": [
+      "type",
+      "Idris"
+     ],
+     "res": "typed 'Idris'",
+     "success": false,
+     "reason": "field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 43,
+     "dt": 8.46
+    },
+    {
+     "t": 5,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 6,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Lima\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Lima",
+     "act": [
+      "type",
+      "Lima"
+     ],
+     "res": "typed 'Lima'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 39,
+     "dt": 7.67
+    },
+    {
+     "t": 7,
+     "raw": "I will press the required key.\nACTION: KEY Enter",
+     "act": [
+      "key",
+      "enter"
+     ],
+     "res": "key Enter",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    }
+   ],
+   "task_id": "T34_tab_nav",
+   "variant": 1
+  },
+  {
+   "win": true,
+   "steps": 7,
+   "instr": "Fill the three fields with the values from the note using the Tab key to move between them, then press Enter to submit. Do not click the fields with the mouse.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 1 dung gia tri; field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Okafor\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Okafor",
+     "act": [
+      "type",
+      "Okafor"
+     ],
+     "res": "typed 'Okafor'",
+     "success": false,
+     "reason": "field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 43,
+     "dt": 8.46
+    },
+    {
+     "t": 2,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 2 dung gia tri; field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 3,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Idris\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Idris",
+     "act": [
+      "type",
+      "Idris"
+     ],
+     "res": "typed 'Idris'",
+     "success": false,
+     "reason": "field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 43,
+     "dt": 8.46
+    },
+    {
+     "t": 4,
+     "raw": "I will press the required key.\nACTION: KEY Tab",
+     "act": [
+      "key",
+      "tab"
+     ],
+     "res": "key Tab",
+     "success": false,
+     "reason": "field 3 dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 14,
+     "dt": 2.75
+    },
+    {
+     "t": 5,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Bergen\n</think>\n\nTHINK: I will type the required text into the focused field.\nACTION: TYPE Bergen",
+     "act": [
+      "type",
+      "Bergen"
+     ],
+     "res": "typed 'Bergen'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 2,
+     "think_chars": 60,
+     "n_new": 39,
+     "dt": 7.67
+    },
+    {
+     "t": 6,
+     "raw": "I will press the required key.\nACTION: KEY Enter",
+     "act": [
+      "key",
+      "enter"
+     ],
+     "res": "key Enter",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 13,
+     "dt": 2.55
+    }
+   ],
+   "task_id": "T34_tab_nav",
+   "variant": 2
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Move the pointer over the card named Serial to reveal its code, type the code into the box, then press Verify.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 146 205",
+     "act": [
+      "click",
+      [
+       146,
+       205
+      ]
+     ],
+     "res": "clicked (187,148)",
+     "success": false,
+     "reason": "code dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.05
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 326",
+     "act": [
+      "click",
+      [
+       152,
+       326
+      ]
+     ],
+     "res": "clicked (195,235)",
+     "success": false,
+     "reason": "code dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    },
+    {
+     "t": 2,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE H-3307",
+     "act": [
+      "type",
+      "H-3307"
+     ],
+     "res": "typed 'H-3307'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 23,
+     "dt": 4.5
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 310 326",
+     "act": [
+      "click",
+      [
+       310,
+       326
+      ]
+     ],
+     "res": "clicked (397,235)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    }
+   ],
+   "task_id": "T35_hover_code",
+   "variant": 0
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Move the pointer over the card named Serial to reveal its code, type the code into the box, then press Verify.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 146 205",
+     "act": [
+      "click",
+      [
+       146,
+       205
+      ]
+     ],
+     "res": "clicked (187,148)",
+     "success": false,
+     "reason": "code dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 326",
+     "act": [
+      "click",
+      [
+       152,
+       326
+      ]
+     ],
+     "res": "clicked (195,235)",
+     "success": false,
+     "reason": "code dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    },
+    {
+     "t": 2,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE L-6650",
+     "act": [
+      "type",
+      "L-6650"
+     ],
+     "res": "typed 'L-6650'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 23,
+     "dt": 4.5
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 310 326",
+     "act": [
+      "click",
+      [
+       310,
+       326
+      ]
+     ],
+     "res": "clicked (397,235)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    }
+   ],
+   "task_id": "T35_hover_code",
+   "variant": 1
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Move the pointer over the card named Serial to reveal its code, type the code into the box, then press Verify.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 146 205",
+     "act": [
+      "click",
+      [
+       146,
+       205
+      ]
+     ],
+     "res": "clicked (187,148)",
+     "success": false,
+     "reason": "code dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 152 326",
+     "act": [
+      "click",
+      [
+       152,
+       326
+      ]
+     ],
+     "res": "clicked (195,235)",
+     "success": false,
+     "reason": "code dung gia tri; thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    },
+    {
+     "t": 2,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE D-1183",
+     "act": [
+      "type",
+      "D-1183"
+     ],
+     "res": "typed 'D-1183'",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 23,
+     "dt": 4.5
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 310 326",
+     "act": [
+      "click",
+      [
+       310,
+       326
+      ]
+     ],
+     "res": "clicked (397,235)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.06
+    }
+   ],
+   "task_id": "T35_hover_code",
+   "variant": 2
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Complete the wizard in order: on step 1 pick the plan named in the note and press Next, on step 2 pick the add-on named in the note and press Next, then on step 3 press Finish.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.93
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    }
+   ],
+   "task_id": "T36_wizard_steps",
+   "variant": 0
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Complete the wizard in order: on step 1 pick the plan named in the note and press Next, on step 2 pick the add-on named in the note and press Next, then on step 3 press Finish.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    }
+   ],
+   "task_id": "T36_wizard_steps",
+   "variant": 1
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Complete the wizard in order: on step 1 pick the plan named in the note and press Next, on step 2 pick the add-on named in the note and press Next, then on step 3 press Finish.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 222",
+     "act": [
+      "click",
+      [
+       61,
+       222
+      ]
+     ],
+     "res": "clicked (78,160)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 61 288",
+     "act": [
+      "click",
+      [
+       61,
+       288
+      ]
+     ],
+     "res": "clicked (78,207)",
+     "success": false,
+     "reason": "buoc cuoi (3); plan dung gia tri; add-on dung gia tri",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.92
+    }
+   ],
+   "task_id": "T36_wizard_steps",
+   "variant": 2
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Open the Device Setup page. The support note shows a feature code. Click the Enable button on the row whose feature code matches the note. If a control does not respond, try a different control instea",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    }
+   ],
+   "task_id": "T38_recovery",
+   "variant": 0
+  },
+  {
+   "win": true,
+   "steps": 2,
+   "instr": "Open the Device Setup page. The support note shows a feature code. Click the Enable button on the row whose feature code matches the note. If a control does not respond, try a different control instea",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 480",
+     "act": [
+      "click",
+      [
+       239,
+       480
+      ]
+     ],
+     "res": "clicked (306,346)",
+     "success": false,
+     "reason": "da enable (bam dung control); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 333 474",
+     "act": [
+      "click",
+      [
+       333,
+       474
+      ]
+     ],
+     "res": "clicked (426,341)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    }
+   ],
+   "task_id": "T38_recovery",
+   "variant": 1
+  },
+  {
+   "win": false,
+   "steps": 12,
+   "instr": "Open the Device Setup page. The support note shows a feature code. Click the Enable button on the row whose feature code matches the note. If a control does not respond, try a different control instea",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 250",
+     "act": [
+      "click",
+      [
+       239,
+       250
+      ]
+     ],
+     "res": "clicked (306,180)",
+     "success": false,
+     "reason": "da enable (bam dung control); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 1,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 333 326",
+     "act": [
+      "click",
+      [
+       333,
+       326
+      ]
+     ],
+     "res": "clicked (426,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 4,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 5,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 6,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 7,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 8,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 9,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 10,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    },
+    {
+     "t": 11,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 239 326",
+     "act": [
+      "click",
+      [
+       239,
+       326
+      ]
+     ],
+     "res": "clicked (306,235)",
+     "success": false,
+     "reason": "da enable (bam dung control); KHONG lap control no-op (tries <= 2); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.13
+    }
+   ],
+   "task_id": "T38_recovery",
+   "variant": 2
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Type the document title from the note into the Title box, tick the 'I have read the terms' checkbox, then press Save. The Save button stays disabled until the box is ticked.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 210",
+     "act": [
+      "click",
+      [
+       151,
+       210
+      ]
+     ],
+     "res": "clicked (193,151)",
+     "success": false,
+     "reason": "tieu de dung gia tri; da tick dong nho (terms); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.1
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Q3 report",
+     "act": [
+      "type",
+      "Q3 report"
+     ],
+     "res": "typed 'Q3 report'",
+     "success": false,
+     "reason": "da tick dong nho (terms); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 20,
+     "dt": 3.92
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 35 260",
+     "act": [
+      "click",
+      [
+       35,
+       260
+      ]
+     ],
+     "res": "clicked (45,187)",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.9
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nACTION: CLICK 56 318",
+     "act": [
+      "click",
+      [
+       56,
+       318
+      ]
+     ],
+     "res": "clicked (72,229)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 19,
+     "dt": 3.72
+    }
+   ],
+   "task_id": "T37_terms_guard",
+   "variant": 0
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Type the document title from the note into the Title box, tick the 'I have read the terms' checkbox, then press Save. The Save button stays disabled until the box is ticked.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 210",
+     "act": [
+      "click",
+      [
+       151,
+       210
+      ]
+     ],
+     "res": "clicked (193,151)",
+     "success": false,
+     "reason": "tieu de dung gia tri; da tick dong nho (terms); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.1
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Field notes",
+     "act": [
+      "type",
+      "Field notes"
+     ],
+     "res": "typed 'Field notes'",
+     "success": false,
+     "reason": "da tick dong nho (terms); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 19,
+     "dt": 3.72
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 35 260",
+     "act": [
+      "click",
+      [
+       35,
+       260
+      ]
+     ],
+     "res": "clicked (45,187)",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.9
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nACTION: CLICK 56 318",
+     "act": [
+      "click",
+      [
+       56,
+       318
+      ]
+     ],
+     "res": "clicked (72,229)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 19,
+     "dt": 3.72
+    }
+   ],
+   "task_id": "T37_terms_guard",
+   "variant": 1
+  },
+  {
+   "win": true,
+   "steps": 4,
+   "instr": "Type the document title from the note into the Title box, tick the 'I have read the terms' checkbox, then press Save. The Save button stays disabled until the box is ticked.",
+   "trace": [
+    {
+     "t": 0,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 151 210",
+     "act": [
+      "click",
+      [
+       151,
+       210
+      ]
+     ],
+     "res": "clicked (193,151)",
+     "success": false,
+     "reason": "tieu de dung gia tri; da tick dong nho (terms); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 31,
+     "dt": 6.1
+    },
+    {
+     "t": 1,
+     "raw": "I will type the required text into the focused field.\nACTION: TYPE Q3 report",
+     "act": [
+      "type",
+      "Q3 report"
+     ],
+     "res": "typed 'Q3 report'",
+     "success": false,
+     "reason": "da tick dong nho (terms); thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 20,
+     "dt": 3.92
+    },
+    {
+     "t": 2,
+     "raw": "I will click the target element.\nTHINK: I will click the target element.\nACTION: CLICK 35 260",
+     "act": [
+      "click",
+      [
+       35,
+       260
+      ]
+     ],
+     "res": "clicked (45,187)",
+     "success": false,
+     "reason": "thong bao thanh cong",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 39,
+     "n_new": 30,
+     "dt": 5.9
+    },
+    {
+     "t": 3,
+     "raw": "I will click the target element.\nACTION: CLICK 56 318",
+     "act": [
+      "click",
+      [
+       56,
+       318
+      ]
+     ],
+     "res": "clicked (72,229)",
+     "success": true,
+     "reason": "ok",
+     "mode": "action",
+     "prose_lines": 1,
+     "think_chars": 0,
+     "n_new": 19,
+     "dt": 3.72
+    }
+   ],
+   "task_id": "T37_terms_guard",
+   "variant": 2
+  }
+ ],
+ "t_sec": 1878.4
+}
