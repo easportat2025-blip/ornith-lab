@@ -1,6 +1,6 @@
 {
- "ts": 1793246271.2832272,
- "iso": "2026-10-29T03:57:51",
+ "ts": 1793246847.5672011,
+ "iso": "2026-10-29T04:07:27",
  "host": "github-actions",
  "account": "dieniw",
  "active": [],
@@ -81,6 +81,16 @@
   {
    "ref": "dieniw/ornith-gui-bench-b18-v26",
    "path": "phase13-gui/kernel_bench_b18_v26",
+   "kind": "eval",
+   "state": "blocked",
+   "status": "MISSING",
+   "after": "dieniw/ornith-gui-sft-v26",
+   "requires": "dieniw/ornith-gui-lora-v26",
+   "blocked_by": "requires:dieniw/ornith-gui-lora-v26"
+  },
+  {
+   "ref": "dieniw/ornith-gui-bench-b19-v26",
+   "path": "phase13-gui/kernel_bench_b19",
    "kind": "eval",
    "state": "blocked",
    "status": "MISSING",
