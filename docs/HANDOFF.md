@@ -49,6 +49,11 @@
   - Watchdog hỗ trợ optional `after` + `requires`: eval v26 bị `blocked` đến
     khi kernel v26 COMPLETE và dataset adapter `dieniw/ornith-gui-lora-v26`
     READY. Không đẩy eval trước khi có adapter.
+- **B17-v26 RUNNING (29/10 04:10Z)**: adapter v26 load OK
+  (`/kaggle/input/datasets/dieniw/ornith-gui-lora-v26`); B17 suite 27 episode;
+  watchdog active. `b17_result.json` chưa có. Lưu ý: khi `ORNI_THINK=1`,
+  `prose_leak` đang đếm phần think-block là prose (raw có `</think>`, không có
+  marker `THINK:`); muốn đo prose thật phải eval `ORNI_THINK=0` hoặc sửa metric.
 - **B18 hard holdout (28/10)**: dataset `dieniw/ornith-gui-bench-b18`
   **READY**; kernel `dieniw/ornith-gui-bench-b18-v1` **COMPLETE**.
   - 8 task / **42 episode**: 2 easy (T30 note-order, T33 error-retry) ×3 +
