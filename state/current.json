@@ -1,6 +1,6 @@
 {
- "ts": 1793250861.1497116,
- "iso": "2026-10-29T05:14:21",
+ "ts": 1793251457.8547077,
+ "iso": "2026-10-29T05:24:17",
  "host": "github-actions",
  "account": "dieniw",
  "active": [
@@ -96,7 +96,7 @@
    "path": "phase13-gui/kernel_bench_b18_v26",
    "kind": "eval",
    "state": "active",
-   "status": "QUEUED",
+   "status": "RUNNING",
    "after": "dieniw/ornith-gui-sft-v26",
    "requires": "dieniw/ornith-gui-lora-v26"
   },
