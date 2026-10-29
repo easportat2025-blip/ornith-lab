@@ -1,6 +1,8 @@
 import importlib.util
 import json
 import os
+import shutil
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B19 = os.path.join(ROOT, "phase13-gui", "bench_b19")
@@ -41,3 +43,32 @@ def test_b19_dataset_and_kernel_metadata():
     assert "dieniw/ornith-gui-bench-b19" in km["dataset_sources"]
     assert "dieniw/ornith-gui-lora-v26" in km["dataset_sources"]
     assert os.path.isfile(os.path.join(kdir, km["code_file"]))
+
+
+def test_b19_kernel_loads_flat_dataset(monkeypatch, tmp_path):
+    """The Kaggle dataset is flat: tasks.json/checker.py/HTML at its root."""
+    flat = tmp_path / "flat"
+    flat.mkdir()
+    for name in os.listdir(TASKS):
+        src = os.path.join(TASKS, name)
+        if os.path.isfile(src):
+            shutil.copy2(src, flat / name)
+    shutil.copy2(os.path.join(B19, "checker.py"), flat / "checker.py")
+
+    spec = importlib.util.spec_from_file_location(
+        "b19_kernel_flat_test",
+        os.path.join(ROOT, "phase13-gui", "kernel_bench_b19",
+                     "bench_b19_kernel.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    files = sorted(os.listdir(flat))
+
+    def fake_walk(top, *args, **kwargs):
+        return iter([(str(flat), [], files)])
+
+    monkeypatch.setattr(mod.os, "walk", fake_walk)
+    monkeypatch.delitem(sys.modules, "checker", raising=False)
+    eps = mod.suite_load()
+    assert len(eps) == 48
+    assert all(os.path.isfile(ep["path"]) for ep in eps)
