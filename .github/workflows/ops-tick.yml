@@ -52,7 +52,7 @@ jobs:
     steps:
       - name: Read ops config
         id: cfg
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const defaults = {
@@ -147,7 +147,7 @@ jobs:
 
       - name: Dispatch ops workflows
         if: steps.cfg.outputs.enabled == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const ref = context.payload.repository.default_branch || 'main';
